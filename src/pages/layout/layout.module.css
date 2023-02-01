@@ -1,0 +1,24 @@
+.layoutContainer {
+  height:100vh;
+  overflow-y:scroll;
+  overflow-x:hidden;
+  display:grid;
+  grid-template-rows:auto 1fr auto;
+  padding:0 16px;
+}
+.layoutContainer header,
+.layoutContainer main,
+.layoutContainer footer {
+  max-width:1110px;
+  width:100%;
+}
+.layoutContainer main {
+  margin:0 auto;
+}
+@media screen and (max-width:768px) {
+  .layoutContainer header,
+  .layoutContainer main,
+  .layoutContainer footer {
+    max-width:640px;
+  }
+}

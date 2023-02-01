@@ -1,0 +1,10 @@
+.termsWrapper {
+  display:flex;
+  flex-direction:column;
+  gap:32px;
+}
+@media screen and (max-width:320px) {
+  .termsWrapper {
+    gap:24px;
+  }
+}

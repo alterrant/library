@@ -20,11 +20,16 @@ module.exports = {
                 devDependencies: ['**/*.test.{ts,tsx,js,jsx}'],
             },
         ],
-        'import/no-default-export': 'error',
+        'import/no-default-export': 'off',
         indent: 'off', // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/indent.md
         '@typescript-eslint/no-unused-vars': ['warn', { argsIgnorePattern: '^action' }],
         "no-nested-ternary": "off",
-        "no-unneeded-ternary": "off"
+        "no-unneeded-ternary": "off",
+        'array-callback-return': "off",
+        'consistent-return': "off",
+        'react/jsx-no-useless-fragment': "off",
+        'react/button-has-type': "off",
+        "@typescript-eslint/array-type": ["error", { "default": "array" }]
     },
     ignorePatterns: ['coverage', 'cypress.config.ts'],
 };

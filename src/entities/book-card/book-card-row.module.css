@@ -1,0 +1,89 @@
+/* стили карты */
+.bookWrapper {
+  display:grid;
+  grid-template-columns:120px minmax(100px,1fr) 174px;
+  grid-template-rows:1fr min-content auto;
+  grid-template-areas:'img title title'
+    'img authors authors'
+    'img rating bookButton';
+  column-gap:16px;
+  padding:8px 8px 16px 8px;
+  background:#FFFFFF;
+  box-shadow:0 2px 4px rgba(191, 196, 201, 0.2), 0 3px 4px rgba(191, 196, 201, 0.18), 0 1px 5px rgba(191, 196, 201, 0.24);
+  border-radius:10px;
+  transition-duration:.2s;
+}
+.bookRatingText {
+  color:#727272;
+  grid-area:rating;
+}
+.bookImg {
+  grid-area:img;
+  object-fit:cover;
+  width:100%;
+  max-height:100%;
+}
+.bookTitle {
+  grid-area:title;
+  font-weight:600;
+  display:-webkit-box;
+  -webkit-line-clamp:3;
+  -webkit-box-orient:vertical;
+  overflow:hidden;
+}
+.bookAuthors {
+  grid-area:authors;
+  margin-bottom:24px;
+  color:#727272;
+}
+/* стили кнопки */
+.cardButton {
+  grid-area:bookButton;
+  height:40px;
+  max-width:175px;
+  border-radius:20px;
+}
+@media screen and (max-width:768px) {
+  .bookWrapper {
+
+    padding:16px 24px 16px 16px;
+  }
+  .bookAuthors {
+    margin-bottom:16px;
+  }
+}
+@media screen and (max-width:500px) {
+  .bookWrapper {
+    grid-template-columns:1fr 2fr;
+    grid-template-rows:repeat(3, min-content);
+    grid-template-areas:'img title'
+      'img authors'
+      'img rating'
+      'img bookButton';
+    column-gap:8px;
+  }
+  .bookAuthors {
+    margin-bottom:0;
+  }
+  .cardButton {
+    margin-top:16px;
+  }
+}
+@media screen and (max-width:320px) {
+  .bookWrapper {
+    padding:16px 16px 16px 8px;
+    grid-template-columns:1fr 2fr;
+    grid-template-rows:repeat(3, auto);
+    grid-template-areas:'img title'
+      'img authors'
+      'img rating'
+      'img bookButton';
+    column-gap:8px;
+  }
+  .bookAuthors {
+    margin-bottom:0;
+  }
+  .cardButton {
+    margin-top:16px;
+  }
+}

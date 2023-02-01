@@ -1,0 +1,64 @@
+.header:after {
+  z-index:-1;
+  content:'';
+  position:absolute;
+  top:0;
+  left:50%;
+  transform:translateX(-50vw);
+  height:100%;
+  width:99vw;
+  background-color:rgb(255, 255, 255);
+}
+.header {
+  z-index:999;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  position:relative;
+  /* пока не удаляю, оставлю на будущее */
+  /*position:sticky;
+  top:0;*/
+  margin:17px auto 27px;
+  padding:24px 0 24px 0;
+  background-color:rgb(255, 255, 255);
+}
+.header h1 {
+  margin-left:120px;
+  flex:2 1;
+  font-weight:700;
+  font-size:32px;
+  line-height:40px;
+}
+@media screen and (max-width:1142px) {
+  .header {
+    margin-top:8px
+  }
+}
+@media screen and (max-width:768px) {
+  .header {
+    justify-content:flex-start;
+    gap:24px;
+    margin:8px auto 22px auto;
+  }
+  .header > a svg {
+    display:none;
+  }
+  .header > div {
+    /*<PersonInfo/>*/
+    display:none;
+  }
+  .header h1 {
+    margin-left:0;
+    flex:auto;
+  }
+}
+@media screen and (max-width:320px) {
+  .header {
+    margin-top:0;
+    margin-bottom:8px;
+  }
+  .header h1 {
+    font-size:18px;
+    line-height:28px;
+  }
+}

@@ -1,0 +1,19 @@
+.booksUtils {
+  max-width:50vw;
+  display:flex;
+  gap:16px;
+}
+.toolsWrapper {
+  display:flex;
+  justify-content:space-between;
+}
+@media screen and (max-width:320px) {
+  .booksUtils div,
+  .booksUtils button {
+    width:100%;
+  }
+  .booksUtils div > *:not(svg),
+  .booksUtils button > *:not(svg) {
+    display:none;
+  }
+}

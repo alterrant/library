@@ -1,0 +1,68 @@
+/*TODO: для каждого разрешения экрана разные паддинги (в т.ч. у button)*/
+/* стили карты */
+.bookWrapper {
+  height:100%;
+  display:grid;
+  grid-template-rows:auto auto auto auto 68px;
+  padding:8px 8px 16px 8px;
+  background:#FFFFFF;
+  box-shadow:0 2px 4px rgba(191, 196, 201, 0.2), 0 3px 4px rgba(191, 196, 201, 0.18), 0 1px 5px rgba(191, 196, 201, 0.24);
+  border-radius:10px;
+  transition-duration:.2s;
+}
+.bookRatingText {
+  color:#727272;
+}
+.bookImg {
+  margin:0 auto 16px auto;
+}
+.bookTitle {
+  margin-top:16px;
+  font-weight:600;
+  display:-webkit-box;
+  -webkit-line-clamp:3;
+  -webkit-box-orient:vertical;
+  overflow:hidden;
+}
+.bookAuthors {
+  color:#727272;
+}
+/* стили кнопки */
+.cardButton {
+  height:40px;
+  border-radius:20px;
+  margin:28px 4px 0 4px ;
+}
+.cardButtonText {
+  font-weight:600;
+  font-size:12px;
+  letter-spacing:0.2px;
+  text-transform:uppercase;
+}
+.available {
+  background:linear-gradient(231.58deg, rgb(248, 54, 0) -53.35%, rgb(249, 212, 35) 297.76%);
+  color:rgb(255, 255, 255);
+}
+.available:hover {
+  background-color:rgba(249, 212, 35, 1);
+}
+.reserved {
+  border:1px solid rgba(191, 196, 201, 1) !important;
+  background-color:rgba(249, 249, 250, 1);
+  color:rgb(167, 167, 167);
+}
+.added {
+  border:1px solid rgba(191, 196, 201, 1) !important;
+  background:rgba(255, 255, 255, 1);
+}
+@media screen and (max-width:320px) {
+  .bookWrapper {
+    padding:8px 16px 16px 8px;
+  }
+}
+.testClass path {
+  fill:red;
+}
+.testClass circle {
+  fill:green;
+}

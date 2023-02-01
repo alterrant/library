@@ -1,0 +1,1 @@
+export { TermsLists } from './ui';
