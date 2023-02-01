@@ -1,0 +1,17 @@
+.content {
+  width:100%;
+  display:flex;
+  flex-direction:column;
+  gap:32px;
+}
+
+@media screen and (max-width:768px) {
+  .content {
+    gap:24px;
+  }
+}
+@media screen and (max-width:320px) {
+  .content {
+    gap:16px;
+  }
+}

@@ -15,6 +15,7 @@
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.1.1",
     "@testing-library/user-event": "^14.1.1",
+    "@types/compose-function": "^0.0.30",
     "@types/jest": "^29.2.2",
     "@types/node": "^18.11.9",
     "@types/react": "^18.0.25",
@@ -46,14 +47,19 @@
     "start-server-and-test": "^1.14.0",
     "stylelint": "^14.8.1",
     "stylelint-config-standard": "^29.0.0",
-    "stylelint-prettier": "^2.0.0"
+    "stylelint-prettier": "^2.0.0",
+    "typescript-plugin-css-modules": "^4.1.1"
   },
   "dependencies": {
+    "@remix-run/router": "^1.3.1",
+    "compose-function": "^3.0.3",
     "mochawesome": "^7.1.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.4.2",
     "react-scripts": "^5.0.1",
+    "redux": "^4.2.0",
+    "classnames": "^2.3.2",
     "web-vitals": "^3.0.3"
   },
   "browserslist": {
