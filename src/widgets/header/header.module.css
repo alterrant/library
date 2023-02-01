@@ -14,8 +14,10 @@
   display:flex;
   justify-content:space-between;
   align-items:center;
-  position:sticky;
-  top:0;
+  position:relative;
+  /* пока не удаляю, оставлю на будущее */
+  /*position:sticky;
+  top:0;*/
   margin:17px auto 27px;
   padding:24px 0 24px 0;
   background-color:rgb(255, 255, 255);
