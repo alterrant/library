@@ -1,0 +1,30 @@
+.counter {
+  line-height:24px;
+  color:#A7A7A7;
+}
+.underline {
+  width:auto;
+  margin-right:24px;
+  background:linear-gradient(231.58deg, #F83600 -53.35%, #F9D423 297.76%);
+}
+.activeLink span {
+  color:rgba(54, 54, 54, 1);
+}
+.activeLink .linkText {
+  background:linear-gradient(231.58deg, #F83600 -53.35%, #F9D423 297.76%);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+.linkText:hover {
+  color:#FF5253;
+}
+.bold {
+  font-weight:700;
+  font-size:18px;
+  line-height:28px;
+}
+.normal {
+  font-weight:400;
+  font-size:16px;
+  line-height:24px;
+}

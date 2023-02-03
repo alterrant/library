@@ -1,0 +1,30 @@
+.bookReviews > p {
+  font-weight:700;
+  font-size:18px;
+  line-height:28px;
+}
+.bookReviews > p > span {
+  margin-left:6px;
+  font-weight:400;
+  font-size:14px;
+  line-height:24px;
+  color:#A7A7A7;
+}
+.reviewsWrapper {
+  display:flex;
+  flex-direction:column;
+  row-gap:42px;
+}
+.underline {
+  max-width:350px;
+  margin:16px 0;
+}
+@media screen and (max-width:768px) {
+  .underline {
+    max-width:309px;
+  }
+  .bookReviews > p {
+    font-size:16px;
+    line-height:24px;
+  }
+}

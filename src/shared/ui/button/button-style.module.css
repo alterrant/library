@@ -1,0 +1,8 @@
+.button {
+  border:none;
+  cursor:pointer;
+  transition-duration:.2s;
+}
+.button:active {
+  box-shadow:0 3px 4px rgba(222, 125, 11, 0.2), 0 1px 10px rgba(249, 89, 8, 0.2);
+}
