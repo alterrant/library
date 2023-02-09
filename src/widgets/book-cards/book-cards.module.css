@@ -1,0 +1,22 @@
+.container {
+  display:grid;
+  row-gap:24px;
+  column-gap:22px;
+}
+.container > a > div:active {
+  box-shadow:0 3px 4px rgba(222, 125, 11, 0.2), 0 1px 10px rgba(249, 89, 8, 0.2);
+}
+.columnCardsStyle {
+  grid-template-columns:repeat(auto-fit, minmax(190px, 1fr));
+}
+@media screen and (max-width:768px) {
+  .container {
+    row-gap:32px;
+    column-gap:35px;
+  }
+}
+@media screen and (max-width:320px) {
+  .container {
+    gap:16px;
+  }
+}

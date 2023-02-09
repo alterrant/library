@@ -1,0 +1,6 @@
+.button {
+  background-color:inherit;
+  border:none;
+  cursor:pointer;
+  transition-duration:.2s;
+}

@@ -1,0 +1,9 @@
+.hiddenElementWrapper {
+  width:100%;
+}
+.hiddenElement {
+  display:none;
+}
+.visibleElement {
+  display:block;
+}

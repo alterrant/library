@@ -109,10 +109,10 @@ describe('Test width 320px', () => {
   it('test slider', () => {
     cy.get('[data-test-id=card]').first().click()
     cy.get('[data-test-id=app]').screenshot('slider not foto 320px', { clip: { x: 0, y: 0, width: 320, height: 600 } });
-    cy.get('[data-test-id=breadcrumbs-link]').click();
+    cy.visit('http://localhost:3000');
     cy.get('[data-test-id=card]').eq(1).click()
     cy.get('[data-test-id=app]').screenshot('slider one foto 320px', { clip: { x: 0, y: 0, width: 320, height: 600 } });
-    cy.get('[data-test-id=breadcrumbs-link]').click();
+    cy.visit('http://localhost:3000');
     cy.get('[data-test-id=card]').eq(2).click()
     cy.get('[data-test-id=app]').screenshot('slider more two foto 320px', { clip: { x: 0, y: 0, width: 320, height: 600 } });
     cy.get('[data-test-id=app]').screenshot('slider more two foto 320px', { clip: { x: 0, y: 0, width: 320, height: 600 } });

@@ -1,0 +1,11 @@
+.bookReviewWrapper {
+  display:flex;
+  flex-direction:column;
+  gap:16px;
+}
+.reviewer {
+  display:flex;
+  align-items:center;
+  gap:24px;
+}
+.description {}

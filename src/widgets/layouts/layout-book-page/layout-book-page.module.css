@@ -1,0 +1,21 @@
+.bookPage {
+  display:flex;
+  flex-direction:column;
+  row-gap:42px;
+}
+@media screen and (max-width:768px) {
+  .bookPage {
+    row-gap:48px;
+  }
+  .bookPage > section {
+    margin-top:4px;
+  }
+}
+@media screen and (max-width:320px) {
+  .bookPage {
+    row-gap:20px;
+  }
+  .bookPage > section {
+    margin-top:22px;
+  }
+}
