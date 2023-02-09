@@ -50,7 +50,7 @@ export const BookImagesContainer = ({ images }: BookImagesContainerProps) => {
             >
                 {getSwiperSlides(images)}
             </Swiper>
-            <Swiper
+            {images.length > 1 && <Swiper
                 onSwiper={setSwiperInstance}
                 className={classNames(
                     styles.swiperThumbs,
@@ -63,7 +63,7 @@ export const BookImagesContainer = ({ images }: BookImagesContainerProps) => {
                 modules={[Navigation, Thumbs]}
             >
                 {getSwiperSlides(images, 'slide-mini')}
-            </Swiper>
+            </Swiper>}
         </div>
     );
 };
