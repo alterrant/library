@@ -2,7 +2,7 @@ import classNames from 'classnames';
 
 import { SVGMouseEventType } from './config';
 import { BooksColumnStyleBtn, BooksRowStyleBtn } from '../../shared/ui';
-import { CARD_STYLES, CardStylesTypes } from '../../shared/config';
+import { CARD_STYLES, CardStylesTypes } from '../../shared/lib';
 
 import styles from './toggle-card-style.module.css';
 

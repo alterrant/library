@@ -1,18 +1,19 @@
-/*отступ у всех навигациооных подгрупп(ul)*/
-.nav > ul ul {
+.navigation {
+  max-width:255px;
+}
+.navigation > button {
+  position:relative;
+  width:100%;
+}
+/*отступ у всех навигациооных групп(ul)*/
+.navigation ul {
   margin:16px 0 0 20px;
 }
 /*отступ у всех навигациооных групп(li), кроме первой*/
-.nav > ul > li:not(li:first-child) {
+.navigation > li:not(li:first-child) {
   margin-top:42px;
 }
 /*отступы у всех подгрупп(li)*/
-.nav > ul ul li {
+.navigation ul li {
   margin-top:16px;
-}
-
-@media screen and (max-width:768px) {
-  .nav {
-    display:none;
-  }
 }

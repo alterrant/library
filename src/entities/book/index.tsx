@@ -1,1 +1,1 @@
-export * from './ui';
+export * as Book from './ui';

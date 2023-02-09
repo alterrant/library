@@ -7,7 +7,7 @@ import unsetBook from './assets/unset-book.png';
 import testBook from './assets/test-book.png';
 
 export { RoundImage } from './round-image';
-export { List } from './list';
+export { NavList } from './nav-list';
 export { Button } from './button';
 export { Stars } from './stars';
 export { Underline } from './underline';
@@ -24,3 +24,5 @@ export {
 export { ReactComponent as BooksColumnStyleBtn } from './assets/books-column-style.svg';
 export { ReactComponent as BooksRowStyleBtn } from './assets/books-row-stile.svg';
 export { ReactComponent as TextSeparator } from './assets/text-separator.svg';
+export { ReactComponent as RightArrow } from './assets/right-arrow.svg';
+export { ReactComponent as Close } from './assets/close.svg';

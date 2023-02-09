@@ -15,10 +15,6 @@
   max-width:350px;
 }
 /*TODO: убрать дублирующиеся стили bookTitle и bookAuthors*/
-.image {
-  width:100%;
-  grid-area:image;
-}
 .title {
   grid-area:title;
   font-weight:700;

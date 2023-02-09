@@ -1,5 +1,5 @@
 import { facebook, instagram, vk, linkedin } from '../../shared/ui';
-import { SOCIAL_NETWORKS_NAMES } from '../../shared/config';
+import { SOCIAL_NETWORKS_NAMES } from '../../shared/lib';
 
 export const SOCIAL_NETWORKS = [
     { id: '0', src: facebook, alt: SOCIAL_NETWORKS_NAMES.FACEBOOK },

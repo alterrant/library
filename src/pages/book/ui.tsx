@@ -1,24 +1,27 @@
-import { BOOKS } from '../../widgets/book-cards/config';
 import { BookReviews } from '../../widgets/book-reviews';
 import { RateBook } from '../../features/rate-book';
 import { AddToCart } from '../../features/add-to-cart';
 import { ShortNavList, ShortNavListModel } from'../../entities/short-nav-list';
-import { BasicBookInfo, DetailedBookInfo, BookRating } from '../../entities/book';
+import { Book } from '../../entities/book';
+import { BookImagesContainer } from '../../entities/book/ui/book-images-container';
+import { BOOKS } from '../../entities/books/lib';
+import { REVIEWS } from '../../entities/book/lib';
+import { PageNotFound } from '../../shared/ui/page-not-found';
 
 import styles from './book-page.module.css';
 
 export const BookPage = () => {
     const pathname = ShortNavListModel.usePathname();
-
     const book = BOOKS[Number(pathname.id)];
     // TODO: брать книгу по id из стора
-    // TODO: вынести BOOKS, RATINGS, REVIEWS константы в config страницы
+    if (!book) return <PageNotFound />;
+
     return (
-        <main className={styles.bookPage}>
+        <>
             <ShortNavList pathname={pathname} />
-            <BasicBookInfo
+            <Book.BasicInfo
+                imagesContainer={<BookImagesContainer images={book.img} />}
                 title={book.title}
-                imgSrc={book.img}
                 authors={book.author}
                 description={book.description}
                 button={<AddToCart
@@ -26,11 +29,11 @@ export const BookPage = () => {
                     buttonText={book.buttonText} />}
                 />
             <section className={styles.bookAdditionalInfo}>
-                <BookRating rating={book.rating}/>
-                <DetailedBookInfo />
-                <BookReviews />
+                <Book.Rating rating={book.rating}/>
+                <Book.DetailedInfo />
+                <BookReviews reviews={REVIEWS}/>
             </section>
             <RateBook handleClick={() => {}} />
-        </main>
+        </>
     );
 };

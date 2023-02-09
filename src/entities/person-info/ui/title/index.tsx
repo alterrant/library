@@ -1,4 +1,4 @@
-import { getHelloUserString } from "../../utils";
+import { getHelloUserString } from "../../lib";
 
 type TitleProps = {
     name: string;

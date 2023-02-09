@@ -1,26 +1,26 @@
 import { ReactNode } from 'react';
 
-import { Underline, unsetBook } from '../../../../shared/ui';
+import { Underline } from '../../../../shared/ui';
 
 import styles from './basik-book-info.module.css';
 
 type BookInfoProps = {
-    imgSrc: string;
     title: string;
     authors: string;
     button: ReactNode;
     description?: { id: string, text: string }[];
+    imagesContainer: ReactNode;
 };
 
 export const BookInfo = ({
-    imgSrc,
+    imagesContainer,
     title,
     authors,
     button,
     description,
 }: BookInfoProps) => (
     <div className={styles.basicBookInfo}>
-        <img className={styles.image} src={imgSrc ? imgSrc : unsetBook} alt=""/>
+        {imagesContainer}
         <p className={styles.title}>{title}</p>
         <p className={styles.authors}>{authors}</p>
         {button}

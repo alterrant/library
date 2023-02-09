@@ -1,6 +1,6 @@
 import { RATING_TITLE } from '../../lib';
 import { Stars, Underline } from '../../../../shared/ui';
-import { EMPTY_RATING } from '../../../../shared/config';
+import { EMPTY_RATING } from '../../../../shared/lib';
 
 import styles from './book-rating.module.css';
 
@@ -8,7 +8,7 @@ type BookRatingProps = {
     rating: number | null;
 }
 // TODO: p заменить на h
-export const BookRating = ({rating}: BookRatingProps) => (
+export const Rating = ({rating}: BookRatingProps) => (
     <section>
         <p className={styles.title}>{RATING_TITLE}</p>
         <Underline underlineClass={styles.underline} />

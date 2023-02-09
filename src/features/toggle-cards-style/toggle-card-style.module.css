@@ -2,6 +2,8 @@
   display:flex;
   align-items:center;
   gap:6px;
+  margin-left:75px;
+  transition-duration:1s;
 }
 .active circle {
   fill:url(#paint0_linear_230_36581);

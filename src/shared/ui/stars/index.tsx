@@ -1,7 +1,7 @@
 import { ReactNode } from 'react';
 
 import { ReactComponent as Star } from '../assets/star.svg';
-import { MAX_RATING } from '../../config';
+import { MAX_RATING } from '../../lib';
 
 import styles from './stars.module.css';
 

@@ -1,0 +1,18 @@
+.arrow {
+  transition-duration:.2s;
+}
+.colored path {
+  fill:url(#orangeGradient);
+}
+.up {
+  transform:rotate(270deg);
+}
+.left {
+  transform:rotate(180deg);
+}
+.down {
+  transform:rotate(90deg);
+}
+.right {
+  transform:rotate(0deg);
+}

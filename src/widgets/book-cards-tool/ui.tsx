@@ -1,9 +1,9 @@
+import classNames from "classnames";
+
 import { ToggleCardsStyle, toggleCardsStyleModel } from '../../features/toggle-cards-style';
 import { ToggleStyleType } from '../../features/toggle-cards-style/config';
-import { BookCardsFilter } from '../../entities/book-cards-filter';
-import { SearchBooks, useBookSearchState } from '../../entities/book-search';
-import { focusHandler, blurHandler, changeHandler} from '../../entities/book-search/lib';
-import { CardStylesTypes } from '../../shared/config';
+import { Books, BooksModel } from '../../entities/books';
+import { CardStylesTypes } from '../../shared/lib';
 
 import styles from './book-cards-tool.module.css';
 
@@ -15,23 +15,33 @@ type ToolProps = {
 export const Tool = ({cardsStyle, toggleStyle}: ToolProps) => {
     const {
         isActivated,
-        setActivatedStatus,
         isTextChanged,
-        setStatusChangedText
-    } = useBookSearchState();
+        isOpenedInput,
+        setActivatedStatus,
+        setStatusChangedText,
+        setOpenedInputStatus
+    } = BooksModel.useBookSearchState();
 
     return (
-        <section className={styles.toolsWrapper}>
+        <section className={classNames(styles.toolsWrapper, isOpenedInput && styles.openedInput)}>
             <div className={styles.booksUtils}>
-                <SearchBooks
-                    focusHandler={(event) => focusHandler(event, setActivatedStatus, setStatusChangedText)}
-                    changeHandler={(event) => changeHandler(event, setActivatedStatus, setStatusChangedText)}
-                    blurHandler={(event) =>
-                        blurHandler(event, setActivatedStatus, setStatusChangedText)}
+                <Books.SearchBooks
+                    focusHandler={(event) => BooksModel.searchFocusHandler(
+                            event, setActivatedStatus, setStatusChangedText
+                        )}
+                    changeHandler={(event) => BooksModel.searchChangeHandler(
+                            event, setActivatedStatus, setStatusChangedText
+                        )}
+                    blurHandler={(event) => BooksModel.searchBlurHandler(
+                            event, setActivatedStatus, setStatusChangedText
+                        )}
+                    openSearchBarHandler={() => BooksModel.openSearchBarHandler(setOpenedInputStatus)}
+                    closeSearchHandler={() => BooksModel.closeSearchHandler(setOpenedInputStatus)}
                     isActivated={isActivated}
                     isTextChanged={isTextChanged}
+                    isOpenedInput={isOpenedInput}
                 />
-                <BookCardsFilter/>
+                <Books.BookCardsFilter/>
             </div>
             <ToggleCardsStyle
                 cardsStyle={cardsStyle}

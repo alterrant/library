@@ -1,13 +1,14 @@
 // import { lazy } from 'react';
 import {Navigate, createHashRouter} from 'react-router-dom';
 
-import {Layout} from "./layout";
-import {MainPage} from "./main";
-import {LayoutMainPage} from "./layout-main-page";
-import {Terms} from "../widgets/terms";
-import {ErrorBoundary} from "../shared/ui/error-boundary";
-import {CONTRACT_TITLE, RULES_TITLE} from "../entities/terms-lists/config";
-import {BookPage} from "./book";
+import { BookPage } from "./book";
+import { MainPage } from "./main";
+import { Layout } from "../widgets/layouts/layout";
+import { LayoutMainPage } from "../widgets/layouts/layout-main-page";
+import { Terms } from "../widgets/terms";
+import { LayoutBookPage } from "../widgets/layouts/layout-book-page";
+import { CONTRACT_TITLE, RULES_TITLE } from "../entities/terms-lists/config";
+import { ErrorBoundary } from "../shared/ui/error-boundary";
 
 // TODO: реализовать lazy loading и suspense
 // const TestPage = lazy(() => import("./test"));
@@ -32,7 +33,7 @@ export const routes = createHashRouter([
                     },
                     {
                         path: 'books',
-                        element: <Navigate to='all' />,
+                        element: <MainPage />,
                     },
                     {
                         path: 'terms',
@@ -45,8 +46,13 @@ export const routes = createHashRouter([
                 ],
             },
             {
-                path: 'books/:categories/:id',
-                element: <BookPage />
+                element: <LayoutBookPage />,
+                children: [
+                    {
+                        path: 'books/:categories/:id',
+                        element: <BookPage />,
+                    }
+                ]
             },
         ],
     },

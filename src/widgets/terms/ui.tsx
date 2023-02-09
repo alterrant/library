@@ -8,7 +8,6 @@ type TermsProps = {
 }
 // частный случай, что termsData совпадают для всех обоих страниц
 // TODO: при необходимости сделать bll для Terms, запрос договора и хранить состояние
-// TODO: шрифты
 export const Terms = ({title}:TermsProps) => (
     <section className={styles.termsWrapper}>
         <h2>{title}</h2>

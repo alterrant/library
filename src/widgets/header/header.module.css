@@ -29,6 +29,61 @@
   font-size:32px;
   line-height:40px;
 }
+
+/* Бургер-меню */
+.burgerMenu {
+  display:none;
+  position:relative;
+  width:24px;
+  height:24px;
+  border:0;
+  background-color:rgb(255, 255, 255);
+  outline:none;
+}
+.burgerMenu span:nth-child(2) {
+  background-color:#121212;
+  position:absolute;
+  left:0;
+  top:11px;
+  width:100%;
+  height:2px;
+  transition:all 0.3s ease 0s;
+}
+.burgerMenu span:nth-child(1),
+.burgerMenu span:nth-child(3) {
+  position:absolute;
+  left:0;
+  background-color:#121212;
+  height:2px;
+  width:100%;
+  transition:all 0.3s ease 0s;
+}
+.burgerMenu span:nth-child(1) {
+  top:2px;
+}
+.burgerMenu span:nth-child(3) {
+  bottom:2px;
+}
+.burgerMenuActive span:nth-child(1) {
+  transform:rotate(-45deg);
+  top:12px;
+}
+.burgerMenuActive span:nth-child(3) {
+  transform:rotate(45deg);
+  bottom:11px;
+}
+.burgerMenuActive span:nth-child(2) {
+  transform:scale(0);
+}
+.dropDownMenu {
+  position:absolute;
+  top:100%;
+  left:0;
+  width:100%;
+  height:calc(100vh - 100%);
+  max-width:500px;
+  overflow:scroll;
+}
 @media screen and (max-width:1142px) {
   .header {
     margin-top:8px
@@ -43,14 +98,17 @@
   .header > a svg {
     display:none;
   }
-  .header > div {
-    /*<PersonInfo/>*/
+  /* <PersonInfo/> */
+  .header > div:last-child {
     display:none;
   }
   .header h1 {
     margin-left:0;
     flex:auto;
   }
+  /*.burgerMenu {
+    display:block;
+  }*/
 }
 @media screen and (max-width:320px) {
   .header {
@@ -62,3 +120,54 @@
     line-height:28px;
   }
 }
+
+
+/*
+.burgerMenu {
+  display:none;
+  position:relative;
+  width:24px;
+  height:24px;
+  border:0;
+  background-color:rgb(255, 255, 255);
+  outline:none;
+}
+.burgerMenu span {
+  content:'';
+  background-color:#121212;
+  position:absolute;
+  left:0;
+  top:11px;
+  width:100%;
+  height:2px;
+  transition:all 0.3s ease 0s;
+}
+.burgerMenu:before,
+.burgerMenu:after {
+  content:'';
+  position:absolute;
+  left:0;
+  background-color:#121212;
+  height:2px;
+  width:100%;
+  transition:all 0.3s ease 0s;
+}
+.burgerMenu:before {
+  top:2px;
+}
+.burgerMenu:after {
+  bottom:2px;
+}
+.burgerMenuActive:before {
+  transform:rotate(-45deg);
+  top:12px;
+}
+.burgerMenuActive:after {
+  transform:rotate(45deg);
+  bottom:11px;
+}
+.burgerMenuActive span {
+  transform:scale(0);
+}
+
+*/

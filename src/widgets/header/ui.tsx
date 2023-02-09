@@ -1,23 +1,60 @@
+import {ReactNode, useRef} from "react";
 import { NavLink } from 'react-router-dom';
-import { PersonInfo } from '../../entities/person-info';
+
+import {IsOpenType, ToggleStatusType} from "features/toggle-drop-down/config";
 import { ReactComponent as Logo } from './assets/logo.svg';
-import { TITLE, USER_NAME } from './config';
-import { BurgerMenu } from '../../features/toggle-burger-menu';
-import { BurgerMenuModule } from '../../features/toggle-burger-menu/module';
+import { ToggleDropDown, ToggleDropDownModule } from '../../features/toggle-drop-down';
+import { PersonInfo } from '../../entities/person-info';
+import { USER_NAME } from '../../entities/person-info/lib';
+import {DropDownMenu, DropDownMenuModel} from "../../entities/drop-down-menu";
+import { TITLE } from '../../shared/lib';
+import {BurgerMenu} from "../../shared/ui/burger-menu";
 
 import styles from './header.module.css';
 
-export const Header = () => {
-    const [isOpen, toggleStatus] = BurgerMenuModule.useBurgerState();
-// TODO: БИБЛИОТЕКА должна быть на 120px и на одном уровне с остальным контентом
+type HeaderProps = {
+    isOpenDropDownMenu: IsOpenType;
+    dropDownMenuToggle: ToggleStatusType;
+    dropDownMenuChildren?: ReactNode;
+};
+
+export const Header = ({
+    dropDownMenuChildren,
+    isOpenDropDownMenu,
+    dropDownMenuToggle
+}: HeaderProps) => {
+    const dropDownMenuRef = useRef<HTMLUListElement>(null);
+    const onClickOutside = (e: MouseEvent) =>
+        DropDownMenuModel.outsideDropDownHandler({
+            e,
+            isOpen: isOpenDropDownMenu,
+            toggle: dropDownMenuToggle,
+            dropDownMenuRef,
+        });
+
+    DropDownMenuModel.useClickOutside(isOpenDropDownMenu, onClickOutside);
+    DropDownMenuModel.useScrollLock(isOpenDropDownMenu);
+
     return (
         <header className={styles.header}>
-            <BurgerMenu
-                handleClick={() => BurgerMenuModule.toggleHandler(isOpen, toggleStatus)}
-                isMenuOpened={isOpen}/>
-            <NavLink to='/'><Logo /></NavLink>
+            <ToggleDropDown
+                dataTestId='button-burger'
+                handleClick={() =>
+                    ToggleDropDownModule.toggleHandler(isOpenDropDownMenu, dropDownMenuToggle)}
+                isMenuOpened={isOpenDropDownMenu}
+                hiddenElementClass={styles.dropDownMenu}
+                hiddenElement={(
+                    <DropDownMenu dropDownMenuRef={dropDownMenuRef} logOutHandler={() => {
+                    }}>
+                        {dropDownMenuChildren}
+                    </DropDownMenu>
+                )}
+            >
+                <BurgerMenu isOpen={isOpenDropDownMenu}/>
+            </ToggleDropDown>
+            <NavLink to='/'><Logo/></NavLink>
             <h1>{TITLE}</h1>
             <PersonInfo name={USER_NAME}/>
         </header>
-    )
+    );
 };

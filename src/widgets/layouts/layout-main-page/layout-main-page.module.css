@@ -1,0 +1,15 @@
+.main {
+  display:flex;
+  gap:6px;
+}
+.main > nav {
+  flex:0 1 278px;
+}
+.main > section {
+  flex:1 1;
+}
+@media screen and (max-width:768px) {
+  .main > nav {
+    display:none;
+  }
+}

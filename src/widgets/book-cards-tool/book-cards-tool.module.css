@@ -1,15 +1,42 @@
 .booksUtils {
+  height:38px;
   max-width:50vw;
   display:flex;
   gap:16px;
+}
+.openedInput > div > button,
+.openedInput > div:last-child {
+  visibility:hidden;
+  opacity:0;
+  width:0;
+  padding:0;
+  margin:0;
 }
 .toolsWrapper {
   display:flex;
   justify-content:space-between;
 }
+.openedInput > div > div {
+  max-width:100%;
+}
+.openedInput > .booksUtils {
+  width:100%;
+  max-width:100%;
+  gap:0;
+}
+.openedInput > div > div > input {
+  display:block;
+}
 @media screen and (max-width:320px) {
-  .booksUtils div,
-  .booksUtils button {
+  .booksUtils {
+    width:100%;
+    max-width:100%;
+  }
+  .booksUtils > div,
+  .booksUtils > button {
+    width:38px;
+  }
+  .openedInput > div > div {
     width:100%;
   }
   .booksUtils div > *:not(svg),

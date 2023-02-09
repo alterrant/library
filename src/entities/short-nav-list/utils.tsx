@@ -1,5 +1,6 @@
+// TODO: short-nav-list: вынести BOOKS в блл
 import { Params } from '@remix-run/router/utils';
-import { BOOKS } from '../../widgets/book-cards/config';
+import { BOOKS } from '../books/lib';
 
 // TODO: id может не быть в списке книг, тогда будет undefined.title
 export const getTitleById = (pathname: Readonly<Params<string>>) =>

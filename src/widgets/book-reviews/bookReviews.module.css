@@ -1,9 +1,18 @@
-.bookReviews > p {
+.titleWrapper {
+  width:100%;
+  max-width:140px;
+}
+.title {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+.title > p {
   font-weight:700;
   font-size:18px;
   line-height:28px;
 }
-.bookReviews > p > span {
+.title > p > span {
   margin-left:6px;
   font-weight:400;
   font-size:14px;
@@ -23,7 +32,7 @@
   .underline {
     max-width:309px;
   }
-  .bookReviews > p {
+  .title > p {
     font-size:16px;
     line-height:24px;
   }
