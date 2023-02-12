@@ -1,0 +1,45 @@
+.title {
+  font-weight:600;
+  font-size:18px;
+  line-height:28px;
+}
+.ratingWrapper {
+  max-width:309px;
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:space-between;
+  align-items:center;
+  column-gap:24px;
+  row-gap:8px;
+}
+.ratingWrapper > div {
+  flex:1 1;
+  justify-content:space-between;
+  align-items:center;
+}
+.ratingWrapper > p {
+  white-space:nowrap;
+}
+.rating {
+  margin-right:16px;
+  font-weight:700;
+  font-size:18px;
+  line-height:28px;
+}
+.underline {
+  max-width:350px;
+  margin:16px 0;
+}
+@media screen and (max-width:768px) {
+  .underline {
+    max-width:309px;
+  }
+  .title {
+    font-size:16px;
+    line-height:24px;
+  }
+  .rating {
+    font-size:16px;
+    line-height:24px;
+  }
+}

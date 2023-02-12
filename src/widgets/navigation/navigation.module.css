@@ -1,0 +1,19 @@
+.navigation {
+  max-width:255px;
+}
+.navigation > button {
+  position:relative;
+  width:100%;
+}
+/*отступ у всех навигациооных групп(ul)*/
+.navigation ul {
+  margin:16px 0 0 20px;
+}
+/*отступ у всех навигациооных групп(li), кроме первой*/
+.navigation > li:not(li:first-child) {
+  margin-top:42px;
+}
+/*отступы у всех подгрупп(li)*/
+.navigation ul li {
+  margin-top:16px;
+}

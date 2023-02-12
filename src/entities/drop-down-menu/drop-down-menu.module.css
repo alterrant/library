@@ -1,0 +1,30 @@
+.dropDownMenuWrapper {
+  width:100%;
+  background:#F9F9FA;
+  box-shadow:0 2px 4px rgba(191, 196, 201, 0.2), 0 3px 4px rgba(191, 196, 201, 0.18), 0 1px 5px rgba(191, 196, 201, 0.24);
+  border-radius:10px;
+}
+/* first children */
+.dropDownMenuWrapper > nav {
+  padding:32px 32px 52px 32px;
+}
+.dropDownMenuFooter {
+  display:flex;
+  flex-direction:column;
+  gap:42px;
+  padding:32px 32px 52px 32px;
+}
+.activeLink .linkText {
+  background:linear-gradient(231.58deg, #F83600 -53.35%, #F9D423 297.76%);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+.linkText {
+  cursor:pointer;
+  font-weight:700;
+  font-size:18px;
+  line-height:28px;
+}
+.linkText:hover {
+  color:#FF5253;
+}
