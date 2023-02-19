@@ -9,6 +9,6 @@ type TermsProps = {
 export const Terms = ({title}:TermsProps) => (
     <section className={styles.termsWrapper}>
         <h2>{title}</h2>
-        <TermsLists termsData={RULES_DATA}/>
+        <TermsLists termsData={RULES_DATA} />
     </section>
 );

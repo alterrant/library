@@ -16,7 +16,7 @@ export const Layout = () => {
                 dataTestIdSectionContract='navigation-contract'
                 dataTestIdSectionTerms='navigation-terms'
             />
-            <Outlet/>
+            <Outlet />
         </main>
     );
 };

@@ -54,9 +54,9 @@ export const Header = ({
                     </DropDownMenu>
                 )}
             >
-                <BurgerMenu isOpen={isOpenDropDownMenu}/>
+                <BurgerMenu isOpen={isOpenDropDownMenu} />
             </ToggleDropDown>
-            <NavLink to='/'><Logo/></NavLink>
+            <NavLink to='/'><Logo /></NavLink>
             <h1>{TITLE}</h1>
             <PersonInfo name={USER_NAME}/>
         </header>

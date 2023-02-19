@@ -17,7 +17,7 @@ export const BookReviews = ({ comments }: BookComments) => {
                 menuClass={styles.titleWrapper}
                 hiddenElement={(
                     <>
-                        {comments?.length && <Underline underlineClass={styles.underline}/>}
+                        {comments?.length && <Underline underlineClass={styles.underline} />}
                         <div className={styles.reviewsWrapper}>
                             {comments?.map(review => <Book.Review
                                 key={review.id}

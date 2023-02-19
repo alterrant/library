@@ -15,7 +15,7 @@ export const Stars = ({ rating }: StarsProps) => {
                 const key = star + index;
 
                 if (rating !== null && index + 1 <= rating ) return (
-                    <Star key={key} fill='rgba(255, 188, 31, 1)'/>
+                    <Star key={key} fill='rgba(255, 188, 31, 1)' />
                 )
 
                 return <Star key={key} />

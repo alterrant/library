@@ -39,7 +39,7 @@ export const Layout = () => {
             <Outlet context={{ closeErrorsHandler: () =>
                     ErrorsModel.closeHandler(setErrorsStatus)}}
             />
-            <Footer/>
+            <Footer />
         </section>
     );
 };

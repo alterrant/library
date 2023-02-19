@@ -7,5 +7,5 @@ type UnderlineProps = {
 }
 
 export const Underline = ({ underlineClass }: UnderlineProps) => (
-    <div className={classNames(styles.underline, underlineClass)}/>
+    <div className={classNames(styles.underline, underlineClass)} />
 );

@@ -9,4 +9,4 @@ export const RoundImage = ({ src, alt }: RoundImageTypes) =>
     <img className={styles.roundImg}
          src={src}
          alt={alt}
-/>;
+    />;

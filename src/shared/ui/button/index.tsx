@@ -49,7 +49,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonType>(
                 type={type}
             >
                 {buttonText && <span className={buttonTextClass}>{buttonText}</span>}
-                {src && <img className={classImg} src={src} alt="img"/>}
+                {src && <img className={classImg} src={src} alt="img" />}
                 {children}
             </button>
         )

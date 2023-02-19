@@ -15,5 +15,5 @@ export const Arrow = ({ orientation, isColored }: ArrowProps) => (
         styles.arrow,
         isColored && styles.colored,
         styles[orientation]
-    )}/>
+    )} />
 );
