@@ -1,0 +1,32 @@
+import { ReactNode } from 'react';
+
+import { Underline } from '../../../../shared/ui';
+import {BookBasicInfoType} from "../../lib";
+
+import styles from './basik-book-info.module.css';
+
+type BookInfoProps = BookBasicInfoType & {
+    button: ReactNode;
+    imagesContainer: ReactNode;
+};
+
+export const BookInfo = ({
+    imagesContainer,
+    title,
+    authors,
+    button,
+    description,
+}: BookInfoProps) => (
+    <div className={styles.basicBookInfo}>
+        {imagesContainer}
+        <p className={styles.title}>{title}</p>
+        <p className={styles.authors}>{authors?.join(', ')}</p>
+        {button}
+        {/* TODO: О книге вынести в конфиг + указать h4; */}
+        <p className={styles.descriptionTitle}>О книге</p>
+        <Underline underlineClass={styles.underline} />
+        <div className={styles.description}>
+                <p>{description}</p>
+        </div>
+    </div>
+);

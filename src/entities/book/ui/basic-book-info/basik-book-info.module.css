@@ -1,0 +1,162 @@
+.basicBookInfo {
+  display:grid;
+  grid-template-columns:2fr 3fr;
+  grid-template-rows:repeat(5, auto) 1fr;
+  grid-template-areas:'image title'
+    'image authors'
+    'image button'
+    'image descriptionTitle'
+    'image underline'
+    'image description';
+  grid-column-gap:30px;
+}
+.basicBookInfo > button {
+  margin-top:32px;
+  max-width:350px;
+}
+.basicBookInfo > button > span {
+  font-size:16px;
+  line-height:150%;
+}
+/*TODO: убрать дублирующиеся стили bookTitle и bookAuthors*/
+.title {
+  grid-area:title;
+  font-weight:700;
+  font-size:32px;
+  line-height:40px;
+  /*display:-webkit-box;
+  -webkit-line-clamp:3;
+  -webkit-box-orient:vertical;
+  overflow:hidden;*/
+}
+.authors {
+  margin-top:24px;
+  grid-area:authors;
+  font-size:18px;
+  line-height:28px;
+  color:rgb(114, 114, 114);
+}
+.descriptionTitle {
+  margin-top:62px;
+  grid-area:descriptionTitle;
+  font-weight:700;
+  font-size:18px;
+  line-height:28px;
+}
+.underline {
+  margin:16px 0;
+  grid-area:underline;
+}
+.description {
+  grid-area:description;
+  font-size:16px;
+  line-height:24px;
+}
+
+@media screen and (max-width:768px) {
+  .basicBookInfo {
+    grid-template-columns:minmax(136px,1fr) 3fr;
+    grid-template-rows:repeat(5, auto) 1fr;
+    grid-template-areas:'image title'
+      'image authors'
+      'image button'
+      'descriptionTitle descriptionTitle'
+      'underline underline'
+      'description description';
+  }
+  .descriptionTitle {
+    margin-top:48px;
+    font-size:16px;
+    line-height:24px;
+  }
+  .authors {
+    font-size:14px;
+    line-height:18px;
+  }
+  .title {
+    width:50vw;
+    word-wrap:break-word;
+    font-size:24px;
+    line-height:30px;
+  }
+}
+
+@media screen and (max-width:450px) {
+  .basicBookInfo {
+    grid-template-columns:1fr;
+    grid-template-rows:repeat(5, auto) 1fr;
+    grid-template-areas:'image'
+      'title'
+      'authors'
+      'button'
+      'descriptionTitle'
+      'underline'
+      'description';
+  }
+  .image {
+    margin:0 auto;
+    max-width:190px;
+  }
+  .title {
+    width:auto;
+    word-wrap:normal;
+    margin-top:16px;
+    font-size:18px;
+    line-height:28px;
+  }
+  .authors {
+    margin-top:8px;
+    font-size:12px;
+    line-height:18px;
+  }
+  .basicBookInfo > button {
+    max-width:100%;
+    margin-top:42px;
+  }
+  .descriptionTitle {
+    margin-top:42px;
+  }
+  .description {
+    font-size:12px;
+    line-height:18px;
+  }
+  .underline {
+    margin:8px 0;
+  }
+}
+@media screen and (max-width:320px) {
+  .basicBookInfo {
+    grid-template-columns:1fr;
+    grid-template-rows:repeat(5, auto) 1fr;
+    grid-template-areas:'image'
+      'title'
+      'authors'
+      'button'
+      'descriptionTitle'
+      'underline'
+      'description';
+  }
+  .title {
+    margin-top:16px;
+    font-size:18px;
+    line-height:28px;
+  }
+  .authors {
+    margin-top:8px;
+    font-size:12px;
+    line-height:18px;
+  }
+  .basicBookInfo > button {
+    margin-top:42px;
+  }
+  .descriptionTitle {
+    margin-top:42px;
+  }
+  .description {
+    font-size:12px;
+    line-height:18px;
+  }
+  .underline {
+    margin:8px 0;
+  }
+}

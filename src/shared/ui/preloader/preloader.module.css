@@ -1,0 +1,42 @@
+.preloaderWrapper {
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100vh;
+  z-index:9999;
+  background-color:rgba(54, 54, 54, 0.3);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  backdrop-filter:blur(10px);
+}
+.preloader > circle {
+  fill:none;
+  stroke:url(#paint0_linear_9670_40615);
+  stroke-width:8px;
+  stroke-linecap:round;
+  animation:animate-stroke 1.5s ease-in-out infinite;
+}
+.preloader {
+  animation:rotate 1.5s linear infinite;
+}
+@keyframes animate-stroke {
+  0% {
+    stroke-dasharray:1, 200;
+    stroke-dashoffset:0;
+  }
+  50% {
+    stroke-dasharray:89, 200;
+    stroke-dashoffset:-35;
+  }
+  100% {
+    stroke-dasharray:89, 200;
+    stroke-dashoffset:-124;
+  }
+}
+@keyframes rotate {
+  100% {
+    transform:rotate(360deg);
+  }
+}

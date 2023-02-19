@@ -1,0 +1,28 @@
+.cardButton {
+  width:calc(710px - 25vw);
+  height:40px;
+  border-radius:20px;
+  background:linear-gradient(231.58deg, rgb(248, 54, 0) -53.35%, rgb(249, 212, 35) 297.76%);
+  color:rgb(255, 255, 255);
+}
+.cardButtonText {
+  max-width:350px;
+  font-weight:600;
+  font-size:16px;
+  line-height:150%;
+  letter-spacing:0.2px;
+  text-transform:uppercase;
+}
+.cardButton:active {
+  box-shadow:0 3px 4px rgba(222, 125, 11, 0.2), 0 1px 10px rgba(249, 89, 8, 0.2);
+}
+@media screen and (max-width:768px) {
+  .cardButton {
+    width:100%;
+  }
+}
+@media screen and (min-width:1440px) {
+  .cardButton {
+    min-width:350px;
+  }
+}
