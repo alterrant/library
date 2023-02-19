@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-export const useBookSearchState = () => {
+export const useBooksSearchState = () => {
     const [isActivated, setActivatedStatus] = useState<boolean>(false);
     const [isTextChanged, setStatusChangedText] = useState<boolean>(false);
     const [isOpenedInput, setOpenedInputStatus] = useState<boolean>(false);
@@ -13,4 +13,4 @@ export const useBookSearchState = () => {
         setStatusChangedText,
         setOpenedInputStatus
     };
-}
+};

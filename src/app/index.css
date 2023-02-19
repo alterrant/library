@@ -49,6 +49,8 @@ a:not([class]) {
   text-decoration-skip-ink:auto;
 }
 img {
+  min-height:50px;
+  max-height:100%;
   max-width:100%;
   display:block;
 }

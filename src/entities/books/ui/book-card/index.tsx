@@ -2,29 +2,32 @@ import { ReactNode } from 'react';
 import { NavLink } from 'react-router-dom';
 
 import { Stars, unsetBook } from '../../../../shared/ui';
-import { CARD_STYLES, EMPTY_RATING, CardStylesTypes } from '../../../../shared/lib';
+import {
+    CARD_STYLES,
+    EMPTY_RATING,
+    CardStylesTypes,
+    BASE_URL
+} from '../../../../shared/lib';
 
 import stylesColumnCard from './book-card-column.module.css';
 import stylesRowCard from './book-card-row.module.css';
 
-// TODO: убрать string из bookStatus в соответствии с ответом сервера
-// TODO: переделать getCardInfo, когда подключу редакс
-// TODO: удалить картинку книги из book-card
-
 type BookCardProps = {
     cardsStyle: CardStylesTypes;
-    id:string;
-    img: {id: string, src: string, alt: string} | undefined;
+    id:number;
+    alt: string;
+    img: { url: string } | null;
     rating: number | null;
     title: string;
-    authors: string;
-    genres: string;
+    authors: string[];
+    genres: string | undefined;
     cardButton: ReactNode;
 };
 
 export const BookCard = ({
     cardsStyle,
     id,
+    alt,
     img,
     rating,
     title,
@@ -32,16 +35,18 @@ export const BookCard = ({
     genres,
     cardButton,
 }: BookCardProps) => {
+    const src = `${BASE_URL}${img?.url}`;
     const cardClassName = (cardsStyle === CARD_STYLES.ROW) ? stylesRowCard : stylesColumnCard;
 
     return (
         <NavLink to={`../${genres}/${id}`} relative='path' data-test-id='card'>
             <div className={cardClassName.bookWrapper}>
-                <img
-                    className={cardClassName.bookImg}
-                    src={img?.src ? img?.src : unsetBook}
-                    alt={img?.alt}
-                />
+                <div className={cardClassName.bookImg}>
+                    <img
+                      src={img?.url ? src : unsetBook}
+                      alt={alt}
+                    />
+                </div>
                 {rating ? (
                     <Stars rating={rating}/>
                 ) : (
@@ -49,7 +54,7 @@ export const BookCard = ({
                     )
                 }
                 <p className={cardClassName.bookTitle}>{title}</p>
-                <p className={cardClassName.bookAuthors}>{authors}</p>
+                <p className={cardClassName.bookAuthors}>{authors.join(', ')}</p>
                 {cardButton}
             </div>
         </NavLink>

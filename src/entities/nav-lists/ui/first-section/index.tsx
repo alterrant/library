@@ -12,13 +12,15 @@ type FirstSectionListProps = SectionListProps & {
 };
 
 export const FirstSection = ({
+    closeErrorsHandler,
     section,
     categoryName,
-    arrow
+    arrow,
 }: FirstSectionListProps) => (
     <>
         <div className={styles.booksWrapper}>
             <NavList {...section}
+                     handleClick={closeErrorsHandler}
                      textClass={classNames(styles[FONT_WEIGHT.BOLD], styles.linkText)}
                      activeLinkClass={styles.activeLink}
             />

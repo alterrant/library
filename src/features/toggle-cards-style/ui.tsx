@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 
-import { SVGMouseEventType } from './config';
+import { SVGMouseEventType } from './types';
 import { BooksColumnStyleBtn, BooksRowStyleBtn } from '../../shared/ui';
 import { CARD_STYLES, CardStylesTypes } from '../../shared/lib';
 

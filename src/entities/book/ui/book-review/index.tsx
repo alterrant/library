@@ -1,19 +1,20 @@
 import { defaultAvatar, Stars } from '../../../../shared/ui';
+import {getImageSrc} from "../../../../shared/lib";
 
 import styles from './book-review.module.css';
 
 type ReviewProps = {
-    image: string;
+    avatarUrl: string | null;
     name: string;
     date: string;
     rating: number | null;
-    description: string;
+    description: string | null;
 };
 
-export const Review = ({image, name, date, rating, description}: ReviewProps) => (
+export const Review = ({avatarUrl, name, date, rating, description}: ReviewProps) => (
     <article className={styles.bookReviewWrapper}>
         <div className={styles.reviewer}>
-            <img src={image ? image : defaultAvatar} alt="reviewerAva"/>
+            <img src={avatarUrl ? getImageSrc(avatarUrl) : defaultAvatar} alt="reviewerAva"/>
             <p>{name}</p>
             <p>{date}</p>
         </div>

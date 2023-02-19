@@ -9,6 +9,7 @@ import {
 } from 'swiper';
 
 import { getSwiperSlides, ImgSlideType } from '../../lib';
+import {Nullable} from "../../../../shared/lib";
 
 import styles from './book-images-swiper.module.css';
 import 'swiper/css';
@@ -18,7 +19,7 @@ import 'swiper/css/navigation';
 import 'swiper/css/thumbs';
 
 type BookImagesContainerProps = {
-    images: ImgSlideType[];
+    images: Nullable<ImgSlideType[]>;
 };
 
 export const BookImagesContainer = ({ images }: BookImagesContainerProps) => {
@@ -50,7 +51,7 @@ export const BookImagesContainer = ({ images }: BookImagesContainerProps) => {
             >
                 {getSwiperSlides(images)}
             </Swiper>
-            {images.length > 1 && <Swiper
+            {images && images.length > 1 && <Swiper
                 onSwiper={setSwiperInstance}
                 className={classNames(
                     styles.swiperThumbs,

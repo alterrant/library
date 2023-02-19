@@ -1,35 +1,34 @@
-import { Fragment, Dispatch } from 'react';
+import { Fragment } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import { PageNotFound } from '../../../../shared/ui/page-not-found';
-import { getCategoryName } from '../../../../entities/nav-lists/lib';
-import { ToggleDropDown, ToggleDropDownModule } from '../../../../features/toggle-drop-down';
-import { NavLists, NavListModule } from '../../../../entities/nav-lists';
-import { Arrow } from '../../../../shared/ui/arrow';
-import { ORIENTATION } from '../../../../shared/lib';
+import { useCurrentCategory } from '../../hooks';
 import { DataTestIdNavigationTypes } from '../../types';
-
+import { ToggleDropDown, ToggleDropDownModule } from '../../../../features/toggle-drop-down';
+import { NavLists, NavListModel } from '../../../../entities/nav-lists';
+import { ORIENTATION, useAppSelector } from '../../../../shared/lib';
+import { PageNotFound, Arrow } from '../../../../shared/ui';
+// TODO: изменить toggleStatus на setStatus { open: true\false }
 type SectionProps = DataTestIdNavigationTypes & {
-    section: { id: string, text: string, link: string },
-    toggleBurgerStatus?: Dispatch<boolean>;
+    section: { id: string, text: string, link: string };
+    toggleBurgerStatus?: () => void;
+    closeErrorsHandler?: () => void;
 };
-// архитектурно Section должен лежать между widgets и pages
+
 export const Section = ({
     section,
     toggleBurgerStatus,
+    closeErrorsHandler,
     dataTestIdFirstSection,
     dataTestIdAllBooks,
     dataTestIdSectionTerms,
     dataTestIdSectionContract,
 }: SectionProps) => {
-    const pathname = NavListModule.usePathname();
-    const categoryName = getCategoryName(pathname);
-
     const navigate = useNavigate();
+    const currentCategory = useCurrentCategory();
+    const { genres } = useAppSelector(NavListModel.genresSelector);
     const [isOpen, toggleStatus] = ToggleDropDownModule.useToggleState(true);
-    // TODO: изменить toggleStatus на setStatus { open: true\false }
-    if (!categoryName) return <PageNotFound />;
 
+    if (!currentCategory) return <PageNotFound />;
     return (
         <Fragment key={section.id}>
             {section.link === 'books' ? (
@@ -40,15 +39,24 @@ export const Section = ({
                         ToggleDropDownModule.toggleHandler(isOpen, toggleStatus);
                     }}
                     isMenuOpened={isOpen}
-                    hiddenElement={<NavLists.GenresList toggleStatus={toggleBurgerStatus} dataTestId={dataTestIdAllBooks} />}
+                    hiddenElement={!!genres.length && (
+                        <NavLists.GenresList
+                            genres={genres}
+                            toggleStatus={toggleBurgerStatus}
+                            dataTestId={dataTestIdAllBooks}
+                        />
+                    )}
                 >
                     <NavLists.FirstSection
                         section={section}
-                        categoryName={categoryName}
-                        arrow={<Arrow
-                            orientation={isOpen ? ORIENTATION.UP : ORIENTATION.DOWN}
-                            isColored
-                        />}
+                        categoryName={currentCategory}
+                        closeErrorsHandler={closeErrorsHandler}
+                        arrow={!!genres.length && (
+                            <Arrow
+                                orientation={isOpen ? ORIENTATION.UP : ORIENTATION.DOWN}
+                                isColored
+                            />
+                        )}
                     />
                 </ToggleDropDown>
             ) : (
@@ -60,7 +68,8 @@ export const Section = ({
                             dataTestIdSectionContract
                     }
                     section={section}
-                    categoryName={categoryName}
+                    closeErrorsHandler={closeErrorsHandler}
+                    categoryName={currentCategory}
                 />
             )}
         </Fragment>

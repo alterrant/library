@@ -1,7 +1,10 @@
 import classNames from "classnames";
 
-import { ToggleCardsStyle, toggleCardsStyleModel } from '../../features/toggle-cards-style';
-import { ToggleStyleType } from '../../features/toggle-cards-style/config';
+import {
+    ToggleCardsStyle,
+    toggleCardsStyleModel,
+    ToggleStyleType
+} from '../../features/toggle-cards-style';
 import { Books, BooksModel } from '../../entities/books';
 import { CardStylesTypes } from '../../shared/lib';
 
@@ -20,10 +23,13 @@ export const Tool = ({cardsStyle, toggleStyle}: ToolProps) => {
         setActivatedStatus,
         setStatusChangedText,
         setOpenedInputStatus
-    } = BooksModel.useBookSearchState();
+    } = BooksModel.useBooksSearchState();
 
     return (
-        <section className={classNames(styles.toolsWrapper, isOpenedInput && styles.openedInput)}>
+        <section className={classNames(
+            styles.toolsWrapper,
+            isOpenedInput && styles.openedInput
+        )}>
             <div className={styles.booksUtils}>
                 <Books.SearchBooks
                     focusHandler={(event) => BooksModel.searchFocusHandler(
@@ -35,8 +41,10 @@ export const Tool = ({cardsStyle, toggleStyle}: ToolProps) => {
                     blurHandler={(event) => BooksModel.searchBlurHandler(
                             event, setActivatedStatus, setStatusChangedText
                         )}
-                    openSearchBarHandler={() => BooksModel.openSearchBarHandler(setOpenedInputStatus)}
-                    closeSearchHandler={() => BooksModel.closeSearchHandler(setOpenedInputStatus)}
+                    openSearchBarHandler={() =>
+                        BooksModel.openSearchBarHandler(setOpenedInputStatus)}
+                    closeSearchHandler={() =>
+                        BooksModel.closeSearchHandler(setOpenedInputStatus)}
                     isActivated={isActivated}
                     isTextChanged={isTextChanged}
                     isOpenedInput={isOpenedInput}

@@ -3,12 +3,10 @@ import classNames from 'classnames';
 import { ReactComponent as SearchSVG } from './assets/search.svg';
 import { SEARCH_TEXT } from '../../lib';
 import { Close } from "../../../../shared/ui";
-import { InputEvent } from '../../../../shared/lib/types';
+import { InputEvent } from '../../../../shared/lib';
 
 import styles from './search.module.css';
-
 // TODO: вынести инпут в shared
-
 type SearchProps = {
     focusHandler: (event: InputEvent) => void;
     changeHandler: (event: InputEvent) => void;

@@ -1,2 +1,4 @@
 export * from './config';
-export { BOOKS_INITIAL_STATE as BOOKS } from './books-initial-state';
+export { initialState } from './books-initial-state';
+export * from './types';
+export * from './utils';

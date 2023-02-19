@@ -1,2 +1,3 @@
 export * as NavLists from './ui';
-export * as NavListModule from './module';
+export * as NavListModel from './model';
+export { sections } from './lib';

@@ -1,9 +1,8 @@
 import { CARD_STYLES } from 'shared/lib';
 
 import { CardStylesTypes } from '../../../shared/lib';
-import { SVGMouseEventType, ToggleStyleType } from '../config';
+import { SVGMouseEventType, ToggleStyleType } from '../types';
 
-// TODO: вынести toggleHandler из module в utils или helpers
 export const toggleHandler = (
     style: CardStylesTypes,
     toggleStyle: ToggleStyleType,

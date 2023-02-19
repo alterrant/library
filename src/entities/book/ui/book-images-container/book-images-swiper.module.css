@@ -49,4 +49,9 @@
   .swiperThumbs {
     display:none !important;
   }
+  .swiperWrapper img {
+    margin:0 auto;
+    width:auto;
+    max-height:260px;
+  }
 }

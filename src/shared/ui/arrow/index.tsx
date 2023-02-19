@@ -17,5 +17,3 @@ export const Arrow = ({ orientation, isColored }: ArrowProps) => (
         styles[orientation]
     )}/>
 );
-
-

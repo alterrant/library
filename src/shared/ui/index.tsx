@@ -11,6 +11,11 @@ export { NavList } from './nav-list';
 export { Button } from './button';
 export { Stars } from './stars';
 export { Underline } from './underline';
+export { Arrow } from './arrow';
+export { Preloader } from './preloader';
+export { ErrorBoundary } from './error-boundary';
+export { BurgerMenu } from './burger-menu';
+export { PageNotFound } from './page-not-found';
 export {
     defaultAvatar,
     instagram,
@@ -26,3 +31,5 @@ export { ReactComponent as BooksRowStyleBtn } from './assets/books-row-stile.svg
 export { ReactComponent as TextSeparator } from './assets/text-separator.svg';
 export { ReactComponent as RightArrow } from './assets/right-arrow.svg';
 export { ReactComponent as Close } from './assets/close.svg';
+export { ReactComponent as Circle } from './assets/circle.svg';
+export { ReactComponent as Warning } from './assets/warning.svg';

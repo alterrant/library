@@ -1,6 +1,5 @@
 import { FILTER_TEXT } from '../../lib';
 import { Button } from '../../../../shared/ui';
-
 import { ReactComponent as FilterDirection } from './assets/filter-sort.svg';
 
 import styles from './filter.module.css';

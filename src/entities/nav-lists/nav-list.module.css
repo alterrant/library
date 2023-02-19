@@ -17,8 +17,12 @@
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent;
 }
+.counter {
+  line-height:24px;
+  color:rgb(167, 167, 167);
+}
 .linkText:hover {
-  color:#FF5253;
+  color:rgb(255, 82, 83);
 }
 .bold {
   font-weight:700;

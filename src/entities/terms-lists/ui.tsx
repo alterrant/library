@@ -1,4 +1,4 @@
-import {getTermsLists} from "./utils";
+import { getTermsLists } from './utils';
 
 import styles from './terms-lists.module.css';
 

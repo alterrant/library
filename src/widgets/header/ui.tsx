@@ -1,14 +1,18 @@
-import {ReactNode, useRef} from "react";
+import { ReactNode, useRef } from 'react';
 import { NavLink } from 'react-router-dom';
 
-import {IsOpenType, ToggleStatusType} from "features/toggle-drop-down/config";
+import { TITLE } from './config';
 import { ReactComponent as Logo } from './assets/logo.svg';
-import { ToggleDropDown, ToggleDropDownModule } from '../../features/toggle-drop-down';
+import {
+    ToggleDropDown,
+    ToggleDropDownModule,
+    IsOpenType,
+    ToggleStatusType
+} from '../../features/toggle-drop-down';
 import { PersonInfo } from '../../entities/person-info';
-import { USER_NAME } from '../../entities/person-info/lib';
-import {DropDownMenu, DropDownMenuModel} from "../../entities/drop-down-menu";
-import { TITLE } from '../../shared/lib';
-import {BurgerMenu} from "../../shared/ui/burger-menu";
+import { DropDownMenu, DropDownMenuModel } from "../../entities/drop-down-menu";
+import { USER_NAME } from '../../shared/lib';
+import { BurgerMenu } from '../../shared/ui';
 
 import styles from './header.module.css';
 

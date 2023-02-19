@@ -1,0 +1,57 @@
+.errorsWrapper {
+  position:absolute;
+  top:64px;
+  left:0;
+  right:0;
+  margin:0 auto;
+  display:grid;
+  grid-template-areas:'warning . message . close';
+  grid-template-columns:auto 24px 1fr 16px auto;
+  max-width:1110px;
+  width:100%;
+  padding:24px 32px 24px 32px;
+  background:rgb(254, 235, 234);
+  border:1.5px solid rgb(244, 44, 79);
+  border-radius:5px;
+  font-weight:600;
+  font-size:16px;
+  line-height:24px;
+  z-index:9999;
+}
+.errorsWrapper > svg:first-child {
+  grid-area:warning;
+}
+.errorsWrapper > p {
+  grid-area:message;
+}
+.errorsWrapper > svg:last-child {
+  grid-area:close;
+}
+.warning > path:nth-child(1) {
+  fill:rgb(244, 44, 79);
+  stroke:rgb(244, 44, 79);
+}
+.warning > path:nth-child(2) {
+  stroke:rgb(255, 255, 255);
+}
+.warning > path:nth-child(3) {
+  fill:rgb(255, 255, 255);
+}
+.close {
+  margin-top:4px;
+  cursor:pointer;
+}
+
+@media screen and (max-width:768px) {
+  .errorsWrapper {
+    grid-template-columns:auto 12px 1fr 10px auto;
+    padding:24px 16px 24px 16px;
+    font-size:14px;
+    line-height:18px;
+  }
+}
+@media screen and (max-width:320px) {
+  .errorsWrapper {
+    padding:12px 16px 12px 16px;
+  }
+}

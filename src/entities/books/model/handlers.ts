@@ -1,6 +1,6 @@
 import { Dispatch } from 'react';
 
-import { InputEvent } from '../../../shared/lib/types';
+import { InputEvent } from '../../../shared/lib';
 
 type SetStatus = Dispatch<boolean>;
 

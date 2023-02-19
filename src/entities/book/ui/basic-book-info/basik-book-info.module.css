@@ -14,6 +14,10 @@
   margin-top:32px;
   max-width:350px;
 }
+.basicBookInfo > button > span {
+  font-size:16px;
+  line-height:150%;
+}
 /*TODO: убрать дублирующиеся стили bookTitle и bookAuthors*/
 .title {
   grid-area:title;
@@ -51,7 +55,7 @@
 
 @media screen and (max-width:768px) {
   .basicBookInfo {
-    grid-template-columns:minmax(136px,2fr) 3fr;
+    grid-template-columns:minmax(136px,1fr) 3fr;
     grid-template-rows:repeat(5, auto) 1fr;
     grid-template-areas:'image title'
       'image authors'
@@ -72,6 +76,8 @@
   .title {
     width:50vw;
     word-wrap:break-word;
+    font-size:24px;
+    line-height:30px;
   }
 }
 

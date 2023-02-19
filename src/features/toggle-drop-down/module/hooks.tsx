@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import { IsOpenType, ToggleStatusType } from '../config';
+import { IsOpenType, ToggleStatusType } from '../';
 
 export const useToggleState = (initialStatus = false): [
     isOpen: IsOpenType,

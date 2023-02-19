@@ -3,12 +3,10 @@ import {Navigate, createHashRouter} from 'react-router-dom';
 
 import { BookPage } from "./book";
 import { MainPage } from "./main";
-import { Layout } from "../widgets/layouts/layout";
-import { LayoutMainPage } from "../widgets/layouts/layout-main-page";
+import { Layout, LayoutMainPage, LayoutBookPage } from "../widgets/layouts";
 import { Terms } from "../widgets/terms";
-import { LayoutBookPage } from "../widgets/layouts/layout-book-page";
-import { CONTRACT_TITLE, RULES_TITLE } from "../entities/terms-lists/config";
-import { ErrorBoundary } from "../shared/ui/error-boundary";
+import { CONTRACT_TITLE, RULES_TITLE } from "../shared/lib";
+import { ErrorBoundary } from "../shared/ui";
 
 // TODO: реализовать lazy loading и suspense
 // const TestPage = lazy(() => import("./test"));
@@ -28,7 +26,7 @@ export const routes = createHashRouter([
                         element: <Navigate to='books/all' />,
                     },
                     {
-                        path: 'books/:categories',
+                        path: 'books/:genres',
                         element: <MainPage />,
                     },
                     {
@@ -49,7 +47,7 @@ export const routes = createHashRouter([
                 element: <LayoutBookPage />,
                 children: [
                     {
-                        path: 'books/:categories/:id',
+                        path: 'books/:genres/:id',
                         element: <BookPage />,
                     }
                 ]

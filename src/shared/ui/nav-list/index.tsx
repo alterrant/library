@@ -1,9 +1,9 @@
-import classNames from "classnames";
-import {Dispatch, ReactNode} from 'react';
+import classNames from 'classnames';
+import { ReactNode } from 'react';
 import { NavLink } from 'react-router-dom';
 
 type ListProps = {
-    handleClick?: Dispatch<boolean>;
+    handleClick?: () => void;
     dataTestId?:string;
     link: string;
     text: string;
@@ -25,7 +25,7 @@ export const NavList = ({
 }: ListProps) => {
     // При необходимости вынести в handlers
     const onClick = () => {
-        if (handleClick) handleClick(false);
+        if (handleClick) handleClick();
     }
 
     return (

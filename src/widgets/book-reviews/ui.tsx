@@ -1,23 +1,12 @@
-import { ORIENTATION } from 'shared/lib';
-import { REVIEWS_TITLE } from '../../entities/book/lib';
-import { Book } from '../../entities/book';
-import { Underline } from '../../shared/ui';
+import { REVIEWS_TITLE, timeFormatOptions } from './config';
+import { ToggleDropDown, ToggleDropDownModule } from '../../features/toggle-drop-down';
+import { Book, BookComments } from '../../entities/book';
+import { getDate, getFullName, ORIENTATION } from '../../shared/lib';
+import { Arrow, Underline} from '../../shared/ui';
+
 import styles from './bookReviews.module.css';
-import {Arrow} from "../../shared/ui/arrow";
-import {ToggleDropDown, ToggleDropDownModule} from "../../features/toggle-drop-down";
 
-type BookReviewsProps = {
-    reviews: {
-        id: string,
-        image: string,
-        name: string,
-        date: string,
-        rating: number,
-        description: string
-    }[];
-};
-
-export const BookReviews = ({ reviews }: BookReviewsProps) => {
+export const BookReviews = ({ comments }: BookComments) => {
     const [isOpen, toggleStatus] = ToggleDropDownModule.useToggleState();
 
     return (
@@ -28,21 +17,22 @@ export const BookReviews = ({ reviews }: BookReviewsProps) => {
                 menuClass={styles.titleWrapper}
                 hiddenElement={(
                     <>
-                        <Underline underlineClass={styles.underline}/>
+                        {comments?.length && <Underline underlineClass={styles.underline}/>}
                         <div className={styles.reviewsWrapper}>
-                            {reviews.map(review => <Book.Review
+                            {comments?.map(review => <Book.Review
                                 key={review.id}
                                 rating={review.rating}
-                                description={review.description}
-                                name={review.name}
-                                date={review.date}
-                                image={review.image}/>)}
+                                description={review.text}
+                                name={getFullName(review.user?.firstName, review.user?.lastName)}
+                                date={getDate(review.createdAt, timeFormatOptions)}
+                                avatarUrl={review.user?.avatarUrl}
+                            />)}
                         </div>
                     </>
                 )}
             >
                 <div data-test-id='button-hide-reviews' className={styles.title}>
-                    <p>{REVIEWS_TITLE}<span>{reviews.length}</span></p>
+                    <p>{REVIEWS_TITLE}<span>{comments?.length}</span></p>
                     <Arrow orientation={isOpen ? ORIENTATION.UP : ORIENTATION.DOWN}/>
                 </div>
             </ToggleDropDown>

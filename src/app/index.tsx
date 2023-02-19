@@ -4,11 +4,8 @@ import { withProviders } from './providers';
 
 import './index.css';
 
-// TODO: сделать спинер
 const App = (router: any) => (
-    <RouterProvider
-        router={router}
-    />
+    <RouterProvider router={router} />
 );
 
 export default withProviders(App);
