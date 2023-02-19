@@ -23,42 +23,44 @@ export const BookPage = () => {
     const isError = bookError || navError;
 
     return (
-        isLoading ? <Preloader /> : (
-            !isError ? (
-                <>
-                    <Book.BasicInfo
-                        imagesContainer={<Book.BookImagesContainer images={book.images}/>}
-                        title={book.title}
-                        authors={book.authors}
-                        description={book.description}
-                        button={
-                        <AddToCart
-                            bookStatus={book.booking?.order ? 'reserved' : 'available'}
-                            buttonText={book.booking?.order ?
-                                `занята до ${getDate(book.booking?.dateOrder, timeFormatOptions)}`
-                                :
-                                'забронировать'}
+        <>
+            {!isError && (
+                isLoading ? <Preloader /> : (
+                    <>
+                        <Book.BasicInfo
+                            imagesContainer={<Book.BookImagesContainer images={book.images} />}
+                            title={book.title}
+                            authors={book.authors}
+                            description={book.description}
+                            button={(
+                                <AddToCart
+                                    bookStatus={book.booking?.order ? 'reserved' : 'available'}
+                                    buttonText={book.booking?.order ?
+                                        `занята до ${getDate(book.booking?.dateOrder, timeFormatOptions)}`
+                                        :
+                                        'забронировать'}
+                                />
+                            )}
                         />
-                    }
-                    />
-                    <section className={styles.bookAdditionalInfo}>
-                        <Book.Rating rating={book.rating}/>
-                        <Book.DetailedInfo
-                            publish={book.publish}
-                            issueYear={book.issueYear}
-                            pages={book.pages}
-                            cover={book.cover}
-                            format={book.format}
-                            categories={book.categories}
-                            weight={book.weight}
-                            ISBN={book.ISBN}
-                            producer={book.producer}
-                        />
-                        <BookReviews comments={book.comments} />
-                    </section>
-                    <RateBook handleClick={() => {}} />
-                </>
-            ) : <></>
-        )
-    )
+                        <section className={styles.bookAdditionalInfo}>
+                            <Book.Rating rating={book.rating} />
+                            <Book.DetailedInfo
+                                publish={book.publish}
+                                issueYear={book.issueYear}
+                                pages={book.pages}
+                                cover={book.cover}
+                                format={book.format}
+                                categories={book.categories}
+                                weight={book.weight}
+                                ISBN={book.ISBN}
+                                producer={book.producer}
+                            />
+                            <BookReviews comments={book.comments} />
+                        </section>
+                        <RateBook handleClick={() => {}} />
+                    </>
+                )
+            )}
+        </>
+    );
 };

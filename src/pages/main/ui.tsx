@@ -11,20 +11,32 @@ import styles from './main-page.module.css';
 export const MainPage = () => {
     const [style, toggleStyle] = toggleCardsStyleModel.useToggleCardsState(CARD_STYLES.COLUMN);
 
-    const { isLoading: isNavLoading } = useAppSelector(NavListModel.genresSelector);
-    const { isLoading: isBooksLoading, books } = useAppSelector(BooksModel.booksSelector);
+    const {
+        isLoading: isNavLoading,
+        error: navError
+    } = useAppSelector(NavListModel.genresSelector);
+    const {
+        isLoading: isBooksLoading,
+        error: booksError,
+        books } = useAppSelector(BooksModel.booksSelector);
+
     const isLoading = isNavLoading || isBooksLoading;
+    const isError = navError || booksError;
 
     const isCached = !!books.length;
 
     useFetch(BooksModel.getBooks(), isCached);
 
     return (
-        isLoading ? <Preloader /> : (
-            <section className={styles.content}>
-                <BookCardsTool cardsStyle={style} toggleStyle={toggleStyle}/>
-                <BookCards books={books} cardsStyle={style}/>
-            </section>
-        )
+        <>
+            {!isError && (
+                isLoading ? <Preloader /> : (
+                    <section className={styles.content}>
+                        <BookCardsTool cardsStyle={style} toggleStyle={toggleStyle} />
+                        <BookCards books={books} cardsStyle={style} />
+                    </section>
+                )
+            )}
+        </>
     );
 };
