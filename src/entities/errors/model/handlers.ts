@@ -1,6 +1,6 @@
-import {Dispatch} from "react";
+import { Dispatch } from 'react';
 
-import {ErrorStateTypes} from "../types";
+import { ErrorStateTypes } from '../types';
 
 export const closeHandler = (setStatus: Dispatch<ErrorStateTypes>) =>
     setStatus({ isOpen: false });

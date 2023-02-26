@@ -39,8 +39,8 @@
   .openedInput > div > div {
     width:100%;
   }
-  .booksUtils div > *:not(svg),
-  .booksUtils button > *:not(svg) {
+  .booksUtils div > input,
+  .booksUtils button > span {
     display:none;
   }
 }

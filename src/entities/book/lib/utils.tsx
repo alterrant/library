@@ -1,9 +1,9 @@
-import {Fragment} from "react";
+import { Fragment } from 'react';
 import { SwiperSlide } from 'swiper/react';
 
-import {BookDetails, ImgSlideType} from '.';
+import { BookDetails, ImgSlideType } from '.';
 import { unsetBook } from '../../../shared/ui';
-import {getImageSrc, Nullable} from "../../../shared/lib";
+import { getImageSrc, Nullable } from '../../../shared/lib';
 
 import styles from "../ui/detailed-book-info/detailed-book-info.module.css";
 
@@ -40,11 +40,6 @@ export const translateInfoKeys = (key:string) => {
             return ''
         }
     }
-};
-
-export const getShortNavigation = (genres: string, title: Nullable<string>) => {
-    if (title) return `${genres} / ${title}`;
-    return `${genres} /`;
 };
 // swiper slides
 const getImgSlide = ({ id, url }: ImgSlideType & { id: number }, dataTestId?: string) => (

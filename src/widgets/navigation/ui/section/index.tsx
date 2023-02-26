@@ -4,18 +4,20 @@ import { useNavigate } from 'react-router-dom';
 import { useCurrentCategory } from '../../hooks';
 import { DataTestIdNavigationTypes } from '../../types';
 import { ToggleDropDown, ToggleDropDownModule } from '../../../../features/toggle-drop-down';
-import { NavLists, NavListModel } from '../../../../entities/nav-lists';
-import { ORIENTATION, useAppSelector } from '../../../../shared/lib';
-import { PageNotFound, Arrow } from '../../../../shared/ui';
+import { NavLists, CountedGenreType } from '../../../../entities/nav-lists';
+import { ORIENTATION } from '../../../../shared/lib';
+import { Arrow } from '../../../../shared/ui';
 // TODO: изменить toggleStatus на setStatus { open: true\false }
 type SectionProps = DataTestIdNavigationTypes & {
     section: { id: string, text: string, link: string };
+    countedGenres: CountedGenreType[];
     toggleBurgerStatus?: () => void;
     closeErrorsHandler?: () => void;
 };
 
 export const Section = ({
     section,
+    countedGenres,
     toggleBurgerStatus,
     closeErrorsHandler,
     dataTestIdFirstSection,
@@ -25,10 +27,8 @@ export const Section = ({
 }: SectionProps) => {
     const navigate = useNavigate();
     const currentCategory = useCurrentCategory();
-    const { genres } = useAppSelector(NavListModel.genresSelector);
     const [isOpen, toggleStatus] = ToggleDropDownModule.useToggleState(true);
 
-    if (!currentCategory) return <PageNotFound />;
     return (
         <Fragment key={section.id}>
             {section.link === 'books' ? (
@@ -39,9 +39,9 @@ export const Section = ({
                         ToggleDropDownModule.toggleHandler(isOpen, toggleStatus);
                     }}
                     isMenuOpened={isOpen}
-                    hiddenElement={!!genres.length && (
+                    hiddenElement={!!countedGenres.length && (
                         <NavLists.GenresList
-                            genres={genres}
+                            genres={countedGenres}
                             toggleStatus={toggleBurgerStatus}
                             dataTestId={dataTestIdAllBooks}
                         />
@@ -51,7 +51,7 @@ export const Section = ({
                         section={section}
                         categoryName={currentCategory}
                         closeErrorsHandler={closeErrorsHandler}
-                        arrow={!!genres.length && (
+                        arrow={!!countedGenres.length && (
                             <Arrow
                                 orientation={isOpen ? ORIENTATION.UP : ORIENTATION.DOWN}
                                 isColored

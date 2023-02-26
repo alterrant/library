@@ -1,3 +1,3 @@
-export * as Books from './ui';
+export * from './ui';
 export * as BooksModel from './model';
-export { type BooksTypes, getBookGenre } from './lib';
+export { type BooksTypes, type BooksByGenresTypes, getBookGenre } from './lib';

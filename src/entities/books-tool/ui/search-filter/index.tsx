@@ -2,7 +2,7 @@ import classNames from 'classnames';
 
 import { ReactComponent as SearchSVG } from './assets/search.svg';
 import { SEARCH_TEXT } from '../../lib';
-import { Close } from "../../../../shared/ui";
+import { Close } from '../../../../shared/ui';
 import { InputEvent } from '../../../../shared/lib';
 
 import styles from './search.module.css';

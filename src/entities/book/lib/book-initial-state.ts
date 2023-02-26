@@ -1,4 +1,4 @@
-import {BookInfoTypes, BookStateTypes} from "./types";
+import { BookInfoTypes, BookStateTypes } from './types';
 
 export const initialState: BookStateTypes = {
     isLoading: false,

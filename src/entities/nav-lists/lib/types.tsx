@@ -13,6 +13,9 @@ export type GenreType = {
     name: string,
     path: string,
 };
+export type CountedGenreType = ({
+    count: number | null;
+} & GenreType);
 
 export type GenresStateTypes = {
     isLoading: boolean;

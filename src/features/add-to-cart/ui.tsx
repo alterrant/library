@@ -4,7 +4,7 @@ import { SyntheticEvent } from 'react';
 import { BOOK_STATUS } from '../../entities/books/lib';
 import { Button } from '../../shared/ui';
 
-import stylesColumnCard from '../../entities/books/ui/book-card/book-card-column.module.css';
+import stylesColumnCard from '../../entities/books/ui/book-card-column.module.css';
 
 type AddToCartProps = {
     bookStatus: typeof BOOK_STATUS[keyof typeof BOOK_STATUS];

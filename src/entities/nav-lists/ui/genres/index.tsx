@@ -8,14 +8,14 @@ import styles from '../../nav-list.module.css';
 
 type GenresProps = {
     dataTestId: string;
-    genres: GenreType[];
+    genres: (GenreType & { count: number | null })[];
     toggleStatus?: () => void;
 };
 
 export const GenresList = ({ dataTestId, toggleStatus, genres }: GenresProps) => (
     <ul>
         <NavList
-            dataTestId={dataTestId}
+            dataTestId={`${dataTestId}books`}
             link="books/all"
             text="Все книги"
             textClass={classNames(styles[FONT_WEIGHT.NORMAL], styles.linkText)}
@@ -25,17 +25,14 @@ export const GenresList = ({ dataTestId, toggleStatus, genres }: GenresProps) =>
         {genres.map(genre => (
             <NavList
                 key={genre.id}
-                dataTestId={(genre.id === '0') ? dataTestId : undefined}
+                dataTestId={`${dataTestId}${genre.path}`}
                 link={`books/${genre.path}`}
                 text={genre.name}
                 textClass={classNames(styles[FONT_WEIGHT.NORMAL], styles.linkText)}
                 activeLinkClass={styles.activeLink}
                 handleClick={toggleStatus}
             >
-                {/* {genre?.count && (
-                    <span className={styles.counter}>{` ${genre.count}`}</span>
-                )} */}
-                <span className={styles.counter}>{` 1`}</span>
+                {(genre.count !== null) && <span data-test-id={`${dataTestId}book-count-for-${genre.path}`} className={styles.counter}>{` ${genre.count}`}</span>}
             </NavList>
         ))}
     </ul>

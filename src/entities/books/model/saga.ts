@@ -2,7 +2,7 @@ import axios from 'axios';
 import { call, put, takeLatest } from 'redux-saga/effects';
 
 import { getBooks, setBooks, setBooksError } from '.';
-import {BooksTypes} from "../lib";
+import { BooksTypes } from '../lib';
 import { axiosInstance, API } from '../../../shared/api';
 import { ERROR_MESSAGES } from '../../../shared/lib';
 

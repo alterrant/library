@@ -1,1 +1,2 @@
-export { BookCards } from './ui';
+export { BookCardsWrapper as BookCards } from './ui';
+export * as BookCardsModel from './model';

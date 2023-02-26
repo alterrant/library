@@ -1,4 +1,4 @@
-import { RoundImage, defaultAvatar } from "../../../../shared/ui";
+import { RoundImage, defaultAvatar } from '../../../../shared/ui';
 
 type AvatarProps = {
     src?: string;

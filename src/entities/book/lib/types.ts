@@ -1,4 +1,4 @@
-import { Nullable } from "../../../shared/lib";
+import { Nullable } from '../../../shared/lib';
 
 export type ImgSlideType = {
    url: string;

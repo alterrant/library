@@ -9,7 +9,7 @@ import {
 } from 'swiper';
 
 import { getSwiperSlides, ImgSlideType } from '../../lib';
-import {Nullable} from "../../../../shared/lib";
+import { Nullable } from '../../../../shared/lib';
 
 import styles from './book-images-swiper.module.css';
 import 'swiper/css';
