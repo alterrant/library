@@ -11,7 +11,7 @@
   box-shadow:0 2px 4px rgba(191, 196, 201, 0.2), 0 3px 4px rgba(191, 196, 201, 0.18), 0 1px 5px rgba(191, 196, 201, 0.24);
   border-radius:599px;
   color:#A7A7A7;
-  transition-duration:1s;
+  transition-duration:.2s;
 }
 .filterCardsWrapper:active {
   box-shadow:0 3px 4px rgba(222, 125, 11, 0.2), 0 1px 10px rgba(249, 89, 8, 0.2);
@@ -23,4 +23,5 @@
 }
 .svg {
   min-width:16px;
+  height:100%;
 }

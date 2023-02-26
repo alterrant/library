@@ -3,8 +3,8 @@ import { BookCards } from '../../widgets/book-cards';
 import { toggleCardsStyleModel } from '../../features/toggle-cards-style';
 import { NavListModel } from '../../entities/nav-lists';
 import { BooksModel } from '../../entities/books';
-import {Preloader} from '../../shared/ui';
-import {CARD_STYLES, useAppSelector, useFetch} from '../../shared/lib';
+import { Preloader } from '../../shared/ui';
+import { CARD_STYLES, useAppSelector, useFetch } from '../../shared/lib';
 
 import styles from './main-page.module.css';
 
@@ -13,19 +13,19 @@ export const MainPage = () => {
 
     const {
         isLoading: isNavLoading,
-        error: navError
+        error: navError,
     } = useAppSelector(NavListModel.genresSelector);
     const {
         isLoading: isBooksLoading,
         error: booksError,
-        books } = useAppSelector(BooksModel.booksSelector);
+    } = useAppSelector(BooksModel.booksSelector);
 
     const isLoading = isNavLoading || isBooksLoading;
     const isError = navError || booksError;
 
-    const isCached = !!books.length;
+    // const isCached = !!books?.length;
 
-    useFetch(BooksModel.getBooks(), isCached);
+    useFetch(BooksModel.getBooks());
 
     return (
         <>
@@ -33,7 +33,7 @@ export const MainPage = () => {
                 isLoading ? <Preloader /> : (
                     <section className={styles.content}>
                         <BookCardsTool cardsStyle={style} toggleStyle={toggleStyle} />
-                        <BookCards books={books} cardsStyle={style} />
+                        <BookCards cardsStyle={style}/>
                     </section>
                 )
             )}

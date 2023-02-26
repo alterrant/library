@@ -27,6 +27,9 @@
   -webkit-box-orient:vertical;
   overflow:hidden;
 }
+.bookTitle > span {
+  color:rgb(255, 82, 83);
+}
 .bookAuthors {
   color:#727272;
 }

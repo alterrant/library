@@ -1,6 +1,6 @@
 import {TypedUseSelectorHook, useDispatch, useSelector} from 'react-redux';
 import { useLocation } from 'react-router-dom';
-import {useEffect} from "react";
+import { useEffect } from 'react';
 
 export const useAppDispatch: () => AppDispatch = useDispatch;
 export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;
@@ -27,3 +27,18 @@ export const useFetch = (
 
         }, [...deps]);
 };
+
+/* type ToggleStatusType = {
+    isOpen: boolean;
+};
+
+export const useToggleState = (initialStatus: boolean): [
+    status: ToggleStatusType,
+    setStatus: Dispatch<ToggleStatusType>
+] => {
+    const [status, setStatus] =
+        useState<ToggleStatusType>({ isOpen: initialStatus });
+
+    return [status, setStatus];
+} */
+

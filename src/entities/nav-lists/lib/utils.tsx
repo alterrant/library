@@ -1,1 +1,1 @@
-export const getCategoryName = (pathname: string) => pathname?.split('/')[1];
+export const getCategoryName = (pathname: string) => pathname.split('/')[1]!;

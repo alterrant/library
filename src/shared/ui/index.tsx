@@ -15,7 +15,8 @@ export { Arrow } from './arrow';
 export { Preloader } from './preloader';
 export { ErrorBoundary } from './error-boundary';
 export { BurgerMenu } from './burger-menu';
-export { PageNotFound } from './page-not-found';
+export { CenteredTemplate } from './templates/centered';
+export { TextWithHighlights } from './text-with-highlights';
 export {
     defaultAvatar,
     instagram,

@@ -29,11 +29,11 @@ export const NavList = ({
     }
 
     return (
-        <li onClick={onClick} data-test-id={dataTestId}>
+        <li onClick={onClick}>
             <NavLink to={link} className={
                 ({isActive}) => classNames(isActive && activeLinkClass, linkClass)
             }>
-            <span className={textClass}>
+            <span data-test-id={dataTestId} className={textClass}>
                 {text}
             </span>
                 {children}

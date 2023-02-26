@@ -1,6 +1,6 @@
-import {createSlice, PayloadAction} from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-import {initialState, BooksTypes} from "../lib";
+import { initialState, BooksTypes } from '../lib';
 
 const slice = createSlice({
     name: 'books',

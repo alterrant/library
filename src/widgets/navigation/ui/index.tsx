@@ -1,15 +1,17 @@
 import { Section } from './section';
-import { sections } from '../../../entities/nav-lists';
+import { CountedGenreType, sections } from '../../../entities/nav-lists';
 import { DataTestIdNavigationTypes } from '../types';
 
 import styles from '../navigation.module.css';
 
 type NavigationProps = {
+    countedGenres: CountedGenreType[];
     toggleBurgerStatus?: () => void;
     closeErrorsHandler?: () => void;
 } & DataTestIdNavigationTypes;
 
 export const Navigation = ({
+    countedGenres,
     toggleBurgerStatus,
     closeErrorsHandler,
     dataTestIdBurgerNavigation,
@@ -22,6 +24,7 @@ export const Navigation = ({
         <Section
             key={section.id}
             section={section}
+            countedGenres={countedGenres}
             toggleBurgerStatus={toggleBurgerStatus}
             closeErrorsHandler={closeErrorsHandler}
             dataTestIdFirstSection={dataTestIdFirstSection}

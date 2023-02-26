@@ -1,4 +1,4 @@
-import { GenresStateTypes } from ".";
+import { GenresStateTypes } from '.';
 
 export const initialState: GenresStateTypes = {
     isLoading: false,

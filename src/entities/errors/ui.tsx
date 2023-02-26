@@ -1,5 +1,5 @@
-import { ERROR_MESSAGES } from "../../shared/lib";
-import {Close, Warning} from "../../shared/ui";
+import { ERROR_MESSAGES } from '../../shared/lib';
+import { Close, Warning } from '../../shared/ui';
 
 import styles from './errors.module.css';
 

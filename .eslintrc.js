@@ -32,6 +32,7 @@ module.exports = {
         "react/jsx-boolean-value": "off",
         "react/no-array-index-key": "off",
         "react-hooks/exhaustive-deps": "off",
+        "no-bitwise": "off",
         "no-param-reassign": ["error", { "props": false }],
         "jsx-a11y/click-events-have-key-events": "off",
         "jsx-a11y/no-noninteractive-element-interactions": "off",

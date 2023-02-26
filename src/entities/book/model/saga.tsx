@@ -1,11 +1,11 @@
 import axios from 'axios';
-import {PayloadAction} from "@reduxjs/toolkit";
+import { PayloadAction } from "@reduxjs/toolkit";
 import { call, put, takeLatest } from 'redux-saga/effects';
 
-import { axiosInstance, API } from '../../../shared/api';
 import { getBook, setBook, setBookError } from '.';
+import { BookInfoTypes } from "../lib";
+import { axiosInstance, API } from '../../../shared/api';
 import { ERROR_MESSAGES } from '../../../shared/lib';
-import {BookInfoTypes} from "../lib";
 
 function* worker({ payload: id }: PayloadAction<string>) {
     try {

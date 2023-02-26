@@ -1,12 +1,12 @@
-import classNames from "classnames";
+import classNames from 'classnames';
 
 import {
     ToggleCardsStyle,
     toggleCardsStyleModel,
     ToggleStyleType
 } from '../../features/toggle-cards-style';
-import { Books, BooksModel } from '../../entities/books';
-import { CardStylesTypes } from '../../shared/lib';
+import { BooksTool, BooksToolModel } from '../../entities/books-tool';
+import {CardStylesTypes, useAppDispatch} from '../../shared/lib';
 
 import styles from './book-cards-tool.module.css';
 
@@ -23,7 +23,8 @@ export const Tool = ({cardsStyle, toggleStyle}: ToolProps) => {
         setActivatedStatus,
         setStatusChangedText,
         setOpenedInputStatus
-    } = BooksModel.useBooksSearchState();
+    } = BooksToolModel.useBooksSearchState();
+    const dispatch = useAppDispatch();
 
     return (
         <section className={classNames(
@@ -31,25 +32,27 @@ export const Tool = ({cardsStyle, toggleStyle}: ToolProps) => {
             isOpenedInput && styles.openedInput
         )}>
             <div className={styles.booksUtils}>
-                <Books.SearchBooks
-                    focusHandler={(event) => BooksModel.searchFocusHandler(
+                <BooksTool.SearchFilter
+                    focusHandler={(event) => BooksToolModel.searchFocusHandler(
                             event, setActivatedStatus, setStatusChangedText
                         )}
-                    changeHandler={(event) => BooksModel.searchChangeHandler(
-                            event, setActivatedStatus, setStatusChangedText
+                    changeHandler={(event) => BooksToolModel.searchChangeHandler(
+                            event, setActivatedStatus, setStatusChangedText, dispatch
                         )}
-                    blurHandler={(event) => BooksModel.searchBlurHandler(
+                    blurHandler={(event) => BooksToolModel.searchBlurHandler(
                             event, setActivatedStatus, setStatusChangedText
                         )}
                     openSearchBarHandler={() =>
-                        BooksModel.openSearchBarHandler(setOpenedInputStatus)}
+                        BooksToolModel.openSearchBarHandler(setOpenedInputStatus)}
                     closeSearchHandler={() =>
-                        BooksModel.closeSearchHandler(setOpenedInputStatus)}
+                        BooksToolModel.closeSearchHandler(setOpenedInputStatus)}
                     isActivated={isActivated}
                     isTextChanged={isTextChanged}
                     isOpenedInput={isOpenedInput}
                 />
-                <Books.BookCardsFilter/>
+                <BooksTool.RatingSort clickHandler={() =>
+                    BooksToolModel.sortClickHandler(dispatch)}
+                />
             </div>
             <ToggleCardsStyle
                 cardsStyle={cardsStyle}

@@ -1,5 +1,5 @@
 import { defaultAvatar, Stars } from '../../../../shared/ui';
-import {getImageSrc} from "../../../../shared/lib";
+import { getImageSrc } from '../../../../shared/lib';
 
 import styles from './book-review.module.css';
 

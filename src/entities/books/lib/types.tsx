@@ -29,6 +29,11 @@ export type BooksTypes = {
     }[],
 }[];
 
+export type BooksByGenresTypes = {
+    genre: string,
+    genreFilteredBooks: BooksTypes
+}[]
+
 export type BooksStateTypes = {
     isLoading: boolean;
     error: string;
