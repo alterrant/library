@@ -1,4 +1,4 @@
-import { LinkedTextWithArrowType, ORIENTATION } from "../../../shared/lib";
+import { LinkedTextWithArrowType, ORIENTATION } from '../../../shared/lib';
 
 const AUTHORISATION_PATH = 'auth';
 const AUTHORISATION_TEXT = 'Bход в личный кабинет';

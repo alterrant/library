@@ -1,6 +1,6 @@
-import { AuthLib, AuthModel } from "../../..";
-import { Templates } from "../../../../../shared/ui";
-import { useAppDispatch } from "../../../../../shared/lib";
+import { AuthLib, AuthModel } from '../../..';
+import { Templates } from '../../../../../shared/ui';
+import { useAppDispatch } from '../../../../../shared/lib';
 
 type ErrorContentProps = {
     errorMessage: string;

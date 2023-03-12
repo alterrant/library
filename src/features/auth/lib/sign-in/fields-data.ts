@@ -1,4 +1,4 @@
-import {FieldNameTypes} from "../types";
+import { FieldNameTypes } from '../types';
 import {
     ErrorMessages,
     PLACEHOLDERS,

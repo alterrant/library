@@ -1,8 +1,8 @@
-import {Dispatch} from "react";
+import { Dispatch } from 'react';
 
-import {FieldNamesStep1, FieldNamesStep2, FieldNamesStep3} from "./fields-data";
-import {FieldNameTypes, FormTypeStep} from "../types";
-import {FormFieldsDataTypes} from "../../../../shared/lib";
+import { FieldNamesStep1, FieldNamesStep2, FieldNamesStep3 } from './fields-data';
+import { FieldNameTypes, FormTypeStep } from '../types';
+import { FormFieldsDataTypes } from '../../../../shared/lib';
 
 export type RegistrationRequest = {
     email: string;

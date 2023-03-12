@@ -1,5 +1,5 @@
-import { Button } from "../../../button";
-import { MessagesTemplateConfigTypes } from "../../../../lib";
+import { Button } from '../../../button';
+import { MessagesTemplateConfigTypes } from '../../../../lib';
 
 import styles from './auth-messages-template.module.css';
 

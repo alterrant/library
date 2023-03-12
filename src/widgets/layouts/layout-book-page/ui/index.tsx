@@ -1,7 +1,7 @@
 import { Outlet, useParams } from 'react-router-dom';
 
 import { Book, BookModel } from '../../../../entities/book';
-import { NavListModel } from "../../../../entities/nav-lists";
+import { NavListModel } from '../../../../entities/nav-lists';
 import { useAppSelector } from '../../../../shared/lib';
 
 import styles from './layout-book-page.module.css';

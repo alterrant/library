@@ -1,6 +1,6 @@
-import { me } from "../slice";
-import { signInConfig } from "../../lib";
-import { DispatchAnyType } from "../../../../shared/lib";
+import { me } from '../slice';
+import { signInConfig } from '../../lib';
+import { DispatchAnyType } from '../../../../shared/lib';
 
 type FormFieldsDataType = signInConfig.Types.FormType;
 type SubmitHandlerType<

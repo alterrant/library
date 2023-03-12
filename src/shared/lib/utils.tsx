@@ -1,4 +1,4 @@
-import {BASE_URL, Nullable} from ".";
+import {BASE_URL, Nullable} from '.';
 
 export const getDate = (
     dateString: Nullable<string> | undefined,

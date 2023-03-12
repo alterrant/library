@@ -1,8 +1,8 @@
-import { Control } from "react-hook-form";
+import { Control } from 'react-hook-form';
 
-import { Types } from ".";
-import { FormTypeStep } from "../types";
-import { ErrorMessages } from "../../../../shared/lib";
+import { Types } from '.';
+import { FormTypeStep } from '../types';
+import { ErrorMessages } from '../../../../shared/lib';
 
 export const getSubtitle = (step: number) => `${step + 1} шаг из 3`
 

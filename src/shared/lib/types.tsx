@@ -1,6 +1,6 @@
 import { Dispatch, SyntheticEvent } from 'react';
-import { ValidationRule } from "react-hook-form";
-import { AnyAction } from "redux";
+import { ValidationRule } from 'react-hook-form';
+import { AnyAction } from 'redux';
 
 import { CARD_STYLES, INPUT_TYPES, ORIENTATION } from './config';
 

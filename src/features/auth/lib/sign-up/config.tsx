@@ -1,4 +1,4 @@
-import {LinkedTextWithArrowType, ORIENTATION} from "../../../../shared/lib";
+import { LinkedTextWithArrowType, ORIENTATION } from '../../../../shared/lib';
 
 export const TITLE = 'Регистрация';
 

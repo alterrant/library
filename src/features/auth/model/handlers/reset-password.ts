@@ -1,6 +1,6 @@
-import { resetPassAttempt } from "../slice";
-import { resetPassConfig } from "../../lib";
-import { DispatchAnyType } from "../../../../shared/lib";
+import { resetPassAttempt } from '../slice';
+import { resetPassConfig } from '../../lib';
+import { DispatchAnyType } from '../../../../shared/lib';
 
 type FormFieldsDataType = resetPassConfig.Types.FormType;
 type SubmitHandlerType<

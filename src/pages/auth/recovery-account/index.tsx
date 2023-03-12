@@ -1,6 +1,6 @@
-import { useSearchParams } from "react-router-dom";
+import { useSearchParams } from 'react-router-dom';
 
-import { ForgotPassword, ResetPassword } from "..";
+import { ForgotPassword, ResetPassword } from '..';
 
 export const RecoveryAccount = () => {
     const [searchParams] = useSearchParams();

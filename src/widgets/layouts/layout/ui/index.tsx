@@ -1,5 +1,5 @@
 import { Outlet } from 'react-router-dom';
-import {useEffect, useState} from "react";
+import { useEffect, useState } from 'react';
 
 import { NavListModel } from 'entities/nav-lists';
 import { useCheckErrors } from '../model';

@@ -1,7 +1,7 @@
 import { combineReducers } from '@reduxjs/toolkit';
 
 import { NavListModel } from '../../entities/nav-lists';
-import { BooksModel } from "../../entities/books";
+import { BooksModel } from '../../entities/books';
 import { BookModel } from '../../entities/book';
 import { BooksToolModel } from '../../entities/books-tool';
 import { AuthModel } from '../../features/auth';

@@ -6,7 +6,7 @@ import {
     ToggleStyleType
 } from '../../../features/toggle-cards-style';
 import { BooksTool, BooksToolModel } from '../../../entities/books-tool';
-import {CardStylesTypes, useAppDispatch} from '../../../shared/lib';
+import { CardStylesTypes, useAppDispatch } from '../../../shared/lib';
 
 import styles from './book-cards-tool.module.css';
 

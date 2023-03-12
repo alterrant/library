@@ -1,10 +1,10 @@
 import { FormProvider } from 'react-hook-form';
 
-import { RestoreAccount } from "./restore-account";
-import { AuthModel, AuthLib } from "../../..";
+import { RestoreAccount } from './restore-account';
+import { AuthModel, AuthLib } from '../../..';
 import { Templates } from '../../../../../shared/ui';
 import { FormInput } from '../../../../../entities/form-input';
-import { checkObjectEmpty } from "../../../../../shared/lib";
+import { checkObjectEmpty } from '../../../../../shared/lib';
 
 type FormType = {
     isInvalidAuthorisation: boolean;

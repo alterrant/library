@@ -1,4 +1,4 @@
-import { INPUT_HELPER } from "../../../../lib/forgot-password";
+import { INPUT_HELPER } from '../../../../lib/forgot-password';
 
 import styles from './form-input-description.module.css';
 

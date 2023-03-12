@@ -1,7 +1,7 @@
 import {AxiosError, AxiosRequestHeaders, InternalAxiosRequestConfig} from 'axios';
 
-import {axiosInstance} from ".";
-import {TOKEN} from "../lib";
+import {axiosInstance} from '.';
+import {TOKEN} from '../lib';
 
 const onRequest = (config: InternalAxiosRequestConfig) => {
     const token = localStorage.getItem(TOKEN);

@@ -1,8 +1,8 @@
 import { FormProvider } from 'react-hook-form';
 
-import { useSignUpForm, handlers } from "../../../model";
+import { useSignUpForm, handlers } from '../../../model';
 import { signUpConfig } from '../../../lib';
-import { Types } from "../../../lib/sign-up";
+import { Types } from '../../../lib/sign-up';
 import { Templates } from '../../../../../shared/ui';
 import { FormInputs } from './inputs';
 

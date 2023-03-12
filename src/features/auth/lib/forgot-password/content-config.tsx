@@ -1,4 +1,4 @@
-import { MessagesTemplateConfigTypes } from "../../../../shared/lib";
+import { MessagesTemplateConfigTypes } from '../../../../shared/lib';
 // SUCCESS_CONSTANTS
 const SUCCESS_TITLE = 'Письмо выслано';
 const SUCCESS_MESSAGE = `Перейдите в вашу почту, чтобы воспользоваться подсказками по восстановлению пароля`;

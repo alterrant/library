@@ -1,4 +1,4 @@
-import classNames from "classnames";
+import classNames from 'classnames';
 
 import {
     validators,
@@ -9,7 +9,7 @@ import {
     ResetPasswordFieldNames
 } from '../../../shared/lib';
 
-import styles from "../ui/form-input.module.css";
+import styles from '../ui/form-input.module.css';
 
 export const getValidationRules = (
     validationRules: ValidationRulesTypes | undefined,

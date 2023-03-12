@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { call, put, takeLatest } from 'redux-saga/effects';
-import { PayloadAction } from "@reduxjs/toolkit";
+import { PayloadAction } from '@reduxjs/toolkit';
 
 import {
     setSuccess,

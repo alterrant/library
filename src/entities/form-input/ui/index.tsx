@@ -1,12 +1,12 @@
-import React, {ChangeEvent, useState} from "react";
+import React, {ChangeEvent, useState } from 'react';
 import MaskedInput from 'react-text-mask';
-import {Control, useController} from "react-hook-form";
+import { Control, useController } from 'react-hook-form';
 
-import {FieldNamesStep1, FieldNamesStep2, FieldNamesStep3, signUpConfig} from "features/auth/lib";
-import { HelpText } from "./help-text";
-import { FormInputLib, FormInputModel } from "..";
-import {FieldName} from "../../../features/auth/lib/forgot-password";
-import {getControllerOptions} from "../../../features/auth/lib/sign-up";
+import { FieldNamesStep1, FieldNamesStep2, FieldNamesStep3, signUpConfig } from 'features/auth/lib';
+import { HelpText } from './help-text';
+import { FormInputLib, FormInputModel } from '..';
+import { FieldName } from '../../../features/auth/lib/forgot-password';
+import { getControllerOptions } from '../../../features/auth/lib/sign-up';
 import { CheckCircle, Underline } from '../../../shared/ui';
 import {
     ErrorMessages,

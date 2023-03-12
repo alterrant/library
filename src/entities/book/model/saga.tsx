@@ -1,9 +1,9 @@
 import axios from 'axios';
-import { PayloadAction } from "@reduxjs/toolkit";
+import { PayloadAction } from '@reduxjs/toolkit';
 import { call, put, takeLatest } from 'redux-saga/effects';
 
 import { getBook, setBook, setBookError } from '.';
-import { BookInfoTypes } from "../lib";
+import { BookInfoTypes } from '../lib';
 import { axiosInstance, BOOKS_API } from '../../../shared/api';
 import { ErrorMessages } from '../../../shared/lib';
 

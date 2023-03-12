@@ -3,8 +3,8 @@ import {
     REGISTRATION_TEXT,
     REGISTRATION_PATH,
     RECOVERY_PASSWORD_TITLE
-} from "../config";
-import { LinkedTextWithArrowType, ORIENTATION } from "../../../../shared/lib";
+} from '../config';
+import { LinkedTextWithArrowType, ORIENTATION } from '../../../../shared/lib';
 
 export const TITLE = RECOVERY_PASSWORD_TITLE;
 

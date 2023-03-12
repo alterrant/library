@@ -1,7 +1,7 @@
-import {booksToolSelector} from "../../model";
+import { booksToolSelector } from '../../model';
 import { FILTER_TEXT } from '../../lib';
 import { Button } from '../../../../shared/ui';
-import {useAppSelector} from "../../../../shared/lib";
+import { useAppSelector } from '../../../../shared/lib';
 import { ReactComponent as Descending } from './assets/descending.svg';
 import { ReactComponent as Ascending } from './assets/ascending.svg';
 

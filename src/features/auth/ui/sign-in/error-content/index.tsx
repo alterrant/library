@@ -1,6 +1,6 @@
-import { AuthModel, AuthLib } from "../../..";
-import { Templates } from "../../../../../shared/ui";
-import { useAppDispatch } from "../../../../../shared/lib";
+import { AuthModel, AuthLib } from '../../..';
+import { Templates } from '../../../../../shared/ui';
+import { useAppDispatch } from '../../../../../shared/lib';
 
 export const ErrorContent = () => {
     const dispatch = useAppDispatch();

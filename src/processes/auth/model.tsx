@@ -1,8 +1,8 @@
-import {Outlet, useNavigate} from "react-router-dom";
-import {useEffect} from "react";
+import { Outlet, useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
 
-import {TOKEN, useAppSelector, usePathname} from "../../shared/lib";
-import {authSelector} from "../../features/auth/model";
+import { TOKEN, useAppSelector, usePathname } from '../../shared/lib';
+import { authSelector } from '../../features/auth/model';
 
 export const Provider = () => {
     const navigate = useNavigate();

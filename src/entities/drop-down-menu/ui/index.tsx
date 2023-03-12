@@ -1,4 +1,4 @@
-import {forwardRef, ReactNode, RefObject} from 'react';
+import { forwardRef, ReactNode, RefObject } from 'react';
 
 import { LOG_OUT, PROFILE } from '../config';
 import { NavList, Underline } from '../../../shared/ui';

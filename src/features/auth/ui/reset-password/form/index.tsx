@@ -1,8 +1,8 @@
-import { FormProvider } from "react-hook-form";
+import { FormProvider } from 'react-hook-form';
 
-import { AuthLib, AuthModel } from "features/auth";
-import { Templates } from "shared/ui";
-import { FormInput } from "../../../../../entities/form-input";
+import { AuthLib, AuthModel } from 'features/auth';
+import { Templates } from 'shared/ui';
+import { FormInput } from '../../../../../entities/form-input';
 
 type FormProps = {
     code: string;

@@ -1,4 +1,4 @@
-import { MessagesTemplateConfigTypes } from "../../../../shared/lib";
+import { MessagesTemplateConfigTypes } from '../../../../shared/lib';
 // ERRORS_CONSTANTS
 const ERROR_TITLE = 'Вход не выполнен';
 const ERROR_MESSAGE = `Что-то пошло не так. Попробуйте ещё раз`;

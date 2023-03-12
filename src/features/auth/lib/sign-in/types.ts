@@ -1,5 +1,5 @@
-import { FormTypeStep, UserType } from "../types";
-import { FieldNames } from "./fields-data";
+import { FieldNames } from './fields-data';
+import { FormTypeStep, UserType } from '../types';
 
 export type StateTypes = {
     isLoading: boolean;

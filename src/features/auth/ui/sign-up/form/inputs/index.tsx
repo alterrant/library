@@ -1,8 +1,8 @@
-import { Control, FieldErrors } from "react-hook-form";
+import { Control, FieldErrors } from 'react-hook-form';
 
-import { signUpConfig } from "../../../../lib";
-import { FormInput } from "../../../../../../entities/form-input";
-import { Types } from "../../../../lib/sign-up";
+import { signUpConfig } from '../../../../lib';
+import { FormInput } from '../../../../../../entities/form-input';
+import { Types } from '../../../../lib/sign-up';
 
 type InputsProps = {
     dataFields: Types.DatumFieldsTypes;

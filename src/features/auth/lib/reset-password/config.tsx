@@ -1,4 +1,4 @@
-import { RECOVERY_PASSWORD_TITLE } from "../config";
+import { RECOVERY_PASSWORD_TITLE } from '../config';
 
 export const TITLE = RECOVERY_PASSWORD_TITLE;
 

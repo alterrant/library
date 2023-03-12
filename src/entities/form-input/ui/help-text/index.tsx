@@ -1,5 +1,5 @@
-import {TextWithHighlights} from "../../../../shared/ui";
-import {validators} from "../../../../shared/lib";
+import { TextWithHighlights } from '../../../../shared/ui';
+import { validators } from '../../../../shared/lib';
 
 import styles from './help-text.module.css';
 

@@ -1,8 +1,8 @@
-import { NavigateFunction } from "react-router-dom";
+import { NavigateFunction } from 'react-router-dom';
 
-import { AuthLib, AuthModel } from "../../..";
-import { Templates } from "../../../../../shared/ui";
-import { DispatchAnyType } from "../../../../../shared/lib";
+import { AuthLib, AuthModel } from '../../..';
+import { Templates } from '../../../../../shared/ui';
+import { DispatchAnyType } from '../../../../../shared/lib';
 
 type SuccessContentProps = {
     dispatch: DispatchAnyType;

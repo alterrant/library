@@ -1,5 +1,5 @@
-import { DATA_NOT_SAVED, ENTRY, REPEAT } from "../config";
-import { MessagesTemplateConfigTypes } from "../../../../shared/lib";
+import { DATA_NOT_SAVED, ENTRY, REPEAT } from '../config';
+import { MessagesTemplateConfigTypes } from '../../../../shared/lib';
 // SUCCESS_CONSTANTS
 const SUCCESS_TITLE = 'Регистрация успешна';
 const SUCCESS_MESSAGE = `Регистрация прошла успешно. Зайдите в личный кабинет, используя свои логин и пароль`;

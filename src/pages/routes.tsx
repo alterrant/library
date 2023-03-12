@@ -1,12 +1,12 @@
 // import { lazy } from 'react';
 import { Navigate } from 'react-router-dom';
 
-import { BookPage } from "./book";
-import { MainPage } from "./main";
-import { Layout, LayoutMainPage, LayoutBookPage } from "../widgets/layouts";
-import { Terms } from "../widgets/terms";
-import { CONTRACT_TITLE, RULES_TITLE } from "../shared/lib";
-import { ErrorBoundary } from "../shared/ui";
+import { BookPage } from './book';
+import { MainPage } from './main';
+import { Layout, LayoutMainPage, LayoutBookPage } from '../widgets/layouts';
+import { Terms } from '../widgets/terms';
+import { CONTRACT_TITLE, RULES_TITLE } from '../shared/lib';
+import { ErrorBoundary } from '../shared/ui';
 
 // TODO: реализовать lazy loading и suspense
 // const TestPage = lazy(() => import("./test"));

@@ -1,8 +1,8 @@
-import classNames from "classnames";
-import { nanoid } from "@reduxjs/toolkit";
-import { Fragment, ReactNode } from "react";
+import classNames from 'classnames';
+import { nanoid } from '@reduxjs/toolkit';
+import { Fragment, ReactNode } from 'react';
 
-import { ErrorMessages, getMatches, getRegExp } from "../../lib";
+import { ErrorMessages, getMatches, getRegExp } from '../../lib';
 
 import styles from './text-with-highlights.module.css';
 
