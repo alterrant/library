@@ -19,6 +19,6 @@ const onRequest = (config: InternalAxiosRequestConfig) => {
     return config;
 };
 
-const onRequestError = (error: AxiosError) => error;
+export const onRequestError = (error: AxiosError) => error;
 
 axiosInstance.interceptors.request.use(onRequest, onRequestError);
