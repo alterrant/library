@@ -28,5 +28,5 @@ export const AddToCart = ({
             buttonText={buttonText}
             classText={stylesColumnCard.cardButtonText}
             onClick={handleClick}
-            disabled={getButtonStatus()}/>
+            isDisabled={getButtonStatus()}/>
 )};

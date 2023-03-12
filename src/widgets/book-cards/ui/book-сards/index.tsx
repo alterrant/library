@@ -22,7 +22,7 @@ export const BookCards = ({
     const getHighlightTitle = useCallback((title: string, filterString: string) =>
         <TextWithHighlights
             title={title}
-            filterString={filterString}
+            filter={filterString}
         />, [filterString]
     );
 

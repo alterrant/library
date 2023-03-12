@@ -11,8 +11,8 @@ body {
   -webkit-font-smoothing:antialiased;
   -moz-osx-font-smoothing:grayscale;
   background-color:#ffffff;
-  color:#363636;
-  letter-spacing:0.1px;
+  color:rgb(54, 54, 54);
+  letter-spacing:.1px;
 }
 *,
 *:before,
@@ -48,8 +48,9 @@ a {
 a:not([class]) {
   text-decoration-skip-ink:auto;
 }
+/* TODO: проверить min-height(было 50px, изменил на 25) */
 img {
-  min-height:50px;
+  min-height:25px;
   max-height:100%;
   max-width:100%;
   display:block;

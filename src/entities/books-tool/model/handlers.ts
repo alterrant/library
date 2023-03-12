@@ -1,18 +1,17 @@
 import { Dispatch } from 'react';
-import { AnyAction } from 'redux';
 
 import { setFilterString, toggleRatingSort } from '.';
-import { InputEvent } from '../../../shared/lib';
+import { DispatchAnyType, InputEvent } from '../../../shared/lib';
 
 type SetStatus = Dispatch<boolean>;
 
-export const sortClickHandler = (dispatch: Dispatch<AnyAction>) => dispatch(toggleRatingSort());
+export const sortClickHandler = (dispatch: DispatchAnyType) => dispatch(toggleRatingSort());
 
 export const searchChangeHandler = (
     event: InputEvent,
     setActivatedStatus: SetStatus,
     setStatusChangedText: SetStatus,
-    dispatch: Dispatch<AnyAction>,
+    dispatch: DispatchAnyType,
 ) => {
     // change custom input text
     setStatusChangedText(true);

@@ -1,3 +1,4 @@
 import styles from './error-boundary.module.css';
 
-export const ErrorBoundary = () => <div className={styles.errorBoundary}>Something went wrong</div>
+export const ErrorBoundary = ({text = 'Something went wrong'}) =>
+    <div className={styles.errorBoundary}>{text}</div>

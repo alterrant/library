@@ -1,54 +1,57 @@
 import React, { ReactNode } from 'react';
 import classNames from 'classnames';
 
-import { BUTTON_TYPES } from './config';
+import { ButtonTypes } from '../../lib';
 
 import styles from './button-style.module.css';
 
-type ButtonType = {
+type ButtonProps = {
     dataTestId?: string;
-    type?: typeof BUTTON_TYPES[keyof typeof BUTTON_TYPES];
+    type?: typeof ButtonTypes[keyof typeof ButtonTypes];
     buttonText?: string | ReactNode;
     onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
-    disabled?: boolean;
+    isDisabled?: boolean;
     classImg?: string;
     classText?: any,
     classButton?: any,
     src?: string;
     loading?: boolean;
     children?: ReactNode;
+    specialTextForTests?:boolean;
 };
 
-export const Button = React.forwardRef<HTMLButtonElement, ButtonType>(
+export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     (
         {
             dataTestId,
             classText,
             classButton,
             buttonText,
-            disabled = false,
+            isDisabled = false,
             onClick,
-            type = BUTTON_TYPES.BUTTON,
+            type = ButtonTypes.BUTTON,
             classImg,
             src,
             loading,
+            specialTextForTests,
             children,
         },
         ref
     ) => {
-        const buttonTextClass = classNames(classText);
-        const buttonClass = classNames(styles.button, classButton);
+        // const buttonTextClass = classNames(classText);
+        const buttonClass = classNames(styles.button, classButton, classText);
 
         return (
             <button
                 data-test-id={dataTestId}
                 ref={ref}
                 className={buttonClass}
-                disabled={disabled}
+                disabled={isDisabled}
                 onClick={onClick}
                 type={type}
             >
-                {buttonText && <span className={buttonTextClass}>{buttonText}</span>}
+                {buttonText}
+                {/* {buttonText && <span className={buttonTextClass}>{buttonText}</span>} */}
                 {src && <img className={classImg} src={src} alt="img" />}
                 {children}
             </button>

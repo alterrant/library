@@ -5,7 +5,7 @@ import { NavList, Underline } from '../../../../shared/ui';
 import { FONT_WEIGHT } from '../../../../shared/lib';
 import { SectionListProps } from '../../lib';
 
-import styles from '../../nav-list.module.css';
+import styles from '../nav-list.module.css';
 
 type FirstSectionListProps = SectionListProps & {
     arrow: ReactNode;

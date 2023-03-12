@@ -1,0 +1,90 @@
+.hidePassword {
+  position:absolute;
+  right:16px;
+  top:50%;
+  transform:translateY(-50%);
+
+  display:flex;
+  flex-direction:row-reverse;
+  justify-content:center;
+  align-content:center;
+  align-items:center;
+  column-gap:4px;
+
+  background:none;
+  border:none;
+  transition:.2s;
+}
+.button {
+  /*background: none;*/
+  border:none;
+  cursor:pointer;
+}
+.imgInputStyle {
+  opacity:0.3;
+  position:absolute;
+  left:16px;
+  top:50%;
+  transform:translateY(-50%);
+}
+.underlineError {
+  background-color:rgb(244, 44, 79);
+}
+.underline {
+  background-color:rgb(191, 196, 201);
+}
+.inputWrapper {
+  position:relative;
+  display:flex;
+  align-content:center;
+  flex-direction:column;
+  justify-content:center;
+  height:56px;
+  padding:19px 12px;
+  background:rgb(249, 249, 250);
+  border-radius:4px;
+}
+.blurForTest:has(+ div) {
+  display:none;
+}
+.emptyInput > div {
+  display:none;
+  position:absolute;
+  visibility:hidden;
+  opacity:0;
+  transition-duration:.2s;
+}
+.emptyInput > div:first-child {
+  transform:translateY(4px);
+}
+.inputWrapper input, textarea {
+  background:rgb(249, 249, 250);
+}
+.labelText {
+  transition:.2s;
+  padding-bottom:4px;
+  display:block;
+}
+.inputError {
+  box-shadow:0 0 8px 0 rgba(229, 42, 102, 0.44) !important;
+}
+.inputLabel {
+  display:block;
+  position:relative;
+  font-size:12px;
+  line-height:16px;
+  letter-spacing:0.2px;
+  color:#A7A7A7;
+}
+.input {
+  width:100%;
+  border:none;
+  outline:none;
+  font-size:14px;
+  line-height:18px;
+  letter-spacing:0.1px;
+  color:#363636;
+}
+.checkCircle {
+  pointer-events:none;
+}

@@ -4,7 +4,7 @@ import { NavList } from '../../../../shared/ui';
 import { FONT_WEIGHT } from '../../../../shared/lib';
 import { GenreType } from '../../lib';
 
-import styles from '../../nav-list.module.css';
+import styles from '../nav-list.module.css';
 
 type GenresProps = {
     dataTestId: string;

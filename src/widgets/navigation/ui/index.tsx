@@ -2,7 +2,7 @@ import { Section } from './section';
 import { CountedGenreType, sections } from '../../../entities/nav-lists';
 import { DataTestIdNavigationTypes } from '../types';
 
-import styles from '../navigation.module.css';
+import styles from './navigation.module.css';
 
 type NavigationProps = {
     countedGenres: CountedGenreType[];

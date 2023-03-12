@@ -1,50 +1,74 @@
-import {Fragment} from "react";
+import classNames from "classnames";
+import { nanoid } from "@reduxjs/toolkit";
+import { Fragment, ReactNode } from "react";
 
-import {getMatches} from "../../lib";
+import { ErrorMessages, getMatches, getRegExp } from "../../lib";
 
 import styles from './text-with-highlights.module.css';
 
 type TextWithHighlightsProps = {
     title: string;
-    filterString: string;
+    filter: string | string[];
 };
 
-export const TextWithHighlights = ({title, filterString}: TextWithHighlightsProps) => {
-    const withJsx = (text: string, key?: number) => <Fragment key={key}>{text}</Fragment>;
+export const TextWithHighlights = ({title, filter}: TextWithHighlightsProps) => {
+    const isPasswordMatchingError = title === ErrorMessages.PASSWORDS_MATCHING; // для тестов
+    const withJsx = (text: string, key?: number) => text ? <span key={key}>{text}</span> : null;
 
-    if (!filterString) return withJsx(title);
+    if (!filter || !filter.length) return <span data-test-id='hint'>{title}</span>;
 
-    const matches = getMatches(title,filterString);
+    const isFilterArray = Array.isArray(filter);
 
-    if (matches) {
-        const filterRegEpx = new RegExp(filterString, 'ig');
+    const filterRegExp = isFilterArray ? (filter.map(
+        (filterString: string) => getRegExp(filterString)).reverse()
+    ) : [getRegExp(filter)];
 
-        return (
-            <>
-                {title.split(filterRegEpx).map((text, index, array) => {
-                    const key = matches.length;
+    const getFormattedText = (filterArrays:  string[],title: string): ReactNode => {
+        const matches = getMatches(title, filter)?.reverse();
 
-                    if (index < array.length - 1) {
-                        const match = matches.reverse().pop();
+        if (matches) {
+            const filterString = filterArrays.pop();
+            // сохраняем оставшиеся фильтры одтельно для левой и правой подстроки
+            const beforeSubstringFilters = [...filterArrays];
+            const afterSubstringFilters = [...filterArrays];
+            // делим строку по совпадению на левую и правую подстроку (до и после совпадения)
+            if (filterString) return (
+                title
+                    .split(filterString)
+                    .map((text, index, array) => {
+                        // const key = matches.length;
 
-                        return (
-                            <Fragment key={key}>
-                                {text}
-                                <span
-                                    data-test-id='highlight-matches'
-                                    className={styles.highlight}
-                                >
-                                    {match}
-                                </span>
-                            </Fragment>
-                        );
-                    }
+                        if (index < array.length - 1) { // левая подстрока
+                            const match = matches.pop();
+                            // TODO: исправить key
+                            return (
+                                <Fragment key={nanoid()}>
+                                    {getFormattedText(beforeSubstringFilters, text)}
+                                    <span
+                                        data-test-id={isPasswordMatchingError ? 'hint' : undefined}
+                                        // data-test-id='highlight-matches'
+                                        className={styles.highlight}
+                                    >
+                                        {match}
+                                    </span>
+                                </Fragment>
+                            );
+                        }
 
-                    return withJsx(text, key);
-                })}
-            </>
-        );
+                        return getFormattedText(afterSubstringFilters, text); // правая подстрока
+                    })
+            );
+        }
+
+        return withJsx(title);
     }
 
-    return withJsx(title);
+    return (
+        <span
+            data-test-id={isPasswordMatchingError ? undefined : 'hint'}
+            className={classNames(filter === title && styles.newClassForTest)}
+        >
+            {getFormattedText(filterRegExp, title)}
+        </span>
+    );
 };

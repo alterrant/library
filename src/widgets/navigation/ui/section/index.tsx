@@ -6,8 +6,8 @@ import { DataTestIdNavigationTypes } from '../../types';
 import { ToggleDropDown, ToggleDropDownModule } from '../../../../features/toggle-drop-down';
 import { NavLists, CountedGenreType } from '../../../../entities/nav-lists';
 import { ORIENTATION } from '../../../../shared/lib';
-import { Arrow } from '../../../../shared/ui';
-// TODO: изменить toggleStatus на setStatus { open: true\false }
+import { Arrows } from '../../../../shared/ui';
+
 type SectionProps = DataTestIdNavigationTypes & {
     section: { id: string, text: string, link: string };
     countedGenres: CountedGenreType[];
@@ -52,7 +52,7 @@ export const Section = ({
                         categoryName={currentCategory}
                         closeErrorsHandler={closeErrorsHandler}
                         arrow={!!countedGenres.length && (
-                            <Arrow
+                            <Arrows.Arrow
                                 orientation={isOpen ? ORIENTATION.UP : ORIENTATION.DOWN}
                                 isColored
                             />

@@ -1,6 +1,6 @@
-import {TypedUseSelectorHook, useDispatch, useSelector} from 'react-redux';
+import { useEffect, } from 'react';
+import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
-import { useEffect } from 'react';
 
 export const useAppDispatch: () => AppDispatch = useDispatch;
 export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;
@@ -17,6 +17,7 @@ export const useFetch = (
     let isSecondEffect = false;
 
     useEffect(() => {
+
         if (!isSecondEffect && !isCached) {
             dispatch(action);
         }
@@ -24,21 +25,41 @@ export const useFetch = (
         return () => {
             isSecondEffect = true;
         };
-
-        }, [...deps]);
+        }, [...deps, ]);
 };
+// TODO: дописать useLocalStorage
+/*
+const getStorageData = (keyName: string) =>{
+    const savedItem = localStorage.getItem(keyName);
 
-/* type ToggleStatusType = {
-    isOpen: boolean;
-};
+    if (savedItem) return JSON.parse(savedItem);
+    return null
+}
+export type ValueType = Record<string, string>;
+type UseLocalStorageType = (keyName: string) => [value: ValueType, setValue: Dispatch<ValueType>];
+export const useLocalStorage: UseLocalStorageType = (keyName: string) => {
+    const [value, setValue] = useState<ValueType>(() => getStorageData(keyName));
 
-export const useToggleState = (initialStatus: boolean): [
-    status: ToggleStatusType,
-    setStatus: Dispatch<ToggleStatusType>
-] => {
-    const [status, setStatus] =
-        useState<ToggleStatusType>({ isOpen: initialStatus });
+    useEffect(() => {
+        localStorage.setItem(keyName, JSON.stringify(value));
+    }, [keyName, value]);
 
-    return [status, setStatus];
+    return [value, setValue];
 } */
+/*
+const getStorageData = (keyName: string) => {
+    return localStorage.getItem(keyName);
+}
 
+type ValueType = string;
+type UseLocalStorageType = (keyName: string, isSuccess: boolean) => [value: ValueType, setValue: Dispatch<ValueType>];
+export const useLocalStorage: UseLocalStorageType = (keyName, isSuccess) => {
+    const [value, setValue] = useState<ValueType>(() => getStorageData(keyName));
+
+    useEffect(() => {
+        //console.log(localStorage.getItem(keyName));
+        localStorage.setItem(keyName, value);
+    }, [keyName, value]);
+
+    return [value, setValue];
+} */
