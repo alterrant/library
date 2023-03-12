@@ -1,0 +1,28 @@
+.link {
+  display:flex;
+  align-items:center;
+  column-gap:12px;
+}
+.linkText {
+  font-weight:600;
+  font-size:12px;
+  line-height:18px;
+  letter-spacing:.2px;
+  text-transform:uppercase;
+}
+.link:active > p {
+  background:linear-gradient(233.73deg, #F83600 -16.08%, #F9D423 327.37%);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  text-fill-color:transparent;
+}
+.link > svg path {
+  transition-duration:.2s;
+  stroke:rgb(191, 196, 201);
+}
+.link:hover > svg path {
+  stroke:rgb(54, 54, 54);
+}
+.link:active > svg path {
+  stroke:url(#paint0_linear_2601_13784);
+}

@@ -1,5 +1,4 @@
-import { instance } from './axios-instance';
-
-export { instance as axiosInstance } from './axios-instance';
-export * from './config';
-
+export * from './axios-instance';
+export * from './books';
+export * from './auth';
+export * from './interceptors';

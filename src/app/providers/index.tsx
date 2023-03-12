@@ -1,6 +1,7 @@
 import compose from 'compose-function';
 
+import { withAuth } from './with-auth';
+import { withStore } from './with-store';
 import { withRouter } from './with-router';
-import { withStore } from "./with-store";
-// Первым должен идти withRouter
-export const withProviders = compose(withStore,withRouter);
+// withAuth должен идти перед withRouter
+export const withProviders = compose(withStore,withRouter, withAuth);

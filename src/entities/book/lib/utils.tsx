@@ -5,7 +5,7 @@ import { BookDetails, ImgSlideType } from '.';
 import { unsetBook } from '../../../shared/ui';
 import { getImageSrc, Nullable } from '../../../shared/lib';
 
-import styles from "../ui/detailed-book-info/detailed-book-info.module.css";
+import styles from '../ui/detailed-book-info/detailed-book-info.module.css';
 
 export const translateInfoKeys = (key:string) => {
     switch (key) {

@@ -1,0 +1,21 @@
+.link {
+  padding:0 12px;
+  font-size:12px;
+  line-height:16px;
+  letter-spacing:0.2px;
+  color:rgb(167, 167, 167);
+  transition-duration:.2s;
+}
+.link:hover {
+  color:rgb(54, 54, 54);
+}
+.errors {
+  padding:0 12px;
+  font-weight:500;
+  font-size:12px;
+  line-height:16px;
+  letter-spacing:0.2px;
+}
+.errors > p {
+  color:rgb(244, 44, 79);
+}

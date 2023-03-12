@@ -3,7 +3,7 @@ import { ReactNode } from 'react';
 import styles from './centred-template.module.css';
 
 type CenteredTemplateProps = {
-  dataTestId: string;
+  dataTestId?: string;
   children: ReactNode;
 };
 

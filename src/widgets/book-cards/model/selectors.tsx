@@ -1,4 +1,4 @@
-import {createSelector} from "@reduxjs/toolkit";
+import { createSelector } from '@reduxjs/toolkit';
 
 import { NavListModel, CountedGenreType } from '../../../entities/nav-lists';
 import { BooksModel, BooksByGenresTypes } from '../../../entities/books';

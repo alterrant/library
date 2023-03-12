@@ -1,8 +1,4 @@
-// import {Router as RemixRouter} from "@remix-run/router/dist/router";
-import { routes } from '../../pages';
+import { createHashRouter, RouteObject, RouterProvider } from 'react-router-dom';
 
-export const withRouter = (component: (routes: any) => React.ReactNode) => () => (
-    <>
-        {component(routes)}
-    </>
-);
+export const withRouter = (routes:  RouteObject[]) => () =>
+    <RouterProvider router={createHashRouter(routes)}/>
