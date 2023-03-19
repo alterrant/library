@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
 
-import { ToggleClickOutside } from 'features';
+import { ToggleClickOutside } from 'features/toggle-with-click-outside';
 import { ReactPortal, Templates } from 'shared/ui';
 import { ModalsStateType } from 'shared/lib';
 

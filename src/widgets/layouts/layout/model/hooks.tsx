@@ -4,7 +4,7 @@ import {
   SuccessSelectorNames,
   CheckSuccessesType,
 } from '../lib';
-import { BookInteractionsModel } from '../../../../features';
+import { BookInteractionsModel } from '../../../../features/book-interactions';
 import { NavListModel } from '../../../../entities/nav-lists';
 import { BooksModel } from '../../../../entities/books';
 import { BookModel } from '../../../../entities/book';

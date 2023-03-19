@@ -10,7 +10,7 @@ import {
   BookInteractionsModel,
   BookInteractions,
 } from 'features/book-interactions';
-import { AddToCart } from 'features';
+import { AddToCart } from 'features/add-to-cart';
 import { NavListModel } from 'entities/nav-lists';
 import { Book, BookModel } from 'entities/book';
 import { Preloader } from 'shared/ui';

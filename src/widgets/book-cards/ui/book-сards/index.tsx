@@ -1,6 +1,7 @@
 import { useCallback, useState } from 'react';
 
-import { AddToCart, BookInteractions } from 'features';
+import { AddToCart } from 'features/add-to-cart';
+import { BookInteractions } from 'features/book-interactions';
 import { BookCard, BooksTypes } from 'entities/books';
 import { TextWithHighlights } from 'shared/ui';
 import { AuthModel } from 'features/auth';
