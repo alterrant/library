@@ -1,0 +1,28 @@
+.wrapper {
+  position:fixed;
+  top:0;
+  left:0;
+  width:100vw;
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  overflow-y:scroll;
+  background:rgba(54, 54, 54, 0.3);
+  backdrop-filter:blur(10px);
+  z-index:9999;
+}
+.content {
+  width:100%;
+  max-width:550px;
+  position:relative;
+  border-radius:16px;
+  padding:48px 56px;
+  background-color:#FFFFFF;
+}
+.close {
+  position:absolute;
+  top:32px;
+  right:32px;
+  cursor:pointer;
+}

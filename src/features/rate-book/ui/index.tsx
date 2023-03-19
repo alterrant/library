@@ -4,15 +4,15 @@ import { Button } from '../../../shared/ui';
 import styles from './rate-book.module.css';
 
 type RateBookProps = {
-    handleClick: () => void;
+  setModalStatus: () => void;
 };
 
-export const RateBook = ({handleClick}: RateBookProps) => (
-    <Button
-        dataTestId='button-rating'
-        classButton={styles.cardButton}
-        buttonText={RATE_BOOK_TEXT}
-        classText={styles.cardButtonText}
-        onClick={handleClick}
-    />
+export const RateBook = ({ setModalStatus }: RateBookProps) => (
+  <Button
+    dataTestId='button-rate-book'
+    classButton={styles.button}
+    buttonText={RATE_BOOK_TEXT}
+    classText={styles.buttonText}
+    onClick={setModalStatus}
+  />
 );

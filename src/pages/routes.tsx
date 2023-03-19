@@ -12,44 +12,46 @@ import { ErrorBoundary } from '../shared/ui';
 // const TestPage = lazy(() => import("./test"));
 // Navigation вынесено из MainPage для соответствия с роутингом
 // TODO: вынести константные руты в отельный файл
-export const routes = [{
+export const routes = [
+  {
     path: '/',
-    element: <Layout/>,
-    errorElement: <ErrorBoundary/>,
+    element: <Layout />,
+    errorElement: <ErrorBoundary />,
     children: [
-        {
-            element: <LayoutMainPage/>,
-            children: [
-                {
-                    path: '/',
-                    element: <Navigate to='books/all'/>,
-                },
-                {
-                    path: 'books/:genres',
-                    element: <MainPage/>,
-                },
-                {
-                    path: 'books',
-                    element: <MainPage/>,
-                },
-                {
-                    path: 'terms',
-                    element: <Terms title={RULES_TITLE}/>,
-                },
-                {
-                    path: 'contract',
-                    element: <Terms title={CONTRACT_TITLE}/>,
-                },
-            ],
-        },
-        {
-            element: <LayoutBookPage/>,
-            children: [
-                {
-                    path: 'books/:genres/:id',
-                    element: <BookPage/>,
-                },
-            ]
-        },
+      {
+        element: <LayoutMainPage />,
+        children: [
+          {
+            path: '/',
+            element: <Navigate to='books/all' />,
+          },
+          {
+            path: 'books/:genres',
+            element: <MainPage />,
+          },
+          {
+            path: 'books',
+            element: <MainPage />,
+          },
+          {
+            path: 'terms',
+            element: <Terms title={RULES_TITLE} />,
+          },
+          {
+            path: 'contract',
+            element: <Terms title={CONTRACT_TITLE} />,
+          },
+        ],
+      },
+      {
+        element: <LayoutBookPage />,
+        children: [
+          {
+            path: 'books/:genres/:id',
+            element: <BookPage />,
+          },
+        ],
+      },
     ],
-}];
+  },
+];

@@ -9,39 +9,37 @@ import { CARD_STYLES, useAppSelector } from '../../../shared/lib';
 import { CenteredTemplate } from '../../../shared/ui';
 
 import styles from './book-cards-wrapper.module.css';
-// TODO: добавить логику брони
+
 export const BookCardsWrapper = ({ cardsStyle }: BookCardsWrapperProps) => {
-    const cardsClassName = classNames(
-        styles.container,
-        cardsStyle === CARD_STYLES.COLUMN && styles.columnCardsStyle
-    );
+  const cardsClassName = classNames(
+    styles.container,
+    cardsStyle === CARD_STYLES.COLUMN && styles.columnCardsStyle
+  );
 
-    const { booksByGenres } = useAppSelector(booksWithGenresSelector);
-    const { isDescendingRating, filterString } = useAppSelector(BooksToolModel.booksToolSelector);
+  const { booksByGenres } = useAppSelector(booksWithGenresSelector);
+  const { isDescendingRating, filterString } = useAppSelector(BooksToolModel.booksToolSelector);
 
-    const currentGenre = useParams().genres!;
-    const books = getOneGenreBooks(booksByGenres, currentGenre);
-    const filteredBooks = getFilters(isDescendingRating, filterString)(books);
+  const currentGenre = useParams().genres!;
+  const books = getOneGenreBooks(booksByGenres, currentGenre);
+  const filteredBooks = getFilters(isDescendingRating, filterString)(books);
 
-    if (!books.length) return (
-        <CenteredTemplate dataTestId='empty-category'>
-            {BOOKS.EMPTY_CATEGORY}
-        </CenteredTemplate>
-    );
-    if (!filteredBooks.length) return (
-        <CenteredTemplate dataTestId='search-result-not-found'>
-            {BOOKS.EMPTY_QUERY_RESULT}
-        </CenteredTemplate>
-    );
-
+  if (!books.length)
+    return <CenteredTemplate dataTestId='empty-category'>{BOOKS.EMPTY_CATEGORY}</CenteredTemplate>;
+  if (!filteredBooks.length)
     return (
-        <section className={cardsClassName}>
-            <BookCards
-                cardsStyle={cardsStyle}
-                filteredBooks={filteredBooks}
-                filterString={filterString}
-                currentGenre={currentGenre}
-            />
-        </section>
+      <CenteredTemplate dataTestId='search-result-not-found'>
+        {BOOKS.EMPTY_QUERY_RESULT}
+      </CenteredTemplate>
     );
+
+  return (
+    <section className={cardsClassName} data-test-id='content'>
+      <BookCards
+        cardsStyle={cardsStyle}
+        filteredBooks={filteredBooks}
+        filterString={filterString}
+        currentGenre={currentGenre}
+      />
+    </section>
+  );
 };

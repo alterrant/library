@@ -7,29 +7,29 @@ type UserInfoType = AuthLib.signUpConfig.Types.UserInfo;
 type SetUserInfoType = AuthLib.signUpConfig.Types.SetUserInfo;
 
 export const goToSignIn = (
-    setUserInfo: SetUserInfoType,
-    dispatch: DispatchAnyType,
-    navigate: NavigateFunction
+  setUserInfo: SetUserInfoType,
+  dispatch: DispatchAnyType,
+  navigate: NavigateFunction
 ) => {
-    setUserInfo({} as UserInfoType);
-    dispatch(AuthModel.resetState());
+  setUserInfo({} as UserInfoType);
+  dispatch(AuthModel.resetState());
 
-    navigate('../auth');
+  navigate('../auth');
 };
 
 type SetStepType = AuthLib.signUpConfig.Types.SetStep;
 
 export const tryAgain = (
-    setStep: SetStepType,
-    setUserInfo: SetUserInfoType,
-    dispatch: DispatchAnyType
+  setStep: SetStepType,
+  setUserInfo: SetUserInfoType,
+  dispatch: DispatchAnyType
 ) => {
-    setStep(AuthLib.signUpConfig.INITIAL_STEP);
-    setUserInfo({} as UserInfoType);
+  setStep(AuthLib.signUpConfig.INITIAL_STEP);
+  setUserInfo({} as UserInfoType);
 
-    dispatch(AuthModel.resetState());
+  dispatch(AuthModel.resetState());
 };
 
 export const retryRequest = (userInfo: UserInfoType, dispatch: DispatchAnyType) => {
-    dispatch(AuthModel.registration(userInfo));
+  dispatch(AuthModel.registration(userInfo));
 };

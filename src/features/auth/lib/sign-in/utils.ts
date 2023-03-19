@@ -1,4 +1,4 @@
-import {ErrorMessages} from '../../../../shared/lib';
+import { ErrorMessages } from '../../../../shared/lib';
 
 export const checkInvalidAuthorisationMessage = (errorMessage: string) =>
-    errorMessage === ErrorMessages.INVALID_AUTHORISATION;
+  errorMessage === ErrorMessages.INVALID_AUTHORISATION;

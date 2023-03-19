@@ -1,9 +1,9 @@
 type ErrorMessageType = {
-    errorMessage: string;
+  errorMessage: string;
 };
 // TODO: изменить классы ошибок
 export const ErrorMessage = ({ errorMessage }: ErrorMessageType) => (
-    <div className="error-text-wrapper">
-        <div className="error-text-message">{errorMessage}</div>
-    </div>
+  <div className='error-text-wrapper'>
+    <div className='error-text-message'>{errorMessage}</div>
+  </div>
 );

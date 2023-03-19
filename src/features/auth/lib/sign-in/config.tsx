@@ -9,7 +9,7 @@ export const SUBMIT_TEXT = 'Вход';
 export const REGISTRATION_INFO = NOT_REGISTERED;
 
 export const formFooterConfig: LinkedTextWithArrowType = {
-    path: REGISTRATION_PATH,
-    text: REGISTRATION_TEXT,
-    orientation: ORIENTATION.RIGHT
+  path: REGISTRATION_PATH,
+  text: REGISTRATION_TEXT,
+  orientation: ORIENTATION.RIGHT,
 };

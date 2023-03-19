@@ -1,2 +1,2 @@
 export { AddToCart } from './ui';
-export * from './config';
+export * from './lib/config';

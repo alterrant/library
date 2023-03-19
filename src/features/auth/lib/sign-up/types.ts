@@ -5,12 +5,12 @@ import { FieldNameTypes, FormTypeStep } from '../types';
 import { FormFieldsDataTypes } from '../../../../shared/lib';
 
 export type RegistrationRequest = {
-    email: string;
-    username: string;
-    password: string;
-    firstName: string;
-    lastName: string;
-    phone: string;
+  email: string;
+  username: string;
+  password: string;
+  firstName: string;
+  lastName: string;
+  phone: string;
 };
 export type Step = 0 | 1 | 2;
 export type SetStep = Dispatch<Step>;
@@ -27,5 +27,5 @@ export type FieldNameTypesStep3 = FieldNameTypes<typeof FieldNamesStep3>;
 
 export type FieldNameStepsTypes = FieldNameTypesStep1 | FieldNameTypesStep2 | FieldNameTypesStep3;
 
-export type DataFieldsType<T = FieldNameStepsTypes> = FormFieldsDataTypes<T>
+export type DataFieldsType<T = FieldNameStepsTypes> = FormFieldsDataTypes<T>;
 export type DatumFieldsTypes<T = DataFieldsType[]> = readonly [T, T, T];

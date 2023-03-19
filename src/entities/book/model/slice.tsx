@@ -1,26 +1,46 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
+import { UpdateBookingActionType } from 'shared/lib';
 
-import { BookInfoTypes, initialState } from '../lib';
+import {
+  BookInfoTypes,
+  GetBookPayloadType,
+  initialState,
+  SetBookErrorPayloadType,
+  SetBookPayloadType,
+  UpdateCommentsPayloadType,
+} from '../lib';
 
 const slice = createSlice({
-    name: 'bookInfo',
-    initialState,
-    reducers: {
-        getBook: (state, action: PayloadAction<string>) => {
-            state.isLoading = true;
-            state.error = '';
-            state.book = {} as BookInfoTypes;
-        },
-        setBook: (state, action: PayloadAction<BookInfoTypes>) => {
-            state.isLoading = false;
-            state.book = action.payload;
-        },
-        setBookError: (state, action: PayloadAction<string>) => {
-            state.isLoading = false;
-            state.error = action.payload;
-        },
+  name: 'bookInfo',
+  initialState,
+  reducers: {
+    getBook: (state, action: GetBookPayloadType) => {
+      state.isLoading = true;
+      state.error = '';
+      state.book = {} as BookInfoTypes;
     },
+    setBook: (state, { payload }: SetBookPayloadType) => {
+      state.isLoading = false;
+      state.book = payload;
+    },
+    sortReviews: (state) => {
+      if (state.book.comments) state.book.comments = state.book.comments.sort(
+          (a, b) => Date.parse(b.createdAt) - Date.parse(a.createdAt)
+        );
+    },
+    updateComments: (state, { payload }: UpdateCommentsPayloadType) => {
+      if (state.book.comments) state.book.comments.push(payload);
+      else state.book.comments = [payload];
+    },
+    updateBooking: (state, { payload }: UpdateBookingActionType) => {
+      state.book.booking = payload.booking;
+    },
+    setBookError: (state, { payload }: SetBookErrorPayloadType) => {
+      state.isLoading = false;
+      state.error = payload;
+    },
+  },
 });
 
-export const { getBook, setBook, setBookError } = slice.actions;
+export const { getBook, setBook, updateComments, updateBooking, setBookError, sortReviews } = slice.actions;
 export const { reducer } = slice;

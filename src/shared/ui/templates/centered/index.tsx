@@ -8,7 +8,7 @@ type CenteredTemplateProps = {
 };
 
 export const CenteredTemplate = ({ children, dataTestId }: CenteredTemplateProps) => (
-    <div data-test-id={dataTestId} className={styles.wrapper}>
-        {children}
-    </div>
+  <div data-test-id={dataTestId} className={styles.wrapper}>
+    {children}
+  </div>
 );

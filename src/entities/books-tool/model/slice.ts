@@ -3,16 +3,16 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { initialState, FilterStringType } from '../lib';
 
 const slice = createSlice({
-    name: 'books-tool',
-    initialState,
-    reducers: {
-        toggleRatingSort: (state) => {
-            state.isDescendingRating = !state.isDescendingRating;
-        },
-        setFilterString: (state, action: PayloadAction<FilterStringType>) => {
-            state.filterString = action.payload;
-        },
-    }
+  name: 'books-tool',
+  initialState,
+  reducers: {
+    toggleRatingSort: (state) => {
+      state.isDescendingRating = !state.isDescendingRating;
+    },
+    setFilterString: (state, { payload }: PayloadAction<FilterStringType>) => {
+      state.filterString = payload;
+    },
+  },
 });
 
 export const { toggleRatingSort, setFilterString } = slice.actions;

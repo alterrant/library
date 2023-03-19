@@ -60,9 +60,12 @@ const RULES_3_4 = `3.4. Повседневная практика показыв
 требует от нас анализа распределения внутренних резервов и ресурсов.`;
 
 export const RULES_DATA = [
-    [RULES_1, [RULES_1_1, RULES_1_2, RULES_1_3, RULES_1_4]],
-    [RULES_2, [RULES_2_1, [RULES_2_1_1, RULES_2_1_2], RULES_2_2]],
-    [RULES_3, [RULES_3_1, [RULES_3_1_1, RULES_3_1_2], RULES_3_2], RULES_3_3, [
-        RULES_3_3_1, [RULES_3_3_1_1, RULES_3_3_1_2], RULES_3_4]
-    ],
+  [RULES_1, [RULES_1_1, RULES_1_2, RULES_1_3, RULES_1_4]],
+  [RULES_2, [RULES_2_1, [RULES_2_1_1, RULES_2_1_2], RULES_2_2]],
+  [
+    RULES_3,
+    [RULES_3_1, [RULES_3_1_1, RULES_3_1_2], RULES_3_2],
+    RULES_3_3,
+    [RULES_3_3_1, [RULES_3_3_1_1, RULES_3_3_1_2], RULES_3_4],
+  ],
 ];

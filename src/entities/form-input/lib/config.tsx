@@ -4,17 +4,34 @@ import eyeClosed from '../ui/assets/eye-closed.svg';
 import { INPUT_TYPES } from '../../../shared/lib';
 
 export const visiblePasswordConfig: PasswordConfigTypes = {
-    type: INPUT_TYPES.TEXT,
-    alt: 'Скрыть пароль',
-    img: eyeOpen as string,
+  type: INPUT_TYPES.TEXT,
+  alt: 'Скрыть пароль',
+  img: eyeOpen as string,
 };
 export const hiddenPasswordConfig: PasswordConfigTypes = {
-    type: INPUT_TYPES.PASSWORD,
-    alt: 'Показать пароль',
-    img: eyeClosed as string,
+  type: INPUT_TYPES.PASSWORD,
+  alt: 'Показать пароль',
+  img: eyeClosed as string,
 };
 
-export const phoneMask=[
-    '+', '3', '7', '5', ' ', '(', /\d/, /\d/, ')', ' ',
-    /\d/, /\d/, /\d/, '-', /\d/, /\d/, '-', /\d/, /\d/
+export const phoneMask = [
+  '+',
+  '3',
+  '7',
+  '5',
+  ' ',
+  '(',
+  /\d/,
+  /\d/,
+  ')',
+  ' ',
+  /\d/,
+  /\d/,
+  /\d/,
+  '-',
+  /\d/,
+  /\d/,
+  '-',
+  /\d/,
+  /\d/,
 ];

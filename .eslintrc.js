@@ -35,6 +35,7 @@ module.exports = {
         "react-hooks/exhaustive-deps": "off",
         "react-hooks/rules-of-hooks": "off", // TODO: убрать это правило!
         "no-bitwise": "off",
+        /* "prefer-template": 'off', // TODO: убрать */
         "no-param-reassign": ["error", { "props": false }],
         "jsx-a11y/no-static-element-interactions": "off",
         "jsx-a11y/click-events-have-key-events": "off",

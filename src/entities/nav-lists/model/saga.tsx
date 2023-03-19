@@ -7,16 +7,16 @@ import { axiosInstance, BOOKS_API } from '../../../shared/api';
 import { ErrorMessages } from '../../../shared/lib';
 
 function* worker() {
-    try {
-        const { data } = yield call(axiosInstance.get, BOOKS_API.genresURL);
+  try {
+    const { data } = yield call(axiosInstance.get, BOOKS_API.genresURL);
 
-        yield put(setGenres(data as GenreType[]));
-    } catch (e) {
-        if (axios.isAxiosError(e)) yield put(setGenresError(e.message));
-        else yield put(setGenresError(ErrorMessages.FETCHING_GENRES_ERROR));
-    }
+    yield put(setGenres(data as GenreType[]));
+  } catch (e) {
+    if (axios.isAxiosError(e)) yield put(setGenresError(e.message));
+    else yield put(setGenresError(ErrorMessages.RELOAD_PAGE));
+  }
 }
 
 export function* genresWatcher() {
-    yield takeLatest(getGenres.type, worker);
+  yield takeLatest(getGenres.type, worker);
 }

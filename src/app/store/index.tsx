@@ -7,10 +7,11 @@ import { rootWatcher } from './root-watcher';
 const sagaMiddleware = createSagaMiddleware();
 
 export const store = configureStore({
-    reducer: rootReducer,
-    middleware: (getDefaultMiddleware) => [
-        ...getDefaultMiddleware({ thunk: false }), sagaMiddleware
-    ],
+  reducer: rootReducer,
+  middleware: (getDefaultMiddleware) => [
+    ...getDefaultMiddleware({ thunk: false }),
+    sagaMiddleware,
+  ],
 });
 
 sagaMiddleware.run(rootWatcher);

@@ -1,6 +1,6 @@
-import { Dispatch } from'react';
+import { Dispatch, MouseEvent } from 'react';
 
 import { CardStylesTypes } from '../../shared/lib';
 
-export type SVGMouseEventType = React.MouseEvent<SVGElement, MouseEvent>;
+export type SVGMouseEventType = MouseEvent<SVGElement, MouseEvent>;
 export type ToggleStyleType = Dispatch<CardStylesTypes>;

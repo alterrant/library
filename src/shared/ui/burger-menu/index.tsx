@@ -7,13 +7,13 @@ type BurgerMenuProps = {
 };
 
 export const BurgerMenu = ({ isOpen }: BurgerMenuProps) => {
-    const burgerClassName = classNames(styles.wrapper, isOpen && styles.open);
+  const burgerClassName = classNames(styles.wrapper, isOpen && styles.open);
 
-    return (
-        <div className={burgerClassName}>
-            <span className={styles.top} />
-            <span className={styles.middle} />
-            <span className={styles.bottom} />
-        </div>
-    );
+  return (
+    <div className={burgerClassName}>
+      <span className={styles.top} />
+      <span className={styles.middle} />
+      <span className={styles.bottom} />
+    </div>
+  );
 };

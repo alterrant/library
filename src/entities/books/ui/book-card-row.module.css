@@ -37,7 +37,7 @@
   color:#727272;
 }
 /* стили кнопки */
-.cardButton {
+.button {
   grid-area:bookButton;
   height:40px;
   max-width:175px;
@@ -65,7 +65,7 @@
   .bookAuthors {
     margin-bottom:0;
   }
-  .cardButton {
+  .button {
     margin-top:16px;
   }
 }
@@ -83,7 +83,7 @@
   .bookAuthors {
     margin-bottom:0;
   }
-  .cardButton {
+  .button {
     margin-top:16px;
   }
 }
