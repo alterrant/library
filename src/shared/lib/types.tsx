@@ -60,7 +60,7 @@ export type ModalsStateType = {
 
 export type UpdateCommentResponseType = {
   data: UpdateCommentResponseDataType;
-  meta: {};
+  meta: object;
 };
 
 export type UpdateCommentResponseDataType = {
@@ -76,7 +76,7 @@ export type UpdateCommentResponseDataType = {
 
 export type BookingResponseType = {
   data: BookingResponseDataType;
-  meta: {};
+  meta: object;
 };
 
 export type BookingResponseDataType = {
