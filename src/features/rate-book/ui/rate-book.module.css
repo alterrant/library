@@ -1,11 +1,11 @@
-.cardButton {
+.button {
   width:calc(710px - 25vw);
   height:40px;
   border-radius:20px;
   background:linear-gradient(231.58deg, rgb(248, 54, 0) -53.35%, rgb(249, 212, 35) 297.76%);
   color:rgb(255, 255, 255);
 }
-.cardButtonText {
+.buttonText {
   max-width:350px;
   font-weight:600;
   font-size:16px;
@@ -13,16 +13,20 @@
   letter-spacing:0.2px;
   text-transform:uppercase;
 }
-.cardButton:active {
+.button:active {
   box-shadow:0 3px 4px rgba(222, 125, 11, 0.2), 0 1px 10px rgba(249, 89, 8, 0.2);
 }
+.available {
+  background:linear-gradient(231.58deg, rgb(248, 54, 0) -53.35%, rgb(249, 212, 35) 297.76%);
+  color:rgb(255, 255, 255);
+}
 @media screen and (max-width:768px) {
-  .cardButton {
+  .button {
     width:100%;
   }
 }
 @media screen and (min-width:1440px) {
-  .cardButton {
+  .button {
     min-width:350px;
   }
 }

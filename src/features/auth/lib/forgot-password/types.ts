@@ -4,5 +4,5 @@ import { FormTypeStep } from '../types';
 export type FormType = FormTypeStep<FieldName>;
 
 export type ForgotPasswordRequest = {
-    email: string;
+  email: string;
 };

@@ -28,7 +28,13 @@
   max-width:350px;
   margin:16px 0;
 }
-.bookReviews {}
+.bookReviews {
+  display:flex;
+  flex-direction:column;
+}
+.bookReviews > button {
+  margin-top:62px;
+}
 @media screen and (max-width:768px) {
   .underline {
     max-width:309px;

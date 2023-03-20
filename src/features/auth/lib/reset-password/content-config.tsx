@@ -10,12 +10,12 @@ const ERROR_MESSAGE = 'Что-то пошло не так. Попробуйте 
 const ERROR_BUTTON_TEXT = REPEAT;
 // CONFIGS
 export const SUCCESS: MessagesTemplateConfigTypes = {
-    title: SUCCESS_TITLE,
-    message: SUCCESS_MESSAGE,
-    buttonText: SUCCESS_BUTTON_TEXT,
+  title: SUCCESS_TITLE,
+  message: SUCCESS_MESSAGE,
+  buttonText: SUCCESS_BUTTON_TEXT,
 };
 export const ERRORS: MessagesTemplateConfigTypes = {
-    title: ERROR_TITLE,
-    message: ERROR_MESSAGE,
-    buttonText: ERROR_BUTTON_TEXT,
+  title: ERROR_TITLE,
+  message: ERROR_MESSAGE,
+  buttonText: ERROR_BUTTON_TEXT,
 };

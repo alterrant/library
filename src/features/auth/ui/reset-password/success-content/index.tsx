@@ -5,20 +5,15 @@ import { Templates } from '../../../../../shared/ui';
 import { DispatchAnyType } from '../../../../../shared/lib';
 
 type SuccessContentProps = {
-    dispatch: DispatchAnyType;
-    navigate: NavigateFunction;
+  dispatch: DispatchAnyType;
+  navigate: NavigateFunction;
 };
 
 export const SuccessContent = ({ dispatch, navigate }: SuccessContentProps) => {
-    const { Configs } = AuthLib.resetPassConfig;
-    const { goToSignInResetHandler } = AuthModel.handlers;
+  const { Configs } = AuthLib.resetPassConfig;
+  const { goToSignInResetHandler } = AuthModel.handlers;
 
-    const goToSignIn = () => goToSignInResetHandler(dispatch, navigate);
+  const goToSignIn = () => goToSignInResetHandler(dispatch, navigate);
 
-    return (
-        <Templates.Auth.MessagesTemplate
-            {...Configs.SUCCESS}
-            clickHandler={goToSignIn}
-        />
-    );
+  return <Templates.Auth.MessagesTemplate {...Configs.SUCCESS} clickHandler={goToSignIn} />;
 };

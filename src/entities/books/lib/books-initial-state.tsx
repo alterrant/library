@@ -1,7 +1,7 @@
 import { BooksStateTypes } from './types';
 
 export const initialState: BooksStateTypes = {
-    isLoading: false,
-    error: '',
-    books: [],
+  isLoading: false,
+  error: '',
+  books: [],
 };

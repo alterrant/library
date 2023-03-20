@@ -1,14 +1,39 @@
 import { getClassName } from './utils';
 import { FootRightArrow, RightArrow } from '..';
-import { ORIENTATION } from '../../lib';
+import { DispatchAnyType, ORIENTATION } from '../../lib';
 
 type ArrowProps = {
-    orientation: ORIENTATION;
-    isColored?: boolean;
+  dataTestId?: string;
+  orientation: ORIENTATION;
+  isColored?: boolean;
+  className?: string;
+  onClick?: DispatchAnyType;
 };
+// TODO: добавил width, height, проверить!
+export const FootArrow = ({
+  dataTestId,
+  orientation,
+  isColored = false,
+  className,
+  onClick,
+}: ArrowProps) => (
+  <FootRightArrow
+    data-test-id={dataTestId}
+    className={getClassName(orientation, isColored, className)}
+    onClick={onClick}
+  />
+);
 
-export const FootArrow = ({ orientation, isColored = false }: ArrowProps) =>
-    <FootRightArrow className={getClassName(orientation, isColored)} />;
-
-export const Arrow = ({ orientation, isColored = false }: ArrowProps) =>
-    <RightArrow className={getClassName(orientation, isColored)} />;
+export const Arrow = ({
+  dataTestId,
+  orientation,
+  isColored = false,
+  className,
+  onClick,
+}: ArrowProps) => (
+  <RightArrow
+    data-test-id={dataTestId}
+    className={getClassName(orientation, isColored, className)}
+    onClick={onClick}
+  />
+);

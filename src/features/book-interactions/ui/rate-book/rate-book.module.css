@@ -1,0 +1,42 @@
+.rating {
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  row-gap:16px;
+}
+.title {
+  font-weight:600;
+  font-size:16px;
+  line-height:24px;
+  letter-spacing:0.1px;
+  color:rgb(54, 54, 54);
+}
+.textarea {
+  width:100%;
+  height:130px;
+  resize:none;
+  padding:19px 12px;
+  background:rgb(249, 249, 250);
+  border-radius:4px;
+  border:none;
+  outline:none;
+  font-size:16px;
+  line-height:24px;
+  letter-spacing:0.1px;
+}
+/* starWrapper */
+/* после тестов вернуть */
+/* .rating > ul {
+  display:inline-block;
+} */
+/* после тестов вернуть */
+.rating > ul > li {
+  /* float:right; */
+  height:42px;
+  cursor:pointer;
+}
+/* после тестов вернуть */
+/* .rating > ul > li:hover > svg,
+.rating > ul > li:hover ~ li > svg {
+  fill:rgb(255, 188, 31);
+} */

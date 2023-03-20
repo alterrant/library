@@ -5,21 +5,23 @@ import { TOKEN, useAppSelector, usePathname } from '../../shared/lib';
 import { authSelector } from '../../features/auth/model';
 
 export const Provider = () => {
-    const navigate = useNavigate();
-    const pathName = usePathname();
-    const { isSuccess } = useAppSelector(authSelector);
+  const navigate = useNavigate();
+  const pathName = usePathname();
+  const { isSuccess } = useAppSelector(authSelector);
 
-    useEffect(() => {
-        const token = localStorage.getItem(TOKEN);
+  useEffect(() => {
+    const token = localStorage.getItem(TOKEN);
 
-        if (!token) {
-            if ((pathName !== '/forgot-pass') && (pathName !== '/registration'))
-                navigate('auth');
-        }
-        else navigate('books/all');
-    }, [pathName, isSuccess]);
+    if (!token) {
+      if (pathName !== '/forgot-pass' && pathName !== '/registration') navigate('auth');
+    } else if (
+      pathName === '/forgot-pass' ||
+      pathName === '/registration' ||
+      pathName === '/auth'
+    ) {
+      navigate('books/all');
+    }
+  }, [pathName, isSuccess]);
 
-    return (
-        <Outlet />
-    )
+  return <Outlet />;
 };

@@ -4,11 +4,11 @@ import { AuthModel } from '../..';
 import { DispatchAnyType } from '../../../../shared/lib';
 
 export const goToSignIn = (dispatch: DispatchAnyType, navigate: NavigateFunction) => {
-    dispatch(AuthModel.resetState());
+  dispatch(AuthModel.resetState());
 
-    navigate('../auth');
+  navigate('../auth');
 };
 
 export const tryAgain = (dispatch: DispatchAnyType) => {
-    dispatch(AuthModel.resetState());
+  dispatch(AuthModel.resetState());
 };

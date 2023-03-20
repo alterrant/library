@@ -7,7 +7,7 @@ import unsetBook from './assets/unset-book.png';
 import testBook from './assets/test-book.png';
 
 export * as Templates from './templates';
-export * as Arrows  from './arrows';
+export * as Arrows from './arrows';
 
 export { Button } from './button';
 export { RoundImage } from './round-image';
@@ -20,6 +20,7 @@ export { BurgerMenu } from './burger-menu';
 export { CenteredTemplate } from './templates/centered';
 export { TextWithHighlights } from './text-with-highlights';
 export { LinkedTextWithArrow } from './linked-text-with-arrow';
+export { ReactPortal } from './react-portal';
 
 export { ReactComponent as BooksColumnStyleBtn } from './assets/books-column-style.svg';
 export { ReactComponent as BooksRowStyleBtn } from './assets/books-row-stile.svg';
@@ -32,12 +33,4 @@ export { ReactComponent as FootRightArrow } from './assets/foot-arrow-right.svg'
 export { ReactComponent as PositiveSignal } from './assets/positive-signal.svg';
 export { ReactComponent as CheckCircle } from './assets/check-circle.svg';
 
-export {
-    defaultAvatar,
-    instagram,
-    facebook,
-    vk,
-    linkedin,
-    unsetBook,
-    testBook,
-};
+export { defaultAvatar, instagram, facebook, vk, linkedin, unsetBook, testBook };

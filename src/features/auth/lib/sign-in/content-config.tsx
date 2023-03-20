@@ -5,7 +5,7 @@ const ERROR_MESSAGE = `Что-то пошло не так. Попробуйте 
 const ERROR_BUTTON_TEXT = 'повторить';
 // CONFIG
 export const ERRORS: MessagesTemplateConfigTypes = {
-    title: ERROR_TITLE,
-    message: ERROR_MESSAGE,
-    buttonText: ERROR_BUTTON_TEXT,
+  title: ERROR_TITLE,
+  message: ERROR_MESSAGE,
+  buttonText: ERROR_BUTTON_TEXT,
 };

@@ -14,17 +14,17 @@ const ERROR_MESSAGE = `Что-то пошло не так и ваша регис
 const ERROR_BUTTON_TEXT = REPEAT;
 // CONFIGS
 export const SUCCESS: MessagesTemplateConfigTypes = {
-    title: SUCCESS_TITLE,
-    message: SUCCESS_MESSAGE,
-    buttonText: SUCCESS_BUTTON_TEXT,
+  title: SUCCESS_TITLE,
+  message: SUCCESS_MESSAGE,
+  buttonText: SUCCESS_BUTTON_TEXT,
 };
 export const EXIST_ERROR: MessagesTemplateConfigTypes = {
-    title: ERROR_TITLE,
-    message: EXIST_ERROR_MESSAGE,
-    buttonText: EXIST_ERROR_BUTTON_TEXT,
+  title: ERROR_TITLE,
+  message: EXIST_ERROR_MESSAGE,
+  buttonText: EXIST_ERROR_BUTTON_TEXT,
 };
 export const ERRORS: MessagesTemplateConfigTypes = {
-    title: ERROR_TITLE,
-    message: ERROR_MESSAGE,
-    buttonText: ERROR_BUTTON_TEXT,
+  title: ERROR_TITLE,
+  message: ERROR_MESSAGE,
+  buttonText: ERROR_BUTTON_TEXT,
 };

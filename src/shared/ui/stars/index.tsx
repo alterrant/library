@@ -1,29 +1,44 @@
-import { ReactNode } from 'react';
+import { Dispatch, ReactNode } from 'react';
 
-import { ReactComponent as Star } from '../assets/star.svg';
-import { MAX_RATING } from '../../lib';
+import { MAX_RATING, ORANGE, SelectRatingStateType } from '../../lib';
 
 import styles from './stars.module.css';
+import { StarList } from './star';
 
 type StarsProps = {
-    rating: number | null;
+  isInvertStars?: boolean;
+  rating: number;
+  setRatingState?: Dispatch<SelectRatingStateType>;
 };
+// можем закрашивать только после "hover" .li:hover li~, поэтому инвертируем блок .ul {reverse:left}
+export const Stars = ({ rating, setRatingState, isInvertStars = false }: StarsProps) => {
+  const clickHandler = (index: number) => {
+    if (isInvertStars) {
+      if (setRatingState) setRatingState({ selectedRating: MAX_RATING - index });
+    } else if (setRatingState) {
+      setRatingState({ selectedRating: index + 1 });
+    }
+  };
 
-export const Stars = ({ rating }: StarsProps) => {
-        const stars: ReactNode[] = Array.from(Array(MAX_RATING).keys())
-            .map((star, index) => {
-                const key = star + index;
+  const stars: ReactNode[] = Array.from(Array(MAX_RATING).keys()).map((star, index) => {
+    const key = star + index;
 
-                if (rating !== null && index + 1 <= rating ) return (
-                    <Star key={key} fill='rgba(255, 188, 31, 1)' />
-                )
+    if (isInvertStars) {
+      if (MAX_RATING - index > rating)
+        return <StarList key={key} clickHandler={() => clickHandler(index)} />;
 
-                return <Star key={key} />
-        });
+      return <StarList color={ORANGE} clickHandler={() => clickHandler(index)} key={key} />;
+    }
 
-        return (
-            <div className={styles.starsWrapper}>
-                {stars}
-            </div>
-        )
+    if (rating !== null && index + 1 <= rating)
+      return <StarList color={ORANGE} clickHandler={() => clickHandler(index)} key={key} />;
+
+    return <StarList key={key} clickHandler={() => clickHandler(index)} />;
+  });
+
+  return (
+    <ul data-test-id='rating' className={styles.starsWrapper}>
+      {stars}
+    </ul>
+  );
 };

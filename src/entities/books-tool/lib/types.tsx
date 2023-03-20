@@ -1,6 +1,6 @@
 export type BooksToolInitialStateType = {
-    isDescendingRating: boolean;
-    filterString: string;
+  isDescendingRating: boolean;
+  filterString: string;
 };
 
 export type FilterStringType = string;

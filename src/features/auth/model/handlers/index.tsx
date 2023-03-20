@@ -5,11 +5,11 @@ export { submit as forgotPassSubmit } from './forgot-password';
 export { submit as resetPassSubmit } from './reset-password';
 export { tryAgain as tryAgainSignIn } from './sign-in-content';
 export {
-    tryAgain as tryAgainSignUp,
-    goToSignIn,
-    retryRequest as retrySignUpRequest
+  tryAgain as tryAgainSignUp,
+  goToSignIn,
+  retryRequest as retrySignUpRequest,
 } from './sign-up-content';
 export {
-    tryAgain as tryAgainResetPass,
-    goToSignIn as goToSignInResetHandler
+  tryAgain as tryAgainResetPass,
+  goToSignIn as goToSignInResetHandler,
 } from './reset-password-content';

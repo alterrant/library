@@ -1,7 +1,7 @@
 import { GenresStateTypes } from '.';
 
 export const initialState: GenresStateTypes = {
-    isLoading: false,
-    error: '',
-    genres: []
+  isLoading: false,
+  error: '',
+  genres: [],
 };

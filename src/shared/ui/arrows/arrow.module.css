@@ -1,4 +1,6 @@
 .arrow {
+  /*width:100%;*/
+  height:100%;
   transition-duration:.2s;
 }
 .colored path {

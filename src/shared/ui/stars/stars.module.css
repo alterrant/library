@@ -2,3 +2,11 @@
   display:flex;
   gap:6px;
 }
+.starWrapper {
+  display:flex;
+  align-items:center;
+}
+.star {
+  height:100%;
+  width:100%;
+}
