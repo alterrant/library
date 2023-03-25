@@ -1,7 +1,8 @@
 import { forwardRef, ReactNode } from 'react';
 
-import styles from './modal-template.module.css';
 import { ReactComponent as CloseModal } from './assets/close-modal.svg';
+
+import styles from './modal-template.module.css';
 
 type ModalProps = {
   children: ReactNode;

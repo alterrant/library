@@ -1,0 +1,35 @@
+.wrapper {
+  display:flex;
+  flex-direction:column;
+  row-gap:92px;
+}
+/* flexbox personInfo */
+.wrapper > div:first-child {
+  flex-direction:row-reverse;
+  justify-content:flex-end;
+}
+.wrapper > div:first-child > span {
+  font-weight:500;
+  font-size:52px;
+  line-height:64px;
+  letter-spacing:0.2px;
+}
+@media screen and (max-width:768px) {
+  .wrapper {
+    row-gap:64px;
+  }
+
+}
+@media screen and (max-width:320px) {
+  .wrapper {
+    row-gap:42px;
+  }
+  .wrapper > div:first-child > span {
+    font-size:26px;
+    line-height:36px;
+  }
+  .wrapper > div:first-child {
+    flex-direction:column-reverse;
+    row-gap:24px;
+  }
+}

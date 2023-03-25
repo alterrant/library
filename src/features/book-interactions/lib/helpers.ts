@@ -1,35 +1,15 @@
 import { BookModel } from 'entities/book';
 import { BooksModel } from 'entities/books';
-import { convertToStoreBookingPayload, convertToStoreComment } from '.';
-import {
-  BookingResponseDataType,
-  Nullable,
-  UpdateCommentResponseDataType
-} from '../../../shared/lib';
-import { UserType } from '../../auth/lib';
+import { UserModel } from 'entities/user';
 
-export const addCommentHelper = (data: UpdateCommentResponseDataType, user: UserType) => {
-  const { updateComments } = BookModel;
-  const newComment = convertToStoreComment(data, user);
+export const modelsHelper = () => {
+  const { getBooks } = BooksModel;
+  const { getBook } = BookModel;
+  const { me } = UserModel;
 
   return {
-    updateComments,
-    newComment,
-  };
-};
-
-export const bookingHelper = (
-  data: Nullable<BookingResponseDataType>,
-  user: UserType,
-  bookId: number
-) => {
-  const { updateBooking: updateBooksBooking } = BooksModel;
-  const { updateBooking: updateBookBooking } = BookModel;
-  const newBooking = convertToStoreBookingPayload(data, user, bookId);
-
-  return {
-    newBooking,
-    updateBooksBooking,
-    updateBookBooking,
+    getBooks,
+    getBook,
+    me
   };
 };

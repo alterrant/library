@@ -1,18 +1,19 @@
-import { ReactNode } from 'react';
+import React from 'react';
 
+import { RateBook } from 'features/book-interactions/ui/rate-book';
+import { ToggleDropDown, ToggleDropDownModule } from 'features/toggle-drop-down';
+import { Book, BookCommentsType } from 'entities/book';
+import { getDate, getFullName, ORIENTATION } from 'shared/lib';
+import { Arrows, Underline } from 'shared/ui';
 import { isOpenReviewsInitial, REVIEWS_TITLE, timeFormatOptions } from '../config';
-import { ToggleDropDown, ToggleDropDownModule } from '../../../features/toggle-drop-down';
-import { Book, BookCommentsType } from '../../../entities/book';
-import { getDate, getFullName, ORIENTATION } from '../../../shared/lib';
-import { Arrows, Underline } from '../../../shared/ui';
 
 import styles from './book-reviews.module.css';
 
 type BookReviewsProps = BookCommentsType & {
-  rateBtn: ReactNode;
+  bookId: number;
 };
 
-export const BookReviews = ({ comments, rateBtn }: BookReviewsProps) => {
+export const BookReviews = ({ comments, bookId }: BookReviewsProps) => {
   const [isOpen, toggleStatus] = ToggleDropDownModule.useToggleState(isOpenReviewsInitial);
 
   return (
@@ -47,7 +48,9 @@ export const BookReviews = ({ comments, rateBtn }: BookReviewsProps) => {
           <Arrows.Arrow orientation={isOpen ? ORIENTATION.UP : ORIENTATION.DOWN} />
         </div>
       </ToggleDropDown>
-      {rateBtn}
+      <div className={styles.rateWrapper}>
+        <RateBook bookId={bookId} />
+      </div>
     </section>
   );
 };

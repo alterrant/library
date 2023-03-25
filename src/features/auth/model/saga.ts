@@ -1,25 +1,19 @@
 import axios from 'axios';
 import { call, put, takeLatest } from 'redux-saga/effects';
-import { PayloadAction } from '@reduxjs/toolkit';
 
+import { AUTH_API, axiosInstance } from 'shared/api';
+import { ErrorMessages, TOKEN } from 'shared/lib';
+import { authorisation, forgotPassAttempt, registration, resetPassAttempt, setError, setSuccess } from '.';
 import {
-  setSuccess,
-  me,
-  registration,
-  forgotPassAttempt,
-  setError,
-  resetPassAttempt,
-  setUser,
-} from '.';
-import { signInConfig, signUpConfig, forgotPassConfig, resetPassConfig, UserType } from '../lib';
-import { axiosInstance, AUTH_API } from '../../../shared/api';
-import { ErrorMessages, TOKEN } from '../../../shared/lib';
+  AuthorisationActionType,
+  ForgotPassAttemptActionType,
+  RegistrationActionType,
+  ResetPassAttemptActionType,
+} from '../lib';
 
-function* meWorker({ payload }: PayloadAction<signInConfig.Types.FormType>) {
+function* authorisationWorker({ payload }: AuthorisationActionType) {
   try {
-    const { data } = yield call(axiosInstance.post, AUTH_API.authURL, payload);
-
-    yield put(setUser(data.user as UserType));
+    const { data } = yield call(axiosInstance.post, AUTH_API.auth, payload);
 
     localStorage.setItem(TOKEN, data.jwt);
 
@@ -34,11 +28,10 @@ function* meWorker({ payload }: PayloadAction<signInConfig.Types.FormType>) {
     } else yield put(setError(ErrorMessages.RELOAD_PAGE));
   }
 }
-function* registrationWorker({ payload }: PayloadAction<signUpConfig.Types.FormType>) {
+function* registrationWorker({ payload }: RegistrationActionType) {
   try {
-    yield call(axiosInstance.post, AUTH_API.registerURL, payload);
+    yield call(axiosInstance.post, AUTH_API.register, payload);
 
-    // yield put(setUser(data.user as UserType));
     yield put(setSuccess());
   } catch (e) {
     if (axios.isAxiosError(e)) {
@@ -50,9 +43,9 @@ function* registrationWorker({ payload }: PayloadAction<signUpConfig.Types.FormT
   }
 }
 
-function* forgotPassWorker({ payload }: PayloadAction<forgotPassConfig.Types.FormType>) {
+function* forgotPassWorker({ payload }: ForgotPassAttemptActionType) {
   try {
-    yield call(axiosInstance.post, AUTH_API.forgotPassURL, payload);
+    yield call(axiosInstance.post, AUTH_API.forgotPass, payload);
 
     yield put(setSuccess());
   } catch (e) {
@@ -62,9 +55,9 @@ function* forgotPassWorker({ payload }: PayloadAction<forgotPassConfig.Types.For
   }
 }
 
-function* resetPassWorker({ payload }: PayloadAction<resetPassConfig.Types.FormType>) {
+function* resetPassWorker({ payload }: ResetPassAttemptActionType) {
   try {
-    yield call(axiosInstance.post, AUTH_API.resetPassURL, payload);
+    yield call(axiosInstance.post, AUTH_API.resetPass, payload);
 
     yield put(setSuccess());
   } catch (e) {
@@ -75,7 +68,7 @@ function* resetPassWorker({ payload }: PayloadAction<resetPassConfig.Types.FormT
 }
 
 export function* authWatcher() {
-  yield takeLatest(me.type, meWorker);
+  yield takeLatest(authorisation.type, authorisationWorker);
   yield takeLatest(registration.type, registrationWorker);
   yield takeLatest(forgotPassAttempt.type, forgotPassWorker);
   yield takeLatest(resetPassAttempt.type, resetPassWorker);

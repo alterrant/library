@@ -1,11 +1,14 @@
 import { Fragment } from 'react';
 import { SwiperSlide } from 'swiper/react';
+import classNames from 'classnames';
+import { Swiper as SwiperInterface } from 'swiper';
 
 import { BookDetails, ImgSlideType } from '.';
 import { unsetBook } from '../../../shared/ui';
 import { getImageSrc, Nullable } from '../../../shared/lib';
 
 import styles from '../ui/detailed-book-info/detailed-book-info.module.css';
+import swiperStyles from '../ui/book-images-container/book-images-swiper.module.css';
 
 export const translateInfoKeys = (key: string) => {
   switch (key) {
@@ -44,20 +47,12 @@ export const translateInfoKeys = (key: string) => {
 // swiper slides
 const getImgSlide = ({ id, url }: ImgSlideType & { id: number }, dataTestId?: string) => (
   <SwiperSlide key={id}>
-    <img
-      data-test-id={dataTestId}
-      loading='lazy'
-      src={url ? getImageSrc(url) : unsetBook}
-      alt='swiper book'
-    />
+    <img data-test-id={dataTestId} loading='lazy' src={url ? getImageSrc(url) : unsetBook} alt='swiper book' />
     <div className='swiper-lazy-preloader' />
   </SwiperSlide>
 );
 // map должен возвращать именно SwiperSlide, а не другую компоненту
-export const getSwiperSlides = (
-  images: Nullable<ImgSlideType[]>,
-  dataTestId?: string
-) => {
+export const getSwiperSlides = (images: Nullable<ImgSlideType[]>, dataTestId?: string) => {
   if (images?.length) {
     return images.map((image, index) =>
       getImgSlide(
@@ -89,3 +84,13 @@ export const getBookInfoRows = (min: number, max: number, bookDetails: BookDetai
   Object.entries(bookDetails).map((item, index) => {
     if (index >= min && index <= max) return getRowsList(item[0], item[1]);
   });
+
+export const getThumbsClassName = (images: Nullable<ImgSlideType[]>) => {
+  if (images) return classNames(swiperStyles.swiperThumbs, images.length < 5 && swiperStyles.centeredSwiperThumbs);
+};
+
+export const getInitialThumbs = (swiperInstance?: SwiperInterface) => ({
+  swiper: swiperInstance && !swiperInstance.destroyed ? swiperInstance : null,
+});
+
+export const checkIsEmptyImages = (images: Nullable<ImgSlideType[]>) => images && images.length > 1;

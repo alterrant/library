@@ -28,6 +28,11 @@
   max-width:350px;
   margin:16px 0;
 }
+.rateWrapper {
+  width:calc(710px - 25vw);
+
+  margin-top:42px;
+}
 .bookReviews {
   display:flex;
   flex-direction:column;
@@ -42,5 +47,13 @@
   .title > p {
     font-size:16px;
     line-height:24px;
+  }
+  .rateWrapper {
+    width:100%;
+  }
+}
+@media screen and (min-width:1440px) {
+  .rateWrapper {
+    min-width:350px;
   }
 }

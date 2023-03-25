@@ -16,9 +16,9 @@ const slice = createSlice({
       state.error = '';
       state.books = [];
     },
-    setBooks: (state, action: SetBooksActionType) => {
+    setBooks: (state, { payload }: SetBooksActionType) => {
       state.isLoading = false;
-      state.books = action.payload;
+      state.books = payload;
     },
     updateBooking: (state, { payload }: UpdateBookingActionType) => {
       const book = state.books.find((book) => book.id === payload.id);
@@ -30,9 +30,9 @@ const slice = createSlice({
       state.error = payload;
     },
     resetBooks: (state) => {
-      state.isLoading = false;
-      state.error = '';
-      state.books = [];
+      state.isLoading = initialState.isLoading;
+      state.error = initialState.error;
+      state.books = initialState.books;
     },
   },
 });

@@ -17,7 +17,7 @@ export type BookingAttemptType = {
 
 export type ChangeBookingDateAttemptType = {
   bookingId: number;
-  attemptPayload: {
+  bookingPayload: {
     data: {
       order: boolean;
       dateOrder: string;
@@ -42,12 +42,15 @@ export type AddCommentAttemptType = {
 };
 
 export type ChangeCommentAttemptType = {
-  data: {
-    rating: number;
-    text: string;
-    book: string;
-    user: string;
-  };
+  commentPayload: {
+    data: {
+      rating: number;
+      text: string;
+      book: string;
+      user: string;
+    };
+  }
+  commentId?: number;
 };
 
 export type BookingPayloadType = PayloadAction<BookingAttemptType>;

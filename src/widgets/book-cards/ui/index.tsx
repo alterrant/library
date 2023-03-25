@@ -1,12 +1,12 @@
 import classNames from 'classnames';
 import { useParams } from 'react-router-dom';
 
+import { BooksToolModel } from 'entities/books-tool';
+import { CARD_STYLES, useAppSelector } from 'shared/lib';
+import { CenteredTemplate } from 'shared/ui';
 import { BookCards } from './book-сards';
 import { booksWithGenresSelector } from '../model';
 import { BookCardsWrapperProps, getFilters, getOneGenreBooks, BOOKS } from '../lib';
-import { BooksToolModel } from '../../../entities/books-tool';
-import { CARD_STYLES, useAppSelector } from '../../../shared/lib';
-import { CenteredTemplate } from '../../../shared/ui';
 
 import styles from './book-cards-wrapper.module.css';
 

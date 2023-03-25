@@ -11,7 +11,7 @@ export const getDate = (
 
 export const checkObjectEmpty = (obj: Record<string, any>) => Object.keys(obj).length === 0;
 
-export const getImageSrc = (url: string) => `${BASE_URL}${url}`;
+export const getImageSrc = (url?: Nullable<string>) => `${BASE_URL}${url}`;
 
 export const getFullName = (firstName: string, secondName: string) => `${firstName} ${secondName}`;
 // для match нужно двойное экранирование. Первую \ съедают ''

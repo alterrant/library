@@ -10,4 +10,9 @@
   align-items:center;
   gap:24px;
 }
+/* avatar */
+.reviewer > div {
+  min-width:35px;
+  width:auto;
+}
 .description {}

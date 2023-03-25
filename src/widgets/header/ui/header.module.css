@@ -10,6 +10,7 @@
   background-color:rgb(255, 255, 255);
 }
 .header {
+  max-height:108px;
   z-index:999;
   display:flex;
   justify-content:space-between;
@@ -83,13 +84,39 @@
   height:calc(100vh - 100% - 10px);
   max-width:500px;
   overflow-y:scroll;
+  border-radius:10px;
+  background:rgb(249, 249, 250);
+  box-shadow:0 2px 4px rgba(191, 196, 201, 0.2), 0 3px 4px rgba(191, 196, 201, 0.18), 0 1px 5px rgba(191, 196, 201, 0.24);
+}
+.dropDownMenu > ul {
+  border-radius:unset;
 }
 .profileWrapper {
+  height:100%;
   position:relative;
+  cursor:pointer;
+}
+.profileWrapper:hover > .dropDownProfile {
+  visibility:visible;
+  opacity:1;
+  transform:translateY(0);
 }
 .dropDownProfile {
-  width:100%;
+  width:calc(100% + 75px);
   position:absolute;
+  top:100%;
+  right:0;
+  transform:translateY(-20px);
+  visibility:hidden;
+  opacity:0;
+  border-radius:10px;
+  background:rgb(255, 255, 255);
+  box-shadow:0 4px 4px rgba(191, 196, 201, 0.2), 0 4px 4px rgba(191, 196, 201, 0.18), 0 4px 5px rgba(191, 196, 201, 0.24);
+  transition-duration:.2s;
+}
+/* dropDownMenuFooter */
+.dropDownProfile > ul > ul {
+  align-items:flex-end;
 }
 @media screen and (max-width:1142px) {
   .header {

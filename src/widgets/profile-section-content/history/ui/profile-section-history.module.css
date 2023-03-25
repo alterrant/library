@@ -1,0 +1,7 @@
+/* drop-shadow - чтобы box-shadow работал, когда у родителя стоит overflow: hidden */
+/* padding-bottom для pagination, чтобы его не скрывало overflow: hidden */
+.swiper {
+  width:100%;
+  padding-bottom:48px;
+  filter:drop-shadow(0 2px 4px rgba(191, 196, 201, 0.62));
+}

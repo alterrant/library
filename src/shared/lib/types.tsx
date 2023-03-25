@@ -3,9 +3,9 @@ import { ValidationRule } from 'react-hook-form';
 import { AnyAction } from 'redux';
 import { PayloadAction } from '@reduxjs/toolkit';
 
+import { ModalNames } from 'features/book-interactions/lib/configs';
+import { BookingType } from 'entities/books/lib';
 import { CARD_STYLES, INPUT_TYPES, ORIENTATION } from './config';
-import { ModalNames } from '../../features/book-interactions/lib';
-import { BookingType } from '../../entities/books/lib';
 
 export type DispatchAnyType = Dispatch<AnyAction>;
 
@@ -13,8 +13,18 @@ export type CardStylesTypes = (typeof CARD_STYLES)[keyof typeof CARD_STYLES];
 export type InputEvent = SyntheticEvent<HTMLInputElement>;
 
 export type Nullable<T> = T | null;
+export type ObjectValuesType<T> = T[keyof T];
 
 export type InputTypes = (typeof INPUT_TYPES)[keyof typeof INPUT_TYPES];
+
+export type DefaultUserInfoType = {
+  email: string;
+  username: string;
+  password: string;
+  firstName: string;
+  lastName: string;
+  phone: string;
+};
 
 export type ValidationRulesTypes = {
   required?: ValidationRule<boolean> | string;

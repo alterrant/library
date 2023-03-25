@@ -8,7 +8,7 @@ import {
 } from '../../../../shared/lib';
 
 export enum FieldNamesStep1 {
-  LOGIN = 'username',
+  LOGIN = 'login',
   PASSWORD = 'password',
 }
 export enum FieldNamesStep2 {

@@ -1,44 +1,43 @@
-import {
-  ErrorSelectorNames,
-  CheckErrorsType,
-  SuccessSelectorNames,
-  CheckSuccessesType,
-} from '../lib';
+import { ErrorSelectorNames, CheckErrorsType, SuccessSelectorNames, CheckSuccessesType } from '../lib';
 import { BookInteractionsModel } from '../../../../features/book-interactions';
 import { NavListModel } from '../../../../entities/nav-lists';
 import { BooksModel } from '../../../../entities/books';
 import { BookModel } from '../../../../entities/book';
 import { useAppSelector } from '../../../../shared/lib';
+import { ProfileModel } from "../../../../features/profile";
+
 // TODO: привести к единообразию
 export const useCheckErrors = (): CheckErrorsType => {
   const { error: navError } = useAppSelector(NavListModel.genresSelector);
   const { error: booksError } = useAppSelector(BooksModel.booksSelector);
   const { error: bookError } = useAppSelector(BookModel.bookSelector);
-  const { errorMessage: bookInteractionsError } = useAppSelector(
-    BookInteractionsModel.bookInteractionsSelector
-  );
+  const { errorMessage: bookInteractionsError } = useAppSelector(BookInteractionsModel.bookInteractionsSelector);
+  const { error: profileError } = useAppSelector(ProfileModel.profileSelector);
 
   return {
-    isError: !!(navError || booksError || bookError || bookInteractionsError),
+    isError: !!(navError || booksError || bookError || bookInteractionsError || profileError),
     errorSelector:
       (navError && ErrorSelectorNames.navError) ||
       (booksError && ErrorSelectorNames.booksError) ||
       (bookError && ErrorSelectorNames.bookError) ||
       (bookInteractionsError && ErrorSelectorNames.bookInteractionsError) ||
+      (bookInteractionsError && ErrorSelectorNames.bookInteractionsError) ||
+      (profileError && ErrorSelectorNames.profileError) ||
       '',
-    errorMessage: navError || booksError || bookError || bookInteractionsError || '',
+    errorMessage: navError || booksError || bookError || bookInteractionsError || profileError || '',
   };
 };
 
 export const useCheckSuccesses = (): CheckSuccessesType => {
-  const { successMessage: bookInteractionsSuccess } = useAppSelector(
-    BookInteractionsModel.bookInteractionsSelector
-  );
+  const { successMessage: bookInteractionsSuccess } = useAppSelector(BookInteractionsModel.bookInteractionsSelector);
+  const { success: profileSuccess } = useAppSelector(ProfileModel.profileSelector);
 
   return {
-    isSuccess: !!bookInteractionsSuccess,
+    isSuccess: !!(bookInteractionsSuccess || profileSuccess),
     successSelector:
-      (bookInteractionsSuccess && SuccessSelectorNames.bookInteractionsSuccess) || '',
-    successMessage: bookInteractionsSuccess || '',
+      (bookInteractionsSuccess && SuccessSelectorNames.bookInteractionsSuccess) ||
+      (profileSuccess && SuccessSelectorNames.profileSuccess) ||
+      '',
+    successMessage: bookInteractionsSuccess || profileSuccess || '',
   };
 };

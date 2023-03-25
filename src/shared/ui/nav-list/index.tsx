@@ -2,9 +2,11 @@ import classNames from 'classnames';
 import { ReactNode } from 'react';
 import { NavLink } from 'react-router-dom';
 
+import { Nullable } from '../../lib';
+
 type ListProps = {
   handleClick?: () => void;
-  dataTestId?: string;
+  dataTestId?: Nullable<string>;
   link: string;
   text: string;
   textClass: string;

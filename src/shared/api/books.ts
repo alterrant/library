@@ -1,5 +1,6 @@
 export const BOOKS_API = {
-  genresURL: '/api/categories',
-  bookURL: '/api/books',
-  bookUrl: (id: string) => `/api/books/${id}`,
+  genres: '/api/categories',
+  books: '/api/books',
+  book: (id: number) => `/api/books/${id}`,
 };
+

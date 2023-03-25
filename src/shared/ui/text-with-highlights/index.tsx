@@ -8,7 +8,7 @@ import styles from './text-with-highlights.module.css';
 
 type TextWithHighlightsProps = {
   title: string;
-  filter: string | string[];
+  filter?: string | string[];
 };
 
 export const TextWithHighlights = ({ title, filter }: TextWithHighlightsProps) => {
@@ -65,7 +65,7 @@ export const TextWithHighlights = ({ title, filter }: TextWithHighlightsProps) =
   return (
     <span
       data-test-id={isPasswordMatchingError ? undefined : 'hint'}
-      className={classNames(filter === title && styles.newClassForTest)}
+      className={classNames(filter === title && styles.allHintHighlight)}
     >
       {getFormattedText(filterRegExp, title)}
     </span>

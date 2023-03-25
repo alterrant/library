@@ -50,9 +50,9 @@ const slice = createSlice({
       state.errorMessage = payload;
     },
     resetState: (state) => {
-      state.isLoading = false;
-      state.successMessage = '';
-      state.errorMessage = '';
+      state.isLoading = initialState.isLoading;
+      state.successMessage = initialState.successMessage;
+      state.errorMessage = initialState.errorMessage;
     },
   },
 });

@@ -39,8 +39,13 @@ const slice = createSlice({
       state.isLoading = false;
       state.error = payload;
     },
+    resetState: (state) => {
+      state.book = initialState.book;
+      state.error = initialState.error;
+      state.isLoading = initialState.isLoading;
+    },
   },
 });
 
-export const { getBook, setBook, updateComments, updateBooking, setBookError, sortReviews } = slice.actions;
+export const { getBook, setBook, updateComments, updateBooking, setBookError, sortReviews, resetState } = slice.actions;
 export const { reducer } = slice;

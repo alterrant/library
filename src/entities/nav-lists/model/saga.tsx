@@ -8,7 +8,7 @@ import { ErrorMessages } from '../../../shared/lib';
 
 function* worker() {
   try {
-    const { data } = yield call(axiosInstance.get, BOOKS_API.genresURL);
+    const { data } = yield call(axiosInstance.get, BOOKS_API.genres);
 
     yield put(setGenres(data as GenreType[]));
   } catch (e) {

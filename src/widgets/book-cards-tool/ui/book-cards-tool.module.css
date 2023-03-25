@@ -39,8 +39,10 @@
   .openedInput > div > div {
     width:100%;
   }
-  .booksUtils div > input,
-  .booksUtils button > span {
+  .booksUtils div > input{
     display:none;
+  }
+  .booksUtils button {
+    color:rgba(0,0,0,0);
   }
 }

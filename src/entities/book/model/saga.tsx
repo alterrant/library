@@ -8,7 +8,7 @@ import { ErrorMessages } from '../../../shared/lib';
 
 function* worker({ payload: id }: GetBookPayloadType) {
   try {
-    const { data } = yield call(axiosInstance.get, BOOKS_API.bookUrl(id));
+    const { data } = yield call(axiosInstance.get, BOOKS_API.book(id));
 
     yield put(setBook(data as BookInfoTypes));
     yield put(sortReviews())

@@ -1,8 +1,9 @@
 .layoutContainer {
   position:relative;
   height:100vh;
-  overflow-y:scroll;
-  overflow-x:hidden;
+  /* нужно для липкого хедера, но ломает тесты */
+  /* overflow-y:scroll; */
+  /* overflow-x:hidden; */
   display:grid;
   grid-template-rows:auto 1fr auto;
   padding:0 16px;

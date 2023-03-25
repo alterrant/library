@@ -1,8 +1,10 @@
 /* стили карты */
 .bookWrapper {
+  height:100%;
   display:grid;
-  grid-template-columns:120px minmax(100px,1fr) 174px;
-  grid-template-rows:1fr min-content auto;
+  /*grid-template-columns:120px minmax(100px,1fr) 174px;*/
+  grid-template-columns:120px minmax(100px,1fr) min-content;
+  grid-template-rows:auto 1fr min-content;
   grid-template-areas:'img title title'
     'img authors authors'
     'img rating bookButton';
@@ -34,9 +36,20 @@
 .bookAuthors {
   grid-area:authors;
   margin-bottom:24px;
-  color:#727272;
+  margin-top:8px;
+  color:rgb(114, 114, 114);
 }
 /* стили кнопки */
+.buttonWrapper {
+  min-width:174px;
+}
+.buttonWrapper > button {
+  font-size:12px;
+  line-height:18px;
+}
+.buttonWrapper > * {
+  width:100%;
+}
 .button {
   grid-area:bookButton;
   height:40px;
@@ -45,17 +58,16 @@
 }
 @media screen and (max-width:768px) {
   .bookWrapper {
-
     padding:16px 24px 16px 16px;
   }
   .bookAuthors {
     margin-bottom:16px;
   }
 }
-@media screen and (max-width:500px) {
+@media screen and (max-width:600px) {
   .bookWrapper {
     grid-template-columns:1fr 2fr;
-    grid-template-rows:repeat(3, min-content);
+    grid-template-rows:auto 1fr repeat(2, min-content);;
     grid-template-areas:'img title'
       'img authors'
       'img rating'
@@ -65,7 +77,7 @@
   .bookAuthors {
     margin-bottom:0;
   }
-  .button {
+  .buttonWrapper {
     margin-top:16px;
   }
 }
@@ -83,7 +95,7 @@
   .bookAuthors {
     margin-bottom:0;
   }
-  .button {
+  .buttonWrapper {
     margin-top:16px;
   }
 }

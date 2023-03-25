@@ -1,8 +1,9 @@
-import { ReactNode } from 'react';
+import {ReactNode, SyntheticEvent, useCallback} from 'react';
 import { NavLink } from 'react-router-dom';
 
-import { Stars, unsetBook } from '../../../shared/ui';
-import { CARD_STYLES, EMPTY_RATING, CardStylesTypes, BASE_URL } from '../../../shared/lib';
+import { Img, TextWithHighlights, unsetBook } from 'shared/ui';
+import { CARD_STYLES, CardStylesTypes } from 'shared/lib';
+import { BookCardRating } from './book-card-rating';
 
 import stylesColumnCard from './book-card-column.module.css';
 import stylesRowCard from './book-card-row.module.css';
@@ -11,11 +12,12 @@ type BookCardProps = {
   cardsStyle: CardStylesTypes;
   id: number;
   alt: string;
-  img: { url: string } | null;
+  imgURL?: string | null;
   rating: number | null;
-  title: ReactNode;
+  title: string;
   authors: string[];
-  genres: string;
+  genres?: string;
+  filterString?: string;
   cardButton: ReactNode;
 };
 
@@ -23,30 +25,38 @@ export const BookCard = ({
   cardsStyle,
   id,
   alt,
-  img,
+  imgURL,
   rating,
   title,
   authors,
-  genres,
+  genres = 'books/all',
+  filterString,
   cardButton,
 }: BookCardProps) => {
-  const src = `${BASE_URL}${img?.url}`;
   const cardClassName = cardsStyle === CARD_STYLES.ROW ? stylesRowCard : stylesColumnCard;
+
+  const getHighlightTitle = useCallback(
+    (title: string, filterString?: string) => <TextWithHighlights title={title} filter={filterString} />,
+    [filterString]
+  );
+  // stopPropagationOverButton чтобы любая кнока внутри BookCard не цепляла NavLink при всплытии
+  const stopPropagationOverButton = (e: SyntheticEvent) => {
+    e.stopPropagation();
+    e.preventDefault();
+  };
 
   return (
     <NavLink to={`../${genres}/${id}`} relative='path' data-test-id='card'>
       <div className={cardClassName.bookWrapper}>
         <div className={cardClassName.bookImg}>
-          <img src={img?.url ? src : unsetBook} alt={alt} />
+          <Img alt={alt} url={imgURL} defaultSrc={unsetBook} />
         </div>
-        {rating ? (
-          <Stars rating={rating} />
-        ) : (
-          <p className={cardClassName.bookRatingText}>{EMPTY_RATING}</p>
-        )}
-        <p className={cardClassName.bookTitle}>{title}</p>
+        <BookCardRating rating={rating} bookRatingText={cardClassName.bookRatingText} />
+        <p className={cardClassName.bookTitle}>{getHighlightTitle(title, filterString)}</p>
         <p className={cardClassName.bookAuthors}>{authors.join(', ')}</p>
-        {cardButton}
+        <div onClick={stopPropagationOverButton} className={cardClassName.buttonWrapper}>
+          {cardButton}
+        </div>
       </div>
     </NavLink>
   );

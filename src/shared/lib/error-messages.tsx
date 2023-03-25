@@ -3,6 +3,8 @@ export enum ErrorMessages {
   FETCHING_BOOKS_ERROR = 'Ошибка запроса всех книг',
   FETCHING_BOOK_ERROR = 'Ошибка запроса книги',
   FETCHING_REGISTRATION_ERROR = 'Ошибка запроса регистрации',
+  FETCHING_ME_ERROR = 'Ошибка запроса текущего пользователя',
+  FETCHING_UPLOAD_ERROR = 'Что-то пошло не так, фото не сохранилось. Попробуйте позже!',
   FETCHING_FORGOT_PASS_ERROR = 'Ошибка запроса на восстановление пароля',
   FETCHING_RESET_PASS_ERROR = 'Ошибка восстановления паролей',
   FETCHING_BOOKING_ERROR = 'Что-то пошло не так, книга не забронирована. Попробуйте позже!',

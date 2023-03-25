@@ -7,6 +7,7 @@ import { Layout, LayoutMainPage, LayoutBookPage } from '../widgets/layouts';
 import { Terms } from '../widgets/terms';
 import { CONTRACT_TITLE, RULES_TITLE } from '../shared/lib';
 import { ErrorBoundary } from '../shared/ui';
+import {ProfilePage} from "./profile";
 
 // TODO: реализовать lazy loading и suspense
 // const TestPage = lazy(() => import("./test"));
@@ -52,6 +53,10 @@ export const routes = [
           },
         ],
       },
+      {
+        path: 'profile',
+        element: <ProfilePage />
+      }
     ],
   },
 ];

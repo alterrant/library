@@ -16,7 +16,7 @@
   font-size:14px;
   line-height:18px;
   letter-spacing:0.1px;
-  color:#363636;
+  color:rgb(54, 54, 54);
 }
 .inputs {
   display:flex;
@@ -40,7 +40,7 @@
   line-height:150%;
   letter-spacing:0.2px;
   text-transform:uppercase;
-  color:#FFFFFF;
+  color:rgb(255, 255, 255);
 }
 .formFooter {
   display:flex;
@@ -48,7 +48,7 @@
   row-gap:16px;
 }
 .submitButton:disabled {
-  background:#EBEBEB;
+  background:rgb(235, 235, 235);
   pointer-events:none;
 }
 .footer {
@@ -60,7 +60,7 @@
 .footerText {
   font-size:16px;
   line-height:24px;
-  color:#727272;
+  color:rgb(114, 114, 114);
 }
 /* отступ после wrapper только если у последнего инпута показывается ошибка */
 .inputsWrapper > div:has(> label:last-child > div:nth-child(3)) {

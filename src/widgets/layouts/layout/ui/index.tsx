@@ -2,19 +2,20 @@ import { Outlet } from 'react-router-dom';
 import React, { useEffect, useState } from 'react';
 
 import { NavListModel } from 'entities/nav-lists';
-import { resetState } from 'features/book-interactions/model/slice';
+import { BookInteractionsModel } from 'features/book-interactions';
 import { useCheckErrors, useCheckSuccesses } from '../model';
-import { getWarningText } from '../lib';
+import { ErrorSelectorNames, getWarningText, SuccessSelectorNames } from '../lib';
 import { BookCardsModel } from '../../../book-cards';
 import { Header } from '../../../header';
 import { Footer } from '../../../footer';
 import { Navigation } from '../../../navigation';
 import { ToggleDropDownModule } from '../../../../features/toggle-drop-down';
+import { ProfileModel } from '../../../../features/profile';
 import { Warnings, WarningsModel } from '../../../../entities/warnings';
 import { TOKEN, useAppDispatch, useAppSelector } from '../../../../shared/lib';
 
 import styles from './layout.module.css';
-
+// import { BooksModel } from 'entities/books';
 // TODO: вынести BLL в модел
 // TODO: объединить логику закрытия менюшек
 export const Layout = () => {
@@ -30,20 +31,29 @@ export const Layout = () => {
   const [useEffectState, setUseEffectState] = useState({ isFirstEffect: false });
 
   const { countedGenres } = useAppSelector(BookCardsModel.booksWithGenresSelector);
-
+  const { genres } = useAppSelector(NavListModel.genresSelector);
+  /* const { resetState: resetBookInteractionsState } = BookInteractionsModel;
+  const { resetState: resetUploadAvatarState } = ProfileModel; */
+  // const [useEffectState, setUseEffectState] = useState({ isFirstEffect: false });
   useEffect(() => {
-    if (token && useEffectState.isFirstEffect) dispatch(NavListModel.getGenres());
-
+     if (token && !genres.length && useEffectState.isFirstEffect) dispatch(NavListModel.getGenres());
+    console.log('')
     return () => setUseEffectState({ isFirstEffect: true });
   }, [useEffectState.isFirstEffect]);
 
-  useEffect(() => {
-    setTimeout(() => dispatch(resetState()), 5000);
-  }, [isWarning]);
+  /* useEffect(() => {
+    if (useEffectState.isFirstEffect) {
+      (ErrorsState.errorSelector === ErrorSelectorNames.bookInteractionsError ||
+        SuccessesState.successSelector === SuccessSelectorNames.bookInteractionsSuccess) &&
+        setTimeout(() => dispatch(resetBookInteractionsState()), 5000);
+    }
+
+    return () => setUseEffectState({ isFirstEffect: true });
+  }, [isWarning, useEffectState.isFirstEffect]); */
 
   return (
     <>
-      <section className={styles.layoutContainer}>
+      <section data-test-id='main-page' className={styles.layoutContainer}>
         {warningsStatus.isOpen && (
           <Warnings
             isNegative={ErrorsState.isError}

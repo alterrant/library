@@ -1,66 +1,57 @@
-import {
-  BookingResponseDataType, Nullable,
-  UpdateBookingPayloadType,
-  UpdateCommentResponseDataType,
-} from '../../../shared/lib';
-import { UserType } from '../../auth/lib';
-import { BookCommentType } from '../../../entities/book';
+import { BookingType, DeliveryType } from 'entities/books/lib';
+import { getDate, Nullable } from 'shared/lib';
+import { BookStatus, ButtonText, timeFormatOptions } from './configs';
 
-export const compareDates = (date1: string, date2: string) =>
-  Date.parse(date1) === Date.parse(date2);
+const checkBookedByUser = (bookStatus: BookStatus) => bookStatus === BookStatus.BOOKED_BY_USER;
 
-export const convertToStoreComment = (
-  data: UpdateCommentResponseDataType,
-  user: UserType
-): BookCommentType => {
-  const { id, attributes } = data;
-  const { rating, text, createdAt } = attributes;
-  const { id: commentUserId, firstName, lastName } = user;
-  return {
-    id,
-    rating,
-    text,
-    createdAt,
-    user: { commentUserId, firstName, lastName, avatarUrl: null },
-  };
-};
+export const compareDates = (date1: string, date2: string) => Date.parse(date1) === Date.parse(date2);
 
-export const convertToStoreBookingPayload = (
-  data: any,
-  /* data: Nullable<BookingResponseDataType>, */
-  user: UserType,
-  bookId: number
-): any => {
-/* ): UpdateBookingPayloadType => { */
-  if (!data) return { id: bookId, booking: null };
-  // для тестов
-  if (!data.attributes?.dateOrder) {
-    return {
-      id: bookId,
-      booking: {
-        id: data.book,
-        order: data.order,
-        dateOrder: data.dateOrder,
-        customerId: user.id,
-        customerFirstName: user.firstName,
-        customerLastName: user.lastName,
-      },
-    }
+export const checkBookedByCurrentUser = (bookStatus: BookStatus) => bookStatus === BookStatus.BOOKED_BY_CURRENT_USER;
+
+const checkBookingStatus = (bookStatus: BookStatus) =>
+  checkBookedByUser(bookStatus) || checkBookedByCurrentUser(bookStatus);
+
+const checkDeliveryStatus = (bookStatus: BookStatus) => bookStatus === BookStatus.DELIVERED;
+
+const getDeliveredString = (deliveredDate: string) => `${ButtonText.DELIVERED}${deliveredDate}`;
+
+export const getButtonText = (bookStatus: BookStatus, dateOrder?: Nullable<string>) => {
+  const isBooked = checkBookingStatus(bookStatus);
+  const isDelivered = checkDeliveryStatus(bookStatus);
+
+  if (isDelivered) {
+    const deliveredDate = getDate(dateOrder, timeFormatOptions);
+
+    return getDeliveredString(deliveredDate);
   }
 
-  const { id, attributes } = data;
-  const { order, dateOrder } = attributes;
-  const { id: commentUserId, firstName, lastName } = user;
+  if (isBooked) return ButtonText.BOOKED;
 
-  return {
-    id: bookId,
-    booking: {
-      id,
-      order,
-      dateOrder,
-      customerId: commentUserId,
-      customerFirstName: firstName,
-      customerLastName: lastName,
-    },
-  };
+  return ButtonText.BOOKING;
+};
+
+export const checkDisableStatus = (bookStatus: BookStatus) => {
+  const isBookedByUser = checkBookedByUser(bookStatus);
+  const isDelivered = checkDeliveryStatus(bookStatus);
+
+  return isBookedByUser || isDelivered;
+};
+
+export const getBookStatus = (
+  booking: Nullable<BookingType>,
+  delivery: Nullable<DeliveryType>,
+  currentUserId?: number
+) => {
+  if (booking) {
+    const checkBookedByCurrentUser = (booking: BookingType, currentUserId?: number) =>
+      booking.customerId === currentUserId;
+
+    const isBookedByCurrentUser = checkBookedByCurrentUser(booking, currentUserId);
+
+    return isBookedByCurrentUser ? BookStatus.BOOKED_BY_CURRENT_USER : BookStatus.BOOKED_BY_USER;
+  }
+
+  if (delivery) return BookStatus.DELIVERED;
+
+  return BookStatus.AVAILABLE;
 };

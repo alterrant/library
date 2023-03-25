@@ -7,23 +7,26 @@ import styles from './drop-down-menu.module.css';
 
 type DropDownMenuProps = {
   logOutHandler: () => void;
-  forTest?: boolean;
-  dropDownMenuRef: RefObject<HTMLUListElement>;
+  isBurgerDropDown?: boolean;
+  isUnderline?: boolean;
+  dropDownMenuRef?: RefObject<HTMLUListElement>;
   children?: ReactNode;
 };
 // рефактор logOutHandler
 export const DropDownMenu = forwardRef<HTMLUListElement, DropDownMenuProps>((
   {
     children,
+    isUnderline,
     logOutHandler,
     dropDownMenuRef,
-    forTest
+    isBurgerDropDown,
   }, ref) => (
     <ul ref={ref} className={styles.dropDownMenuWrapper}>
       {children}
-      <Underline />
-      <div className={styles.dropDownMenuFooter}>
+      {isUnderline && <Underline/>}
+      <ul className={styles.dropDownMenuFooter}>
         <NavList
+          dataTestId={!isBurgerDropDown ? 'profile-button' : null}
           link={PROFILE.PATH}
           text={PROFILE.TITLE}
           textClass={styles.linkText}
@@ -32,11 +35,11 @@ export const DropDownMenu = forwardRef<HTMLUListElement, DropDownMenuProps>((
         <li
           className={styles.linkText}
           onClick={logOutHandler}
-          data-test-id={forTest && 'exit-button'}
+          data-test-id={isBurgerDropDown && 'exit-button'}
         >
           {LOG_OUT}
         </li>
-      </div>
+      </ul>
     </ul>
   )
 );

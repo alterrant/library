@@ -65,3 +65,14 @@ select {
   padding:0;
   font:inherit;
 }
+.swiper-pagination-bullet {
+  width:7px;
+  height:7px;
+  color:rgb(191, 196, 201);
+  transform:scale(1) !important;
+}
+.swiper-pagination-bullet-active {
+  background:rgb(54, 54, 54);
+  width:9px;
+  height:9px;
+}

@@ -27,13 +27,21 @@
   -webkit-box-orient:vertical;
   overflow:hidden;
 }
-/* .bookTitle > span {
-  color:rgb(244, 44, 79);
-} */
 .bookAuthors {
-  color:#727272;
+  margin-top:8px;
+  color:rgb(114, 114, 114);
 }
 /* стили кнопки */
+.buttonWrapper {
+  margin:28px 4px 0 4px;
+}
+.buttonWrapper > button {
+  font-size:12px;
+  line-height:18px;
+}
+.buttonWrapper > * {
+  width:100%;
+}
 .button {
   height:40px;
   border-radius:20px;
@@ -42,12 +50,6 @@
 .button:active {
   box-shadow:0 3px 4px rgba(222, 125, 11, 0.2), 0 1px 10px rgba(249, 89, 8, 0.2);
 }
-/* .cardButtonText {
-  font-weight:600;
-  font-size:12px;
-  letter-spacing:0.2px;
-  text-transform:uppercase;
-} */
 @media screen and (max-width:320px) {
   .bookWrapper {
     padding:8px 16px 16px 8px;

@@ -1,20 +1,13 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 
 import {
+  AuthorisationActionType,
+  ForgotPassAttemptActionType,
   initialState,
-  UserType,
-  signInConfig,
-  signUpConfig,
-  forgotPassConfig,
-  resetPassConfig,
+  RegistrationActionType,
+  ResetPassAttemptActionType,
+  SetErrorActionType,
 } from '../lib';
-
-type MePayloadType = PayloadAction<signInConfig.Types.MeRequest>;
-type RegistrationPayloadType = PayloadAction<signUpConfig.Types.RegistrationRequest>;
-type ForgotPassAttemptPayloadType = PayloadAction<forgotPassConfig.Types.ForgotPasswordRequest>;
-type ResetPassAttemptPayloadType = PayloadAction<resetPassConfig.Types.ResetPassRequest>;
-type SetUserPayloadType = PayloadAction<UserType>;
-type SetErrorPayloadType = PayloadAction<string>;
 
 const slice = createSlice({
   name: 'auth',
@@ -25,55 +18,38 @@ const slice = createSlice({
       state.isSuccess = true;
       state.errorMessage = '';
     },
-    me: (state, action: MePayloadType) => {
+    authorisation: (state, action: AuthorisationActionType) => {
       state.isLoading = true;
       state.isSuccess = false;
       state.errorMessage = '';
-      state.user = {} as UserType;
     },
-    registration: (state, action: RegistrationPayloadType) => {
+    registration: (state, action: RegistrationActionType) => {
       state.isLoading = true;
       state.isSuccess = false;
       state.errorMessage = '';
-      state.user = {} as UserType;
     },
-    forgotPassAttempt: (state, action: ForgotPassAttemptPayloadType) => {
+    forgotPassAttempt: (state, action: ForgotPassAttemptActionType) => {
       state.isLoading = true;
       state.isSuccess = false;
       state.errorMessage = '';
-      state.user = {} as UserType;
     },
-    resetPassAttempt: (state, action: ResetPassAttemptPayloadType) => {
+    resetPassAttempt: (state, action: ResetPassAttemptActionType) => {
       state.isLoading = true;
       state.isSuccess = false;
       state.errorMessage = '';
-      state.user = {} as UserType;
     },
-    setUser: (state, action: SetUserPayloadType) => {
+    setError: (state, { payload }: SetErrorActionType) => {
       state.isLoading = false;
-      state.user = action.payload;
-    },
-    setError: (state, action: SetErrorPayloadType) => {
-      state.isLoading = false;
-      state.errorMessage = action.payload;
+      state.errorMessage = payload;
     },
     resetState: (state) => {
-      state.isLoading = false;
-      state.isSuccess = false;
-      state.errorMessage = '';
-      state.user = {} as UserType;
+      state.isLoading = initialState.isLoading;
+      state.isSuccess = initialState.isSuccess;
+      state.errorMessage = initialState.errorMessage;
     },
   },
 });
 
-export const {
-  setSuccess,
-  me,
-  registration,
-  forgotPassAttempt,
-  resetPassAttempt,
-  setUser,
-  setError,
-  resetState,
-} = slice.actions;
+export const { setSuccess, authorisation, registration, forgotPassAttempt, resetPassAttempt, setError, resetState } =
+  slice.actions;
 export const { reducer } = slice;

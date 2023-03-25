@@ -5,23 +5,23 @@ import { hiddenPasswordConfig } from '../lib';
 import { InputTypes } from '../../../shared/lib';
 
 export const useFormInput = (type: InputTypes) => {
-  const { register, clearErrors, setError } = useFormContext();
+  const { register, clearErrors, setError, setValue, getValues, resetField } = useFormContext();
   const controlField: string = useWatch({ name: 'password' });
 
   const [passwordConfig, setPasswordConfig] = useState(hiddenPasswordConfig);
   const [inputType, setInputType] = useState(type);
-  const [inputValue, setInputValue] = useState<string>('');
 
   return {
     register,
     clearErrors,
+    setError,
+    setValue,
+    getValues,
+    resetField,
     controlField,
     passwordConfig,
     setPasswordConfig,
     inputType,
     setInputType,
-    inputValue,
-    setInputValue,
-    setError,
   };
 };

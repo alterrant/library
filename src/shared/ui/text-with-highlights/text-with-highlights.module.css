@@ -1,6 +1,9 @@
+/* в профиле форма требует font-weight: 500. После тестов убрать */
 .highlight {
   color:rgb(244, 44, 79);
+  font-weight:500;
 }
-.newClassForTest {
+.allHintHighlight {
   color:rgb(244, 44, 79);
+  font-weight:500;
 }

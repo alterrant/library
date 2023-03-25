@@ -73,7 +73,7 @@ export type BookStateTypes = {
   book: BookInfoTypes;
 };
 
-export type GetBookPayloadType = PayloadAction<string>;
+export type GetBookPayloadType = PayloadAction<number>;
 export type SetBookPayloadType = PayloadAction<BookInfoTypes>;
 export type UpdateCommentsPayloadType = PayloadAction<BookCommentType>;
 export type SetBookErrorPayloadType = PayloadAction<string>;

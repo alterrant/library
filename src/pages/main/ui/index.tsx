@@ -9,7 +9,6 @@ import { Preloader } from '../../../shared/ui';
 import { CARD_STYLES, TOKEN, useAppDispatch, useAppSelector } from '../../../shared/lib';
 
 import styles from './main-page.module.css';
-import {SuccessMessages} from "../../../features/book-interactions/lib";
 
 export const MainPage = () => {
   const [style, toggleStyle] = toggleCardsStyleModel.useToggleCardsState(CARD_STYLES.COLUMN);
@@ -32,10 +31,6 @@ export const MainPage = () => {
 
     return () => setUseEffectState({ isFirstEffect: true });
   }, [useEffectState.isFirstEffect]);
-
-  useEffect(() => { // убрать после тестов
-    dispatch(BooksModel.getBooks());
-  }, [successMessage === SuccessMessages.CHANGES_SAVED])
 
   return (
     <>

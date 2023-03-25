@@ -1,1 +1,0 @@
-export { PersonInfo } from './ui';

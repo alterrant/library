@@ -1,3 +1,5 @@
+import {DefaultUserInfoType} from "./types";
+
 export const BASE_URL = 'https://strapi.cleverland.by';
 
 export const TOKEN = 'token';
@@ -27,6 +29,7 @@ export const INPUT_TYPES = {
   EMAIL: 'email',
   TEXT: 'text',
   TEL: 'tel',
+  FILE: 'file',
 } as const;
 
 export enum ORIENTATION {
@@ -41,10 +44,12 @@ export enum ButtonTypes {
   SUBMIT = 'submit',
   RESET = 'reset',
 }
+
 export enum ResetPasswordFieldNames {
   PASSWORD = 'password',
   RETRY_PASSWORD = 'passwordConfirmation',
 }
+
 export enum PLACEHOLDERS {
   LOGIN = 'Логин',
   PASSWORD = 'Пароль',

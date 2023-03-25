@@ -1,10 +1,13 @@
+import { ReactNode } from 'react';
+
 import styles from './round-image.module.css';
 
 type RoundImageTypes = {
-  src: string;
-  alt: string;
+  children: ReactNode;
 };
 
-export const RoundImage = ({ src, alt }: RoundImageTypes) => (
-  <img className={styles.roundImg} src={src} alt={alt} />
+export const RoundImage = ({ children }: RoundImageTypes) => (
+  <div className={styles.controlWidth}>
+    <div className={styles.wrapper}>{children}</div>
+  </div>
 );

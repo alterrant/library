@@ -11,16 +11,16 @@ import styles from './layout-book-page.module.css';
 export const Layout = () => {
   const allGenres = useAppSelector(NavListModel.allGenresSelector);
   const { book } = useAppSelector(BookModel.bookSelector);
-  const { successMessage } = useAppSelector(BookInteractionsModel.bookInteractionsSelector);
 
   const pathname = useParams() as { genres: string; id: string };
   const genre = allGenres.find((genre) => genre.path === pathname.genres);
   // const isCached = book.id === +pathname.id;
+  const bookId = +pathname.id;
+
   useFetch(
-    BookModel.getBook(pathname.id),
+    BookModel.getBook(bookId),
     false,
-    pathname.id,
-    successMessage === SuccessMessages.ADD_COMMENT
+    bookId,
   );
 
   return (

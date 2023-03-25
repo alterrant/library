@@ -1,20 +1,22 @@
 import React, { ChangeEvent, useState } from 'react';
 import MaskedInput from 'react-text-mask';
 import { Control, useController } from 'react-hook-form';
+import classNames from 'classnames';
 
-import { FieldNamesStep1, FieldNamesStep2, FieldNamesStep3, signUpConfig } from 'features/auth/lib';
+import { signUpConfig } from 'features/auth/lib';
+import { FieldName } from 'features/auth/lib/forgot-password';
 import { HelpText } from './help-text';
 import { FormInputLib, FormInputModel } from '..';
-import { FieldName } from '../../../features/auth/lib/forgot-password';
 import { getControllerOptions } from '../../../features/auth/lib/sign-up';
 import { CheckCircle, Underline } from '../../../shared/ui';
 import {
   ErrorMessages,
   INPUT_TYPES,
   InputTypes,
-  PLACEHOLDERS,
   ResetPasswordFieldNames,
   ValidationRulesTypes,
+  PLACEHOLDERS,
+  validators,
 } from '../../../shared/lib';
 
 import styles from './form-input.module.css';
@@ -30,13 +32,11 @@ type InputProps = {
   defaultValue?: string | number;
   errorMessage?: string;
   isDirtyField?: boolean;
+  isDisabled?: boolean;
   helpText?: string;
   control?: Control<signUpConfig.Types.FormType>;
   validationRules?: ValidationRulesTypes;
   ref: HTMLInputElement;
-  value?: string;
-  onChange?: () => void;
-  onBlur?: () => void;
 };
 
 export const Input = React.forwardRef<HTMLInputElement, InputProps>(
@@ -52,6 +52,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
       helpText,
       validationRules,
       control,
+      isDisabled = false,
     },
     ref
   ) => {
@@ -71,8 +72,8 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
       setPasswordConfig,
       inputType,
       setInputType,
-      inputValue,
-      setInputValue,
+      getValues,
+      setValue,
     } = useFormInput(type);
 
     const { isHiddenError, isRequireError, isPasswordType, isTelType } = getChecks({
@@ -80,33 +81,44 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
       type,
     });
 
+    const inputValue = getValues(name);
+
     const { inputWrapperClass, showPasswordClass, underlineClass } = getClassNames({
       inputValue,
       errorMessage,
     });
 
-    const showPasswordHandler = () =>
-      passwordConfigChangeHandler(passwordConfig, setPasswordConfig, setInputType);
+    const showPasswordHandler = () => passwordConfigChangeHandler(passwordConfig, setPasswordConfig, setInputType);
 
     // hintStatus нужен для тестов: валидация не успевала за тестами
-    const [hintStatus, setHintStatus] = useState(false);
+    const [hintStatus, setHintStatus] = useState<{ isVisible: boolean; error: string }>({
+      isVisible: false,
+      error: '',
+    });
+
     const inputChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
-      setInputValue(e.target.value);
-      if (
-        clearErrors &&
-        (name === FieldNamesStep1.PASSWORD ||
-          name === FieldNamesStep1.LOGIN ||
-          name === FieldNamesStep2.FIRST_NAME ||
-          name === FieldNamesStep2.LAST_NAME ||
-          name === FieldNamesStep3.EMAIL ||
-          name === FieldNamesStep3.PHONE ||
-          name === ResetPasswordFieldNames.RETRY_PASSWORD)
-      )
+      setValue(name, e.target.value);
+      setHintStatus({ isVisible: false, error: '' });
+
+     /* if (
+        name === FieldNamesStep1.PASSWORD ||
+        name === FieldNamesStep1.LOGIN ||
+        name === FieldNamesStep2.FIRST_NAME ||
+        name === FieldNamesStep2.LAST_NAME ||
+        name === FieldNamesStep3.EMAIL ||
+        name === FieldNamesStep3.PHONE ||
+        name === ResetPasswordFieldNames.RETRY_PASSWORD
+      ) */
         clearErrors(name);
     };
-    const blurChangeHandler = () => {
-      if (name === FieldName.EMAIL || label === PLACEHOLDERS.NEW_PASSWORD)
-        setHintStatus(!hintStatus);
+    // ошибку на onBlur прокидываю вручную, тк тесты не успевают иногда обработать onBlur
+    const blurChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
+      if (name === FieldName.EMAIL || label === PLACEHOLDERS.NEW_PASSWORD) {
+        if (!inputValue) {
+          setHintStatus({ isVisible: true, error: ErrorMessages.REQUIRE });
+        } else if (validators.emailValidator(inputValue))
+          setHintStatus({ isVisible: true, error: ErrorMessages.INVALID_EMAIL });
+      }
     };
 
     const registerOptions = register(name, {
@@ -116,71 +128,71 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
     });
 
     return (
-      <label className={styles.inputLabel}>
-        <div className={inputWrapperClass}>
-          <div className={styles.labelText}>{label}</div>
+      <>
+        <label className={classNames(styles.inputLabel)}>
+          <div className={inputWrapperClass}>
+            <div className={styles.labelText}>{label}</div>
 
-          {isTelType ? (
-            <MaskedInput
-              name={name}
-              mask={phoneMask}
-              type={inputType}
-              value={controllerValue}
-              placeholder={placeholder}
-              onChange={controllerChangeHandler}
-              onBlur={controllerBlurHandler}
-              onFocus={onFocus}
-              placeholderChar='x'
-              defaultValue={defaultValue}
-              className={styles.input}
-            />
-          ) : (
-            <input
-              type={inputType}
-              value={inputValue}
-              defaultValue={defaultValue}
-              className={styles.input}
-              placeholder={placeholder}
-              onFocus={onFocus}
-              {...registerOptions}
-            />
-          )}
-
-          {isPasswordType && inputValue && (
-            <div className={showPasswordClass} onClick={showPasswordHandler}>
-              <img
-                src={passwordConfig.img}
-                alt={passwordConfig.alt}
-                data-test-id={inputType === INPUT_TYPES.PASSWORD ? 'eye-closed' : 'eye-opened'}
+            {isTelType ? (
+              <MaskedInput
+                name={name}
+                mask={phoneMask}
+                type={inputType}
+                value={controllerValue}
+                placeholder={placeholder}
+                onChange={controllerChangeHandler}
+                onBlur={controllerBlurHandler}
+                onFocus={onFocus}
+                placeholderChar='x'
+                defaultValue={defaultValue}
+                className={styles.input}
+                disabled={isDisabled}
               />
-              {!errorMessage && name !== ResetPasswordFieldNames.RETRY_PASSWORD && (
-                <CheckCircle className={styles.checkCircle} data-test-id='checkmark' />
-              )}
+            ) : (
+              <input
+                type={inputType}
+                defaultValue={defaultValue}
+                className={styles.input}
+                placeholder={placeholder}
+                onFocus={onFocus}
+                disabled={isDisabled}
+                {...registerOptions}
+              />
+            )}
+
+            {isPasswordType && inputValue && (
+              <div className={showPasswordClass} onClick={showPasswordHandler}>
+                <img
+                  src={passwordConfig.img}
+                  alt={passwordConfig.alt}
+                  data-test-id={inputType === INPUT_TYPES.PASSWORD ? 'eye-closed' : 'eye-opened'}
+                />
+                {!errorMessage && name !== ResetPasswordFieldNames.RETRY_PASSWORD && (
+                  <CheckCircle className={styles.checkCircle} data-test-id='checkmark' />
+                )}
+              </div>
+            )}
+          </div>
+
+          <Underline underlineClass={underlineClass} />
+
+          {/* hintStatus && ... вручную прокидываю ошибку ан onBlur - нужно для тестов */}
+          {hintStatus.isVisible && (
+            <div className={styles.blurForTest}>
+              <HelpText inputValue={inputValue} text={hintStatus.error} filter={hintStatus.error} />
             </div>
           )}
-        </div>
 
-        <Underline underlineClass={underlineClass} />
-
-        {/* hintStatus && ... нужно было для тестов */}
-        {hintStatus && (
-          <div className={styles.blurForTest}>
-            <HelpText
-              inputValue={inputValue}
-              text={ErrorMessages.REQUIRE}
-              filter={ErrorMessages.REQUIRE}
-            />
-          </div>
-        )}
-        {helpText && !isRequireError ? ( // есть подсказка ? подсказка с highlights
-          <HelpText inputValue={inputValue} text={helpText} filter={errorMessage} />
-        ) : (
-          errorMessage &&
-          !isHiddenError && ( // подсвечиваем всю строку с ошибкой
-            <HelpText inputValue={inputValue} text={errorMessage} filter={errorMessage} />
-          )
-        )}
-      </label>
+          {helpText && !isRequireError ? ( // есть подсказка ? подсказка с highlights
+            <HelpText inputValue={inputValue} text={helpText} filter={errorMessage} />
+          ) : (
+            errorMessage &&
+            !isHiddenError && ( // подсвечиваем всю строку с ошибкой
+              <HelpText inputValue={inputValue} text={errorMessage} filter={errorMessage} />
+            )
+          )}
+        </label>
+      </>
     );
   }
 );

@@ -1,4 +1,3 @@
-import axios from 'axios';
 import { call, put, takeLatest } from 'redux-saga/effects';
 
 import { getBooks, setBooks, setBooksError } from '.';
@@ -8,12 +7,11 @@ import { ErrorMessages } from '../../../shared/lib';
 
 function* worker() {
   try {
-    const { data } = yield call(axiosInstance.get, BOOKS_API.bookURL);
+    const { data } = yield call(axiosInstance.get, BOOKS_API.books);
 
     yield put(setBooks(data as BooksTypes));
   } catch (e) {
-    if (axios.isAxiosError(e)) yield put(setBooksError(e.message));
-    else yield put(setBooksError(ErrorMessages.RELOAD_PAGE));
+    yield put(setBooksError(ErrorMessages.RELOAD_PAGE));
   }
 }
 

@@ -1,14 +1,13 @@
 import { FieldNames } from './fields-data';
-import { FormTypeStep, UserType } from '../types';
+import { FormTypeStep } from '../types';
 
 export type StateTypes = {
   isLoading: boolean;
   isSuccess: boolean;
   errorMessage: string;
-  user: UserType;
 };
 
-export type MeRequest = {
+export type AuthorisationRequestType = {
   identifier: string;
   password: string;
 };

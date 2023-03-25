@@ -21,6 +21,7 @@ export { CenteredTemplate } from './templates/centered';
 export { TextWithHighlights } from './text-with-highlights';
 export { LinkedTextWithArrow } from './linked-text-with-arrow';
 export { ReactPortal } from './react-portal';
+export { Img } from './img';
 
 export { ReactComponent as BooksColumnStyleBtn } from './assets/books-column-style.svg';
 export { ReactComponent as BooksRowStyleBtn } from './assets/books-row-stile.svg';
