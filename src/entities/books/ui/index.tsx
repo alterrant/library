@@ -1,4 +1,4 @@
-import {ReactNode, SyntheticEvent, useCallback} from 'react';
+import { ReactNode, SyntheticEvent, useCallback } from 'react';
 import { NavLink } from 'react-router-dom';
 
 import { Img, TextWithHighlights, unsetBook } from 'shared/ui';
@@ -36,7 +36,9 @@ export const BookCard = ({
   const cardClassName = cardsStyle === CARD_STYLES.ROW ? stylesRowCard : stylesColumnCard;
 
   const getHighlightTitle = useCallback(
-    (title: string, filterString?: string) => <TextWithHighlights title={title} filter={filterString} />,
+    (title: string, filterString?: string) => (
+      <TextWithHighlights isInputs={false} title={title} filter={filterString} />
+    ),
     [filterString]
   );
   // stopPropagationOverButton чтобы любая кнока внутри BookCard не цепляла NavLink при всплытии

@@ -9,8 +9,8 @@ export type FormStatusType = {
 
 export type SetFormStatusType = Dispatch<FormStatusType>;
 
-export type ChangeUserInfoRequest = DefaultUserInfoType;
-
 export type ProfileFieldNamesType = Omit<DefaultUserInfoType, 'username'> & { login: string };
+
+export type ChangeUserInfoRequest = DefaultUserInfoType;
 
 export type ChangeUserInfoActionType = PayloadAction<ChangeUserInfoRequest>;

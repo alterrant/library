@@ -5,9 +5,10 @@ import classNames from 'classnames';
 
 import { signUpConfig } from 'features/auth/lib';
 import { FieldName } from 'features/auth/lib/forgot-password';
+import { ChangeUserInfoTypes } from 'features/profile/lib/types';
+import { getControllerOptions } from 'features/auth/lib/sign-up';
 import { HelpText } from './help-text';
 import { FormInputLib, FormInputModel } from '..';
-import { getControllerOptions } from '../../../features/auth/lib/sign-up';
 import { CheckCircle, Underline } from '../../../shared/ui';
 import {
   ErrorMessages,
@@ -21,7 +22,6 @@ import {
 
 import styles from './form-input.module.css';
 
-// TODO: отрефакторить!
 // TODO: рефакторить импорт из feature
 type InputProps = {
   type: InputTypes;
@@ -34,7 +34,7 @@ type InputProps = {
   isDirtyField?: boolean;
   isDisabled?: boolean;
   helpText?: string;
-  control?: Control<signUpConfig.Types.FormType>;
+  control?: Control<signUpConfig.Types.FormType> | Control<ChangeUserInfoTypes.ProfileFieldNamesType>;
   validationRules?: ValidationRulesTypes;
   ref: HTMLInputElement;
 };
@@ -74,6 +74,8 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
       setInputType,
       getValues,
       setValue,
+      hintStatus,
+      setHintStatus
     } = useFormInput(type);
 
     const { isHiddenError, isRequireError, isPasswordType, isTelType } = getChecks({
@@ -90,29 +92,15 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
 
     const showPasswordHandler = () => passwordConfigChangeHandler(passwordConfig, setPasswordConfig, setInputType);
 
-    // hintStatus нужен для тестов: валидация не успевала за тестами
-    const [hintStatus, setHintStatus] = useState<{ isVisible: boolean; error: string }>({
-      isVisible: false,
-      error: '',
-    });
-
     const inputChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
       setValue(name, e.target.value);
       setHintStatus({ isVisible: false, error: '' });
 
-     /* if (
-        name === FieldNamesStep1.PASSWORD ||
-        name === FieldNamesStep1.LOGIN ||
-        name === FieldNamesStep2.FIRST_NAME ||
-        name === FieldNamesStep2.LAST_NAME ||
-        name === FieldNamesStep3.EMAIL ||
-        name === FieldNamesStep3.PHONE ||
-        name === ResetPasswordFieldNames.RETRY_PASSWORD
-      ) */
-        clearErrors(name);
+      clearErrors(name);
     };
+
     // ошибку на onBlur прокидываю вручную, тк тесты не успевают иногда обработать onBlur
-    const blurChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
+    const blurChangeHandler = () => {
       if (name === FieldName.EMAIL || label === PLACEHOLDERS.NEW_PASSWORD) {
         if (!inputValue) {
           setHintStatus({ isVisible: true, error: ErrorMessages.REQUIRE });

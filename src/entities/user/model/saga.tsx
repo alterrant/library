@@ -10,7 +10,7 @@ function* meWorker() {
     const { data } = yield call(axiosInstance.get, USERS_API.me);
 
     yield put(setUser(data as UserType));
-  } catch (e) {
+  } catch {
     yield put(setError(ErrorMessages.FETCHING_ME_ERROR));
   }
 }

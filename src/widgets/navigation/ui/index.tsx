@@ -1,6 +1,7 @@
+import { ToggleDropDownModule } from 'features/toggle-drop-down';
 import { Section } from './section';
-import { CountedGenreType, sections } from '../../../entities/nav-lists';
 import { DataTestIdNavigationTypes } from '../types';
+import { CountedGenreType, sections } from '../../../entities/nav-lists';
 
 import styles from './navigation.module.css';
 
@@ -20,6 +21,8 @@ export const Navigation = ({
   dataTestIdSectionTerms,
   dataTestIdSectionContract,
 }: NavigationProps) => {
+  const [isOpen, toggleStatus] = ToggleDropDownModule.useToggleState(true);
+
   const navSections = sections.map((section) => (
     <Section
       key={section.id}
@@ -31,6 +34,8 @@ export const Navigation = ({
       dataTestIdAllBooks={dataTestIdAllBooks}
       dataTestIdSectionTerms={dataTestIdSectionTerms}
       dataTestIdSectionContract={dataTestIdSectionContract}
+      isOpen={isOpen}
+      toggleStatus={toggleStatus}
     />
   ));
 

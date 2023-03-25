@@ -1,9 +1,9 @@
-import { Fragment } from 'react';
+import { Dispatch, Fragment } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import { useCurrentCategory } from '../../hooks';
 import { DataTestIdNavigationTypes } from '../../types';
-import { ToggleDropDown, ToggleDropDownModule } from '../../../../features/toggle-drop-down';
+import { ToggleDropDown } from '../../../../features/toggle-drop-down';
 import { NavLists, CountedGenreType } from '../../../../entities/nav-lists';
 import { ORIENTATION } from '../../../../shared/lib';
 import { Arrows } from '../../../../shared/ui';
@@ -13,6 +13,8 @@ type SectionProps = DataTestIdNavigationTypes & {
   countedGenres: CountedGenreType[];
   toggleBurgerStatus?: () => void;
   closeErrorsHandler?: () => void;
+  isOpen: boolean;
+  toggleStatus: Dispatch<boolean>;
 };
 
 export const Section = ({
@@ -24,10 +26,11 @@ export const Section = ({
   dataTestIdAllBooks,
   dataTestIdSectionTerms,
   dataTestIdSectionContract,
+  isOpen,
+  toggleStatus
 }: SectionProps) => {
   const navigate = useNavigate();
   const currentCategory = useCurrentCategory();
-  const [isOpen, toggleStatus] = ToggleDropDownModule.useToggleState(true);
 
   return (
     <Fragment key={section.id}>
@@ -36,7 +39,7 @@ export const Section = ({
           dataTestId={dataTestIdFirstSection}
           handleClick={() => {
             navigate('/books/all');
-            ToggleDropDownModule.toggleHandler(isOpen, toggleStatus);
+            toggleStatus(!isOpen);
           }}
           isMenuOpened={isOpen}
           hiddenElement={
@@ -64,7 +67,10 @@ export const Section = ({
         <NavLists.SectionList
           dataTestId={section.id === '1' ? dataTestIdSectionTerms : dataTestIdSectionContract}
           section={section}
-          closeErrorsHandler={closeErrorsHandler}
+          closeErrorsHandler={() => {
+            toggleStatus(false);
+            if (closeErrorsHandler) closeErrorsHandler();
+          }}
           categoryName={currentCategory}
         />
       )}

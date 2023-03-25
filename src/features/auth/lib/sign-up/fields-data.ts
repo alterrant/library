@@ -8,7 +8,7 @@ import {
 } from '../../../../shared/lib';
 
 export enum FieldNamesStep1 {
-  LOGIN = 'login',
+  LOGIN = 'username',
   PASSWORD = 'password',
 }
 export enum FieldNamesStep2 {
@@ -20,7 +20,7 @@ export enum FieldNamesStep3 {
   EMAIL = 'email',
 }
 
-const dataFieldsStep1: FormFieldsDataTypes<Types.FieldNameTypesStep1>[] = [
+export const dataFieldsStep1: FormFieldsDataTypes<Types.FieldNameTypesStep1>[] = [
   {
     type: INPUT_TYPES.TEXT,
     name: FieldNamesStep1.LOGIN,
@@ -45,7 +45,7 @@ const dataFieldsStep1: FormFieldsDataTypes<Types.FieldNameTypesStep1>[] = [
   },
 ];
 
-const dataFieldsStep2: FormFieldsDataTypes<Types.FieldNameTypesStep2>[] = [
+export const dataFieldsStep2: FormFieldsDataTypes<Types.FieldNameTypesStep2>[] = [
   {
     type: INPUT_TYPES.TEXT,
     name: FieldNamesStep2.FIRST_NAME,
@@ -65,7 +65,7 @@ const dataFieldsStep2: FormFieldsDataTypes<Types.FieldNameTypesStep2>[] = [
     },
   },
 ];
-const dataFieldsStep3: FormFieldsDataTypes<Types.FieldNameTypesStep3>[] = [
+export const dataFieldsStep3: FormFieldsDataTypes<Types.FieldNameTypesStep3>[] = [
   {
     type: INPUT_TYPES.TEL,
     name: FieldNamesStep3.PHONE,

@@ -1,4 +1,3 @@
-import axios from 'axios';
 import { call, put, takeLatest } from 'redux-saga/effects';
 
 import { getBook, setBook, setBookError, sortReviews } from '.';
@@ -12,9 +11,8 @@ function* worker({ payload: id }: GetBookPayloadType) {
 
     yield put(setBook(data as BookInfoTypes));
     yield put(sortReviews())
-  } catch (e) {
-    if (axios.isAxiosError(e)) yield put(setBookError(e.message));
-    else yield put(setBookError(ErrorMessages.RELOAD_PAGE));
+  } catch {
+    yield put(setBookError(ErrorMessages.RELOAD_PAGE));
   }
 }
 

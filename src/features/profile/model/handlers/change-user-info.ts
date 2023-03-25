@@ -5,7 +5,6 @@ import { DispatchAnyType } from 'shared/lib';
 import { changeUserInfo } from '../slice';
 import { configs } from '../../lib';
 import { ChangeUserInfoTypes } from '../../lib/types';
-import {ChangeUserInfoRequest} from "../../lib/types/change-user-info";
 
 export const changeFormStatusHandler = (
   formStatus: ChangeUserInfoTypes.FormStatusType,
@@ -24,15 +23,14 @@ export const changeProfileInfo = (
   setFormStatus: Dispatch<ChangeUserInfoTypes.FormStatusType>
 ) => {
   const { InitialFormStatus } = configs.changeUserInfo;
-  const changeUserInfoPayload: ChangeUserInfoRequest = {
+  const changeUserInfoPayload: ChangeUserInfoTypes.ChangeUserInfoRequest = {
     username: formFieldsData.login,
     password: formFieldsData.password,
     firstName: formFieldsData.firstName,
     lastName: formFieldsData.lastName,
     email: formFieldsData.email,
-    phone: formFieldsData.phone
+    phone: formFieldsData.phone,
   };
-
 
   dispatch(changeUserInfo(changeUserInfoPayload));
 

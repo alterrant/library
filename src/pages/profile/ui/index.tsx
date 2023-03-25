@@ -22,15 +22,6 @@ export const ProfilePage = () => {
 
   const deliveryMaskTitle = isDeliveryExpired ? DeliveryInfo.WARNING_MASK_TITLE : DeliveryInfo.MASK_TITLE;
   const deliveryMaskSubtitle = isDeliveryExpired ? DeliveryInfo.WARNING_MASK_SUBTITLE : null;
-    // РЕФАКТОР ТУТ!
-  const dispatch = useAppDispatch();
-  const [useEffectState, setUseEffectState] = useState({ isFirstEffect: false });
-  useEffect(() => {
-    /* if (useEffectState.isFirstEffect) dispatch(NavListModel.getGenres()); */
-    if (useEffectState.isFirstEffect) dispatch(BooksModel.getBooks());
-
-    return () => setUseEffectState({ isFirstEffect: true });
-  }, [useEffectState.isFirstEffect]);
 
   return (
     <main className={styles.wrapper}>

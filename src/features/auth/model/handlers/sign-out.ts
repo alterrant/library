@@ -11,6 +11,7 @@ import { DispatchAnyType, TOKEN } from '../../../../shared/lib';
 
 export const signOut = (navigate: NavigateFunction, dispatch: DispatchAnyType) => {
   localStorage.removeItem(TOKEN);
+
   dispatch(BooksModel.resetBooks());
   dispatch(BooksToolModel.resetFilters());
   dispatch(BookModel.resetState());
@@ -18,5 +19,6 @@ export const signOut = (navigate: NavigateFunction, dispatch: DispatchAnyType) =
   dispatch(BookInteractionsModel.resetState());
   dispatch(UserModel.resetState());
   dispatch(ProfileModel.resetState());
+
   navigate('../auth');
 };

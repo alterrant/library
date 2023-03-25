@@ -37,7 +37,7 @@ export function* uploadAvatarWorker({ payload }: UploadAvatarActionType) {
 
       yield put(resetState());
     }
-  } catch (e) {
+  } catch {
     yield put(setError(errorMessage));
 
     yield delay(5000);

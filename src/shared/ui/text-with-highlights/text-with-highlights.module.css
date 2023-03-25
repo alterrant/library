@@ -7,3 +7,9 @@
   color:rgb(244, 44, 79);
   font-weight:500;
 }
+.highlightMatches {
+  color:rgb(255, 82, 83);
+}
+.inputsHighlightMatches {
+  color:rgb(244, 44, 79);
+}

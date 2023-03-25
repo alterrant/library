@@ -1,8 +1,11 @@
 import axios from 'axios';
 import { call, put, takeLatest } from 'redux-saga/effects';
 
+import { NavListModel } from 'entities/nav-lists';
 import { AUTH_API, axiosInstance } from 'shared/api';
 import { ErrorMessages, TOKEN } from 'shared/lib';
+import { UserModel } from 'entities/user';
+import { BooksModel } from 'entities/books';
 import { authorisation, forgotPassAttempt, registration, resetPassAttempt, setError, setSuccess } from '.';
 import {
   AuthorisationActionType,
@@ -17,6 +20,9 @@ function* authorisationWorker({ payload }: AuthorisationActionType) {
 
     localStorage.setItem(TOKEN, data.jwt);
 
+     yield put(NavListModel.getGenres());
+    /* yield put(BooksModel.getBooks());
+    yield put(UserModel.me()); */
     yield put(setSuccess());
   } catch (e) {
     if (axios.isAxiosError(e)) {

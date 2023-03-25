@@ -24,7 +24,6 @@ export const BookInfo = ({
     </p>
     <p className={styles.authors}>{authors?.join(', ')}</p>
     {button}
-    {/* TODO: О книге вынести в конфиг + указать h4; */}
     <p className={styles.descriptionTitle}>О книге</p>
     <Underline underlineClass={styles.underline} />
     <div className={styles.description}>

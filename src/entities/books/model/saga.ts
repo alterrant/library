@@ -10,7 +10,7 @@ function* worker() {
     const { data } = yield call(axiosInstance.get, BOOKS_API.books);
 
     yield put(setBooks(data as BooksTypes));
-  } catch (e) {
+  } catch {
     yield put(setBooksError(ErrorMessages.RELOAD_PAGE));
   }
 }

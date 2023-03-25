@@ -1,7 +1,9 @@
 import { Outlet } from 'react-router-dom';
 import React, { useEffect, useState } from 'react';
 
+import { AuthModel } from 'features/auth';
 import { NavListModel } from 'entities/nav-lists';
+import { BooksModel } from 'entities/books';
 import { BookInteractionsModel } from 'features/book-interactions';
 import { useCheckErrors, useCheckSuccesses } from '../model';
 import { ErrorSelectorNames, getWarningText, SuccessSelectorNames } from '../lib';
@@ -24,7 +26,6 @@ export const Layout = () => {
   const isWarning = ErrorsState.isError || SuccessesState.isSuccess;
 
   const dispatch = useAppDispatch();
-  const token = localStorage.getItem(TOKEN);
 
   const [isOpen, toggleStatus] = ToggleDropDownModule.useToggleState();
   const [warningsStatus, setWarningsStatus] = WarningsModel.useWarningState(isWarning);
@@ -32,24 +33,16 @@ export const Layout = () => {
 
   const { countedGenres } = useAppSelector(BookCardsModel.booksWithGenresSelector);
   const { genres } = useAppSelector(NavListModel.genresSelector);
-  /* const { resetState: resetBookInteractionsState } = BookInteractionsModel;
-  const { resetState: resetUploadAvatarState } = ProfileModel; */
-  // const [useEffectState, setUseEffectState] = useState({ isFirstEffect: false });
+  const { isSuccess } = useAppSelector(AuthModel.authSelector);
+  const token = localStorage.getItem(TOKEN);
+  // ниже почти рабочие 39-43
+
   useEffect(() => {
-     if (token && !genres.length && useEffectState.isFirstEffect) dispatch(NavListModel.getGenres());
-    console.log('')
-    return () => setUseEffectState({ isFirstEffect: true });
-  }, [useEffectState.isFirstEffect]);
-
-  /* useEffect(() => {
-    if (useEffectState.isFirstEffect) {
-      (ErrorsState.errorSelector === ErrorSelectorNames.bookInteractionsError ||
-        SuccessesState.successSelector === SuccessSelectorNames.bookInteractionsSuccess) &&
-        setTimeout(() => dispatch(resetBookInteractionsState()), 5000);
-    }
+    if (token && !genres.length && useEffectState.isFirstEffect) dispatch(NavListModel.getGenres());
+    if (token && useEffectState.isFirstEffect) dispatch(BooksModel.getBooks());
 
     return () => setUseEffectState({ isFirstEffect: true });
-  }, [isWarning, useEffectState.isFirstEffect]); */
+  }, [token, useEffectState.isFirstEffect]);
 
   return (
     <>

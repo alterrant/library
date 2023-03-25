@@ -24,9 +24,8 @@ export function* changeBookingDateWorker({ payload }: ChangeBookingDatePayloadTy
     yield put(setSuccess(SuccessMessages.CHANGES_SAVED));
 
     yield resetState();
-  } catch (e) {
-    if (axios.isAxiosError(e)) yield put(setError(ErrorMessages.CHANGES_NOT_SAVED));
-    else yield put(setError((e as Error).message));
+  } catch {
+    yield put(setError(ErrorMessages.CHANGES_NOT_SAVED));
 
     yield resetState();
   }

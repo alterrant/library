@@ -71,4 +71,3 @@ export type UserType = UserInfoType & {
 export type SetSuccessPayloadType = PayloadAction<string>;
 export type SetUserErrorActionType = PayloadAction<string>;
 export type SetUserActionType = PayloadAction<UserType>;
-export type ChangeUserInfoActionType = PayloadAction<DefaultUserInfoType>;

@@ -9,9 +9,10 @@ import styles from './text-with-highlights.module.css';
 type TextWithHighlightsProps = {
   title: string;
   filter?: string | string[];
+  isInputs?: boolean;
 };
 
-export const TextWithHighlights = ({ title, filter }: TextWithHighlightsProps) => {
+export const TextWithHighlights = ({ title, filter, isInputs = true }: TextWithHighlightsProps) => {
   const isPasswordMatchingError = title === ErrorMessages.PASSWORDS_MATCHING; // для тестов
   const withJsx = (text: string, key?: number) => (text ? <span key={key}>{text}</span> : null);
 
@@ -45,9 +46,10 @@ export const TextWithHighlights = ({ title, filter }: TextWithHighlightsProps) =
               <Fragment key={nanoid()}>
                 {getFormattedText(beforeSubstringFilters, text)}
                 <span
-                  data-test-id={isPasswordMatchingError ? 'hint' : undefined}
-                  // data-test-id='highlight-matches'
-                  className={styles.highlight}
+                 /* data-test-id={isPasswordMatchingError ? 'hint' : undefined}
+                  data-test-id='highlight-matches' */
+                  data-test-id={isPasswordMatchingError ? 'hint' : 'highlight-matches'}
+                  className={isPasswordMatchingError ? styles.highlight : (isInputs ? styles.inputsHighlightMatches : styles.highlightMatches)}
                 >
                   {match}
                 </span>

@@ -10,7 +10,7 @@ export const Provider = () => {
   const pathName = usePathname();
   const dispatch = useAppDispatch();
   const { isSuccess } = useAppSelector(authSelector);
-  const { user: currentUser } = useAppSelector(UserModel.userSelector);
+
   const [useEffectState, setUseEffectState] = useState({ isFirstEffect: false });
 
   useEffect(() => {
@@ -20,16 +20,10 @@ export const Provider = () => {
       if (!token) {
         if (pathName !== '/forgot-pass' && pathName !== '/registration') navigate('auth');
       } else if (pathName === '/forgot-pass' || pathName === '/registration' || pathName === '/auth') {
-
         navigate('books/all');
-      /* } else if (!currentUser.id) {
+      } else {
         dispatch(UserModel.me());
-      } */
-    } else {
-      dispatch(UserModel.me());
-    }
-
-      // if (!currentUser.id) dispatch(UserModel.me());
+      }
     }
 
     return () => setUseEffectState({ isFirstEffect: true });

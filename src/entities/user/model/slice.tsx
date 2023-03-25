@@ -1,7 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 import {
-  ChangeUserInfoActionType,
   initialState,
   SetSuccessPayloadType,
   SetUserActionType,

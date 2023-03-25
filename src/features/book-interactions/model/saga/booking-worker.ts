@@ -1,4 +1,3 @@
-import axios from 'axios';
 import { call, put, select } from 'redux-saga/effects';
 
 import { BooksModel, BooksTypes } from 'entities/books';
@@ -24,9 +23,8 @@ export function* bookingWorker({ payload }: BookingPayloadType) {
     yield put(setSuccess(SuccessMessages.BOOKING));
 
     yield resetState();
-  } catch (e) {
-    if (axios.isAxiosError(e)) yield put(setError(ErrorMessages.FETCHING_BOOKING_ERROR));
-    else yield put(setError((e as Error).message));
+  } catch {
+    yield put(setError(ErrorMessages.FETCHING_BOOKING_ERROR));
 
     yield resetState();
   }

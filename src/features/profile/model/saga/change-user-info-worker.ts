@@ -5,12 +5,13 @@ import { UserLib, UserModel } from 'entities/user';
 import { axiosInstance, USERS_API } from 'shared/api';
 import { ErrorMessages } from 'shared/lib';
 import { resetState, setError, setSuccess } from '../slice';
+import { ChangeUserInfoTypes } from '../../lib/types';
 
 const { me, userSelector } = UserModel;
 const successMessage = BookInteractionsLib.SuccessMessages.CHANGES_SAVED;
 const errorMessage = ErrorMessages.CHANGES_NOT_SAVED;
 
-export function* changeUserInfoWorker({ payload }: UserLib.ChangeUserInfoActionType) {
+export function* changeUserInfoWorker({ payload }: ChangeUserInfoTypes.ChangeUserInfoActionType) {
   try {
     const { user }: { user: UserLib.UserType } = yield select(userSelector);
 

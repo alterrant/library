@@ -1,4 +1,3 @@
-import axios from 'axios';
 import { call, put, select } from 'redux-saga/effects';
 
 import { BookLib, BookModel } from 'entities/book';
@@ -21,9 +20,8 @@ export function* addCommentWorker({ payload }: AddCommentPayloadType) {
     yield put(me());
 
     yield resetState();
-  } catch (e) {
-    if (axios.isAxiosError(e)) yield put(setError(ErrorMessages.FETCHING_COMMENT_ERROR));
-    else yield put(setError((e as Error).message));
+  } catch {
+    yield put(setError(ErrorMessages.FETCHING_COMMENT_ERROR));
 
     yield resetState();
   }
