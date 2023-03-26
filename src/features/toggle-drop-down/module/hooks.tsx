@@ -1,11 +1,13 @@
 import { useState } from 'react';
 
-import { IsOpenType, ToggleStatusType } from '..';
+import { SetToggleStatusType, ToggleStatusType } from '../../../shared/lib';
 
 export const useToggleState = (
-  initialStatus = false
-): [isOpen: IsOpenType, toggleStatus: ToggleStatusType] => {
-  const [isOpen, toggleStatus] = useState<IsOpenType>(initialStatus);
+  initialStatus = { isOpen: false }
+): [toggleStatus: ToggleStatusType, setToggleStatus: SetToggleStatusType, resetToggleState: () => void] => {
+  const [toggleStatus, setToggleStatus] = useState<ToggleStatusType>(initialStatus);
 
-  return [isOpen, toggleStatus];
+  const resetToggleStatus = () => setToggleStatus(initialStatus);
+
+  return [toggleStatus, setToggleStatus, resetToggleStatus];
 };

@@ -14,20 +14,19 @@ type BookReviewsProps = BookConfig.BookCommentsType & {
 };
 
 export const BookReviews = ({ comments, bookId }: BookReviewsProps) => {
-  const [isOpen, toggleStatus] = ToggleDropDownModule.useToggleState(isOpenReviewsInitial);
+  const [toggleStatus, setToggleStatus] = ToggleDropDownModule.useToggleState(isOpenReviewsInitial);
   const isComments = comments?.length;
-  const arrowOrientation = isOpen ? ORIENTATION.UP : ORIENTATION.DOWN;
+  const arrowOrientation = toggleStatus.isOpen ? ORIENTATION.UP : ORIENTATION.DOWN;
 
   return (
     <section data-test-id='reviews' className={styles.bookReviews}>
 
       <ToggleDropDown
-        handleClick={() => toggleStatus(!isOpen)}
-        isMenuOpened={isOpen}
+        handleClick={() => setToggleStatus({ isOpen: !toggleStatus })}
+        isMenuOpened={toggleStatus.isOpen}
         menuClass={styles.titleWrapper}
         hiddenElement={
           <>
-
             {isComments && <Underline underlineClass={styles.underline} />}
             <div className={styles.reviewsWrapper}>
               {comments?.map((review) => (
@@ -41,7 +40,6 @@ export const BookReviews = ({ comments, bookId }: BookReviewsProps) => {
                 />
               ))}
             </div>
-
           </>
         }
       >

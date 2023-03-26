@@ -3,31 +3,31 @@ import { useNavigate } from 'react-router-dom';
 
 import { ToggleDropDown } from 'features/toggle-drop-down';
 import { NavLists, CountedGenreType } from 'entities/nav-lists';
-import { ORIENTATION } from 'shared/lib';
+import {ORIENTATION, SetToggleStatusType} from 'shared/lib';
 import { Arrows } from 'shared/ui';
-import { DataTestIdNavigationTypes } from '../../types';
+import { DataTestIdNavigationTypes } from '../../config';
 import { useCurrentCategory } from '../../hooks';
 
 type SectionProps = DataTestIdNavigationTypes & {
   section: { id: string; text: string; link: string };
   countedGenres: CountedGenreType[];
-  toggleBurgerStatus?: () => void;
+  linkClickHandler?: () => void;
   closeErrorsHandler?: () => void;
   isOpen: boolean;
-  toggleStatus: Dispatch<boolean>;
+  setToggleStatus: SetToggleStatusType;
 };
 
 export const Section = ({
   section,
   countedGenres,
-  toggleBurgerStatus,
+  linkClickHandler,
   closeErrorsHandler,
   dataTestIdFirstSection,
   dataTestIdAllBooks,
   dataTestIdSectionTerms,
   dataTestIdSectionContract,
   isOpen,
-  toggleStatus
+  setToggleStatus
 }: SectionProps) => {
   const navigate = useNavigate();
   const currentCategory = useCurrentCategory();
@@ -39,14 +39,14 @@ export const Section = ({
           dataTestId={dataTestIdFirstSection}
           handleClick={() => {
             navigate('/books/all');
-            toggleStatus(!isOpen);
+            setToggleStatus({ isOpen: !isOpen });
           }}
           isMenuOpened={isOpen}
           hiddenElement={
             !!countedGenres.length && (
               <NavLists.GenresList
                 genres={countedGenres}
-                toggleStatus={toggleBurgerStatus}
+                linkClickHandler={linkClickHandler}
                 dataTestId={dataTestIdAllBooks}
               />
             )
@@ -68,7 +68,7 @@ export const Section = ({
           dataTestId={section.id === '1' ? dataTestIdSectionTerms : dataTestIdSectionContract}
           section={section}
           closeErrorsHandler={() => {
-            toggleStatus(false);
+            setToggleStatus({ isOpen: false });
             if (closeErrorsHandler) closeErrorsHandler();
           }}
           categoryName={currentCategory}

@@ -68,6 +68,11 @@ export type ModalsStateType = {
   isOpen: boolean;
 };
 
+export type ToggleStatusType = {
+  isOpen: boolean;
+};
+export type SetToggleStatusType = Dispatch<ToggleStatusType>;
+
 export type UpdateCommentResponseType = {
   data: UpdateCommentResponseDataType;
   meta: object;

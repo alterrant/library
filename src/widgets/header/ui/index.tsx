@@ -1,59 +1,54 @@
-import { ReactNode, useRef, useState } from 'react';
+import { ReactNode } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 
-import { User } from 'entities/user';
-import { ToggleDropDown, ToggleDropDownModule, IsOpenType, ToggleStatusType } from 'features/toggle-drop-down';
+import { ToggleClickOutside } from 'features/toggle-with-click-outside';
 import { signOut } from 'features/auth/model/handlers';
-import { DropDownMenu, DropDownMenuModel } from 'entities/drop-down-menu';
+import { ToggleDropDown } from 'features/toggle-drop-down';
+import { User } from 'entities/user';
+import { DropDownMenu } from 'entities/drop-down-menu';
 import { BurgerMenu } from 'shared/ui';
-import { useAppDispatch } from 'shared/lib';
+import { SetToggleStatusType, ToggleStatusType, useAppDispatch } from 'shared/lib';
 import { ReactComponent as Logo } from './assets/logo.svg';
 import { TITLE } from '../config';
 
 import styles from './header.module.css';
 
 type HeaderProps = {
-  isOpenDropDownMenu: IsOpenType;
-  dropDownMenuToggle: ToggleStatusType;
+  toggleStatusDropDownMenu: ToggleStatusType;
+  setToggleStatusDropDownMenu: SetToggleStatusType;
+  resetToggleStatusDropDownMenu: () => void;
   dropDownMenuChildren?: ReactNode;
 };
 
-export const Header = ({ dropDownMenuChildren, isOpenDropDownMenu, dropDownMenuToggle }: HeaderProps) => {
-  const dropDownMenuRef = useRef<HTMLUListElement>(null);
+export const Header = ({
+  dropDownMenuChildren,
+  toggleStatusDropDownMenu,
+  setToggleStatusDropDownMenu,
+  resetToggleStatusDropDownMenu,
+}: HeaderProps) => {
   const dispatch = useAppDispatch();
-
-  const onClickOutside = (e: MouseEvent) =>
-    DropDownMenuModel.outsideDropDownHandler({
-      e,
-      isOpen: isOpenDropDownMenu,
-      toggle: dropDownMenuToggle,
-      dropDownMenuRef,
-    });
-
-  DropDownMenuModel.useClickOutside(isOpenDropDownMenu, onClickOutside);
-  DropDownMenuModel.useScrollLock(isOpenDropDownMenu);
-
   const navigate = useNavigate();
+
+  const toggleDropDownHandler = () => setToggleStatusDropDownMenu({ isOpen: !toggleStatusDropDownMenu.isOpen });
+
+  const signOutHandler = () => signOut(navigate, dispatch);
 
   return (
     <header className={styles.header}>
       <ToggleDropDown
         dataTestId='button-burger'
-        handleClick={() => ToggleDropDownModule.toggleHandler(isOpenDropDownMenu, dropDownMenuToggle)}
-        isMenuOpened={isOpenDropDownMenu}
+        handleClick={toggleDropDownHandler}
+        isMenuOpened={toggleStatusDropDownMenu.isOpen}
         hiddenElementClass={styles.dropDownMenu}
         hiddenElement={
-          <DropDownMenu
-            isBurgerDropDown
-            isUnderline
-            dropDownMenuRef={dropDownMenuRef}
-            logOutHandler={() => signOut(navigate, dispatch)}
-          >
-            {dropDownMenuChildren}
-          </DropDownMenu>
+          <ToggleClickOutside closeModal={resetToggleStatusDropDownMenu} modalStatus={toggleStatusDropDownMenu}>
+            <DropDownMenu isBurgerDropDown isUnderline logOutHandler={signOutHandler}>
+              {dropDownMenuChildren}
+            </DropDownMenu>
+          </ToggleClickOutside>
         }
       >
-        <BurgerMenu isOpen={isOpenDropDownMenu} />
+        <BurgerMenu isOpen={toggleStatusDropDownMenu.isOpen} />
       </ToggleDropDown>
       <NavLink to='/'>
         <Logo />
@@ -62,7 +57,7 @@ export const Header = ({ dropDownMenuChildren, isOpenDropDownMenu, dropDownMenuT
 
       <div className={styles.profileWrapper}>
         <div className={styles.dropDownProfile}>
-          <DropDownMenu logOutHandler={() => signOut(navigate, dispatch)} />
+          <DropDownMenu logOutHandler={signOutHandler} />
         </div>
         <User.PersonInfo />
       </div>

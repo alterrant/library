@@ -8,7 +8,7 @@ import { ToggleDropDownModule } from 'features/toggle-drop-down';
 import { Warnings, WarningsModel } from 'entities/warnings';
 import { NavListModel } from 'entities/nav-lists';
 import { BooksModel } from 'entities/books';
-import { TOKEN, useAppDispatch, useAppSelector } from 'shared/lib';
+import {ModalsStateType, TOKEN, useAppDispatch, useAppSelector} from 'shared/lib';
 import { useCheckErrors, useCheckSuccesses } from '../model';
 import { getWarningText } from '../lib';
 import { BookCardsModel } from '../../../books-content/book-cards';
@@ -23,7 +23,7 @@ export const Layout = () => {
 
   const dispatch = useAppDispatch();
 
-  const [isOpen, toggleStatus] = ToggleDropDownModule.useToggleState();
+  const [toggleStatus, setToggleStatus, resetToggleStatus] = ToggleDropDownModule.useToggleState();
   const [warningsStatus, setWarningsStatus] = WarningsModel.useWarningState(isWarning);
   const [useEffectState, setUseEffectState] = useState({ isFirstEffect: false });
 
@@ -50,13 +50,14 @@ export const Layout = () => {
           />
         )}
         <Header
-          isOpenDropDownMenu={isOpen}
-          dropDownMenuToggle={toggleStatus}
+          toggleStatusDropDownMenu={toggleStatus}
+          setToggleStatusDropDownMenu={setToggleStatus}
+          resetToggleStatusDropDownMenu={resetToggleStatus}
           dropDownMenuChildren={
-            isOpen && (
+            toggleStatus.isOpen && (
               <Navigation
                 countedGenres={countedGenres}
-                toggleBurgerStatus={() => ToggleDropDownModule.closeHandler(toggleStatus)}
+                toggleBurgerStatus={resetToggleStatus}
                 dataTestIdBurgerNavigation='burger-navigation'
                 dataTestIdFirstSection='burger-showcase'
                 dataTestIdAllBooks='burger-'

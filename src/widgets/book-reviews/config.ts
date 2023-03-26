@@ -5,4 +5,4 @@ export const timeFormatOptions = {
   year: 'numeric',
 } as const;
 
-export const isOpenReviewsInitial = true;
+export const isOpenReviewsInitial = { isOpen: true };
