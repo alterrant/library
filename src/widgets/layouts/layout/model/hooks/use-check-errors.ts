@@ -1,12 +1,11 @@
-import { BookInteractionsModel } from 'features/book-interactions';
-import { ProfileModel } from "features/profile";
 import { NavListModel } from 'entities/nav-lists';
 import { BooksModel } from 'entities/books';
+import { ProfileModel } from 'features/profile';
 import { BookModel } from 'entities/book';
+import { BookInteractionsModel } from 'features/book-interactions';
 import { useAppSelector } from 'shared/lib';
-import { ErrorSelectorNames, CheckErrorsType, SuccessSelectorNames, CheckSuccessesType } from '../lib';
+import { CheckErrorsType, ErrorSelectorNames } from '../../lib';
 
-// TODO: привести к единообразию
 export const useCheckErrors = (): CheckErrorsType => {
   const { error: navError } = useAppSelector(NavListModel.genresSelector);
   const { error: booksError } = useAppSelector(BooksModel.booksSelector);
@@ -25,19 +24,5 @@ export const useCheckErrors = (): CheckErrorsType => {
       (profileError && ErrorSelectorNames.profileError) ||
       '',
     errorMessage: navError || booksError || bookError || bookInteractionsError || profileError || '',
-  };
-};
-
-export const useCheckSuccesses = (): CheckSuccessesType => {
-  const { successMessage: bookInteractionsSuccess } = useAppSelector(BookInteractionsModel.bookInteractionsSelector);
-  const { success: profileSuccess } = useAppSelector(ProfileModel.profileSelector);
-
-  return {
-    isSuccess: !!(bookInteractionsSuccess || profileSuccess),
-    successSelector:
-      (bookInteractionsSuccess && SuccessSelectorNames.bookInteractionsSuccess) ||
-      (profileSuccess && SuccessSelectorNames.profileSuccess) ||
-      '',
-    successMessage: bookInteractionsSuccess || profileSuccess || '',
   };
 };
