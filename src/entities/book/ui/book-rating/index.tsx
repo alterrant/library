@@ -1,6 +1,6 @@
+import { Stars, Underline } from 'shared/ui';
+import { EMPTY_RATING } from 'shared/lib';
 import { RATING_TITLE } from '../../lib';
-import { Stars, Underline } from '../../../../shared/ui';
-import { EMPTY_RATING } from '../../../../shared/lib';
 
 import styles from './book-rating.module.css';
 

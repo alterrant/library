@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
+import { CardStylesTypes } from 'shared/lib';
 import { ToggleStyleType } from '../types';
-import { CardStylesTypes } from '../../../shared/lib';
 
 export const useToggleCardsState = (
   cardsStyle: CardStylesTypes

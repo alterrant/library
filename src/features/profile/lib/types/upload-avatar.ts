@@ -1,7 +1,7 @@
 import { Dispatch, FormEvent } from 'react';
 import { PayloadAction } from '@reduxjs/toolkit';
 
-import { Nullable } from '../../../../shared/lib';
+import { Nullable } from 'shared/lib';
 
 export type FileInputEventType = FormEvent<HTMLInputElement>;
 export type UploadFileType = Nullable<FormData>;

@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { useFormContext, useWatch } from 'react-hook-form';
 
+import { InputTypes } from 'shared/lib';
 import { hiddenPasswordConfig } from '../lib';
-import { InputTypes } from '../../../shared/lib';
 
 export const useFormInput = (type: InputTypes) => {
   const { register, clearErrors, setError, setValue, getValues, resetField } = useFormContext();

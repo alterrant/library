@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
-import { BookCardsTool } from 'widgets/book-cards-tool';
-import { BookCards } from 'widgets/book-cards';
+import { BookCardsTool } from 'widgets/books-content/book-cards-tool';
+import { BookCards } from 'widgets/books-content/book-cards';
 import { BookInteractionsModel } from 'features/book-interactions';
 import { toggleCardsStyleModel } from 'features/toggle-cards-style';
 import { UserModel } from 'entities/user';

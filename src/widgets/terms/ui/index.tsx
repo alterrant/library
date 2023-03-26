@@ -1,5 +1,5 @@
+import { TermsLists } from 'entities/terms-lists';
 import { RULES_DATA } from '../config';
-import { TermsLists } from '../../../entities/terms-lists';
 
 import styles from './terms.module.css';
 

@@ -1,9 +1,9 @@
 import { call, put, takeLatest } from 'redux-saga/effects';
 
+import { axiosInstance, USERS_API } from 'shared/api';
+import { ErrorMessages } from 'shared/lib';
 import { me, setError, setUser } from '.';
 import { UserType } from '../lib';
-import { axiosInstance, USERS_API } from '../../../shared/api';
-import { ErrorMessages } from '../../../shared/lib';
 
 function* meWorker() {
   try {

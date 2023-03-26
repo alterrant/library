@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
 
-import { Underline } from '../../../../shared/ui';
+import { Underline } from 'shared/ui';
 import { BookBasicInfoType } from '../../lib';
 
 import styles from './basik-book-info.module.css';

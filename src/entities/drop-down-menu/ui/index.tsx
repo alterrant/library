@@ -1,7 +1,7 @@
 import { forwardRef, ReactNode, RefObject } from 'react';
 
+import { NavList, Underline } from 'shared/ui';
 import { LOG_OUT, PROFILE } from '../config';
-import { NavList, Underline } from '../../../shared/ui';
 
 import styles from './drop-down-menu.module.css';
 

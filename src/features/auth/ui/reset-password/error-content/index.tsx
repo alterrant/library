@@ -1,6 +1,6 @@
+import { DispatchAnyType } from 'shared/lib';
+import { Templates } from 'shared/ui';
 import { AuthModel, AuthLib } from '../../..';
-import { DispatchAnyType } from '../../../../../shared/lib';
-import { Templates } from '../../../../../shared/ui';
 
 type ErrorContentProps = {
   dispatch: DispatchAnyType;

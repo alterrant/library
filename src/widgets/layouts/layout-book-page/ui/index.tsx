@@ -1,10 +1,8 @@
 import { Outlet, useParams } from 'react-router-dom';
 
-import { Book, BookModel } from '../../../../entities/book';
-import { NavListModel } from '../../../../entities/nav-lists';
-import { useAppSelector, useFetch } from '../../../../shared/lib';
-import { SuccessMessages } from '../../../../features/book-interactions/lib';
-import { BookInteractionsModel } from '../../../../features/book-interactions';
+import { Book, BookModel } from 'entities/book';
+import { NavListModel } from 'entities/nav-lists';
+import { useAppSelector, useFetch } from 'shared/lib';
 
 import styles from './layout-book-page.module.css';
 

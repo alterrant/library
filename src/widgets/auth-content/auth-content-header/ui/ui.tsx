@@ -1,6 +1,6 @@
+import { AuthModel } from 'features/auth';
+import { LinkedTextWithArrow } from 'shared/ui';
 import { headerConfig } from '../config';
-import { AuthModel } from '../../../../features/auth';
-import { LinkedTextWithArrow } from '../../../../shared/ui';
 
 import styles from './auth-content-header.module.css';
 

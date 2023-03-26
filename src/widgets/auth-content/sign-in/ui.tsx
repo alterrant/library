@@ -1,5 +1,5 @@
-import { Auth, AuthModel, AuthLib } from '../../../features/auth';
-import { Preloader } from '../../../shared/ui';
+import { Auth, AuthModel, AuthLib } from 'features/auth';
+import { Preloader } from 'shared/ui';
 
 export const Content = () => {
   const { checkInvalidAuthorisationMessage } = AuthLib.signInConfig;

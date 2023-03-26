@@ -1,5 +1,5 @@
 import { AuthContent } from 'widgets';
-import { Templates } from '../../../shared/ui';
+import { Templates } from 'shared/ui';
 
 export const SignIn = () => (
   <Templates.Auth.Wrapper>

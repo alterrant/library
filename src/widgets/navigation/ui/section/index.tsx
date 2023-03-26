@@ -1,12 +1,12 @@
 import { Dispatch, Fragment } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import { useCurrentCategory } from '../../hooks';
+import { ToggleDropDown } from 'features/toggle-drop-down';
+import { NavLists, CountedGenreType } from 'entities/nav-lists';
+import { ORIENTATION } from 'shared/lib';
+import { Arrows } from 'shared/ui';
 import { DataTestIdNavigationTypes } from '../../types';
-import { ToggleDropDown } from '../../../../features/toggle-drop-down';
-import { NavLists, CountedGenreType } from '../../../../entities/nav-lists';
-import { ORIENTATION } from '../../../../shared/lib';
-import { Arrows } from '../../../../shared/ui';
+import { useCurrentCategory } from '../../hooks';
 
 type SectionProps = DataTestIdNavigationTypes & {
   section: { id: string; text: string; link: string };

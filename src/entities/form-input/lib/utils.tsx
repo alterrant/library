@@ -7,7 +7,7 @@ import {
   INPUT_TYPES,
   InputTypes,
   ResetPasswordFieldNames,
-} from '../../../shared/lib';
+} from 'shared/lib';
 
 import styles from '../ui/form-input.module.css';
 

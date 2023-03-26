@@ -1,5 +1,5 @@
+import { Underline } from 'shared/ui';
 import { BookDetails, DETAILED_INFO_TITLE, getBookInfoRows } from '../../lib';
-import { Underline } from '../../../../shared/ui';
 
 import styles from './detailed-book-info.module.css';
 

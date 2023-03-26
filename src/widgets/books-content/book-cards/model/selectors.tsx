@@ -1,7 +1,7 @@
 import { createSelector } from '@reduxjs/toolkit';
 
-import { NavListModel, CountedGenreType } from '../../../entities/nav-lists';
-import { BooksModel, BooksByGenresTypes } from '../../../entities/books';
+import { NavListModel, CountedGenreType } from 'entities/nav-lists';
+import { BooksModel, BooksByGenresTypes } from 'entities/books';
 
 export const booksWithGenresSelector = createSelector(
   [BooksModel.allBooksSelector, NavListModel.allGenresSelector],

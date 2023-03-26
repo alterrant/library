@@ -1,7 +1,7 @@
 import { NavLink } from 'react-router-dom';
 
+import { Nullable } from 'shared/lib';
 import { GenreType } from '../../../nav-lists';
-import { Nullable } from '../../../../shared/lib';
 
 import styles from './short-navigation.module.css';
 

@@ -1,5 +1,6 @@
 import { PayloadAction } from '@reduxjs/toolkit';
-import { Nullable } from '../../../shared/lib';
+
+import { Nullable } from 'shared/lib';
 
 export type BooksTypes = {
   issueYear: string;

@@ -1,7 +1,7 @@
 import { ToggleDropDownModule } from 'features/toggle-drop-down';
+import { CountedGenreType, sections } from 'entities/nav-lists';
 import { Section } from './section';
 import { DataTestIdNavigationTypes } from '../types';
-import { CountedGenreType, sections } from '../../../entities/nav-lists';
 
 import styles from './navigation.module.css';
 

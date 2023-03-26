@@ -1,6 +1,6 @@
+import { ErrorMessages } from 'shared/lib';
 import { CheckErrorsType, CheckSuccessesType } from './types';
 import { ErrorSelectorNames } from './config';
-import { ErrorMessages } from '../../../../shared/lib';
 
 export const getErrorText = (ErrorsState: CheckErrorsType) =>
   ErrorsState.errorSelector === ErrorSelectorNames.bookInteractionsError

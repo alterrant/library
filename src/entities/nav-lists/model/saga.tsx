@@ -1,8 +1,8 @@
 import { call, put, takeLatest } from 'redux-saga/effects';
 
+import { axiosInstance, BOOKS_API } from 'shared/api';
 import { getGenres, setGenres } from '.';
 import { GenreType } from '../lib';
-import { axiosInstance, BOOKS_API } from '../../../shared/api';
 
 function* worker() {
   try {
@@ -15,6 +15,7 @@ function* worker() {
     // категорически нельзя делать запрос categories при переходе на /profile. Если сделаем -
     // упадём с ошибкой. Другой костыль был бы: отключить отображение ошибки запроса categories
     // только в профиле, но суть костыля такая была бы же: ошибка есть, но я вам её не покажу
+
     /* yield put(setGenresError(ErrorMessages.RELOAD_PAGE)); */
   }
 }

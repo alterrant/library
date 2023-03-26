@@ -4,9 +4,8 @@ import { BooksModel, BooksTypes } from 'entities/books';
 import { BookLib, BookModel } from 'entities/book';
 import { axiosInstance } from 'shared/api';
 import { BOOKING_API } from 'shared/api/booking';
-import { ErrorMessages } from 'shared/lib';
-import { resetState } from './reset-state';
-import { setError, setSuccess } from '../slice';
+import { ErrorMessages, resetState } from 'shared/lib';
+import { resetState as resetStateActionCreator, setError, setSuccess } from '../slice';
 import { CancelBookingPayloadType, modelsHelper, SuccessMessages } from '../../lib';
 
 export function* cancelBookingWorker({ payload }: CancelBookingPayloadType) {
@@ -22,10 +21,10 @@ export function* cancelBookingWorker({ payload }: CancelBookingPayloadType) {
 
     yield put(setSuccess(SuccessMessages.CANCEL_BOOKING));
 
-    yield resetState();
+    yield resetState(resetStateActionCreator);
   } catch {
     yield put(setError(ErrorMessages.CANT_CANCEL_BOOKING));
 
-    yield resetState();
+    yield resetState(resetStateActionCreator);
   }
 }

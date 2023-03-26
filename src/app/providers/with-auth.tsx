@@ -1,8 +1,11 @@
 import { RouteObject } from 'react-router-dom';
 
-import { AuthProcess } from '../../processes';
-import { AuthPages } from '../../pages';
-import { ErrorBoundary } from '../../shared/ui';
+import { AuthProcess } from 'processes';
+import { AuthPages } from 'pages';
+import { ROUTS } from 'shared/lib';
+import { ErrorBoundary } from 'shared/ui';
+
+const { AUTH, REGISTRATION, FORGOT_PASS } = ROUTS.AUTH;
 
 export const withAuth = (routes: RouteObject[]) => [
   {
@@ -11,15 +14,15 @@ export const withAuth = (routes: RouteObject[]) => [
     children: [
       ...routes,
       {
-        path: 'auth',
+        path: AUTH,
         element: <AuthPages.SignIn />,
       },
       {
-        path: 'registration',
+        path: REGISTRATION,
         element: <AuthPages.SignUp />,
       },
       {
-        path: 'forgot-pass',
+        path: FORGOT_PASS,
         element: <AuthPages.RecoveryAccount />,
       },
     ],

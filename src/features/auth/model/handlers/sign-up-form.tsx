@@ -1,9 +1,9 @@
 import { Dispatch } from 'react';
 
+import { DispatchAnyType } from 'shared/lib';
 import { registration } from '..';
 import { FormTypeStep, signUpConfig } from '../../lib';
 import { Types } from '../../lib/sign-up';
-import { DispatchAnyType } from '../../../../shared/lib';
 
 type SetSignUpStepType = Dispatch<Types.Step>;
 

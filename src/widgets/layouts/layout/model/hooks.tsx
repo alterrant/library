@@ -1,10 +1,10 @@
+import { BookInteractionsModel } from 'features/book-interactions';
+import { ProfileModel } from "features/profile";
+import { NavListModel } from 'entities/nav-lists';
+import { BooksModel } from 'entities/books';
+import { BookModel } from 'entities/book';
+import { useAppSelector } from 'shared/lib';
 import { ErrorSelectorNames, CheckErrorsType, SuccessSelectorNames, CheckSuccessesType } from '../lib';
-import { BookInteractionsModel } from '../../../../features/book-interactions';
-import { NavListModel } from '../../../../entities/nav-lists';
-import { BooksModel } from '../../../../entities/books';
-import { BookModel } from '../../../../entities/book';
-import { useAppSelector } from '../../../../shared/lib';
-import { ProfileModel } from "../../../../features/profile";
 
 // TODO: привести к единообразию
 export const useCheckErrors = (): CheckErrorsType => {

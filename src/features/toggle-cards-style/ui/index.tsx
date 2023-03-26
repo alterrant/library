@@ -1,8 +1,8 @@
 import classNames from 'classnames';
 
+import { BooksColumnStyleBtn, BooksRowStyleBtn } from 'shared/ui';
+import { CARD_STYLES, CardStylesTypes } from 'shared/lib';
 import { SVGMouseEventType } from '../types';
-import { BooksColumnStyleBtn, BooksRowStyleBtn } from '../../../shared/ui';
-import { CARD_STYLES, CardStylesTypes } from '../../../shared/lib';
 
 import styles from './toggle-card-style.module.css';
 

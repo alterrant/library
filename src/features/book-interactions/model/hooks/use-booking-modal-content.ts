@@ -1,5 +1,5 @@
 import { CalendarModel } from 'entities/calendar';
-import { useAppDispatch } from '../../../../shared/lib';
+import { useAppDispatch } from 'shared/lib';
 
 export const useBookingModalContent = () => {
   const [selectedDate, setSelectedDay] = CalendarModel.useCalendarState();

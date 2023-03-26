@@ -1,13 +1,13 @@
 import { combineReducers } from '@reduxjs/toolkit';
 
+import { AuthModel } from 'features/auth';
+import { BookInteractionsModel } from 'features/book-interactions';
+import { ProfileModel } from 'features/profile';
 import { NavListModel } from 'entities/nav-lists';
 import { BooksModel } from 'entities/books';
 import { BookModel } from 'entities/book';
 import { BooksToolModel } from 'entities/books-tool';
 import { UserModel } from 'entities/user';
-import { AuthModel } from 'features/auth';
-import { BookInteractionsModel } from 'features/book-interactions';
-import { ProfileModel } from 'features/profile';
 
 export const rootReducer = combineReducers({
   bookGenres: NavListModel.reducer,

@@ -1,11 +1,11 @@
+import classNames from 'classnames';
 import { Fragment } from 'react';
 import { SwiperSlide } from 'swiper/react';
-import classNames from 'classnames';
 import { Swiper as SwiperInterface } from 'swiper';
 
+import { unsetBook } from 'shared/ui';
+import { getImageSrc, Nullable } from 'shared/lib';
 import { BookDetails, ImgSlideType } from '.';
-import { unsetBook } from '../../../shared/ui';
-import { getImageSrc, Nullable } from '../../../shared/lib';
 
 import styles from '../ui/detailed-book-info/detailed-book-info.module.css';
 import swiperStyles from '../ui/book-images-container/book-images-swiper.module.css';

@@ -1,5 +1,5 @@
-import { AuthContent } from '../../../../widgets';
-import { Templates } from '../../../../shared/ui';
+import { AuthContent } from 'widgets';
+import { Templates } from 'shared/ui';
 
 type ResetPasswordProps = {
   code: string;

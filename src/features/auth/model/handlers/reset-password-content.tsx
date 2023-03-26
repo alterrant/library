@@ -1,7 +1,7 @@
 import { NavigateFunction } from 'react-router-dom';
 
+import { DispatchAnyType } from 'shared/lib';
 import { AuthModel } from '../..';
-import { DispatchAnyType } from '../../../../shared/lib';
 
 export const goToSignIn = (dispatch: DispatchAnyType, navigate: NavigateFunction) => {
   dispatch(AuthModel.resetState());

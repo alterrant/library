@@ -4,7 +4,7 @@ import {
   PLACEHOLDERS,
   INPUT_TYPES,
   FormFieldsDataTypes,
-} from '../../../../shared/lib';
+} from 'shared/lib';
 
 export enum FieldName {
   EMAIL = 'email',

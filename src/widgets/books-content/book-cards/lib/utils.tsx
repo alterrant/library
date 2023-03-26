@@ -1,12 +1,12 @@
 import compose from 'compose-function';
 
-import { BooksByGenresTypes, BooksTypes } from '../../../entities/books';
+import { BooksByGenresTypes, BooksTypes } from 'entities/books';
 import {
   FilterStringType,
   IsDescendingRatingType,
   filterByString,
   sortByRating,
-} from '../../../entities/books-tool';
+} from 'entities/books-tool';
 
 export const getOneGenreBooks = (booksByGenres: BooksByGenresTypes, genre: string) => {
   const genreWithBooks = booksByGenres.find((oneGenreBooks) => oneGenreBooks.genre === genre);

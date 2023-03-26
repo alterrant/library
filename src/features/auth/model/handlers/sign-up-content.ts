@@ -1,7 +1,7 @@
 import { NavigateFunction } from 'react-router-dom';
 
+import { DispatchAnyType } from 'shared/lib';
 import { AuthLib, AuthModel } from '../..';
-import { DispatchAnyType } from '../../../../shared/lib';
 
 type UserInfoType = AuthLib.signUpConfig.Types.UserInfo;
 type SetUserInfoType = AuthLib.signUpConfig.Types.SetUserInfo;

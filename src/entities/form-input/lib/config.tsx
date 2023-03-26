@@ -1,7 +1,7 @@
+import { INPUT_TYPES } from 'shared/lib';
 import { PasswordConfigTypes } from './types';
 import eyeOpen from '../ui/assets/eye-open.svg';
 import eyeClosed from '../ui/assets/eye-closed.svg';
-import { INPUT_TYPES } from '../../../shared/lib';
 
 export const visiblePasswordConfig: PasswordConfigTypes = {
   type: INPUT_TYPES.TEXT,

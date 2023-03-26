@@ -1,7 +1,7 @@
 import { Control, FieldErrors } from 'react-hook-form';
 
+import { FormInput } from 'entities/form-input';
 import { signUpConfig } from '../../../../lib';
-import { FormInput } from '../../../../../../entities/form-input';
 import { Types } from '../../../../lib/sign-up';
 
 type InputsProps = {

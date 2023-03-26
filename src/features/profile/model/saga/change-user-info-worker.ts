@@ -1,17 +1,17 @@
-import { call, delay, put, select } from 'redux-saga/effects';
+import { call, put, select } from 'redux-saga/effects';
 
 import { BookInteractionsLib } from 'features/book-interactions';
 import { UserLib, UserModel } from 'entities/user';
 import { axiosInstance, USERS_API } from 'shared/api';
-import { ErrorMessages } from 'shared/lib';
-import { resetState, setError, setSuccess } from '../slice';
+import { ErrorMessages, resetState } from 'shared/lib';
+import { resetState as resetStateActionCreator, setError, setSuccess } from '../slice';
 import { ChangeUserInfoTypes } from '../../lib/types';
 
-const { me, userSelector } = UserModel;
-const successMessage = BookInteractionsLib.SuccessMessages.CHANGES_SAVED;
-const errorMessage = ErrorMessages.CHANGES_NOT_SAVED;
-
 export function* changeUserInfoWorker({ payload }: ChangeUserInfoTypes.ChangeUserInfoActionType) {
+  const successMessage = BookInteractionsLib.SuccessMessages.CHANGES_SAVED;
+  const errorMessage = ErrorMessages.CHANGES_NOT_SAVED;
+  const { me, userSelector } = UserModel;
+
   try {
     const { user }: { user: UserLib.UserType } = yield select(userSelector);
 
@@ -20,12 +20,10 @@ export function* changeUserInfoWorker({ payload }: ChangeUserInfoTypes.ChangeUse
     yield put(setSuccess(successMessage));
     yield put(me());
 
-    yield delay(5000);
-    yield put(resetState());
+    yield resetState(resetStateActionCreator);
   } catch (e) {
     yield put(setError(errorMessage));
 
-    yield delay(5000);
-    yield put(resetState());
+    yield resetState(resetStateActionCreator);
   }
 }

@@ -1,5 +1,5 @@
+import { routes } from 'pages';
 import { withProviders } from './providers';
-import { routes } from '../pages';
 
 import './index.css';
 

@@ -1,4 +1,4 @@
-import { defaultAvatar, Img, RoundImage, Stars } from '../../../../shared/ui';
+import { defaultAvatar, Img, RoundImage, Stars } from 'shared/ui';
 
 import styles from './book-review.module.css';
 

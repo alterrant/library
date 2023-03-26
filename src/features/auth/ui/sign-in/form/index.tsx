@@ -1,10 +1,10 @@
 import { FormProvider } from 'react-hook-form';
 
+import { FormInput } from 'entities/form-input';
+import { Templates } from 'shared/ui';
+import { checkIsEmptyObject } from 'shared/lib';
 import { RestoreAccount } from './restore-account';
 import { AuthModel, AuthLib } from '../../..';
-import { Templates } from '../../../../../shared/ui';
-import { FormInput } from '../../../../../entities/form-input';
-import { checkObjectEmpty } from '../../../../../shared/lib';
 
 type FormType = {
   isInvalidAuthorisation: boolean;
@@ -39,7 +39,7 @@ export const Form = ({ isInvalidAuthorisation }: FormType) => {
           <FormInput {...fieldData} errorMessage={errors[fieldData.name]?.message} key={fieldData.name} />
         ))}
         inputHelper={<RestoreAccount linkHandler={resetStateHandler} isError={isInvalidAuthorisation} />}
-        isSubmitDisabled={!checkObjectEmpty(errors)}
+        isSubmitDisabled={!checkIsEmptyObject(errors)}
         submitText={SUBMIT_TEXT}
         linkHandler={resetStateHandler}
         footerText={REGISTRATION_INFO}

@@ -1,6 +1,4 @@
-import { CARD_STYLES } from 'shared/lib';
-
-import { CardStylesTypes } from '../../../shared/lib';
+import { CardStylesTypes, CARD_STYLES } from 'shared/lib';
 import { SVGMouseEventType, ToggleStyleType } from '../types';
 
 export const toggleHandler = (

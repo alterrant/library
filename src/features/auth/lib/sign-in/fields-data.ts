@@ -1,10 +1,10 @@
-import { FieldNameTypes } from '../types';
 import {
   ErrorMessages,
   PLACEHOLDERS,
   INPUT_TYPES,
   FormFieldsDataTypes,
-} from '../../../../shared/lib';
+} from 'shared/lib';
+import { FieldNameTypes } from '../types';
 
 export enum FieldNames {
   LOGIN = 'identifier',

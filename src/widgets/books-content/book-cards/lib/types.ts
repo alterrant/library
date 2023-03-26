@@ -1,4 +1,4 @@
-import { CardStylesTypes, Nullable } from '../../../shared/lib';
+import { CardStylesTypes, Nullable } from 'shared/lib';
 
 export type BookCardsWrapperProps = {
   cardsStyle: CardStylesTypes;

@@ -1,18 +1,15 @@
-// import { lazy } from 'react';
 import { Navigate } from 'react-router-dom';
 
+import { Layout, LayoutMainPage, LayoutBookPage } from 'widgets/layouts';
+import { Terms } from 'widgets/terms';
+import { CONTRACT_TITLE, RULES_TITLE, ROUTS } from 'shared/lib';
+import { ErrorBoundary } from 'shared/ui';
 import { BookPage } from './book';
 import { MainPage } from './main';
-import { Layout, LayoutMainPage, LayoutBookPage } from '../widgets/layouts';
-import { Terms } from '../widgets/terms';
-import { CONTRACT_TITLE, RULES_TITLE } from '../shared/lib';
-import { ErrorBoundary } from '../shared/ui';
-import {ProfilePage} from "./profile";
+import { ProfilePage } from './profile';
 
-// TODO: реализовать lazy loading и suspense
-// const TestPage = lazy(() => import("./test"));
-// Navigation вынесено из MainPage для соответствия с роутингом
-// TODO: вынести константные руты в отельный файл
+const { BOOKS, CONTRACT, PROFILE, TERMS, ID, ALL, GENRES } = ROUTS.BASE;
+// Navigation вынесено из MainPage в Layout для упрощения роутинга
 export const routes = [
   {
     path: '/',
@@ -24,22 +21,22 @@ export const routes = [
         children: [
           {
             path: '/',
-            element: <Navigate to='books/all' />,
+            element: <Navigate to={`${BOOKS}/${ALL}`} />,
           },
           {
-            path: 'books/:genres',
+            path: `${BOOKS}/:${GENRES}`,
             element: <MainPage />,
           },
           {
-            path: 'books',
+            path: BOOKS,
             element: <MainPage />,
           },
           {
-            path: 'terms',
+            path: TERMS,
             element: <Terms title={RULES_TITLE} />,
           },
           {
-            path: 'contract',
+            path: CONTRACT,
             element: <Terms title={CONTRACT_TITLE} />,
           },
         ],
@@ -48,15 +45,15 @@ export const routes = [
         element: <LayoutBookPage />,
         children: [
           {
-            path: 'books/:genres/:id',
+            path: `${BOOKS}/:${GENRES}/:${ID}`,
             element: <BookPage />,
           },
         ],
       },
       {
-        path: 'profile',
-        element: <ProfilePage />
-      }
+        path: PROFILE,
+        element: <ProfilePage />,
+      },
     ],
   },
 ];

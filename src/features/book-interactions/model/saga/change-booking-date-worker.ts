@@ -1,13 +1,11 @@
-import axios from 'axios';
 import { call, put, select } from 'redux-saga/effects';
 
 import { BooksModel, BooksTypes } from 'entities/books';
 import { BookLib, BookModel } from 'entities/book';
 import { axiosInstance } from 'shared/api';
 import { BOOKING_API } from 'shared/api/booking';
-import { ErrorMessages } from 'shared/lib';
-import { resetState } from './reset-state';
-import { setError, setSuccess } from '../slice';
+import { ErrorMessages, resetState } from 'shared/lib';
+import { resetState as resetStateActionCreator, setError, setSuccess } from '../slice';
 import { ChangeBookingDatePayloadType, modelsHelper, SuccessMessages } from '../../lib';
 
 export function* changeBookingDateWorker({ payload }: ChangeBookingDatePayloadType) {
@@ -23,10 +21,10 @@ export function* changeBookingDateWorker({ payload }: ChangeBookingDatePayloadTy
 
     yield put(setSuccess(SuccessMessages.CHANGES_SAVED));
 
-    yield resetState();
+    yield resetState(resetStateActionCreator);
   } catch {
     yield put(setError(ErrorMessages.CHANGES_NOT_SAVED));
 
-    yield resetState();
+    yield resetState(resetStateActionCreator);
   }
 }

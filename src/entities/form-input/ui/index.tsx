@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useState } from 'react';
+import React, { ChangeEvent } from 'react';
 import MaskedInput from 'react-text-mask';
 import { Control, useController } from 'react-hook-form';
 import classNames from 'classnames';
@@ -7,9 +7,7 @@ import { signUpConfig } from 'features/auth/lib';
 import { FieldName } from 'features/auth/lib/forgot-password';
 import { ChangeUserInfoTypes } from 'features/profile/lib/types';
 import { getControllerOptions } from 'features/auth/lib/sign-up';
-import { HelpText } from './help-text';
-import { FormInputLib, FormInputModel } from '..';
-import { CheckCircle, Underline } from '../../../shared/ui';
+import { CheckCircle, Underline } from 'shared/ui';
 import {
   ErrorMessages,
   INPUT_TYPES,
@@ -18,7 +16,9 @@ import {
   ValidationRulesTypes,
   PLACEHOLDERS,
   validators,
-} from '../../../shared/lib';
+} from 'shared/lib';
+import { HelpText } from './help-text';
+import { FormInputLib, FormInputModel } from '..';
 
 import styles from './form-input.module.css';
 

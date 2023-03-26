@@ -2,15 +2,15 @@ import { ReactNode, useRef, useState } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 
 import { User } from 'entities/user';
+import { ToggleDropDown, ToggleDropDownModule, IsOpenType, ToggleStatusType } from 'features/toggle-drop-down';
+import { signOut } from 'features/auth/model/handlers';
+import { DropDownMenu, DropDownMenuModel } from 'entities/drop-down-menu';
+import { BurgerMenu } from 'shared/ui';
+import { useAppDispatch } from 'shared/lib';
 import { ReactComponent as Logo } from './assets/logo.svg';
 import { TITLE } from '../config';
-import { ToggleDropDown, ToggleDropDownModule, IsOpenType, ToggleStatusType } from '../../../features/toggle-drop-down';
-import { signOut } from '../../../features/auth/model/handlers';
-import { DropDownMenu, DropDownMenuModel } from '../../../entities/drop-down-menu';
-import { BurgerMenu } from '../../../shared/ui';
 
 import styles from './header.module.css';
-import {useAppDispatch} from "../../../shared/lib";
 
 type HeaderProps = {
   isOpenDropDownMenu: IsOpenType;
@@ -43,7 +43,12 @@ export const Header = ({ dropDownMenuChildren, isOpenDropDownMenu, dropDownMenuT
         isMenuOpened={isOpenDropDownMenu}
         hiddenElementClass={styles.dropDownMenu}
         hiddenElement={
-          <DropDownMenu isBurgerDropDown isUnderline dropDownMenuRef={dropDownMenuRef} logOutHandler={() => signOut(navigate, dispatch)}>
+          <DropDownMenu
+            isBurgerDropDown
+            isUnderline
+            dropDownMenuRef={dropDownMenuRef}
+            logOutHandler={() => signOut(navigate, dispatch)}
+          >
             {dropDownMenuChildren}
           </DropDownMenu>
         }

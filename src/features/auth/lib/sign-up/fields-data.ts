@@ -1,11 +1,11 @@
-import { Types } from '.';
 import {
   ErrorMessages,
   validators,
   PLACEHOLDERS,
   INPUT_TYPES,
   FormFieldsDataTypes,
-} from '../../../../shared/lib';
+} from 'shared/lib';
+import { Types } from '.';
 
 export enum FieldNamesStep1 {
   LOGIN = 'username',

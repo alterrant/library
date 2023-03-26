@@ -1,8 +1,8 @@
 import { Dispatch } from 'react';
 
+import { FormFieldsDataTypes, DefaultUserInfoType } from 'shared/lib';
 import { FieldNamesStep1, FieldNamesStep2, FieldNamesStep3 } from './fields-data';
 import { FieldNameTypes, FormTypeStep } from '../types';
-import { FormFieldsDataTypes, DefaultUserInfoType } from '../../../../shared/lib';
 
 export type Step = 0 | 1 | 2;
 export type SetStep = Dispatch<Step>;

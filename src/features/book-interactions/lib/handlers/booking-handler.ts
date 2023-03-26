@@ -1,6 +1,6 @@
 import { Dispatch } from 'react';
 
-import { BookCardsLib } from 'widgets/book-cards';
+import { BookCardsLib } from 'widgets/books-content/book-cards';
 import { BooksLib } from 'entities/books';
 import { ModalsStateType, Nullable } from 'shared/lib';
 import { checkBookedByCurrentUser } from '..';

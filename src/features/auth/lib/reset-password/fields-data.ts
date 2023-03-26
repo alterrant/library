@@ -5,7 +5,7 @@ import {
   INPUT_TYPES,
   FormFieldsDataTypes,
   ResetPasswordFieldNames,
-} from '../../../../shared/lib';
+} from 'shared/lib';
 
 export const dataFields: FormFieldsDataTypes<ResetPasswordFieldNames>[] = [
   {

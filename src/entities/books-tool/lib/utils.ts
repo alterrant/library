@@ -1,6 +1,6 @@
+import { getMatches } from 'shared/lib';
 import { FilterStringType, IsDescendingRatingType } from './types';
 import { BooksTypes } from '../../books';
-import { getMatches } from '../../../shared/lib';
 
 export const filterByString = (books: BooksTypes, filterString: FilterStringType) => {
   if (filterString) return books?.filter((book) => getMatches(book.title, filterString));

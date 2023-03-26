@@ -4,6 +4,8 @@ export const BASE_URL = 'https://strapi.cleverland.by';
 
 export const TOKEN = 'token';
 
+export const SHIELDED_VALUES = /[/\-\\^$*+?.()|[\]{}]/g;
+
 export const MAX_RATING = 5;
 export const EMPTY_RATING = 'ещё нет оценок';
 

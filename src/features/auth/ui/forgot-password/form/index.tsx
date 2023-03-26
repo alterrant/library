@@ -1,10 +1,10 @@
 import { FormProvider } from 'react-hook-form';
 
+import { FormInput } from 'entities/form-input';
+import { Templates } from 'shared/ui';
+import { ErrorMessages } from 'shared/lib';
 import { InputDescription } from './input-description';
 import { AuthLib, AuthModel } from '../../..';
-import { Templates } from '../../../../../shared/ui';
-import { FormInput } from '../../../../../entities/form-input';
-import { ErrorMessages } from '../../../../../shared/lib';
 
 export const Form = () => {
   const { useForgotPassForm, handlers } = AuthModel;

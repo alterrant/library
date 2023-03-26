@@ -1,8 +1,8 @@
 import { Outlet, useOutletContext } from 'react-router-dom';
 
+import { useAppSelector } from 'shared/lib';
 import { Navigation } from '../../../navigation';
-import { BookCardsModel } from '../../../book-cards';
-import { useAppSelector } from '../../../../shared/lib';
+import { BookCardsModel } from '../../../books-content/book-cards';
 
 import styles from './layout-main-page.module.css';
 

@@ -1,23 +1,19 @@
 import { Outlet } from 'react-router-dom';
 import React, { useEffect, useState } from 'react';
 
-import { AuthModel } from 'features/auth';
+import { Navigation } from 'widgets/navigation';
+import { Footer } from 'widgets/footer';
+import { Header } from 'widgets/header';
+import { ToggleDropDownModule } from 'features/toggle-drop-down';
+import { Warnings, WarningsModel } from 'entities/warnings';
 import { NavListModel } from 'entities/nav-lists';
 import { BooksModel } from 'entities/books';
-import { BookInteractionsModel } from 'features/book-interactions';
+import { TOKEN, useAppDispatch, useAppSelector } from 'shared/lib';
 import { useCheckErrors, useCheckSuccesses } from '../model';
-import { ErrorSelectorNames, getWarningText, SuccessSelectorNames } from '../lib';
-import { BookCardsModel } from '../../../book-cards';
-import { Header } from '../../../header';
-import { Footer } from '../../../footer';
-import { Navigation } from '../../../navigation';
-import { ToggleDropDownModule } from '../../../../features/toggle-drop-down';
-import { ProfileModel } from '../../../../features/profile';
-import { Warnings, WarningsModel } from '../../../../entities/warnings';
-import { TOKEN, useAppDispatch, useAppSelector } from '../../../../shared/lib';
+import { getWarningText } from '../lib';
+import { BookCardsModel } from '../../../books-content/book-cards';
 
 import styles from './layout.module.css';
-// import { BooksModel } from 'entities/books';
 // TODO: вынести BLL в модел
 // TODO: объединить логику закрытия менюшек
 export const Layout = () => {
@@ -33,7 +29,6 @@ export const Layout = () => {
 
   const { countedGenres } = useAppSelector(BookCardsModel.booksWithGenresSelector);
   const { genres } = useAppSelector(NavListModel.genresSelector);
-  const { isSuccess } = useAppSelector(AuthModel.authSelector);
   const token = localStorage.getItem(TOKEN);
   // ниже почти рабочие 39-43
 

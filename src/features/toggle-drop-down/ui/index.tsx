@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import { ReactNode } from 'react';
 
-import { Button } from '../../../shared/ui';
+import { Button } from 'shared/ui';
 
 import styles from './toggle-drop-down.module.css';
 

@@ -1,10 +1,10 @@
 import { FormProvider } from 'react-hook-form';
 
+import { Templates } from 'shared/ui';
+import { FormInputs } from './inputs';
 import { useSignUpForm, handlers } from '../../../model';
 import { signUpConfig } from '../../../lib';
 import { Types } from '../../../lib/sign-up';
-import { Templates } from '../../../../../shared/ui';
-import { FormInputs } from './inputs';
 
 type FormProps = {
   step: Types.Step;

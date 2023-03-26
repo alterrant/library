@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 import { UserLib, UserModel } from 'entities/user';
-import { SelectRatingStateType, useAppDispatch, useAppSelector } from '../../../../shared/lib';
+import { SelectRatingStateType, useAppDispatch, useAppSelector } from 'shared/lib';
 import { INITIAL_SELECTED_RATING, INITIAL_SELECTED_TEXT } from '../../lib/configs';
 
 export const useRateBookModalContent = (prevUserComment?: UserLib.CommentType) => {

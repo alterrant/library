@@ -1,6 +1,6 @@
 import { cloneElement, ReactElement, ReactNode, useRef } from 'react';
 
-import { ModalsStateType, useClickOutside, useScrollLock } from '../../shared/lib';
+import { ModalsStateType, useClickOutside, useScrollLock } from 'shared/lib';
 import { outsideClickHandler } from './model';
 
 type ToggleClickOutsideProps = {

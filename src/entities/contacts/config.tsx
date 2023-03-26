@@ -1,4 +1,4 @@
-import { facebook, instagram, vk, linkedin } from '../../shared/ui';
+import { facebook, instagram, vk, linkedin } from 'shared/ui';
 
 const SOCIAL_NETWORKS_NAMES = {
   FACEBOOK: 'facebook',

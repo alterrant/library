@@ -1,8 +1,8 @@
 import { NavigateFunction } from 'react-router-dom';
 
+import { Templates } from 'shared/ui';
+import { useAppDispatch } from 'shared/lib';
 import { AuthLib, AuthModel } from '../../..';
-import { Templates } from '../../../../../shared/ui';
-import { useAppDispatch } from '../../../../../shared/lib';
 
 type SuccessContentProps = {
   setUserInfo: AuthLib.signUpConfig.Types.SetUserInfo;

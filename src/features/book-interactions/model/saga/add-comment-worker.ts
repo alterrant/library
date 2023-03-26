@@ -2,9 +2,8 @@ import { call, put, select } from 'redux-saga/effects';
 
 import { BookLib, BookModel } from 'entities/book';
 import { axiosInstance, COMMENTS_API } from 'shared/api';
-import { ErrorMessages } from 'shared/lib';
-import { resetState } from './reset-state';
-import { setError, setSuccess } from '../slice';
+import { ErrorMessages, resetState } from 'shared/lib';
+import { setError, setSuccess, resetState as resetStateActionCreator } from '../slice';
 import { AddCommentPayloadType, modelsHelper, SuccessMessages } from '../../lib';
 
 export function* addCommentWorker({ payload }: AddCommentPayloadType) {
@@ -19,10 +18,10 @@ export function* addCommentWorker({ payload }: AddCommentPayloadType) {
     if (book.id) yield put(getBook(book.id));
     yield put(me());
 
-    yield resetState();
+    yield resetState(resetStateActionCreator);
   } catch {
     yield put(setError(ErrorMessages.FETCHING_COMMENT_ERROR));
 
-    yield resetState();
+    yield resetState(resetStateActionCreator);
   }
 }

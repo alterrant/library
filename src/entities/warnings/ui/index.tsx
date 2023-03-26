@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 
-import { Close, Warning, PositiveSignal } from '../../../shared/ui';
+import { Close, Warning, PositiveSignal } from 'shared/ui';
 
 import styles from './warnings.module.css';
 

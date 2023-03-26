@@ -1,5 +1,5 @@
-import { Auth, AuthModel } from '../../../../features/auth';
-import { Preloader } from '../../../../shared/ui';
+import { Auth, AuthModel } from 'features/auth';
+import { Preloader } from 'shared/ui';
 
 export const Content = () => {
   const { isSuccess, isLoading } = AuthModel.useForgotPassContent();

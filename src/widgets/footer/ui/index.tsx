@@ -1,6 +1,6 @@
+import { Contacts } from 'entities/contacts';
+import { Underline } from 'shared/ui';
 import { COPYRIGHT } from '../config';
-import { Contacts } from '../../../entities/contacts';
-import { Underline } from '../../../shared/ui';
 
 import styles from './footer.module.css';
 

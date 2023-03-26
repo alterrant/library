@@ -1,6 +1,6 @@
 import { PayloadAction } from '@reduxjs/toolkit';
 
-import { DefaultUserInfoType } from '../../../shared/lib';
+import { DefaultUserInfoType } from 'shared/lib';
 
 export type UserStateType = {
   isLoading: boolean;

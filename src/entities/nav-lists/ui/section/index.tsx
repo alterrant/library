@@ -1,8 +1,8 @@
 import classNames from 'classnames';
 
+import { NavList, Underline } from 'shared/ui';
+import { FONT_WEIGHT } from 'shared/lib';
 import { SectionListProps } from '../../lib';
-import { NavList, Underline } from '../../../../shared/ui';
-import { FONT_WEIGHT } from '../../../../shared/lib';
 
 import styles from '../nav-list.module.css';
 

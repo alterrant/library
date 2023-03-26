@@ -1,7 +1,7 @@
 import { Dispatch } from 'react';
 
+import { DispatchAnyType, InputEvent } from 'shared/lib';
 import { setFilterString, toggleRatingSort } from '.';
-import { DispatchAnyType, InputEvent } from '../../../shared/lib';
 
 type SetStatus = Dispatch<boolean>;
 

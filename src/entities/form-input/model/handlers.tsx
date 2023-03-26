@@ -1,7 +1,7 @@
 import { Dispatch } from 'react';
 
+import { INPUT_TYPES, InputTypes } from 'shared/lib';
 import { hiddenPasswordConfig, PasswordConfigTypes, visiblePasswordConfig } from '../lib';
-import { INPUT_TYPES, InputTypes } from '../../../shared/lib';
 
 export const passwordConfigChangeHandler = (
   passwordConfig: PasswordConfigTypes,

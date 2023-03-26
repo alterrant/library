@@ -7,7 +7,7 @@ import { BookInteractionsModel } from 'features/book-interactions';
 import { ProfileModel } from 'features/profile';
 import { NavigateFunction } from 'react-router-dom';
 
-import { DispatchAnyType, TOKEN } from '../../../../shared/lib';
+import { DispatchAnyType, TOKEN } from 'shared/lib';
 
 export const signOut = (navigate: NavigateFunction, dispatch: DispatchAnyType) => {
   localStorage.removeItem(TOKEN);

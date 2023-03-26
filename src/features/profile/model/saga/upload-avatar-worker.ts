@@ -1,23 +1,22 @@
-import axios from 'axios';
-import { call, delay, put, select } from 'redux-saga/effects';
+import { call, put, select } from 'redux-saga/effects';
 
 import { BookInteractionsLib } from 'features/book-interactions';
 import { UserModel } from 'entities/user';
 import { axiosInstance, UPLOAD_PHOTOS_URL, USERS_API } from 'shared/api';
-import { ErrorMessages } from 'shared/lib';
-import { configureChangeUserPayload, findUploadedFile } from 'features/profile/lib';
-import { UploadAvatarTypes } from 'features/profile/lib/types';
-import { resetState, setError, setSuccess } from '../slice';
-
-const { me, userIdSelector } = UserModel;
-const successMessage = BookInteractionsLib.SuccessMessages.PHOTO_SAVED;
-const errorMessage = ErrorMessages.FETCHING_UPLOAD_ERROR;
+import { ErrorMessages, resetState } from 'shared/lib';
+import { configureChangeUserPayload, findUploadedFile } from '../../lib';
+import { UploadAvatarTypes } from '../../lib/types';
+import { resetState as resetStateActionCreator, setError, setSuccess } from '../slice';
 
 type UploadAvatarActionType = UploadAvatarTypes.UploadAvatarActionType;
-type UploadAvatarResponseType = UploadAvatarTypes.UploadAvatarResponseType;
 
 export function* uploadAvatarWorker({ payload }: UploadAvatarActionType) {
+  const { me, userIdSelector } = UserModel;
+  const successMessage = BookInteractionsLib.SuccessMessages.PHOTO_SAVED;
+  const errorMessage = ErrorMessages.FETCHING_UPLOAD_ERROR;
+
   try {
+    type UploadAvatarResponseType = UploadAvatarTypes.UploadAvatarResponseType;
     const { data }: UploadAvatarResponseType = yield call(axiosInstance.post, UPLOAD_PHOTOS_URL, payload);
 
     const uploadedFileInfo = findUploadedFile(data);
@@ -33,14 +32,11 @@ export function* uploadAvatarWorker({ payload }: UploadAvatarActionType) {
       yield put(setSuccess(successMessage));
       yield put(me());
 
-      yield delay(5000);
-
-      yield put(resetState());
+      yield resetState(resetStateActionCreator);
     }
   } catch {
     yield put(setError(errorMessage));
 
-    yield delay(5000);
-    yield put(resetState());
+    yield resetState(resetStateActionCreator);
   }
 }

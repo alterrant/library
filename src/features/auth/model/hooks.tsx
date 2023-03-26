@@ -2,8 +2,8 @@ import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 
+import { ErrorMessages, useAppDispatch, useAppSelector } from 'shared/lib';
 import { AuthModel, AuthLib } from '..';
-import { ErrorMessages, useAppDispatch, useAppSelector } from '../../../shared/lib';
 
 export const useSignInForm = () => {
   type FormType = AuthLib.signInConfig.Types.FormType;

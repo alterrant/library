@@ -1,7 +1,7 @@
 import { NavLink } from 'react-router-dom';
 
+import { ErrorMessages } from 'shared/lib';
 import { signInConfig } from '../../../../lib';
-import { ErrorMessages } from '../../../../../../shared/lib';
 
 import styles from './sign-in-restore-account.module.css';
 

@@ -1,5 +1,5 @@
+import { ResetPasswordFieldNames } from 'shared/lib';
 import { FormTypeStep } from '../types';
-import { ResetPasswordFieldNames } from '../../../../shared/lib';
 
 export type FormType = FormTypeStep<ResetPasswordFieldNames>;
 
