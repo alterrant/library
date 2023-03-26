@@ -26,7 +26,6 @@ export const useLayout = () => {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    console.log('books request')
     if (token && !genres.length && useEffectState.isFirstEffect) dispatch(NavListModel.getGenres());
     if (token && useEffectState.isFirstEffect) dispatch(BooksModel.getBooks());
 

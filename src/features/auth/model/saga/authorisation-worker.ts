@@ -1,7 +1,6 @@
 import axios from 'axios';
-import { call, put } from 'redux-saga/effects';
 
-import { NavListModel } from 'entities/nav-lists';
+import { call, put } from 'redux-saga/effects';
 import { ErrorMessages, TOKEN } from 'shared/lib';
 import { AUTH_API, axiosInstance } from 'shared/api';
 import { setError, setSuccess } from '../slice';
@@ -13,7 +12,7 @@ export function* authorisationWorker({ payload }: AuthorisationActionType) {
 
     localStorage.setItem(TOKEN, data.jwt);
 
-    yield put(NavListModel.getGenres());
+    /* yield put(NavListModel.getGenres()); */
 
     yield put(setSuccess());
   } catch (e) {
