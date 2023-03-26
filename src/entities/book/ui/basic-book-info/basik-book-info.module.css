@@ -18,16 +18,11 @@
   font-size:16px;
   line-height:150%;
 }
-/*TODO: убрать дублирующиеся стили bookTitle и bookAuthors*/
 .title {
   grid-area:title;
   font-weight:700;
   font-size:32px;
   line-height:40px;
-  /*display:-webkit-box;
-  -webkit-line-clamp:3;
-  -webkit-box-orient:vertical;
-  overflow:hidden;*/
 }
 .authors {
   margin-top:24px;

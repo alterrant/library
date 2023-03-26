@@ -18,7 +18,7 @@ type FormTemplateProps = {
   handleSubmit: () => void;
   linkHandler?: () => void;
 };
-// TODO: заменить FormTemplate на Form
+// TODO: заменить название FormTemplate на Form
 export const FormTemplate = ({
   title,
   subtitle,

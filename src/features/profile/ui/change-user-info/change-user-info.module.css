@@ -9,12 +9,6 @@
   grid-column-gap:30px;
   grid-row-gap:36px;
 }
-/* .inputsWrapper > label > div:last-child > span > span {
-  color:rgb(244, 44, 79);
-}
-.inputsWrapper > label > div:last-child > div span {
-  color:rgb(244, 44, 79);
-} */
 .formFooter {
   flex-wrap:wrap;
   display:flex;

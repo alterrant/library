@@ -22,7 +22,6 @@ export const userInfoSetter = (
   return addedUserInfo;
 };
 
-// TODO: name: Types.FieldNameStepsTypes - refactor
 export const getControllerOptions = (name: string, control: Control<any, any> | undefined) => ({
   name,
   control,

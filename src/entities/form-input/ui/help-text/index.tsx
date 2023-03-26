@@ -8,7 +8,9 @@ type HelpTextType = {
   text: string;
   filter?: string;
 };
-// TODO: отрефакторить
+// helpers - массив подстрок, по которым сравнивается текст, чтобы его подсвечивать.
+// Находит подстроку в тексте - подсвечивает. Массив заполняется только по мере не пройденных
+// валидаторов
 export const HelpText = ({ text, filter, inputValue }: HelpTextType) => {
   const helpers: string[] = [];
 

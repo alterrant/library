@@ -22,7 +22,6 @@ import { FormInputLib, FormInputModel } from '..';
 
 import styles from './form-input.module.css';
 
-// TODO: рефакторить импорт из feature
 type InputProps = {
   type: InputTypes;
   placeholder: string;

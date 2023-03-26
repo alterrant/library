@@ -5,7 +5,6 @@ import { configs } from '../../lib';
 import { UploadAvatarTypes } from '../../lib/types';
 
 import styles from './upload-avatar.module.css';
-// TODO: доделать отображение ошибки, если выбран не правильный формат файла
 
 const { uploadFileHandler } = handlers.uploadAvatar;
 const { inputName } = configs.uploadAvatar;

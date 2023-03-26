@@ -1,7 +1,8 @@
-import { useAppSelector, useFetch } from '../../../../shared/lib';
 import { useParams } from 'react-router-dom';
+
 import { NavListModel } from 'entities/nav-lists';
 import { BookModel } from 'entities/book';
+import { useAppSelector, useFetch } from '../../../../shared/lib';
 
 export const useLayout = () => {
   const allGenres = useAppSelector(NavListModel.allGenresSelector);

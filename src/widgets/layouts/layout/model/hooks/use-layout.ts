@@ -1,12 +1,13 @@
-import { TOKEN, useAppDispatch, useAppSelector } from '../../../../../shared/lib';
-import { BookCardsModel } from '../../../../books-content';
-import { useCheckErrors } from './use-check-errors';
-import { useCheckSuccesses } from './use-check-success';
 import { useEffect, useState } from 'react';
-import { NavListModel } from 'entities/nav-lists';
+
+import { BookCardsModel } from 'widgets/books-content';
 import { ToggleDropDownModule } from 'features/toggle-drop-down';
+import { NavListModel } from 'entities/nav-lists';
 import { WarningsModel } from 'entities/warnings';
 import { BooksModel } from 'entities/books';
+import { TOKEN, useAppDispatch, useAppSelector } from 'shared/lib';
+import { useCheckErrors } from './use-check-errors';
+import { useCheckSuccesses } from './use-check-success';
 
 export const useLayout = () => {
   const { countedGenres } = useAppSelector(BookCardsModel.booksWithGenresSelector);
@@ -25,6 +26,7 @@ export const useLayout = () => {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
+    console.log('books request')
     if (token && !genres.length && useEffectState.isFirstEffect) dispatch(NavListModel.getGenres());
     if (token && useEffectState.isFirstEffect) dispatch(BooksModel.getBooks());
 

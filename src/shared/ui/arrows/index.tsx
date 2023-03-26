@@ -9,7 +9,7 @@ type ArrowProps = {
   className?: string;
   onClick?: DispatchAnyType;
 };
-// TODO: добавил width, height, проверить!
+
 export const FootArrow = ({
   dataTestId,
   orientation,

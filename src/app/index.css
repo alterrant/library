@@ -48,7 +48,6 @@ a {
 a:not([class]) {
   text-decoration-skip-ink:auto;
 }
-/* TODO: проверить min-height(было 50px, изменил на 25) */
 img {
   min-height:25px;
   max-height:100%;
