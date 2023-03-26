@@ -1,4 +1,4 @@
-import React, { ChangeEvent } from 'react';
+import React, { ChangeEvent, Dispatch } from 'react';
 import MaskedInput from 'react-text-mask';
 import { Control, useController } from 'react-hook-form';
 import classNames from 'classnames';
@@ -56,7 +56,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
     ref
   ) => {
     const { phoneMask, getChecks, getClassNames, getValidationRules } = FormInputLib;
-    const { useFormInput, passwordConfigChangeHandler } = FormInputModel;
+    const { useFormInput, passwordConfigChangeHandler, clickHandler } = FormInputModel;
     const {
       value: controllerValue,
       onBlur: controllerBlurHandler,
@@ -74,7 +74,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
       getValues,
       setValue,
       hintStatus,
-      setHintStatus
+      setHintStatus,
     } = useFormInput(type);
 
     const { isHiddenError, isRequireError, isPasswordType, isTelType } = getChecks({
@@ -107,6 +107,8 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
           setHintStatus({ isVisible: true, error: ErrorMessages.INVALID_EMAIL });
       }
     };
+
+    const onClick = () => clickHandler(inputValue, name, setHintStatus);
 
     const registerOptions = register(name, {
       onChange: inputChangeHandler,
@@ -142,6 +144,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
                 className={styles.input}
                 placeholder={placeholder}
                 onFocus={onFocus}
+                onClick={onClick}
                 disabled={isDisabled}
                 {...registerOptions}
               />
@@ -163,22 +166,19 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
 
           <Underline underlineClass={underlineClass} />
 
-           {/* hintStatus && ... вручную прокидываю ошибку ан onBlur - нужно для тестов */}
-        {/*  {hintStatus.isVisible && <span data-test-id='hint' className={styles.test}><span>{ErrorMessages.REQUIRE}</span></span>} */}
-
+          <div className={styles.hidden}>
+            {!hintStatus.isVisible && helpText && !isRequireError ? ( // есть подсказка ? подсказка с highlights
+              <HelpText inputValue={inputValue} text={helpText} filter={errorMessage} />
+            ) : (
+              errorMessage &&
+              !isHiddenError && ( // подсвечиваем всю строку с ошибкой
+                <HelpText inputValue={inputValue} text={errorMessage} filter={errorMessage} />
+              )
+            )}
+          </div>
+          {/* hintStatus && ... вручную прокидываю ошибку ан onBlur - нужно для тестов */}
           {hintStatus.isVisible && (
-            <div className={styles.blurForTest}>
-              <HelpText inputValue={inputValue} text={hintStatus.error} filter={hintStatus.error} />
-            </div>
-          )}
-
-          {helpText && !isRequireError ? ( // есть подсказка ? подсказка с highlights
-            <HelpText inputValue={inputValue} text={helpText} filter={errorMessage} />
-          ) : (
-            errorMessage &&
-            !isHiddenError && ( // подсвечиваем всю строку с ошибкой
-              <HelpText inputValue={inputValue} text={errorMessage} filter={errorMessage} />
-            )
+            <HelpText inputValue={inputValue} text={hintStatus.error} filter={hintStatus.error} />
           )}
         </label>
       </>

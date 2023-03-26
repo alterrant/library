@@ -8,11 +8,12 @@ type HelpTextType = {
   text: string;
   filter?: string;
   dataTestId?: string;
+  isVisible?: boolean;
 };
 // helpers - массив подстрок, по которым сравнивается текст, чтобы его подсвечивать.
 // Находит подстроку в тексте - подсвечивает. Массив заполняется только по мере не пройденных
 // валидаторов
-export const HelpText = ({ text, filter, inputValue, dataTestId }: HelpTextType) => {
+export const HelpText = ({ text, filter, inputValue, dataTestId, isVisible }: HelpTextType) => {
   const helpers: string[] = [];
 
   if (inputValue) {
