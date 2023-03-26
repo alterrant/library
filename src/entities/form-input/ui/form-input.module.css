@@ -88,3 +88,9 @@
 .checkCircle {
   pointer-events:none;
 }
+.test {
+  color:rgb(244, 44, 79);
+  font-weight: 500;
+  font-size: 12px;
+  letter-spacing: 0.2px;
+}

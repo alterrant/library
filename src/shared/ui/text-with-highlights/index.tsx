@@ -10,9 +10,10 @@ type TextWithHighlightsProps = {
   title: string;
   filter?: string | string[];
   isInputs?: boolean;
+  dataTestInput?: string;
 };
 
-export const TextWithHighlights = ({ title, filter, isInputs = true }: TextWithHighlightsProps) => {
+export const TextWithHighlights = ({ dataTestInput, title, filter, isInputs = true }: TextWithHighlightsProps) => {
   const isPasswordMatchingError = title === ErrorMessages.PASSWORDS_MATCHING; // для тестов
   const withJsx = (text: string, key?: number) => (text ? <span key={key}>{text}</span> : null);
 

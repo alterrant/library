@@ -93,7 +93,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
 
     const inputChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
       setValue(name, e.target.value);
-      setHintStatus({ isVisible: false, error: '' });
+      /* setHintStatus({ isVisible: false, error: '' }); */
 
       clearErrors(name);
     };
@@ -163,7 +163,9 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
 
           <Underline underlineClass={underlineClass} />
 
-          {/* hintStatus && ... вручную прокидываю ошибку ан onBlur - нужно для тестов */}
+           {/* hintStatus && ... вручную прокидываю ошибку ан onBlur - нужно для тестов */}
+        {/*  {hintStatus.isVisible && <span data-test-id='hint' className={styles.test}><span>{ErrorMessages.REQUIRE}</span></span>} */}
+
           {hintStatus.isVisible && (
             <div className={styles.blurForTest}>
               <HelpText inputValue={inputValue} text={hintStatus.error} filter={hintStatus.error} />
