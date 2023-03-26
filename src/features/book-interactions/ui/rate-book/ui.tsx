@@ -17,7 +17,7 @@ type RateBookProps = {
   dataTestId?: string;
   customButtonText?: string;
 };
-// на странице профиля текст кнопки меняется
+
 export const RateBook = ({ bookId, dataTestId, customButtonText }: RateBookProps) => {
   const { user: currentUser } = useAppSelector(UserModel.userSelector);
   const [modalStatus, setModalStatus] = useState<ModalsStateType>({ isOpen: true });

@@ -9,17 +9,19 @@ export const Provider = () => {
   const navigate = useNavigate();
   const pathName = usePathname();
   const dispatch = useAppDispatch();
-  const { isSuccess } = useAppSelector(authSelector);
 
+  const { isSuccess } = useAppSelector(authSelector);
   const [useEffectState, setUseEffectState] = useState({ isFirstEffect: false });
+
+  const isAuthPathNames = pathName === '/forgot-pass' || pathName === '/registration' || pathName === '/auth';
 
   useEffect(() => {
     if (useEffectState.isFirstEffect) {
       const token = localStorage.getItem(TOKEN);
 
       if (!token) {
-        if (pathName !== '/forgot-pass' && pathName !== '/registration') navigate('auth');
-      } else if (pathName === '/forgot-pass' || pathName === '/registration' || pathName === '/auth') {
+        if (!isAuthPathNames) navigate('auth');
+      } else if (isAuthPathNames) {
         navigate('books/all');
       } else {
         dispatch(UserModel.me());

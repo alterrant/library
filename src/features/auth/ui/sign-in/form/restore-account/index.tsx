@@ -7,9 +7,10 @@ import styles from './sign-in-restore-account.module.css';
 
 type RestoreAccountProps = {
   isError: boolean;
+  linkHandler: () => void;
 };
 
-export const RestoreAccount = ({ isError }: RestoreAccountProps) => (
+export const RestoreAccount = ({ isError, linkHandler }: RestoreAccountProps) => (
   <>
     {isError ? (
       <div className={styles.errors}>
@@ -17,7 +18,7 @@ export const RestoreAccount = ({ isError }: RestoreAccountProps) => (
         <NavLink to={signInConfig.RESTORE_ACCOUNT_PATH}>{signInConfig.RESTORE}</NavLink>
       </div>
     ) : (
-      <NavLink className={styles.link} to={signInConfig.RESTORE_ACCOUNT_PATH}>
+      <NavLink onClick={linkHandler} className={styles.link} to={signInConfig.RESTORE_ACCOUNT_PATH}>
         {signInConfig.FORGOT_TEXT}
       </NavLink>
     )}

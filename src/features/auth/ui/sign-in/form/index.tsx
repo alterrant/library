@@ -11,11 +11,10 @@ type FormType = {
 };
 
 export const Form = ({ isInvalidAuthorisation }: FormType) => {
-  const { useSignInForm, handlers } = AuthModel;
+  const { useSignInForm, handlers, resetState } = AuthModel;
   const { signInSubmit } = handlers;
 
-  const { TITLE, SUBMIT_TEXT, REGISTRATION_INFO, formFooterConfig, fieldsData } =
-    AuthLib.signInConfig;
+  const { TITLE, SUBMIT_TEXT, REGISTRATION_INFO, formFooterConfig, fieldsData } = AuthLib.signInConfig;
 
   const { methods, dispatch } = useSignInForm();
 
@@ -29,21 +28,20 @@ export const Form = ({ isInvalidAuthorisation }: FormType) => {
     signInSubmit(formFieldsData, dispatch);
   };
 
+  const resetStateHandler = () => dispatch(resetState());
+
   return (
     <FormProvider {...methods}>
       <Templates.Auth.FormTemplate
         handleSubmit={handleSubmit(onSubmit)}
         title={TITLE}
         inputs={fieldsData.map((fieldData) => (
-          <FormInput
-            {...fieldData}
-            errorMessage={errors[fieldData.name]?.message}
-            key={fieldData.name}
-          />
+          <FormInput {...fieldData} errorMessage={errors[fieldData.name]?.message} key={fieldData.name} />
         ))}
-        inputHelper={<RestoreAccount isError={isInvalidAuthorisation} />}
+        inputHelper={<RestoreAccount linkHandler={resetStateHandler} isError={isInvalidAuthorisation} />}
         isSubmitDisabled={!checkObjectEmpty(errors)}
         submitText={SUBMIT_TEXT}
+        linkHandler={resetStateHandler}
         footerText={REGISTRATION_INFO}
         footerLinkedTextConfig={formFooterConfig}
         dataTestId='auth-form'

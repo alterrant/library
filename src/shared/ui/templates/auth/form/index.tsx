@@ -16,6 +16,7 @@ type FormTemplateProps = {
   inputHelper?: ReactNode;
   dataTestId: string;
   handleSubmit: () => void;
+  linkHandler?: () => void;
 };
 // TODO: заменить FormTemplate на Form
 export const FormTemplate = ({
@@ -29,6 +30,7 @@ export const FormTemplate = ({
   inputHelper,
   dataTestId,
   handleSubmit,
+  linkHandler,
 }: FormTemplateProps) => (
   <form data-test-id={dataTestId} onSubmit={handleSubmit} className={styles.formWrapper}>
     <div className={styles.title}>
@@ -54,6 +56,7 @@ export const FormTemplate = ({
 
         {footerLinkedTextConfig && (
           <LinkedTextWithArrow
+            clickHandler={linkHandler}
             path={footerLinkedTextConfig.path}
             text={footerLinkedTextConfig.text}
             orientation={footerLinkedTextConfig.orientation}
