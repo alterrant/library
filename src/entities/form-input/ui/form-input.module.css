@@ -44,12 +44,6 @@
   background:rgb(249, 249, 250);
   border-radius:4px;
 }
-.hidden:has(~ div) {
-  display:none;
-}
-.blurForTest {
-
-}
 .emptyInput > div {
   display:none;
   position:absolute;
@@ -96,4 +90,16 @@
   font-weight: 500;
   font-size: 12px;
   letter-spacing: 0.2px;
+}
+.hidden {
+  display:none;
+}
+.hiddenTest {
+  display: block;
+}
+.hiddenTest:has(~ div) {
+  display:none;
+}
+.blurForTest:has(+ div) {
+  display:none;
 }

@@ -14,7 +14,7 @@ export const Provider = () => {
   const [useEffectState, setUseEffectState] = useState({ isFirstEffect: false });
 
   const isAuthPathNames = checkIsAuthPath(pathName);
-
+  const test = pathName === `/${ROUTS.AUTH.FORGOT_PASS}` || pathName === `/${ROUTS.AUTH.REGISTRATION}` || pathName === `/${ROUTS.AUTH.AUTH}`;
   useEffect(() => {
     if (useEffectState.isFirstEffect) {
       const token = localStorage.getItem(TOKEN);
@@ -22,6 +22,7 @@ export const Provider = () => {
       if (!token) {
         if (!isAuthPathNames) navigate(ROUTS.AUTH.AUTH);
       } else if (isAuthPathNames) {
+
         navigate(`${ROUTS.BASE.BOOKS}/${ROUTS.BASE.ALL}`);
       } else {
         dispatch(UserModel.me());

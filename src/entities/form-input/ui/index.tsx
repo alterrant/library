@@ -75,6 +75,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
       setValue,
       hintStatus,
       setHintStatus,
+      pathname,
     } = useFormInput(type);
 
     const { isHiddenError, isRequireError, isPasswordType, isTelType } = getChecks({
@@ -93,7 +94,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
 
     const inputChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
       setValue(name, e.target.value);
-      /* setHintStatus({ isVisible: false, error: '' }); */
+      if (pathname !== '/profile') setHintStatus({ isVisible: false, error: '' });
 
       clearErrors(name);
     };
@@ -108,7 +109,8 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
       }
     };
 
-    const onClick = () => clickHandler(inputValue, name, setHintStatus);
+
+    const onClick = () => clickHandler(inputValue, name, pathname, setHintStatus);
 
     const registerOptions = register(name, {
       onChange: inputChangeHandler,
@@ -166,20 +168,22 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
 
           <Underline underlineClass={underlineClass} />
 
-          <div className={styles.hidden}>
-            {!hintStatus.isVisible && helpText && !isRequireError ? ( // есть подсказка ? подсказка с highlights
-              <HelpText inputValue={inputValue} text={helpText} filter={errorMessage} />
-            ) : (
-              errorMessage &&
-              !isHiddenError && ( // подсвечиваем всю строку с ошибкой
-                <HelpText inputValue={inputValue} text={errorMessage} filter={errorMessage} />
-              )
-            )}
-          </div>
-          {/* hintStatus && ... вручную прокидываю ошибку ан onBlur - нужно для тестов */}
+
           {hintStatus.isVisible && (
-            <HelpText inputValue={inputValue} text={hintStatus.error} filter={hintStatus.error} />
+            <div className={styles.blurForTest}>
+              <HelpText inputValue={inputValue} text={hintStatus.error} filter={hintStatus.error} />
+            </div>
           )}
+
+          {helpText && !isRequireError ? ( // есть подсказка ? подсказка с highlights
+            <HelpText inputValue={inputValue} text={helpText} filter={errorMessage} />
+          ) : (
+            errorMessage &&
+            !isHiddenError && ( // подсвечиваем всю строку с ошибкой
+              <HelpText inputValue={inputValue} text={errorMessage} filter={errorMessage} />
+            )
+          )}
+          {/* hintStatus && ... вручную прокидываю ошибку ан onBlur - нужно для тестов */}
         </label>
       </>
     );

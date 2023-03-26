@@ -1,12 +1,13 @@
 import { useState } from 'react';
 import { useFormContext, useWatch } from 'react-hook-form';
 
-import { InputTypes } from 'shared/lib';
+import {InputTypes, usePathname} from 'shared/lib';
 import { hiddenPasswordConfig } from '../lib';
 
 export const useFormInput = (type: InputTypes) => {
   const { register, clearErrors, setError, setValue, getValues, resetField } = useFormContext();
   const controlField: string = useWatch({ name: 'password' });
+  const pathname = usePathname();
   // hintStatus нужен для тестов: валидация не успевала за тестами
   const [hintStatus, setHintStatus] = useState<{ isVisible: boolean; error: string }>({
     isVisible: false,
@@ -29,6 +30,7 @@ export const useFormInput = (type: InputTypes) => {
     inputType,
     setInputType,
     hintStatus,
-    setHintStatus
+    setHintStatus,
+    pathname
   };
 };
