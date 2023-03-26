@@ -1,4 +1,4 @@
-import React, { ChangeEvent, Dispatch } from 'react';
+import React, { ChangeEvent } from 'react';
 import MaskedInput from 'react-text-mask';
 import { Control, useController } from 'react-hook-form';
 import classNames from 'classnames';
@@ -148,7 +148,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
                 onFocus={onFocus}
                 onClick={onClick}
                 disabled={isDisabled}
-                {...registerOptions}
+                 {...registerOptions}
               />
             )}
 
