@@ -8,7 +8,7 @@ import {
   SetBookErrorPayloadType,
   SetBookPayloadType,
   UpdateCommentsPayloadType,
-} from '../lib';
+} from '../config';
 
 const slice = createSlice({
   name: 'bookInfo',

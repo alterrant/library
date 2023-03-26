@@ -4,7 +4,7 @@ import { AnyAction } from 'redux';
 import { PayloadAction } from '@reduxjs/toolkit';
 
 import { ModalNames } from 'features/book-interactions/lib/configs';
-import { BookingType } from 'entities/books/lib';
+import { BookingType } from 'entities/books/config';
 import { CARD_STYLES, INPUT_TYPES, ORIENTATION } from './config';
 
 export type DispatchAnyType = Dispatch<AnyAction>;

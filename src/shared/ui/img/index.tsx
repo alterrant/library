@@ -5,14 +5,16 @@ type ImgProps = {
   url?: Nullable<string>;
   defaultSrc?: string;
   className?: string;
+  dataTestId?: string;
+  loading?: 'lazy' | 'eager';
 };
 
-export const Img = ({ url, alt, defaultSrc, className }: ImgProps) => {
+export const Img = ({ url, alt, defaultSrc, className, dataTestId, loading = 'eager' }: ImgProps) => {
   const src = getImageSrc(url);
 
   return (
     <>
-      <img src={url ? src : defaultSrc} className={className} alt={alt} />
+      <img data-test-id={dataTestId} src={url ? src : defaultSrc} loading={loading} className={className} alt={alt} />
     </>
   );
 };

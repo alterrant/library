@@ -1,12 +1,12 @@
 import { Booking } from 'features/book-interactions/ui/booking';
-import { BookCard, BooksTypes } from 'entities/books';
+import { Books, BooksConfig } from 'entities/books';
 import { UserModel } from 'entities/user';
 import { useAppSelector } from 'shared/lib';
 import { BookCardsWrapperProps } from '../../lib';
 
 type BookCardsProps = {
   filterString: string;
-  filteredBooks: BooksTypes;
+  filteredBooks: BooksConfig.BooksTypes;
   currentGenre: string;
 } & BookCardsWrapperProps;
 
@@ -16,7 +16,7 @@ export const BookCards = ({ cardsStyle, filterString, filteredBooks, currentGenr
   return (
     <>
       {filteredBooks?.map((bookCard) => (
-        <BookCard
+        <Books.BookCard
           key={bookCard.id}
           cardsStyle={cardsStyle}
           id={bookCard.id}

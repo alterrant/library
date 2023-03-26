@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 
 import { authSelector } from 'features/auth/model';
 import { UserModel } from 'entities/user';
-import { TOKEN, useAppDispatch, useAppSelector, usePathname } from 'shared/lib';
+import { checkIsAuthPath, ROUTS, TOKEN, useAppDispatch, useAppSelector, usePathname } from 'shared/lib';
 
 export const Provider = () => {
   const navigate = useNavigate();
@@ -13,16 +13,16 @@ export const Provider = () => {
   const { isSuccess } = useAppSelector(authSelector);
   const [useEffectState, setUseEffectState] = useState({ isFirstEffect: false });
 
-  const isAuthPathNames = pathName === '/forgot-pass' || pathName === '/registration' || pathName === '/auth';
+  const isAuthPathNames = checkIsAuthPath(pathName);
 
   useEffect(() => {
     if (useEffectState.isFirstEffect) {
       const token = localStorage.getItem(TOKEN);
 
       if (!token) {
-        if (!isAuthPathNames) navigate('auth');
+        if (!isAuthPathNames) navigate(ROUTS.AUTH.AUTH);
       } else if (isAuthPathNames) {
-        navigate('books/all');
+        navigate(`${ROUTS.BASE.BOOKS}/${ROUTS.BASE.ALL}`);
       } else {
         dispatch(UserModel.me());
       }

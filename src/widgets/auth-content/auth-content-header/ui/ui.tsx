@@ -4,7 +4,6 @@ import { headerConfig } from '../config';
 
 import styles from './auth-content-header.module.css';
 
-// после спринтов переместить Header в pages или шаблон и убрать проверку на isSuccess (не согласен с дизайном)
 export const Header = () => {
   const { isSuccess, resetState, dispatch } = AuthModel.useForgotPassContent();
   const { path, text, orientation } = headerConfig;

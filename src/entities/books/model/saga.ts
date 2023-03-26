@@ -3,7 +3,7 @@ import { call, put, takeLatest } from 'redux-saga/effects';
 import { axiosInstance, BOOKS_API } from 'shared/api';
 import { ErrorMessages } from 'shared/lib';
 import { getBooks, setBooks, setBooksError } from '.';
-import { BooksTypes } from '../lib';
+import { BooksTypes } from '../config';
 
 function* worker() {
   try {

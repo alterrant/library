@@ -1,5 +1,4 @@
-export * from './ui';
+export * as Books from './ui';
 export * as BooksModel from './model';
-export { type BooksTypes, type BooksByGenresTypes, getBookGenre } from './lib';
+export * as BooksConfig from './config';
 export * as BooksLib from './lib';
-// TODO: delete excess export

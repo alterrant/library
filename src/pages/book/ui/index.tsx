@@ -1,5 +1,5 @@
 import React from 'react';
-import {useParams} from "react-router-dom";
+import { useParams } from 'react-router-dom';
 
 import { BookReviews } from 'widgets/book-reviews';
 import { BookInteractionsModel } from 'features/book-interactions';
@@ -12,22 +12,18 @@ import { useAppSelector } from 'shared/lib';
 
 import styles from './book-page.module.css';
 
-
 export const BookPage = () => {
-  const { book: currentBook, isLoading: isBookLoading, error: bookError } = useAppSelector(BookModel.bookSelector);
-  const { isLoading: isNavLoading, error: navError } = useAppSelector(NavListModel.genresSelector);
-  const { isLoading: isBookInteractiveLoading, errorMessage: bookInteractiveError } = useAppSelector(
-    BookInteractionsModel.bookInteractionsSelector
-  );
-
+  const { book: currentBook, isLoading: isBookLoading } = useAppSelector(BookModel.bookSelector);
+  const { isLoading: isNavLoading } = useAppSelector(NavListModel.genresSelector);
+  const { isLoading: isBookInteractiveLoading } = useAppSelector(BookInteractionsModel.bookInteractionsSelector);
   const { user: currentUser } = useAppSelector(UserModel.userSelector);
 
   const isLoading = isNavLoading || isBookInteractiveLoading || isBookLoading;
-  const isError = bookError || navError || bookInteractiveError;
 
-  // кусок ненужного кода: начало. Тесты получают response массив всех книг по запросу за конкретной книгой (/books/127)
+  // кусок ненужного кода: начало
+  // Тесты получают response массив всех книг по запросу за конкретной книгой (/books/127). В апи получают объект книги
   const bookId = useParams().id;
-  const bookFromTestResponse = Array.isArray(currentBook) && bookId && currentBook.find(item => item.id === +bookId)
+  const bookFromTestResponse = Array.isArray(currentBook) && bookId && currentBook.find((item) => item.id === +bookId);
 
   const book = bookFromTestResponse ? bookFromTestResponse : currentBook;
   // кусок ненужного кода: конец

@@ -1,4 +1,4 @@
-import { BooksStateTypes, BooksTypes } from '../lib';
+import { BooksStateTypes, BooksTypes } from '../config';
 
 export const booksSelector = (state: RootState): BooksStateTypes => state.books;
 

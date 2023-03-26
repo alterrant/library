@@ -1,7 +1,7 @@
 import { ReactNode } from 'react';
 
 import { Underline } from 'shared/ui';
-import { BookBasicInfoType } from '../../lib';
+import { BookBasicInfoType } from '../../config';
 
 import styles from './basik-book-info.module.css';
 

@@ -1,6 +1,6 @@
 import { call, put, select } from 'redux-saga/effects';
 
-import { BookLib, BookModel } from 'entities/book';
+import { BookConfig, BookModel } from 'entities/book';
 import { ErrorMessages, resetState } from 'shared/lib';
 import { axiosInstance, COMMENTS_API } from 'shared/api';
 import { ChangeCommentPayloadType, modelsHelper, SuccessMessages } from '../../lib';
@@ -8,7 +8,7 @@ import { resetState as resetStateActionCreator, setError, setSuccess } from '../
 
 export function* changeCommentWorker({ payload }: ChangeCommentPayloadType) {
   const { getBook, me } = modelsHelper();
-  const { book }: BookLib.BookStateTypes = yield select(BookModel.bookSelector);
+  const { book }: BookConfig.BookStateTypes = yield select(BookModel.bookSelector);
 
   try {
     if (payload.commentId)

@@ -17,10 +17,11 @@ type HeaderProps = {
   dropDownMenuToggle: ToggleStatusType;
   dropDownMenuChildren?: ReactNode;
 };
-// TODO: Отрефакторить!
+
 export const Header = ({ dropDownMenuChildren, isOpenDropDownMenu, dropDownMenuToggle }: HeaderProps) => {
   const dropDownMenuRef = useRef<HTMLUListElement>(null);
   const dispatch = useAppDispatch();
+
   const onClickOutside = (e: MouseEvent) =>
     DropDownMenuModel.outsideDropDownHandler({
       e,
@@ -32,7 +33,6 @@ export const Header = ({ dropDownMenuChildren, isOpenDropDownMenu, dropDownMenuT
   DropDownMenuModel.useClickOutside(isOpenDropDownMenu, onClickOutside);
   DropDownMenuModel.useScrollLock(isOpenDropDownMenu);
 
-  const [value, setValue] = useState(false);
   const navigate = useNavigate();
 
   return (
@@ -61,19 +61,6 @@ export const Header = ({ dropDownMenuChildren, isOpenDropDownMenu, dropDownMenuT
       <h1>{TITLE}</h1>
 
       <div className={styles.profileWrapper}>
-        {/* <ToggleDropDown
-          handleClick={() => setValue(!value)}
-          isMenuOpened={value}
-          hiddenElementClass={styles.dropDownProfile}
-          hiddenElement={
-            <DropDownMenu
-              dropDownMenuRef={dropDownMenuRef}
-              logOutHandler={() => signOut(navigate)}
-            />
-          }
-        >
-          <User.PersonInfo />
-        </ToggleDropDown> */}
         <div className={styles.dropDownProfile}>
           <DropDownMenu logOutHandler={() => signOut(navigate, dispatch)} />
         </div>

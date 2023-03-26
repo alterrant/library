@@ -15,7 +15,7 @@ type ToggleDropDownMenuProps = {
   hiddenElement: ReactNode;
   children: ReactNode;
 };
-// TODO: сделать анимацию для visible/hide menu
+
 export const ToggleDropDown = ({
   dataTestId,
   handleClick,

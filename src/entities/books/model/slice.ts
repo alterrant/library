@@ -5,7 +5,7 @@ import {
   initialState,
   SetBooksErrorActionType,
   SetBooksActionType,
-} from '../lib';
+} from '../config';
 
 const slice = createSlice({
   name: 'books',

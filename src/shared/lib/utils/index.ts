@@ -8,3 +8,4 @@ export * from './get-reg-exp';
 export * from './get-substring-matches';
 export * from './reset-state-generator';
 export * from './to-iso-string-with-timezone';
+export * from './check-is-auth-path';

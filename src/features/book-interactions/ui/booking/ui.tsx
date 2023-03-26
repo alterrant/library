@@ -2,7 +2,7 @@ import classNames from 'classnames';
 import { SyntheticEvent } from 'react';
 
 import { Modals } from 'widgets/modals';
-import { BooksLib } from 'entities/books';
+import { BooksConfig } from 'entities/books';
 import { Button } from 'shared/ui';
 import { Nullable } from 'shared/lib';
 import { ModalContent } from '.';
@@ -14,8 +14,8 @@ import styles from './booking.module.css';
 
 // TODO: рефактор импорта из widgets
 type BookingProps = {
-  booking: Nullable<BooksLib.BookingType>;
-  delivery: Nullable<BooksLib.DeliveryType>;
+  booking: Nullable<BooksConfig.BookingType>;
+  delivery: Nullable<BooksConfig.DeliveryType>;
   bookId: number;
   currentUserId?: number;
 };

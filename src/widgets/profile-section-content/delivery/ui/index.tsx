@@ -1,4 +1,4 @@
-import { BookCard } from 'entities/books';
+import { Books } from 'entities/books';
 import { UserLib } from 'entities/user';
 import { CARD_STYLES, getDate } from 'shared/lib';
 import { BookInteractionsLib } from 'features/book-interactions';
@@ -18,7 +18,7 @@ export const UserDelivery = ({ delivery }: UserDeliveryProps) => {
   const handedToDate = `возврат ${deliveredDate}`;
 
   return (
-    <BookCard
+    <Books.BookCard
       cardsStyle={CARD_STYLES.ROW}
       id={book.id}
       alt={book.title}

@@ -1,4 +1,4 @@
-import { BookingType, DeliveryType } from 'entities/books/lib';
+import { BookingType, DeliveryType } from 'entities/books/config';
 import { getDate, Nullable } from 'shared/lib';
 import { BookStatus, ButtonText, timeFormatOptions } from './configs';
 

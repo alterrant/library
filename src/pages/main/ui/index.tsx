@@ -15,16 +15,10 @@ export const MainPage = () => {
   const [style, toggleStyle] = toggleCardsStyleModel.useToggleCardsState(CARD_STYLES.COLUMN);
   const [useEffectState, setUseEffectState] = useState({ isFirstEffect: false });
 
-  const { isLoading: isUserLoading, error: userError } = useAppSelector(UserModel.userSelector);
-  const { isLoading: isNavLoading, error: navError } = useAppSelector(NavListModel.genresSelector);
-  const { isLoading: isBooksLoading, error: booksError } = useAppSelector(BooksModel.booksSelector);
-  const { isLoading: isBookInteractiveLoading, errorMessage: bookInteractiveError, successMessage } =
-    useAppSelector(BookInteractionsModel.bookInteractionsSelector);
-
+  const { isLoading: isNavLoading } = useAppSelector(NavListModel.genresSelector);
+  const { isLoading: isBookInteractiveLoading } = useAppSelector(BookInteractionsModel.bookInteractionsSelector);
   const isLoading = isNavLoading || isBookInteractiveLoading;
-  const isError = navError || booksError || bookInteractiveError;
 
-  // const isCached = !!books?.length;
   const dispatch = useAppDispatch();
   const token = localStorage.getItem(TOKEN);
 
@@ -36,15 +30,14 @@ export const MainPage = () => {
 
   return (
     <>
-      {
-        (isLoading ? (
-          <Preloader />
-        ) : (
-          <section className={styles.content}>
-            <BookCardsTool cardsStyle={style} toggleStyle={toggleStyle} />
-            <BookCards cardsStyle={style} />
-          </section>
-        ))}
+      {isLoading ? (
+        <Preloader />
+      ) : (
+        <section className={styles.content}>
+          <BookCardsTool cardsStyle={style} toggleStyle={toggleStyle} />
+          <BookCards cardsStyle={style} />
+        </section>
+      )}
     </>
   );
 };

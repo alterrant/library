@@ -5,8 +5,8 @@ export const Content = () => {
   const { step, setStep, userInfo, setUserInfo, isSuccess, errorMessage, navigate, isLoading } =
     AuthModel.useSignUpContent();
 
-  if (isSuccess)
-    return <Auth.SignUp.SuccessContent setUserInfo={setUserInfo} navigate={navigate} />;
+  if (isSuccess) return <Auth.SignUp.SuccessContent setUserInfo={setUserInfo} navigate={navigate} />;
+
   if (errorMessage)
     return (
       <Auth.SignUp.ErrorContent
@@ -20,12 +20,7 @@ export const Content = () => {
   return (
     <>
       {isLoading && <Preloader />}
-      <Auth.SignUp.Form
-        setUserInfo={setUserInfo}
-        userInfo={userInfo}
-        step={step}
-        setStep={setStep}
-      />
+      <Auth.SignUp.Form setUserInfo={setUserInfo} userInfo={userInfo} step={step} setStep={setStep} />
     </>
   );
 };

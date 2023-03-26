@@ -2,7 +2,7 @@ import { Pagination } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 import { RateBook } from 'features/book-interactions/ui/rate-book';
-import { BookCard } from 'entities/books';
+import { Books } from 'entities/books';
 import { UserLib } from 'entities/user';
 import { CARD_STYLES } from 'shared/lib';
 import {
@@ -37,7 +37,7 @@ export const UserBooksHistory = ({ history }: UserHistoryProps) => {
     >
       {books.map((book) => (
         <SwiperSlide data-test-id='history-slide'>
-          <BookCard
+          <Books.BookCard
             cardsStyle={CARD_STYLES.COLUMN}
             id={book.id}
             alt={book.title}

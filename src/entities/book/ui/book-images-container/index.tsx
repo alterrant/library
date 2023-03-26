@@ -8,14 +8,16 @@ import {
   getInitialThumbs,
   getSwiperSlides,
   getThumbsClassName,
-  ImgSlideType,
-  initialBreakpoints,
+} from '../../lib';
+import {
   initialPagination,
   initialSlidesPerView,
-  initialSlidesPerViewThumbs,
   initialSpaceBetween,
+  ImgSlideType,
+  initialBreakpoints,
   initialSpaceBetweenThumbs,
-} from '../../lib';
+  initialSlidesPerViewThumbs,
+} from '../../config';
 
 import styles from './book-images-swiper.module.css';
 import 'swiper/css';

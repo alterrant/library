@@ -1,36 +1,23 @@
-import classNames from 'classnames';
-import { useParams } from 'react-router-dom';
-
-import { BooksToolModel } from 'entities/books-tool';
-import { CARD_STYLES, useAppSelector } from 'shared/lib';
 import { CenteredTemplate } from 'shared/ui';
 import { BookCards } from './book-сards';
-import { booksWithGenresSelector } from '../model';
-import { BookCardsWrapperProps, getFilters, getOneGenreBooks, BOOKS } from '../lib';
-
-import styles from './book-cards-wrapper.module.css';
+import { useBooksCardsWrapper } from '../model/hooks';
+import { BookCardsWrapperProps, BOOKS, getFilters, getOneGenreBooks, getCardsClassName } from '../lib';
 
 export const BookCardsWrapper = ({ cardsStyle }: BookCardsWrapperProps) => {
-  const cardsClassName = classNames(
-    styles.container,
-    cardsStyle === CARD_STYLES.COLUMN && styles.columnCardsStyle
-  );
+  const { booksByGenres, currentGenre, filterString, isDescendingRating } = useBooksCardsWrapper();
 
-  const { booksByGenres } = useAppSelector(booksWithGenresSelector);
-  const { isDescendingRating, filterString } = useAppSelector(BooksToolModel.booksToolSelector);
+  const cardsClassName = getCardsClassName(cardsStyle);
 
-  const currentGenre = useParams().genres!;
   const books = getOneGenreBooks(booksByGenres, currentGenre);
   const filteredBooks = getFilters(isDescendingRating, filterString)(books);
 
-  if (!books.length)
-    return <CenteredTemplate dataTestId='empty-category'>{BOOKS.EMPTY_CATEGORY}</CenteredTemplate>;
-  if (!filteredBooks.length)
-    return (
-      <CenteredTemplate dataTestId='search-result-not-found'>
-        {BOOKS.EMPTY_QUERY_RESULT}
-      </CenteredTemplate>
-    );
+  const isBooks = books.length;
+  const isFilters = filteredBooks.length;
+
+  if (!isBooks) return <CenteredTemplate dataTestId='empty-category'>{BOOKS.EMPTY_CATEGORY}</CenteredTemplate>;
+
+  if (!isFilters)
+    return <CenteredTemplate dataTestId='search-result-not-found'>{BOOKS.EMPTY_QUERY_RESULT}</CenteredTemplate>;
 
   return (
     <section className={cardsClassName} data-test-id='content'>

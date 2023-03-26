@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 
 import { BookInteractionsLib } from 'features/book-interactions';
-import { BookCard } from 'entities/books';
+import { Books } from 'entities/books';
 import { UserLib } from 'entities/user';
 import { CARD_STYLES, useAppDispatch } from 'shared/lib';
 import { Button } from 'shared/ui';
@@ -23,7 +23,7 @@ export const UserBooking = ({ booking }: UserBookingProps) => {
   const cancelBooking = () => BookInteractionsLib.handlers.cancelBookingHandler(cancelBookingProps);
 
   return (
-    <BookCard
+    <Books.BookCard
       cardsStyle={CARD_STYLES.ROW}
       id={book.id}
       alt={book.title}
