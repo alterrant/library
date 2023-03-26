@@ -35,21 +35,24 @@ export const TextWithHighlights = ({ title, filter, isInputs = true }: TextWithH
       // делим строку по совпадению на левую и правую подстроку (до и после совпадения)
       if (filterString)
         return title.split(filterString).map((text, index, array) => {
-          // const key = matches.length;
+          const key = matches.length;
 
           if (index < array.length - 1) {
             // левая подстрока
             const match = matches.pop();
-            // TODO: исправить key
 
             return (
-              <Fragment key={nanoid()}>
+              <Fragment key={key}>
                 {getFormattedText(beforeSubstringFilters, text)}
                 <span
-                 /* data-test-id={isPasswordMatchingError ? 'hint' : undefined}
-                  data-test-id='highlight-matches' */
                   data-test-id={isPasswordMatchingError ? 'hint' : 'highlight-matches'}
-                  className={isPasswordMatchingError ? styles.highlight : (isInputs ? styles.inputsHighlightMatches : styles.highlightMatches)}
+                  className={
+                    isPasswordMatchingError
+                      ? styles.highlight
+                      : isInputs
+                      ? styles.inputsHighlightMatches
+                      : styles.highlightMatches
+                  }
                 >
                   {match}
                 </span>
@@ -61,7 +64,7 @@ export const TextWithHighlights = ({ title, filter, isInputs = true }: TextWithH
         });
     }
 
-    return withJsx(title);
+    return <Fragment key={nanoid()}>{withJsx(title)}</Fragment>;
   };
 
   return (
