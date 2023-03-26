@@ -52,7 +52,6 @@ export const RateBook = ({ bookId, closeModal, prevUserComment }: RateBookProps)
     >
       <div className={styles.rating}>
         <p className={styles.title}>{SELECTED_RATING}</p>
-        {/* после тестов вернуть isInvertStars */}
         <Stars rating={selectRatingState.selectedRating} setRatingState={setSelectRatingState} />
       </div>
 

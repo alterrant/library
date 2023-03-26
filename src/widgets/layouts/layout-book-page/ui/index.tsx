@@ -32,7 +32,9 @@ export const Layout = () => {
   return (
     <main className={styles.bookPage}>
       <Book.ShortNavigation genre={genre} title={book.title} />
-      <Outlet />
+      <div className={styles.bookInfoWrapper}>
+        <Outlet />
+      </div>
     </main>
   );
 };

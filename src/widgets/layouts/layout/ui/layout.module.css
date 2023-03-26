@@ -1,17 +1,14 @@
 .layoutContainer {
   position:relative;
   height:100vh;
-  /* нужно для липкого хедера, но ломает тесты */
-  /* overflow-y:scroll; */
-  /* overflow-x:hidden; */
   display:grid;
   grid-template-rows:auto 1fr auto;
-  padding:0 16px;
+  /*padding:0 16px;*/
 }
 .layoutContainer header,
-.layoutContainer main,
 .layoutContainer footer {
-  max-width:1110px;
+  /* 1110px */
+  max-width:1142px;
   width:100%;
 }
 .layoutContainer main {
@@ -19,8 +16,8 @@
 }
 @media screen and (max-width:768px) {
   .layoutContainer header,
-  .layoutContainer main,
   .layoutContainer footer {
-    max-width:640px;
+    /*  max-width:640px; */
+    max-width:672px;
   }
 }

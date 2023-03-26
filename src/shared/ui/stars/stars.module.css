@@ -1,4 +1,4 @@
-.starsWrapper {
+.wrapper {
   display:flex;
   gap:6px;
 }
@@ -9,4 +9,21 @@
 .star {
   height:100%;
   width:100%;
+}
+.hoverWrapper {
+  width:100%;
+  height:42px;
+  gap:0;
+  cursor:pointer;
+}
+/* ховер работает, но ломает тесты */
+.hoverWrapper {
+  flex-direction:row-reverse;
+}
+.hoverWrapper:hover > li svg {
+  fill:none;
+}
+.hoverWrapper > li:hover > svg,
+.hoverWrapper > li:hover ~ li > svg {
+  fill:rgb(255, 188, 31);
 }

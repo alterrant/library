@@ -1,5 +1,6 @@
 .footerWrapper {
   z-index:999;
+  padding:0 16px;
   margin:62px auto 0 auto;
   background-color:rgb(255, 255, 255);
 }
@@ -21,7 +22,7 @@
 }
 @media screen and (max-width:768px) {
   .footerWrapper {
-    padding:0;
+    padding:0 16px;
     margin-top:48px;
   }
   .footerContent {

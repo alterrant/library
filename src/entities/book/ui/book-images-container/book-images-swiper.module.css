@@ -7,6 +7,7 @@
 }
 .swiperWrapper img {
   width:100%;
+  min-height:50px;
 }
 .activeBullet {
   background:rgb(54, 54, 54) !important;

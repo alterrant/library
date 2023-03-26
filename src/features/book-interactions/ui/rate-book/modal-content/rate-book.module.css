@@ -24,19 +24,3 @@
   line-height:24px;
   letter-spacing:0.1px;
 }
-/* starWrapper */
-/* после тестов вернуть */
-/* .rating > ul {
-  display:inline-block;
-} */
-/* после тестов вернуть */
-.rating > ul > li {
-  /* float:right; */
-  height:42px;
-  cursor:pointer;
-}
-/* после тестов вернуть */
-/* .rating > ul > li:hover > svg,
-.rating > ul > li:hover ~ li > svg {
-  fill:rgb(255, 188, 31);
-} */

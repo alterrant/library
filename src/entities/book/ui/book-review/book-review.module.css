@@ -15,4 +15,8 @@
   min-width:35px;
   width:auto;
 }
+.author {
+  word-wrap:break-word;
+  max-width:40vw;
+}
 .description {}

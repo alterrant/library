@@ -1,9 +1,24 @@
 .bookPage {
-  display:flex;
-  flex-direction:column;
-  row-gap:42px;
+  width:100%;
+}
+.bookPage > *:not(div:first-child) {
+  /* width = 16 + 1110 + 16 */
+  max-width:1142px;
+  width:100%;
+  padding: 0 16px;
+  margin: 0 auto;
+}
+.bookInfoWrapper {
+  display: flex;
+  flex-direction: column;
+  row-gap: 42px;
 }
 @media screen and (max-width:768px) {
+  .bookPage > *:not(div:first-child) {
+    padding: 0 16px;
+    /* width = 16 + 640 + 16 */
+    max-width:672px;
+  }
   .bookPage {
     row-gap:48px;
   }

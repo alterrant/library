@@ -16,7 +16,7 @@ export const Review = ({ avatarUrl, name, date, rating, description }: ReviewPro
       <RoundImage>
         <Img alt='reviewerAva' url={avatarUrl} defaultSrc={defaultAvatar} />
       </RoundImage>
-      <p data-test-id='comment-author'>{name}</p>
+      <p data-test-id='comment-author' className={styles.author}>{name}</p>
       <p data-test-id='comment-date'>{date}</p>
     </div>
     <Stars rating={rating ?? 0} />

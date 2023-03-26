@@ -1,17 +1,21 @@
 import { Dispatch, ReactNode } from 'react';
+import classNames from "classnames";
 
+import { StarList } from './star';
 import { MAX_RATING, ORANGE, SelectRatingStateType } from '../../lib';
 
 import styles from './stars.module.css';
-import { StarList } from './star';
 
 type StarsProps = {
-  isInvertStars?: boolean;
   rating: number;
+  isHover?: boolean;
   setRatingState?: Dispatch<SelectRatingStateType>;
 };
 // можем закрашивать только после "hover" .li:hover li~, поэтому инвертируем блок .ul {reverse:left}
-export const Stars = ({ rating, setRatingState, isInvertStars = false }: StarsProps) => {
+export const Stars = ({ rating, setRatingState, isHover = false }: StarsProps) => {
+  // для ховера на css необходимо инвертировать блок
+  const isInvertStars = isHover;
+
   const clickHandler = (index: number) => {
     if (isInvertStars) {
       if (setRatingState) setRatingState({ selectedRating: MAX_RATING - index });
@@ -37,7 +41,7 @@ export const Stars = ({ rating, setRatingState, isInvertStars = false }: StarsPr
   });
 
   return (
-    <ul data-test-id='rating' className={styles.starsWrapper}>
+    <ul data-test-id='rating' className={classNames(styles.wrapper, isHover && styles.hoverWrapper)}>
       {stars}
     </ul>
   );

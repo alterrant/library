@@ -1,6 +1,10 @@
 .main {
   display:flex;
   gap:6px;
+  padding: 0 16px;
+  /* width = 16 + 1110 + 16 */
+  max-width:1142px;
+  width:100%;
 }
 .main > nav {
   flex:0 1 278px;
@@ -11,5 +15,9 @@
 @media screen and (max-width:768px) {
   .main > nav {
     display:none;
+  }
+  .main {
+    /* width = 16 + 640 + 16 */
+    max-width:672px;
   }
 }
