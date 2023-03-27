@@ -18,6 +18,7 @@ type ButtonProps = {
   loading?: boolean;
   children?: ReactNode;
   specialTextForTests?: boolean;
+  isWrappedButtonText?: boolean;
 };
 
 export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
@@ -34,6 +35,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       src,
       loading,
       specialTextForTests,
+      isWrappedButtonText,
       children,
     },
     ref
@@ -50,7 +52,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         onClick={onClick}
         type={type}
       >
-        {buttonText}
+        {isWrappedButtonText ? <p className={classText}>{buttonText}</p> : buttonText}
         {src && <img className={classImg} src={src} alt='img' />}
         {children}
       </button>

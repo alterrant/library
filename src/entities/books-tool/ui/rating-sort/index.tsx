@@ -21,6 +21,7 @@ export const Sort = ({ clickHandler }: SortProps) => {
       buttonText={FILTER_TEXT}
       classButton={styles.filterCardsWrapper}
       classText={styles.filterCardsText}
+      isWrappedButtonText
     >
       <div className={styles.svg}>{isDescendingRating ? <Descending /> : <Ascending />}</div>
     </Button>
