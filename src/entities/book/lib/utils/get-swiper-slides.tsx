@@ -1,7 +1,7 @@
 import { SwiperSlide } from 'swiper/react';
 
 import { Nullable } from 'shared/lib';
-import { Img } from 'shared/ui';
+import { Img, Preloader } from 'shared/ui';
 import { ImgSlideType, initialImgURL, initialSlide } from '../../config';
 
 type ImageConfigType = {
@@ -12,7 +12,7 @@ type ImageConfigType = {
 const getSlide = ({ id, url }: ImageConfigType, dataTestId?: string) => (
   <SwiperSlide key={id}>
     <Img url={url} alt='swiper' loading='lazy' defaultSrc={initialImgURL} dataTestId={dataTestId} />
-    <div className='swiper-lazy-preloader' />
+    <Preloader className='swiper-lazy-preloader' />
   </SwiperSlide>
 );
 

@@ -1,9 +1,15 @@
+import classNames from 'classnames';
+
 import { Circle } from '..';
 
 import styles from './preloader.module.css';
 
-export const Preloader = () => (
-  <div data-test-id='loader' className={styles.preloaderWrapper}>
+type PreloaderProps = {
+  className?: string;
+};
+
+export const Preloader = ({ className }: PreloaderProps) => (
+  <div data-test-id='loader' className={classNames(styles.preloaderWrapper, className)}>
     <Circle className={styles.preloader} />
   </div>
 );
