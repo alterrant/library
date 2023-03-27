@@ -2,23 +2,16 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 
 import { BookReviews } from 'widgets/book-reviews';
-import { BookInteractionsModel } from 'features/book-interactions';
 import { Booking } from 'features/book-interactions/ui/booking';
-import { NavListModel } from 'entities/nav-lists';
-import { Book, BookModel } from 'entities/book';
-import { UserModel } from 'entities/user';
+import { Book } from 'entities/book';
 import { Preloader } from 'shared/ui';
-import { useAppSelector } from 'shared/lib';
+import { useBookPage } from '../model';
 
 import styles from './book-page.module.css';
 
-export const BookPage = () => {
-  const { book: currentBook, isLoading: isBookLoading } = useAppSelector(BookModel.bookSelector);
-  const { isLoading: isNavLoading } = useAppSelector(NavListModel.genresSelector);
-  const { isLoading: isBookInteractiveLoading } = useAppSelector(BookInteractionsModel.bookInteractionsSelector);
-  const { user: currentUser } = useAppSelector(UserModel.userSelector);
 
-  const isLoading = isNavLoading || isBookInteractiveLoading || isBookLoading;
+export const BookPage = () => {
+  const { currentBook, currentUser, isLoading } = useBookPage();
 
   // кусок ненужного кода: начало
   // Тесты получают response массив всех книг по запросу за конкретной книгой (/books/127). В апи получают объект книги

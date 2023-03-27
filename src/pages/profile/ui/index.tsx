@@ -1,11 +1,7 @@
 import { BookingSection, DeliverySection, HistorySection } from 'widgets/profile-section-content';
-import { Profile, ProfileModel } from 'features/profile';
-import { BookInteractionsModel } from 'features/book-interactions';
-import { NavListModel } from 'entities/nav-lists';
-import { BooksModel } from 'entities/books';
-import { User, UserModel } from 'entities/user';
+import { Profile } from 'features/profile';
+import { User } from 'entities/user';
 import { Preloader, Templates } from 'shared/ui';
-import { useAppSelector } from 'shared/lib';
 import {
   BookingInfo,
   BooksHistory,
@@ -17,11 +13,12 @@ import {
   getDeliveryMaskTitle,
   UserInfo,
 } from '../lib';
+import { useProfilePage } from '../model';
 
 import styles from './profile-page.module.css';
 
 export const ProfilePage = () => {
-  const { user: currentUser } = useAppSelector(UserModel.userSelector);
+  const { isLoading, currentUser } = useProfilePage();
 
   const isBookingExpired = checkIsExpired(currentUser?.booking?.dateOrder);
   const isDeliveryExpired = checkIsExpired(currentUser?.delivery?.dateHandedTo);
@@ -32,17 +29,9 @@ export const ProfilePage = () => {
   const deliveryMaskTitle = getDeliveryMaskTitle(isDeliveryExpired);
   const deliveryMaskSubtitle = getDeliveryMaskSubtitle(isDeliveryExpired);
 
-  const { isLoading: isUserLoading } = useAppSelector(UserModel.userSelector);
-  const { isLoading: isNavLoading } = useAppSelector(NavListModel.genresSelector);
-  const { isLoading: isBookInteractiveLoading } = useAppSelector(BookInteractionsModel.bookInteractionsSelector);
-  const { isLoading: isBooksLoading } = useAppSelector(BooksModel.booksSelector);
-  const { isLoading: isProfileLoading } = useAppSelector(ProfileModel.profileSelector);
-
-  const isLoading = isNavLoading || isBookInteractiveLoading || isBooksLoading || isProfileLoading || isUserLoading;
-
   return (
     <>
-      {isLoading && <Preloader/>}
+      {isLoading && <Preloader />}
       <main className={styles.wrapper}>
         <User.PersonInfo isGreeting={false} uploadAvatar={<Profile.UploadAvatar />} />
 
