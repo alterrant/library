@@ -28,6 +28,7 @@ type InputProps = {
   name: string;
   label: string;
   onFocus?: () => void;
+  onChange?: () => void;
   defaultValue?: string | number;
   errorMessage?: string;
   isDirtyField?: boolean;
@@ -48,6 +49,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
       label,
       errorMessage,
       onFocus,
+      onChange,
       helpText,
       validationRules,
       control,
@@ -97,6 +99,8 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
       if (pathname !== '/profile') setHintStatus({ isVisible: false, error: '' });
 
       clearErrors(name);
+
+      if (onChange) onChange();
     };
 
     // ошибку на onBlur прокидываю вручную, тк тесты не успевают иногда обработать onBlur
@@ -108,7 +112,6 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
           setHintStatus({ isVisible: true, error: ErrorMessages.INVALID_EMAIL });
       }
     };
-
 
     const onClick = () => clickHandler(inputValue, name, pathname, setHintStatus);
 

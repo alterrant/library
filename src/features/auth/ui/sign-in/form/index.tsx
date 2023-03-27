@@ -1,8 +1,8 @@
-import { FormProvider } from 'react-hook-form';
+import { FieldErrors, FormProvider } from 'react-hook-form';
 
 import { FormInput } from 'entities/form-input';
 import { Templates } from 'shared/ui';
-import { checkIsEmptyObject } from 'shared/lib';
+import { checkIsEmptyObject, ErrorMessages } from 'shared/lib';
 import { RestoreAccount } from './restore-account';
 import { AuthModel, AuthLib } from '../../..';
 
@@ -20,12 +20,19 @@ export const Form = ({ isInvalidAuthorisation }: FormType) => {
 
   const {
     handleSubmit,
+    clearErrors,
     formState: { errors },
   } = methods;
 
   type FormFieldsDataType = AuthLib.signInConfig.Types.FormType;
   const onSubmit = (formFieldsData: FormFieldsDataType) => {
     signInSubmit(formFieldsData, dispatch);
+  };
+
+  const onChangeHandler = () => {
+    const submitError = ErrorMessages.HIDDEN_ERROR;
+
+    if (Object.values(errors as Record<string, string>).includes(submitError)) clearErrors();
   };
 
   const resetStateHandler = () => dispatch(resetState());
@@ -36,7 +43,12 @@ export const Form = ({ isInvalidAuthorisation }: FormType) => {
         handleSubmit={handleSubmit(onSubmit)}
         title={TITLE}
         inputs={fieldsData.map((fieldData) => (
-          <FormInput {...fieldData} errorMessage={errors[fieldData.name]?.message} key={fieldData.name} />
+          <FormInput
+            {...fieldData}
+            onChange={onChangeHandler}
+            errorMessage={errors[fieldData.name]?.message}
+            key={fieldData.name}
+          />
         ))}
         inputHelper={<RestoreAccount linkHandler={resetStateHandler} isError={isInvalidAuthorisation} />}
         isSubmitDisabled={!checkIsEmptyObject(errors)}

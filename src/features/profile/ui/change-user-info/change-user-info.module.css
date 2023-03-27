@@ -31,12 +31,6 @@
   background:rgb(235, 235, 235);
   pointer-events:none;
 }
-.controllerButton {
-
-}
-.controllerButtonText {
-
-}
 /* отступ после wrapper только если у последнего инпута показывается ошибка */
 .inputsWrapper > div:has(> label:last-child > div:nth-child(3)) {
   margin-bottom:20px;
