@@ -14,9 +14,6 @@
 .layoutContainer main {
   margin:0 auto;
 }
-.layoutContainer:has(main > nav + section) {
-  overflow-x:hidden;
-}
 @media screen and (max-width:768px) {
   .layoutContainer header,
   .layoutContainer footer {

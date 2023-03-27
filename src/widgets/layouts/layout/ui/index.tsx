@@ -4,7 +4,6 @@ import { Navigation } from 'widgets/navigation';
 import { Footer } from 'widgets/footer';
 import { Header } from 'widgets/header';
 import { Warnings, WarningsModel } from 'entities/warnings';
-import { Preloader } from 'shared/ui';
 import { useLayout } from '../model';
 import { getWarningText } from '../lib';
 
@@ -20,45 +19,41 @@ export const Layout = () => {
     SuccessesState,
     ErrorsState,
     countedGenres,
-    isLoading,
   } = useLayout();
 
   return (
-    <>
-      {isLoading && <Preloader />}
-      <section data-test-id='main-page' className={styles.layoutContainer}>
-        {warningsStatus.isOpen && (
-          <Warnings
-            isNegative={ErrorsState.isError}
-            warningText={getWarningText(ErrorsState, SuccessesState) as string}
-            handleClose={() => WarningsModel.closeHandler(setWarningsStatus)}
-          />
-        )}
-        <Header
-          toggleStatusDropDownMenu={toggleStatus}
-          setToggleStatusDropDownMenu={setToggleStatus}
-          resetToggleStatusDropDownMenu={resetToggleStatus}
-          dropDownMenuChildren={
-            toggleStatus.isOpen && (
-              <Navigation
-                countedGenres={countedGenres}
-                toggleBurgerStatus={resetToggleStatus}
-                dataTestIdBurgerNavigation='burger-navigation'
-                dataTestIdFirstSection='burger-showcase'
-                dataTestIdAllBooks='burger-'
-                dataTestIdSectionContract='burger-contract'
-                dataTestIdSectionTerms='burger-terms'
-              />
-            )
-          }
+    <section data-test-id='main-page' className={styles.layoutContainer}>
+      {warningsStatus.isOpen && (
+        <Warnings
+          isNegative={ErrorsState.isError}
+          warningText={getWarningText(ErrorsState, SuccessesState) as string}
+          handleClose={() => WarningsModel.closeHandler(setWarningsStatus)}
         />
-        <Outlet
-          context={{
-            closeErrorsHandler: () => WarningsModel.closeHandler(setWarningsStatus),
-          }}
-        />
-        <Footer />
-      </section>
-    </>
+      )}
+      <Header
+        toggleStatusDropDownMenu={toggleStatus}
+        setToggleStatusDropDownMenu={setToggleStatus}
+        resetToggleStatusDropDownMenu={resetToggleStatus}
+        dropDownMenuChildren={
+          toggleStatus.isOpen && (
+            <Navigation
+              countedGenres={countedGenres}
+              toggleBurgerStatus={resetToggleStatus}
+              dataTestIdBurgerNavigation='burger-navigation'
+              dataTestIdFirstSection='burger-showcase'
+              dataTestIdAllBooks='burger-'
+              dataTestIdSectionContract='burger-contract'
+              dataTestIdSectionTerms='burger-terms'
+            />
+          )
+        }
+      />
+      <Outlet
+        context={{
+          closeErrorsHandler: () => WarningsModel.closeHandler(setWarningsStatus),
+        }}
+      />
+      <Footer />
+    </section>
   );
 };

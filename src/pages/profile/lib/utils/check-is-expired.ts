@@ -1,8 +1,12 @@
+import { getNextDay } from '../../../../entities/calendar/lib/utils/get-next-day';
+
 export const checkIsExpired = (dateOrder?: string) => {
-  if (!dateOrder ) return false;
+  if (!dateOrder) return false;
 
-  const today = new Date().toLocaleDateString();
-  const lastDay = new Date(dateOrder).toLocaleDateString();
+  const today = new Date();
+  const lastOrderDay = new Date(dateOrder);
 
-  return today > lastDay;
+  const dayLastOrder = getNextDay(lastOrderDay);
+
+  return today > dayLastOrder;
 };
