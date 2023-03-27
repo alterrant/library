@@ -2,7 +2,7 @@
 .bookWrapper {
   height:100%;
   display:grid;
-  grid-template-rows:minmax(auto, 250px) auto auto auto 68px;
+  grid-template-rows:minmax(auto, 250px) 24px auto auto 68px;
   padding:8px 8px 16px 8px;
   background:#FFFFFF;
   box-shadow:0 2px 4px rgba(191, 196, 201, 0.2), 0 3px 4px rgba(191, 196, 201, 0.18), 0 1px 5px rgba(191, 196, 201, 0.24);
