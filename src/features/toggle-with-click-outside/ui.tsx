@@ -1,6 +1,6 @@
 import { cloneElement, ReactElement, ReactNode, useRef } from 'react';
 
-import {ModalsStateType, useClickOutside, useCloseWindow, useScrollLock} from 'shared/lib';
+import { ModalsStateType, useClickOutside, useCloseWindow, useScrollLock } from 'shared/lib';
 import { outsideClickHandler } from './model';
 
 type ToggleClickOutsideProps = {
@@ -9,11 +9,7 @@ type ToggleClickOutsideProps = {
   closeModal: () => void;
 };
 
-export const ToggleClickOutside = ({
-  children,
-  modalStatus,
-  closeModal,
-}: ToggleClickOutsideProps) => {
+export const ToggleClickOutside = ({ children, modalStatus, closeModal }: ToggleClickOutsideProps) => {
   const ref = useRef<HTMLDivElement>(null);
 
   const onClickOutside = (e: MouseEvent) =>
