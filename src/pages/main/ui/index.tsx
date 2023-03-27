@@ -17,7 +17,8 @@ export const MainPage = () => {
 
   const { isLoading: isNavLoading } = useAppSelector(NavListModel.genresSelector);
   const { isLoading: isBookInteractiveLoading } = useAppSelector(BookInteractionsModel.bookInteractionsSelector);
-  const isLoading = isNavLoading || isBookInteractiveLoading;
+  const { isLoading: isBooksLoading } = useAppSelector(BooksModel.booksSelector);
+  const isLoading = isNavLoading || isBookInteractiveLoading || isBooksLoading;
 
   const dispatch = useAppDispatch();
   const token = localStorage.getItem(TOKEN);
