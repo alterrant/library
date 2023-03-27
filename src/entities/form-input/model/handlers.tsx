@@ -18,9 +18,6 @@ export const passwordConfigChangeHandler = (
   }
 };
 
-/* export const clickHandler = (name: string, setHintStatus: Dispatch<{ isVisible: boolean; error: string }>) =>
-  name === 'email' && setHintStatus({ isVisible: true, error: ErrorMessages.REQUIRE }); */
-
 export const clickHandler = (
   inputValue: string,
   name: string,

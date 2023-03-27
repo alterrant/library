@@ -23,6 +23,7 @@ export const HeaderDate = ({ state, functions, children }: HeaderDateProps) => (
         {children}
       </div>
     )}
+    {/* mode - years. После спринтов включить */}
     {/* {state.mode === CalendarMode.YEARS && (
       <div>
         {state.selectedYearsInterval[0]} -{' '}

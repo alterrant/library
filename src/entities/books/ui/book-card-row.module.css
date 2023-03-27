@@ -2,7 +2,6 @@
 .bookWrapper {
   height:100%;
   display:grid;
-  /*grid-template-columns:120px minmax(100px,1fr) 174px;*/
   grid-template-columns:120px minmax(100px,1fr) min-content;
   grid-template-rows:auto 1fr min-content;
   grid-template-areas:'img title title'

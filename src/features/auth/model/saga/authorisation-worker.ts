@@ -12,8 +12,6 @@ export function* authorisationWorker({ payload }: AuthorisationActionType) {
 
     localStorage.setItem(TOKEN, data.jwt);
 
-    /* yield put(NavListModel.getGenres()); */
-
     yield put(setSuccess());
   } catch (e) {
     if (axios.isAxiosError(e)) {

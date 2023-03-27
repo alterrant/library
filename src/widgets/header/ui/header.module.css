@@ -16,7 +16,7 @@
   justify-content:space-between;
   align-items:center;
   position:relative;
-  /* пока не удаляю, оставлю на будущее */
+  /* липкий хедер */
   /*position:sticky;
   top:0;*/
   margin:17px auto 27px;

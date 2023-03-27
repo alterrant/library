@@ -168,7 +168,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
 
           <Underline underlineClass={underlineClass} />
 
-
+          {/* hintStatus && ... вручную прокидываю ошибку ан onBlur - нужно для тестов */}
           {hintStatus.isVisible && (
             <div className={styles.blurForTest}>
               <HelpText inputValue={inputValue} text={hintStatus.error} filter={hintStatus.error} />
@@ -183,7 +183,6 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
               <HelpText inputValue={inputValue} text={errorMessage} filter={errorMessage} />
             )
           )}
-          {/* hintStatus && ... вручную прокидываю ошибку ан onBlur - нужно для тестов */}
         </label>
       </>
     );
