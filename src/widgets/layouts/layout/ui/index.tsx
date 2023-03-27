@@ -4,6 +4,7 @@ import { Navigation } from 'widgets/navigation';
 import { Footer } from 'widgets/footer';
 import { Header } from 'widgets/header';
 import { Warnings, WarningsModel } from 'entities/warnings';
+import { Preloader } from 'shared/ui';
 import { useLayout } from '../model';
 import { getWarningText } from '../lib';
 
@@ -19,10 +20,12 @@ export const Layout = () => {
     SuccessesState,
     ErrorsState,
     countedGenres,
+    isLoading,
   } = useLayout();
 
   return (
     <>
+      {isLoading && <Preloader />}
       <section data-test-id='main-page' className={styles.layoutContainer}>
         {warningsStatus.isOpen && (
           <Warnings

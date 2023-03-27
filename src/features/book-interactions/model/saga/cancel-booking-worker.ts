@@ -9,7 +9,7 @@ import { resetState as resetStateActionCreator, setError, setSuccess } from '../
 import { CancelBookingPayloadType, modelsHelper, SuccessMessages } from '../../lib';
 
 export function* cancelBookingWorker({ payload }: CancelBookingPayloadType) {
-  const { getBook, getBooks } = modelsHelper();
+  const { getBook, getBooks, me } = modelsHelper();
   const { book }: BookConfig.BookStateTypes = yield select(BookModel.bookSelector);
   const books: BooksConfig.BooksTypes = yield select(BooksModel.allBooksSelector);
 
@@ -18,6 +18,7 @@ export function* cancelBookingWorker({ payload }: CancelBookingPayloadType) {
 
     if (book.id) yield put(getBook(book.id));
     if (books.length) yield put(getBooks());
+    yield put(me());
 
     yield put(setSuccess(SuccessMessages.CANCEL_BOOKING));
 
