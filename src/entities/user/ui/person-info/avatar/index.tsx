@@ -1,6 +1,6 @@
 import { Img } from 'shared/ui';
 import { useAppSelector } from 'shared/lib';
-import defaultAvatar from './assets/default-avatar.svg';
+import defaultAvatar from 'shared/ui/assets/default-avatar.svg';
 import { userSelector } from '../../../model';
 
 export const Avatar = () => {
