@@ -12,10 +12,8 @@ type StarsProps = {
   setRatingState?: Dispatch<SelectRatingStateType>;
 };
 // можем закрашивать только после "hover" .li:hover li~, поэтому инвертируем блок .ul {reverse:left}
-export const Stars = ({ rating, setRatingState, isHover = false }: StarsProps) => {
+export const Stars = ({ rating, setRatingState, isHover: isInvertStars = false }: StarsProps) => {
   // для ховера на css необходимо инвертировать блок
-  const isInvertStars = isHover;
-
   const clickHandler = (index: number) => {
     if (isInvertStars) {
       if (setRatingState) setRatingState({ selectedRating: MAX_RATING - index });
@@ -41,7 +39,7 @@ export const Stars = ({ rating, setRatingState, isHover = false }: StarsProps) =
   });
 
   return (
-    <ul data-test-id='rating' className={classNames(styles.wrapper, isHover && styles.hoverWrapper)}>
+    <ul data-test-id='rating' className={classNames(styles.wrapper, isInvertStars && styles.hoverWrapper)}>
       {stars}
     </ul>
   );
