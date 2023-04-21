@@ -1,0 +1,39 @@
+{
+  "files": {
+    "main.css": "/static/css/main.95e87b54.css",
+    "main.js": "/static/js/main.45a603ba.js",
+    "static/media/default-avatar.svg": "/static/media/default-avatar.db60d50d9b680b01be65d7dd5198fd6d.svg",
+    "static/media/test-book.png": "/static/media/test-book.02dc349f665403e5eb37.png",
+    "static/media/logo.svg": "/static/media/logo.b095ac8be2804fc3ed490b03f20af32e.svg",
+    "static/media/books-column-style.svg": "/static/media/books-column-style.3a9870deede23cd5361eae0c565216c7.svg",
+    "static/media/books-row-stile.svg": "/static/media/books-row-stile.c4b885c0eaccd6f16befa5393622104b.svg",
+    "static/media/search.svg": "/static/media/search.ecdd39f2dd5960d62a68c61504ae1406.svg",
+    "static/media/instagram.svg": "/static/media/instagram.bf0e437e0ca1c90fb3f7c8961e5e6541.svg",
+    "static/media/close.svg": "/static/media/close.cec46cc0ba060f856193f6db2b42a501.svg",
+    "static/media/close-modal.svg": "/static/media/close-modal.64f1eebc64f10a1adac3629092af5821.svg",
+    "static/media/descending.svg": "/static/media/descending.40c5c13d67dd44a52a7eedcfb54c4fa2.svg",
+    "static/media/vk.svg": "/static/media/vk.cec79a7ecdbc915aed26c5a4ab1ff5c2.svg",
+    "static/media/ascending.svg": "/static/media/ascending.2b5735f33e6f5fe12612e09a1a27a128.svg",
+    "static/media/eye-closed.svg": "/static/media/eye-closed.18d6334061ffc9f19fc0a7577a3564dd.svg",
+    "static/media/arrow-right.svg": "/static/media/arrow-right.81c357381fe8e5412f0ba50ad6a59294.svg",
+    "index.html": "/index.html",
+    "static/media/warning.svg": "/static/media/warning.2c56e21728d308d506a2480d62943a7d.svg",
+    "static/media/white-upload-photo.svg": "/static/media/white-upload-photo.436b4cb89b58dd7d0a3efa83f1d47728.svg",
+    "static/media/eye-open.svg": "/static/media/eye-open.f823b8f94cb096250855d2f0d4ba0a87.svg",
+    "static/media/linkedin.svg": "/static/media/linkedin.7e716a127ab3f8577a17f83bfefdacc9.svg",
+    "static/media/star.svg": "/static/media/star.ac1c561b4c297bac6faafbe8657b08b1.svg",
+    "static/media/foot-arrow-right.svg": "/static/media/foot-arrow-right.ccb628d358439370269621b482854672.svg",
+    "static/media/positive-signal.svg": "/static/media/positive-signal.6a9667d371aa749d007e6c82ff3bbfff.svg",
+    "static/media/circle.svg": "/static/media/circle.d90e8b46e9577710a207f5df64b91b19.svg",
+    "static/media/facebook.svg": "/static/media/facebook.106e7fb630d241320112014b9985342c.svg",
+    "static/media/check-circle.svg": "/static/media/check-circle.06f9aa8f375b7d43f09f753b306dbc91.svg",
+    "static/media/text-separator.svg": "/static/media/text-separator.94b294dedad0013279097209284eb32a.svg",
+    "static/media/arrow-drop-down.svg": "/static/media/arrow-drop-down.d88fa9a9db2ddddeb0099e13d945eeaf.svg",
+    "main.95e87b54.css.map": "/static/css/main.95e87b54.css.map",
+    "main.45a603ba.js.map": "/static/js/main.45a603ba.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.95e87b54.css",
+    "static/js/main.45a603ba.js"
+  ]
+}
