@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/static/css/main.95e87b54.css",
-    "main.js": "/static/js/main.45a603ba.js",
-    "static/media/default-avatar.svg": "/static/media/default-avatar.db60d50d9b680b01be65d7dd5198fd6d.svg",
+    "main.js": "/static/js/main.8a94e71e.js",
+    "static/media/default-avatar.svg": "/static/media/default-avatar.0e59c506c0054ae9e21c496a194cd907.svg",
     "static/media/test-book.png": "/static/media/test-book.02dc349f665403e5eb37.png",
     "static/media/logo.svg": "/static/media/logo.b095ac8be2804fc3ed490b03f20af32e.svg",
     "static/media/books-column-style.svg": "/static/media/books-column-style.3a9870deede23cd5361eae0c565216c7.svg",
@@ -18,7 +18,7 @@
     "static/media/arrow-right.svg": "/static/media/arrow-right.81c357381fe8e5412f0ba50ad6a59294.svg",
     "index.html": "/index.html",
     "static/media/warning.svg": "/static/media/warning.2c56e21728d308d506a2480d62943a7d.svg",
-    "static/media/white-upload-photo.svg": "/static/media/white-upload-photo.436b4cb89b58dd7d0a3efa83f1d47728.svg",
+    "static/media/white-upload-photo.svg": "/static/media/white-upload-photo.8c28886130794f0e197d6d6cf9efd8b7.svg",
     "static/media/eye-open.svg": "/static/media/eye-open.f823b8f94cb096250855d2f0d4ba0a87.svg",
     "static/media/linkedin.svg": "/static/media/linkedin.7e716a127ab3f8577a17f83bfefdacc9.svg",
     "static/media/star.svg": "/static/media/star.ac1c561b4c297bac6faafbe8657b08b1.svg",
@@ -30,10 +30,10 @@
     "static/media/text-separator.svg": "/static/media/text-separator.94b294dedad0013279097209284eb32a.svg",
     "static/media/arrow-drop-down.svg": "/static/media/arrow-drop-down.d88fa9a9db2ddddeb0099e13d945eeaf.svg",
     "main.95e87b54.css.map": "/static/css/main.95e87b54.css.map",
-    "main.45a603ba.js.map": "/static/js/main.45a603ba.js.map"
+    "main.8a94e71e.js.map": "/static/js/main.8a94e71e.js.map"
   },
   "entrypoints": [
     "static/css/main.95e87b54.css",
-    "static/js/main.45a603ba.js"
+    "static/js/main.8a94e71e.js"
   ]
 }
