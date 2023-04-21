@@ -10,3 +10,4 @@ export const checkIsExpired = (dateOrder?: string) => {
 
   return today > dayLastOrder;
 };
+ 
