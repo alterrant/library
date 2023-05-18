@@ -1,18 +1,10 @@
-import {DefaultUserInfoType} from "./types";
-
-export const BASE_URL = 'https://strapi.cleverland.by';
-
+export const BASE_URL = 'https://library-cleverland-2jfze.ondigitalocean.app/';
 export const TOKEN = 'token';
 
 export const SHIELDED_VALUES = /[/\-\\^$*+?.()|[\]{}]/g;
 
 export const MAX_RATING = 5;
 export const EMPTY_RATING = 'ещё нет оценок';
-
-export const RULES_TITLE = 'Правила пользования';
-export const CONTRACT_TITLE = 'Договор оферты';
-
-export const USER_NAME = 'Поручик Ржевский';
 
 export const ORANGE = 'rgba(255, 188, 31, 1)';
 

@@ -48,7 +48,7 @@ export const BookCard = ({
   };
 
   return (
-    <NavLink to={`../${genres}/${id}`} relative='path' data-test-id='card'>
+    <NavLink to={`../${genres}/${id}`} relative='path'>
       <div className={cardClassName.bookWrapper}>
         <div className={cardClassName.bookImg}>
           <Img alt={alt} url={imgURL} defaultSrc={unsetBook} />

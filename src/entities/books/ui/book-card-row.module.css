@@ -14,6 +14,9 @@
   border-radius:10px;
   transition-duration:.2s;
 }
+.bookWrapper > ul {
+  max-height: 32px;
+}
 .bookRatingText {
   color:#727272;
   grid-area:rating;

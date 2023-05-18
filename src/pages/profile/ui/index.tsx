@@ -1,7 +1,8 @@
 import { BookingSection, DeliverySection, HistorySection } from 'widgets/profile-section-content';
 import { Profile } from 'features/profile';
 import { User } from 'entities/user';
-import { Preloader, Templates } from 'shared/ui';
+import { Loader } from 'entities/loader';
+import { Templates } from 'shared/ui';
 import {
   BookingInfo,
   BooksHistory,
@@ -18,7 +19,7 @@ import { useProfilePage } from '../model';
 import styles from './profile-page.module.css';
 
 export const ProfilePage = () => {
-  const { isLoading, currentUser } = useProfilePage();
+  const { isLoading, isError, currentUser } = useProfilePage();
 
   const isBookingExpired = checkIsExpired(currentUser?.booking?.dateOrder);
   const isDeliveryExpired = checkIsExpired(currentUser?.delivery?.dateHandedTo);
@@ -30,8 +31,7 @@ export const ProfilePage = () => {
   const deliveryMaskSubtitle = getDeliveryMaskSubtitle(isDeliveryExpired);
 
   return (
-    <>
-      {isLoading && <Preloader />}
+    <Loader isLoading={isLoading} isError={isError} isReplaceContent={false}>
       <main className={styles.wrapper}>
         <User.PersonInfo isGreeting={false} uploadAvatar={<Profile.UploadAvatar />} />
 
@@ -66,11 +66,10 @@ export const ProfilePage = () => {
           helper={BooksHistory.HELPER}
           maskTitle={BooksHistory.MASK_TITLE}
           isEmpty={!currentUser?.history?.id}
-          sectionDataTestId='history'
         >
           <HistorySection.UserBooksHistory history={currentUser.history} />
         </Templates.ProfileSection>
       </main>
-    </>
+    </Loader>
   );
 };

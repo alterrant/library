@@ -7,7 +7,6 @@ export const getErrorText = (ErrorsState: CheckErrorsType) =>
     ? ErrorsState.errorMessage
     : ErrorMessages.RELOAD_PAGE;
 
-
 export const getWarningText = (ErrorsState: CheckErrorsType, SuccessesState: CheckSuccessesType) =>
   (ErrorsState.isError && ErrorsState.errorMessage) ||
   (SuccessesState.isSuccess && SuccessesState.successMessage);

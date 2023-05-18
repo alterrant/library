@@ -13,4 +13,7 @@ export const sortByRating = (books: BooksConfig.BooksTypes, isDescendingRating: 
     const result = prevBook.rating - nextBook.rating;
 
     return isDescendingRating ? result : result * -1;
-  });
+});
+
+export const restrictBooks = (books: BooksConfig.BooksTypes, numberOfBooks: number): BooksConfig.BooksTypes =>
+  books.filter((book, index) => index <= numberOfBooks -1);

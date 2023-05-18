@@ -33,7 +33,6 @@ export const UserBooking = ({ booking }: UserBookingProps) => {
       authors={book.authors}
       cardButton={
         <Button
-          dataTestId='cancel-booking-button'
           classButton={classNames(buttonStyles.button, buttonStyles.available)}
           buttonText={CANSEL_BOOKING_TEXT}
           classText={buttonStyles.buttonText}

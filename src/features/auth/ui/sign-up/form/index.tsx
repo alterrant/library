@@ -51,7 +51,6 @@ export const Form = ({ step, setStep, userInfo, setUserInfo }: FormProps) => {
         submitText={SUBMIT_TEXT[step]}
         footerText={REGISTRATION_INFO}
         footerLinkedTextConfig={formFooterConfig}
-        dataTestId='register-form'
       />
     </FormProvider>
   );

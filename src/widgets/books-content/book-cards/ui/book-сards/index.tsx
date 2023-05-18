@@ -1,14 +1,14 @@
 import { Booking } from 'features/book-interactions/ui/booking';
 import { Books, BooksConfig } from 'entities/books';
 import { UserModel } from 'entities/user';
-import { useAppSelector } from 'shared/lib';
-import { BookCardsWrapperProps } from '../../lib';
+import { CardStylesTypes, useAppSelector } from 'shared/lib';
 
 type BookCardsProps = {
   filterString: string;
   filteredBooks: BooksConfig.BooksTypes;
   currentGenre: string;
-} & BookCardsWrapperProps;
+  cardsStyle: CardStylesTypes;
+};
 
 export const BookCards = ({ cardsStyle, filterString, filteredBooks, currentGenre }: BookCardsProps) => {
   const { user: currentUser } = useAppSelector(UserModel.userSelector);

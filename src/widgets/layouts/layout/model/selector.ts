@@ -31,3 +31,28 @@ export const loadingsSelector = createSelector(
     isLoadingBooks ||
     isLoadingProfile
 );
+
+export const errorsSelector = createSelector(
+  [
+    UserModel.userSelector,
+    BookModel.bookSelector,
+    NavListModel.genresSelector,
+    BookInteractionsModel.bookInteractionsSelector,
+    BooksModel.booksSelector,
+    ProfileModel.profileSelector,
+  ],
+  (
+    { error: userError },
+    { error: bookError },
+    { error: navError },
+    { errorMessage: bookInteractionsError },
+    { error: booksError },
+    { error: profileError },
+  ) =>
+    !!(userError ||
+    bookError ||
+    navError ||
+    bookInteractionsError ||
+    booksError ||
+    profileError)
+);

@@ -12,7 +12,7 @@ type PersonInfoProps = {
 };
 
 export const PersonInfo = ({ uploadAvatar, isGreeting = true }: PersonInfoProps) => (
-  <div data-test-id={!isGreeting ? 'profile-avatar' : null} className={styles.personInfo}>
+  <div className={styles.personInfo}>
     <Title isGreeting={isGreeting} />
     <RoundImage>
       <Avatar />

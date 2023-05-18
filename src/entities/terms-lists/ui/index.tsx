@@ -1,9 +1,9 @@
-import { getTermsLists } from '../utils';
+import { getTermsLists } from '../lib';
 
 import styles from './terms-lists.module.css';
 
 type TermsListsProps = {
-  termsData: any;
+  termsData: any[];
 };
 
 export const TermsLists = ({ termsData }: TermsListsProps) => (

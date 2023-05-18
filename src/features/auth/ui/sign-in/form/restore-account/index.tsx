@@ -14,7 +14,7 @@ export const RestoreAccount = ({ isError, linkHandler }: RestoreAccountProps) =>
   <>
     {isError ? (
       <div className={styles.errors}>
-        <p data-test-id='hint'>{ErrorMessages.INVALID_AUTHORISATION}</p>
+        <p>{ErrorMessages.INVALID_AUTHORISATION}</p>
         <NavLink to={signInConfig.RESTORE_ACCOUNT_PATH}>{signInConfig.RESTORE}</NavLink>
       </div>
     ) : (

@@ -19,10 +19,10 @@ export const BookReviews = ({ comments, bookId }: BookReviewsProps) => {
   const arrowOrientation = toggleStatus.isOpen ? ORIENTATION.UP : ORIENTATION.DOWN;
 
   return (
-    <section data-test-id='reviews' className={styles.bookReviews}>
+    <section className={styles.bookReviews}>
 
       <ToggleDropDown
-        handleClick={() => setToggleStatus({ isOpen: !toggleStatus })}
+        handleClick={() => setToggleStatus({ isOpen: !toggleStatus.isOpen })}
         isMenuOpened={toggleStatus.isOpen}
         menuClass={styles.titleWrapper}
         hiddenElement={
@@ -43,7 +43,7 @@ export const BookReviews = ({ comments, bookId }: BookReviewsProps) => {
           </>
         }
       >
-        <div data-test-id='button-hide-reviews' className={styles.title}>
+        <div className={styles.title}>
           <p>
             {REVIEWS_TITLE}
             <span>{comments?.length}</span>

@@ -41,7 +41,6 @@ export const ChangeBookingDate = ({
       buttons={
         <div className={styles.buttonsWrapper}>
           <Button
-            dataTestId='booking-button'
             isDisabled={isEqualDates}
             classButton={classNames(styles.button, styles.available)}
             buttonText={ModalButtonTexts.BOOKING}
@@ -49,7 +48,6 @@ export const ChangeBookingDate = ({
             onClick={changeBookingData}
           />
           <Button
-            dataTestId='booking-cancel-button'
             classButton={classNames(styles.button, styles.changeable)}
             buttonText={ModalButtonTexts.CANCEL_BOOKING}
             classText={styles.buttonText}

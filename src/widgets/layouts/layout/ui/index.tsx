@@ -22,7 +22,7 @@ export const Layout = () => {
   } = useLayout();
 
   return (
-    <section data-test-id='main-page' className={styles.layoutContainer}>
+    <section className={styles.layoutContainer}>
       {warningsStatus.isOpen && (
         <Warnings
           isNegative={ErrorsState.isError}
@@ -39,11 +39,6 @@ export const Layout = () => {
             <Navigation
               countedGenres={countedGenres}
               toggleBurgerStatus={resetToggleStatus}
-              dataTestIdBurgerNavigation='burger-navigation'
-              dataTestIdFirstSection='burger-showcase'
-              dataTestIdAllBooks='burger-'
-              dataTestIdSectionContract='burger-contract'
-              dataTestIdSectionTerms='burger-terms'
             />
           )
         }

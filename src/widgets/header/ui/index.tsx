@@ -36,7 +36,6 @@ export const Header = ({
   return (
     <header className={styles.header}>
       <ToggleDropDown
-        dataTestId='button-burger'
         handleClick={toggleDropDownHandler}
         isMenuOpened={toggleStatusDropDownMenu.isOpen}
         hiddenElementClass={styles.dropDownMenu}

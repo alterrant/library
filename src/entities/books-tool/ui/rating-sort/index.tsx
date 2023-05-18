@@ -16,7 +16,6 @@ export const Sort = ({ clickHandler }: SortProps) => {
 
   return (
     <Button
-      dataTestId='sort-rating-button'
       onClick={clickHandler}
       buttonText={FILTER_TEXT}
       classButton={styles.filterCardsWrapper}

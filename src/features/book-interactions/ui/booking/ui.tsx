@@ -43,7 +43,6 @@ export const Booking = ({ booking, delivery, bookId, currentUserId }: BookingPro
   return (
     <>
       <Button
-        dataTestId='booking-button'
         classButton={buttonCardStyle}
         buttonText={buttonText}
         classText={styles.buttonText}
@@ -51,12 +50,12 @@ export const Booking = ({ booking, delivery, bookId, currentUserId }: BookingPro
         isDisabled={checkDisableStatus(bookStatus)}
       />
       {isBookingActiveModal && (
-        <Modals dataTestId='booking-modal' modalStatus={modalStatus} closeModal={closeModal}>
+        <Modals modalStatus={modalStatus} closeModal={closeModal}>
           <ModalContent.Booking bookId={bookState?.bookId} currentUserId={currentUserId} closeModal={closeModal} />
         </Modals>
       )}
       {isChangeBookingDateActiveModal && (
-        <Modals dataTestId='booking-modal' modalStatus={modalStatus} closeModal={closeModal}>
+        <Modals modalStatus={modalStatus} closeModal={closeModal}>
           <ModalContent.ChangeBookingDate
             dateOrder={bookState?.dateOrder}
             bookId={bookState?.bookId}

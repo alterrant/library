@@ -8,11 +8,7 @@ type StarListProps = {
 };
 
 export const StarList = ({ color = 'none', clickHandler }: StarListProps) => (
-  <li data-test-id='star' className={styles.starWrapper} onClick={clickHandler}>
-    <Star
-      data-test-id={color !== 'none' ? 'star-active' : null}
-      className={styles.star}
-      fill={color}
-    />
+  <li className={styles.starWrapper} onClick={clickHandler}>
+    <Star className={styles.star} fill={color} />
   </li>
 );

@@ -2,7 +2,8 @@ import { Navigate } from 'react-router-dom';
 
 import { Layout, LayoutMainPage, LayoutBookPage } from 'widgets/layouts';
 import { Terms } from 'widgets/terms';
-import { CONTRACT_TITLE, RULES_TITLE, ROUTS } from 'shared/lib';
+import { TermsLib } from 'entities/terms-lists'
+import { ROUTS } from 'shared/lib';
 import { ErrorBoundary } from 'shared/ui';
 import { BookPage } from './book';
 import { MainPage } from './main';
@@ -33,11 +34,11 @@ export const routes = [
           },
           {
             path: TERMS,
-            element: <Terms title={RULES_TITLE} />,
+            element: <Terms title={TermsLib.RULES_TITLE} />,
           },
           {
             path: CONTRACT,
-            element: <Terms title={CONTRACT_TITLE} />,
+            element: <Terms title={TermsLib.CONTRACT_TITLE} />,
           },
         ],
       },

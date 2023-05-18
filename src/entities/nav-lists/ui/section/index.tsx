@@ -9,13 +9,11 @@ import styles from '../nav-list.module.css';
 export const SectionList = ({
   section,
   categoryName,
-  dataTestId,
   closeErrorsHandler,
 }: SectionListProps) => (
   <NavList
     {...section}
     handleClick={closeErrorsHandler}
-    dataTestId={dataTestId}
     textClass={classNames(styles[FONT_WEIGHT.BOLD], styles.linkText)}
     activeLinkClass={styles.activeLink}
   >

@@ -1,4 +1,4 @@
-import { FieldErrors, FormProvider } from 'react-hook-form';
+import { FormProvider } from 'react-hook-form';
 
 import { FormInput } from 'entities/form-input';
 import { Templates } from 'shared/ui';
@@ -56,7 +56,6 @@ export const Form = ({ isInvalidAuthorisation }: FormType) => {
         linkHandler={resetStateHandler}
         footerText={REGISTRATION_INFO}
         footerLinkedTextConfig={formFooterConfig}
-        dataTestId='auth-form'
       />
     </FormProvider>
   );

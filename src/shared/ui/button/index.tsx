@@ -6,7 +6,6 @@ import { ButtonTypes } from '../../lib';
 import styles from './button-style.module.css';
 
 type ButtonProps = {
-  dataTestId?: string;
   type?: (typeof ButtonTypes)[keyof typeof ButtonTypes];
   buttonText?: string | ReactNode;
   onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
@@ -24,7 +23,6 @@ type ButtonProps = {
 export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   (
     {
-      dataTestId,
       classText,
       classButton,
       buttonText,
@@ -45,7 +43,6 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
 
     return (
       <button
-        data-test-id={dataTestId}
         ref={ref}
         className={buttonClass}
         disabled={isDisabled}

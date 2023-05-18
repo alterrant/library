@@ -10,7 +10,7 @@ type HeaderDateProps = UseCalendarTypes & {
 };
 
 export const HeaderDate = ({ state, functions, children }: HeaderDateProps) => (
-  <div data-test-id='month-select' className={styles.header__date}>
+  <div className={styles.header__date}>
     {state.mode === CalendarMode.DAYS && (
       <div onClick={() => functions.setMode(CalendarMode.MONTHS)}>
         {state.monthsNames[state.selectedMonth.monthIndex]?.month} {state.selectedYear}

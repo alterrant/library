@@ -31,7 +31,7 @@ export const ChangeUserInfo = () => {
 
   return (
     <FormProvider {...methods}>
-      <form data-test-id='profile-form' onSubmit={handleSubmit(onSubmit)} className={styles.formWrapper}>
+      <form onSubmit={handleSubmit(onSubmit)} className={styles.formWrapper}>
         <div className={styles.inputsWrapper}>
           {configs.changeUserInfoDataFields.map((fieldData) => (
             <FormInput
@@ -46,7 +46,6 @@ export const ChangeUserInfo = () => {
         </div>
         <div className={styles.formFooter}>
           <Button
-            dataTestId='edit-button'
             type={ButtonTypes.BUTTON}
             classButton={controllerButtonClassName}
             buttonText={controllerButtonText}
@@ -54,7 +53,6 @@ export const ChangeUserInfo = () => {
             onClick={() => changeFormStatusHandler(formStatus, setFormStatus, reset, initialProfileFields)}
           />
           <Button
-            dataTestId='save-button'
             type={ButtonTypes.SUBMIT}
             classButton={submitButtonClassName}
             buttonText={SAVE_CHANGE}

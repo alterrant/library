@@ -9,7 +9,7 @@ type CenteredTemplateProps = {
 
 export const Wrapper = ({ header, children }: CenteredTemplateProps) => (
   <div className={styles.wrapper}>
-    <div data-test-id='auth' className={styles.container}>
+    <div className={styles.container}>
       {header}
       <h1 className={styles.title}>Cleverland</h1>
       <section className={styles.contentWrapper}>{children}</section>

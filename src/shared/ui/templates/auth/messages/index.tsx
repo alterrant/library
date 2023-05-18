@@ -13,7 +13,7 @@ export const MessagesTemplate = ({
   buttonText,
   clickHandler,
 }: MessagesTemplateProps) => (
-  <div className={styles.wrapper} data-test-id='status-block'>
+  <div className={styles.wrapper}>
     <h1>{title}</h1>
     <p>{message}</p>
     {clickHandler && (

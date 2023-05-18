@@ -4,18 +4,13 @@ import { Control, useController } from 'react-hook-form';
 import classNames from 'classnames';
 
 import { signUpConfig } from 'features/auth/lib';
-import { FieldName } from 'features/auth/lib/forgot-password';
 import { ChangeUserInfoTypes } from 'features/profile/lib/types';
 import { getControllerOptions } from 'features/auth/lib/sign-up';
 import { CheckCircle, Underline } from 'shared/ui';
 import {
-  ErrorMessages,
-  INPUT_TYPES,
   InputTypes,
   ResetPasswordFieldNames,
   ValidationRulesTypes,
-  PLACEHOLDERS,
-  validators,
 } from 'shared/lib';
 import { HelpText } from './help-text';
 import { FormInputLib, FormInputModel } from '..';
@@ -49,7 +44,6 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
       label,
       errorMessage,
       onFocus,
-      onChange,
       helpText,
       validationRules,
       control,
@@ -58,7 +52,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
     ref
   ) => {
     const { phoneMask, getChecks, getClassNames, getValidationRules } = FormInputLib;
-    const { useFormInput, passwordConfigChangeHandler, clickHandler } = FormInputModel;
+    const { useFormInput, passwordConfigChangeHandler } = FormInputModel;
     const {
       value: controllerValue,
       onBlur: controllerBlurHandler,
@@ -75,17 +69,14 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
       setInputType,
       getValues,
       setValue,
-      hintStatus,
-      setHintStatus,
-      pathname,
     } = useFormInput(type);
+
+    const inputValue = getValues(name);
 
     const { isHiddenError, isRequireError, isPasswordType, isTelType } = getChecks({
       errorMessage,
       type,
     });
-
-    const inputValue = getValues(name);
 
     const { inputWrapperClass, showPasswordClass, underlineClass } = getClassNames({
       inputValue,
@@ -96,28 +87,12 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
 
     const inputChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
       setValue(name, e.target.value);
-      if (pathname !== '/profile') setHintStatus({ isVisible: false, error: '' });
 
       clearErrors(name);
-
-      if (onChange) onChange();
     };
-
-    // ошибку на onBlur прокидываю вручную, тк тесты не успевают иногда обработать onBlur
-    const blurChangeHandler = () => {
-      if (name === FieldName.EMAIL || label === PLACEHOLDERS.NEW_PASSWORD) {
-        if (!inputValue) {
-          setHintStatus({ isVisible: true, error: ErrorMessages.REQUIRE });
-        } else if (validators.emailValidator(inputValue))
-          setHintStatus({ isVisible: true, error: ErrorMessages.INVALID_EMAIL });
-      }
-    };
-
-    const onClick = () => clickHandler(inputValue, name, pathname, setHintStatus);
 
     const registerOptions = register(name, {
       onChange: inputChangeHandler,
-      onBlur: blurChangeHandler,
       ...getValidationRules(validationRules, name, controlField),
     });
 
@@ -149,7 +124,6 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
                 className={styles.input}
                 placeholder={placeholder}
                 onFocus={onFocus}
-                onClick={onClick}
                 disabled={isDisabled}
                  {...registerOptions}
               />
@@ -160,23 +134,15 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
                 <img
                   src={passwordConfig.img}
                   alt={passwordConfig.alt}
-                  data-test-id={inputType === INPUT_TYPES.PASSWORD ? 'eye-closed' : 'eye-opened'}
                 />
                 {!errorMessage && name !== ResetPasswordFieldNames.RETRY_PASSWORD && (
-                  <CheckCircle className={styles.checkCircle} data-test-id='checkmark' />
+                  <CheckCircle className={styles.checkCircle} />
                 )}
               </div>
             )}
           </div>
 
           <Underline underlineClass={underlineClass} />
-
-          {/* hintStatus && ... вручную прокидываю ошибку ан onBlur - нужно для тестов */}
-          {hintStatus.isVisible && (
-            <div className={styles.blurForTest}>
-              <HelpText inputValue={inputValue} text={hintStatus.error} filter={hintStatus.error} />
-            </div>
-          )}
 
           {helpText && !isRequireError ? ( // есть подсказка ? подсказка с highlights
             <HelpText inputValue={inputValue} text={helpText} filter={errorMessage} />

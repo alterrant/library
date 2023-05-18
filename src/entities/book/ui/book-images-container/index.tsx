@@ -41,7 +41,6 @@ export const BookImagesContainer = ({ images }: BookImagesContainerProps) => {
   return (
     <div className={styles.swiperWrapper}>
       <Swiper
-        data-test-id='slide-big'
         slidesPerView={initialSlidesPerView}
         spaceBetween={initialSpaceBetween}
         thumbs={initialThumbs}
@@ -61,7 +60,7 @@ export const BookImagesContainer = ({ images }: BookImagesContainerProps) => {
           freeMode
           watchSlidesProgress
         >
-          {getSwiperSlides(images, 'slide-mini')}
+          {getSwiperSlides(images)}
         </Swiper>
       )}
     </div>

@@ -40,7 +40,6 @@ export const Booking = ({ bookId, currentUserId, closeModal }: BookingProps) => 
       buttons={
         <Button
           isDisabled={!selectedDate}
-          dataTestId='booking-button'
           classButton={classNames(styles.button, styles.available)}
           buttonText={ModalButtonTexts.BOOKING}
           classText={styles.buttonText}

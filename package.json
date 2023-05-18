@@ -1,5 +1,6 @@
 {
-  "name": "library.cleverland",
+  "homepage": "https://alterrant.github.io/library",
+  "name": "library",
   "version": "0.1.0",
   "private": true,
   "scripts": {

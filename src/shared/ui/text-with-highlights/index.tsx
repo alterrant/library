@@ -10,14 +10,13 @@ type TextWithHighlightsProps = {
   title: string;
   filter?: string | string[];
   isInputs?: boolean;
-  dataTestInput?: string;
 };
 
-export const TextWithHighlights = ({ dataTestInput, title, filter, isInputs = true }: TextWithHighlightsProps) => {
+export const TextWithHighlights = ({ title, filter, isInputs = true }: TextWithHighlightsProps) => {
   const isPasswordMatchingError = title === ErrorMessages.PASSWORDS_MATCHING; // для тестов
   const withJsx = (text: string, key?: number) => (text ? <span key={key}>{text}</span> : null);
 
-  if (!filter || !filter.length) return <span data-test-id='hint'>{title}</span>;
+  if (!filter || !filter.length) return <span>{title}</span>;
 
   const isFilterArray = Array.isArray(filter);
 
@@ -45,12 +44,10 @@ export const TextWithHighlights = ({ dataTestInput, title, filter, isInputs = tr
             return (
               <Fragment key={key}>
                 {getFormattedText(beforeSubstringFilters, text)}
-                <span
-                  data-test-id={isPasswordMatchingError ? 'hint' : 'highlight-matches'}
-                  className={
-                    isPasswordMatchingError
-                      ? styles.highlight
-                      : isInputs
+                <span className={
+                  isPasswordMatchingError
+                    ? styles.highlight
+                    : isInputs
                       ? styles.inputsHighlightMatches
                       : styles.highlightMatches
                   }
@@ -69,9 +66,7 @@ export const TextWithHighlights = ({ dataTestInput, title, filter, isInputs = tr
   };
 
   return (
-    <span
-      data-test-id={isPasswordMatchingError ? undefined : 'hint'}
-      className={classNames(filter === title && styles.allHintHighlight)}
+    <span className={classNames(filter === title && styles.allHintHighlight)}
     >
       {getFormattedText(filterRegExp, title)}
     </span>

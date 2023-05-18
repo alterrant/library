@@ -21,13 +21,11 @@ export const ToggleCardsStyle = ({
   return (
     <div className={styles.wrapper}>
       <BooksColumnStyleBtn
-        data-test-id='button-menu-view-window'
         className={getButtonStyle(CARD_STYLES.COLUMN)}
         onClick={handleClick}
         id={CARD_STYLES.COLUMN}
       />
       <BooksRowStyleBtn
-        data-test-id='button-menu-view-list'
         className={getButtonStyle(CARD_STYLES.ROW)}
         onClick={handleClick}
         id={CARD_STYLES.ROW}

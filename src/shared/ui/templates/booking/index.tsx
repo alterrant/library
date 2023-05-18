@@ -10,7 +10,7 @@ type BookingProps = {
 
 export const Booking = ({ title, buttons, children }: BookingProps) => (
   <div className={styles.wrapper}>
-    <h3 data-test-id='modal-title' className={styles.title}>{title}</h3>
+    <h3 className={styles.title}>{title}</h3>
     {children}
     {buttons}
   </div>

@@ -6,7 +6,6 @@ import { Button } from 'shared/ui';
 import styles from './toggle-drop-down.module.css';
 
 type ToggleDropDownMenuProps = {
-  dataTestId?: string;
   handleClick: () => void;
   isMenuOpened: boolean;
   menuClass?: string;
@@ -17,7 +16,6 @@ type ToggleDropDownMenuProps = {
 };
 
 export const ToggleDropDown = ({
-  dataTestId,
   handleClick,
   isMenuOpened,
   hiddenElement,
@@ -34,7 +32,7 @@ export const ToggleDropDown = ({
 
   return (
     <>
-      <Button dataTestId={dataTestId} onClick={handleClick} classButton={buttonClass}>
+      <Button onClick={handleClick} classButton={buttonClass}>
         {children}
       </Button>
       <div className={hiddenElementClassName}>{hiddenElement}</div>

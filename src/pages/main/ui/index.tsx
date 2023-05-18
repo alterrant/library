@@ -1,6 +1,7 @@
 import { BookCardsTool } from 'widgets/books-content/book-cards-tool';
 import { BookCards } from 'widgets/books-content/book-cards';
-import { Preloader } from 'shared/ui';
+import { LoadMoreBooks } from 'features/load-more-books';
+import { Loader } from 'entities/loader';
 import { TOKEN } from 'shared/lib';
 import { useMainPage } from '../model';
 
@@ -9,14 +10,28 @@ import styles from './main-page.module.css';
 export const MainPage = () => {
   const token = localStorage.getItem(TOKEN);
 
-  const { isLoading, toggleStyle, style } = useMainPage(token);
+  const {
+    isLoading,
+    isError,
+    toggleStyle,
+    style,
+    numberOfVisibleBooks,
+    loadMoreBooksHandler,
+    setLoadMoreBooksState,
+    LoadMoreBooksState
+  } = useMainPage(token);
 
-  return isLoading ? (
-    <Preloader />
-  ) : (
-    <section className={styles.content}>
-      <BookCardsTool cardsStyle={style} toggleStyle={toggleStyle} />
-      <BookCards cardsStyle={style} />
-    </section>
+  return (
+    <Loader isLoading={isLoading} isError={isError}>
+      <section className={styles.content}>
+        <BookCardsTool cardsStyle={style} toggleStyle={toggleStyle} />
+        <BookCards
+          setLoadMoreBooksState={setLoadMoreBooksState}
+          cardsStyle={style}
+          numberOfVisibleBooks={numberOfVisibleBooks}
+        />
+        {LoadMoreBooksState && <LoadMoreBooks loadBooksHandler={loadMoreBooksHandler}/>}
+     </section>
+    </Loader>
   );
 };

@@ -2,11 +2,8 @@ import classNames from 'classnames';
 import { ReactNode } from 'react';
 import { NavLink } from 'react-router-dom';
 
-import { Nullable } from '../../lib';
-
 type ListProps = {
   handleClick?: () => void;
-  dataTestId?: Nullable<string>;
   link: string;
   text: string;
   textClass: string;
@@ -17,7 +14,6 @@ type ListProps = {
 
 export const NavList = ({
   handleClick,
-  dataTestId,
   link,
   text,
   children,
@@ -36,7 +32,7 @@ export const NavList = ({
         to={link}
         className={({ isActive }) => classNames(isActive && activeLinkClass, linkClass)}
       >
-        <span data-test-id={dataTestId} className={textClass}>
+        <span className={textClass}>
           {text}
         </span>
         {children}

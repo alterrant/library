@@ -1,5 +1,5 @@
-import { Dispatch, ReactNode } from 'react';
 import classNames from "classnames";
+import { Dispatch, ReactNode } from 'react';
 
 import { StarList } from './star';
 import { MAX_RATING, ORANGE, SelectRatingStateType } from '../../lib';
@@ -39,7 +39,7 @@ export const Stars = ({ rating, setRatingState, isHover: isInvertStars = false }
   });
 
   return (
-    <ul data-test-id='rating' className={classNames(styles.wrapper, isInvertStars && styles.hoverWrapper)}>
+    <ul className={classNames(styles.wrapper, isInvertStars && styles.hoverWrapper)}>
       {stars}
     </ul>
   );

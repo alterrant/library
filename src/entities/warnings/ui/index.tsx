@@ -17,10 +17,10 @@ export const Warnings = ({ handleClose, warningText, isNegative = true }: Errors
   );
 
   return (
-    <div className={wrapperClassName} data-test-id='error'>
+    <div className={wrapperClassName}>
       {isNegative ? <Warning className={styles.warning} /> : <PositiveSignal />}
       <p>{warningText}</p>
-      <Close data-test-id='alert-close' onClick={handleClose} className={styles.close} />
+      <Close onClick={handleClose} className={styles.close} />
     </div>
   );
 };

@@ -31,13 +31,11 @@ export const Search = ({
   <div className={styles.searchWrapper}>
     {!isOpenedInput && (
       <SearchSVG
-        data-test-id='button-search-open'
         onClick={openSearchBarHandler}
         className={classNames(styles.svg, isActivated && styles.searchActivated)}
       />
     )}
     <input
-      data-test-id='input-search'
       type='text'
       placeholder={SEARCH_TEXT}
       className={classNames(styles.searchText, isTextChanged && styles.searchTextActivated)}
@@ -47,7 +45,6 @@ export const Search = ({
     />
     {isOpenedInput && (
       <Close
-        data-test-id='button-search-close'
         onClick={closeSearchHandler}
         className={classNames(styles.svg, styles.close)}
       />

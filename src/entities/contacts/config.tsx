@@ -1,15 +1,12 @@
-import { facebook, instagram, vk, linkedin } from 'shared/ui';
+import { ReactComponent as GitHub } from './ui/assets/github.svg';
+import { ReactComponent as Telegram } from './ui/assets/telegram.svg';
 
-const SOCIAL_NETWORKS_NAMES = {
-  FACEBOOK: 'facebook',
-  INSTAGRAM: 'instagram',
-  VK: 'vk',
-  LINKEDIN: 'linkedin',
+const LINKS = {
+  GITHUB: 'https://github.com/alterrant',
+  TELEGRAM: 'https://t.me/alter_ant'
 };
 
 export const SOCIAL_NETWORKS = [
-  { id: '0', src: facebook, alt: SOCIAL_NETWORKS_NAMES.FACEBOOK },
-  { id: '1', src: instagram, alt: SOCIAL_NETWORKS_NAMES.INSTAGRAM },
-  { id: '2', src: vk, alt: SOCIAL_NETWORKS_NAMES.VK },
-  { id: '3', src: linkedin, alt: SOCIAL_NETWORKS_NAMES.LINKEDIN },
+  { id: 0, SVGComponent: GitHub, link: LINKS.GITHUB },
+  { id: 1, SVGComponent: Telegram, link: LINKS.TELEGRAM },
 ];

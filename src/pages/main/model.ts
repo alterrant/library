@@ -1,21 +1,24 @@
 import { useEffect, useState } from 'react';
 
-import { BookInteractionsModel } from 'features/book-interactions';
+import { LayoutModel } from 'widgets/layouts/layout';
 import { toggleCardsStyleModel } from 'features/toggle-cards-style';
-import { NavListModel } from 'entities/nav-lists';
+import { LoadMoreBooksModel } from 'features/load-more-books';
 import { BooksModel } from 'entities/books';
 import { CARD_STYLES, Nullable, useAppDispatch, useAppSelector } from 'shared/lib';
 
 export const useMainPage = (token: Nullable<string>) => {
   const [style, toggleStyle] = toggleCardsStyleModel.useToggleCardsState(CARD_STYLES.COLUMN);
+
+  const { booksCounterState, setBooksCounterState } = LoadMoreBooksModel.useLoadMoreBooks();
+  const loadMoreBooksHandler = LoadMoreBooksModel.loadMoreBooksHandler(booksCounterState, setBooksCounterState);
+
   const [useEffectState, setUseEffectState] = useState({ isFirstEffect: false });
+  const [LoadMoreBooksState, setLoadMoreBooksState] = useState({ isVisible: true });
+
+  const isLoading = useAppSelector(LayoutModel.loadingsSelector);
+  const isError = useAppSelector(LayoutModel.errorsSelector);
 
   const dispatch = useAppDispatch();
-
-  const { isLoading: isNavLoading } = useAppSelector(NavListModel.genresSelector);
-  const { isLoading: isBookInteractiveLoading } = useAppSelector(BookInteractionsModel.bookInteractionsSelector);
-  const { isLoading: isBooksLoading } = useAppSelector(BooksModel.booksSelector);
-  const isLoading = isNavLoading || isBookInteractiveLoading || isBooksLoading;
 
   useEffect(() => {
     if (token && useEffectState.isFirstEffect) dispatch(BooksModel.getBooks());
@@ -27,5 +30,10 @@ export const useMainPage = (token: Nullable<string>) => {
     style,
     toggleStyle,
     isLoading,
+    isError,
+    loadMoreBooksHandler,
+    numberOfVisibleBooks: booksCounterState.numberOfVisibleBooks,
+    LoadMoreBooksState,
+    setLoadMoreBooksState
   };
 };

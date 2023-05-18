@@ -14,7 +14,6 @@ type FormTemplateProps = {
   footerLinkedTextConfig?: LinkedTextWithArrowType;
   inputs: ReactNode;
   inputHelper?: ReactNode;
-  dataTestId: string;
   handleSubmit: () => void;
   linkHandler?: () => void;
 };
@@ -28,11 +27,10 @@ export const FormTemplate = ({
   footerLinkedTextConfig,
   inputs,
   inputHelper,
-  dataTestId,
   handleSubmit,
   linkHandler,
 }: FormTemplateProps) => (
-  <form data-test-id={dataTestId} onSubmit={handleSubmit} className={styles.formWrapper}>
+  <form onSubmit={handleSubmit} className={styles.formWrapper}>
     <div className={styles.title}>
       <p>{title}</p>
       {subtitle && <p className={styles.subTitle}>{subtitle}</p>}

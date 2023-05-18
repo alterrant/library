@@ -26,7 +26,6 @@ export const DropDownMenu = forwardRef<HTMLUListElement, DropDownMenuProps>((
       {isUnderline && <Underline/>}
       <ul className={styles.dropDownMenuFooter}>
         <NavList
-          dataTestId={!isBurgerDropDown ? 'profile-button' : null}
           link={PROFILE.PATH}
           text={PROFILE.TITLE}
           textClass={styles.linkText}
@@ -35,7 +34,6 @@ export const DropDownMenu = forwardRef<HTMLUListElement, DropDownMenuProps>((
         <li
           className={styles.linkText}
           onClick={logOutHandler}
-          data-test-id={isBurgerDropDown && 'exit-button'}
         >
           {LOG_OUT}
         </li>

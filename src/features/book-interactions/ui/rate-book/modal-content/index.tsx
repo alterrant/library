@@ -42,7 +42,6 @@ export const RateBook = ({ bookId, closeModal, prevUserComment }: RateBookProps)
       title={ModalTitles.RATE_BOOK}
       buttons={
         <Button
-          dataTestId='button-comment'
           classButton={classNames(buttonStyles.button, buttonStyles.available)}
           buttonText={ModalButtonTexts.RATE_BOOK}
           classText={buttonStyles.buttonText}
@@ -52,11 +51,10 @@ export const RateBook = ({ bookId, closeModal, prevUserComment }: RateBookProps)
     >
       <div className={styles.rating}>
         <p className={styles.title}>{SELECTED_RATING}</p>
-        <Stars rating={selectRatingState.selectedRating} setRatingState={setSelectRatingState} />
+        <Stars isHover rating={selectRatingState.selectedRating} setRatingState={setSelectRatingState} />
       </div>
 
       <textarea
-        data-test-id='comment'
         className={styles.textarea}
         placeholder={RATE_BOOK_PLACEHOLDER}
         value={commentText}

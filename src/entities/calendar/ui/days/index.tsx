@@ -29,7 +29,6 @@ export const Days = ({ state, functions, selectDate, selectedDate }: DaysProps) 
 
         return (
           <div
-            data-test-id='day-button'
             key={`${day.dayNumber}-${day.monthIndex}`}
             onClick={() => {
               if (isAvailableDay) {

@@ -1,1 +1,3 @@
-export const getHelloUserString = (name: string) => `Привет, ${name}`;
+import { GREETING, INITIAL_NAME } from '.';
+
+export const getHelloUserString = (name = INITIAL_NAME) => `${GREETING}${name}`;

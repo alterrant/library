@@ -9,7 +9,7 @@ type PreloaderProps = {
 };
 
 export const Preloader = ({ className }: PreloaderProps) => (
-  <div data-test-id='loader' className={classNames(styles.preloaderWrapper, className)}>
+  <div className={classNames(styles.preloaderWrapper, className)}>
     <Circle className={styles.preloader} />
   </div>
 );

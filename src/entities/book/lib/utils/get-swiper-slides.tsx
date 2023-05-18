@@ -9,25 +9,25 @@ type ImageConfigType = {
   url: string;
 };
 
-const getSlide = ({ id, url }: ImageConfigType, dataTestId?: string) => (
+const getSlide = ({ id, url }: ImageConfigType) => (
   <SwiperSlide key={id}>
-    <Img url={url} alt='swiper' loading='lazy' defaultSrc={initialImgURL} dataTestId={dataTestId} />
+    <Img url={url} alt='swiper' loading='lazy' defaultSrc={initialImgURL} />
     <Preloader className='swiper-lazy-preloader' />
   </SwiperSlide>
 );
 
 // getSlide и getSwiperSlides не могут быть компонентами. Только функциями - требование свайпера
 // внутри Swiper только компоненты SwiperSlide библиотеки swiper
-export const getSwiperSlides = (images: Nullable<ImgSlideType[]>, dataTestId?: string) => {
+export const getSwiperSlides = (images: Nullable<ImgSlideType[]>) => {
   if (images?.length) {
     return images.map((image, index) => {
       const slideConfig = { id: index, url: image.url };
 
-      return getSlide(slideConfig, dataTestId);
+      return getSlide(slideConfig);
     });
   }
 
   const initialSlideConfig = { id: initialSlide, url: initialImgURL };
 
-  return getSlide(initialSlideConfig, dataTestId);
+  return getSlide(initialSlideConfig);
 };

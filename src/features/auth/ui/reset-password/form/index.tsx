@@ -41,7 +41,6 @@ export const Form = ({ code }: FormProps) => {
         isSubmitDisabled={!!errors.passwordConfirmation}
         submitText={SUBMIT_TEXT}
         footerText={FOOTER_TEXT}
-        dataTestId='reset-password-form'
       />
     </FormProvider>
   );

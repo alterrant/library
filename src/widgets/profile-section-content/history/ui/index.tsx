@@ -36,7 +36,7 @@ export const UserBooksHistory = ({ history }: UserHistoryProps) => {
       modules={[Pagination]}
     >
       {books.map((book) => (
-        <SwiperSlide data-test-id='history-slide'>
+        <SwiperSlide>
           <Books.BookCard
             cardsStyle={CARD_STYLES.COLUMN}
             id={book.id}
@@ -46,7 +46,7 @@ export const UserBooksHistory = ({ history }: UserHistoryProps) => {
             title={book.title}
             authors={book.authors}
             cardButton={
-              <RateBook dataTestId='history-review-button' customButtonText={LEAVE_FEEDBACK} bookId={book.id} />
+              <RateBook customButtonText={LEAVE_FEEDBACK} bookId={book.id} />
             }
           />
         </SwiperSlide>

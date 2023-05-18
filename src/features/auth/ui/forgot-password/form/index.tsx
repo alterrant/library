@@ -47,7 +47,6 @@ export const Form = () => {
         submitText={SUBMIT_TEXT}
         footerText={REGISTRATION_INFO}
         footerLinkedTextConfig={formFooterConfig}
-        dataTestId='send-email-form'
       />
     </FormProvider>
   );

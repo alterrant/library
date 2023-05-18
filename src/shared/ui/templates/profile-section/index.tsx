@@ -12,7 +12,6 @@ type FormTemplateProps = {
   isEmpty?: boolean;
   isExpired?: boolean;
   children?: ReactNode;
-  sectionDataTestId?: string;
 };
 
 export const ProfileSection = ({
@@ -23,16 +22,14 @@ export const ProfileSection = ({
   isEmpty = false,
   isExpired,
   children,
-  sectionDataTestId,
 }: FormTemplateProps) => {
   const isMask = isEmpty || isExpired;
   const isWarning = !isEmpty && isExpired;
-  const maskDataTestId = isWarning ? 'expired' : 'empty-blue-card';
 
   const maskClassName = classNames(isMask && styles.mask, isWarning && styles.warning);
 
   return (
-    <div data-test-id={sectionDataTestId} className={styles.wrapper}>
+    <div className={styles.wrapper}>
       <div className={styles.description}>
         <p className={styles.title}>{title}</p>
         <p className={styles.helper}>{helper}</p>
@@ -41,7 +38,7 @@ export const ProfileSection = ({
       <div className={styles.book}>
         {children}
         {isMask && (
-          <div data-test-id={maskDataTestId} className={maskClassName}>
+          <div className={maskClassName}>
             <p className={styles.maskTitle}>{maskTitle}</p>
             {maskSubtitle && <p className={styles.maskSubtitle}>{maskSubtitle}</p>}
           </div>

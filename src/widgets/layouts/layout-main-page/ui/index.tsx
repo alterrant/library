@@ -19,10 +19,6 @@ export const Layout = () => {
       <Navigation
         countedGenres={countedGenres}
         closeErrorsHandler={closeErrorsHandler}
-        dataTestIdFirstSection='navigation-showcase'
-        dataTestIdAllBooks='navigation-'
-        dataTestIdSectionContract='navigation-contract'
-        dataTestIdSectionTerms='navigation-terms'
       />
       <Outlet />
     </main>

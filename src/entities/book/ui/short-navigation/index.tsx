@@ -16,11 +16,11 @@ export const ShortNavigation = ({ genre, title }: NavListProps) => {
   return (
     <div className={styles.shortNavWrapper}>
       <span className={styles.shortNav}>
-        <NavLink to={`books/${isUnknownPath ? 'all' : genre.path}`} data-test-id='breadcrumbs-link'>
+        <NavLink to={`books/${isUnknownPath ? 'all' : genre.path}`}>
           {`${isUnknownPath ? 'Все книги' : genre.name}`}
         </NavLink>
         {` / `}
-        {title && <span data-test-id='book-name'>{title}</span>}
+        {title && <span>{title}</span>}
       </span>
     </div>
   );

@@ -1,8 +1,4 @@
 import defaultAvatar from './assets/default-avatar.svg';
-import instagram from './assets/instagram.svg';
-import facebook from './assets/facebook.svg';
-import vk from './assets/vk.svg';
-import linkedin from './assets/linkedin.svg';
 import unsetBook from './assets/unset-book.png';
 import testBook from './assets/test-book.png';
 
@@ -34,4 +30,4 @@ export { ReactComponent as FootRightArrow } from './assets/foot-arrow-right.svg'
 export { ReactComponent as PositiveSignal } from './assets/positive-signal.svg';
 export { ReactComponent as CheckCircle } from './assets/check-circle.svg';
 
-export { defaultAvatar, instagram, facebook, vk, linkedin, unsetBook, testBook };
+export { defaultAvatar, unsetBook, testBook };

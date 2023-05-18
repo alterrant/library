@@ -29,7 +29,7 @@ export const Calendar = ({
   });
 
   return (
-    <div data-test-id='calendar' className={styles.wrapper}>
+    <div className={styles.wrapper}>
       <div className={styles.header}>
         <HeaderDate state={state} functions={functions}>
           <DropDownArrow />
@@ -37,12 +37,10 @@ export const Calendar = ({
 
         <div className={styles.arrows}>
           <Arrow
-            dataTestId='button-prev-month'
             orientation={ORIENTATION.UP}
             onClick={() => functions.onClickArrow(ORIENTATION.LEFT)}
           />
           <Arrow
-            dataTestId='button-next-month'
             orientation={ORIENTATION.DOWN}
             onClick={() => functions.onClickArrow(ORIENTATION.RIGHT)}
           />

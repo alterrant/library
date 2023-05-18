@@ -1,14 +1,13 @@
-import { Dispatch, Fragment } from 'react';
+import { Fragment } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import { ToggleDropDown } from 'features/toggle-drop-down';
 import { NavLists, CountedGenreType } from 'entities/nav-lists';
 import {ORIENTATION, SetToggleStatusType} from 'shared/lib';
 import { Arrows } from 'shared/ui';
-import { DataTestIdNavigationTypes } from '../../config';
 import { useCurrentCategory } from '../../hooks';
 
-type SectionProps = DataTestIdNavigationTypes & {
+type SectionProps = {
   section: { id: string; text: string; link: string };
   countedGenres: CountedGenreType[];
   linkClickHandler?: () => void;
@@ -22,10 +21,6 @@ export const Section = ({
   countedGenres,
   linkClickHandler,
   closeErrorsHandler,
-  dataTestIdFirstSection,
-  dataTestIdAllBooks,
-  dataTestIdSectionTerms,
-  dataTestIdSectionContract,
   isOpen,
   setToggleStatus
 }: SectionProps) => {
@@ -36,7 +31,6 @@ export const Section = ({
     <Fragment key={section.id}>
       {section.link === 'books' ? (
         <ToggleDropDown
-          dataTestId={dataTestIdFirstSection}
           handleClick={() => {
             navigate('/books/all');
             setToggleStatus({ isOpen: !isOpen });
@@ -47,7 +41,6 @@ export const Section = ({
               <NavLists.GenresList
                 genres={countedGenres}
                 linkClickHandler={linkClickHandler}
-                dataTestId={dataTestIdAllBooks}
               />
             )
           }
@@ -65,7 +58,6 @@ export const Section = ({
         </ToggleDropDown>
       ) : (
         <NavLists.SectionList
-          dataTestId={section.id === '1' ? dataTestIdSectionTerms : dataTestIdSectionContract}
           section={section}
           closeErrorsHandler={() => {
             setToggleStatus({ isOpen: false });

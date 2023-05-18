@@ -19,7 +19,7 @@ export const BookInfo = ({
 }: BookInfoProps) => (
   <div className={styles.basicBookInfo}>
     {imagesContainer}
-    <p data-test-id='book-title' className={styles.title}>
+    <p className={styles.title}>
       {title}
     </p>
     <p className={styles.authors}>{authors?.join(', ')}</p>
