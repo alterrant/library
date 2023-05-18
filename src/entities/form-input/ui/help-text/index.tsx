@@ -7,7 +7,6 @@ type HelpTextType = {
   inputValue: string | undefined;
   text: string;
   filter?: string;
-  isVisible?: boolean;
 };
 // helpers - массив подстрок, по которым сравнивается текст, чтобы его подсвечивать.
 // Находит подстроку в тексте - подсвечивает. Массив заполняется только по мере не пройденных
